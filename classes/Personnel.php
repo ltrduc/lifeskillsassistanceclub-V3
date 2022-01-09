@@ -22,7 +22,7 @@ class Personnel
     // Thành viên
     public function getMember()
     {
-        $query  = "SELECT * FROM tbl_user WHERE role = '0' ORDER BY id_team ASC";
+        $query  = "SELECT tbl_user.*, tbl_team.name AS team FROM tbl_user, tbl_team WHERE tbl_user.id_team = tbl_team.id_team AND role = '0' ORDER BY id_team ASC";
         $result = $this->db->select($query);
         return $result;
     }
@@ -58,7 +58,7 @@ class Personnel
     // Cộng tác viên
     public function getCollaborate()
     {
-        $query  = "SELECT * FROM tbl_user WHERE role = '1' ORDER BY id_team ASC";
+        $query  = "SELECT tbl_user.*, tbl_team.name AS team FROM tbl_user, tbl_team WHERE tbl_user.id_team = tbl_team.id_team AND role = '1' ORDER BY id_team ASC";
         $result = $this->db->select($query);
         return $result;
     }

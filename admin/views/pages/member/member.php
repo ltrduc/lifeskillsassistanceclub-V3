@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                           <td><?php echo $i++; ?></td>
                           <td><?php echo $value['id_student'] ?></td>
                           <td><?php echo $value['fullname'] ?></td>
-                          <td><?php echo $value['id_team'] ?></td>
+                          <td><?php echo $value['team'] ?></td>
                           <td><?php echo $value['phone'] ?></td>
                           <td>
                             <a href="#" class="btn btn-sm btn-primary" onclick="editMember('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>','<?php echo $value['id_team'] ?>')" class="edit-member-btn" data-toggle="modal" data-target="#editMember"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
@@ -146,9 +146,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <select class="form-control selectric" name="id_team">
                   <option value="" class="font-weight-bold">Chọn ban hoạt động</option>
-                  <option value="Ban Hành Chính">Ban Hành Chính</option>
-                  <option value="Ban Nhân Sự">Ban Nhân Sự</option>
-                  <option value="Ban Truyền Thông">Ban Truyền Thông</option>
+                  <?php
+                  $getTeam = $Team->getTeam();
+                  $i = 1;
+                  if ($getTeam) {
+                    while ($value = $getTeam->fetch_assoc()) {
+                  ?>
+                      <option value="<?php echo $value['id_team']; ?>"><?php echo $value['name']; ?></option>
+                  <?php }
+                  } ?>
                 </select>
               </div>
             </div>

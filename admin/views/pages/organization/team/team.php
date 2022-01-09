@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <div class="media-links">
                           <a href="EditTeam&id=<?php echo $value['id_team'] ?>">Chỉnh sửa</a>
                           <div class="bullet"></div>
-                          <a href="#" class="text-danger" onclick="deleteTeam('<?php echo $value['id_team'] ?>', '<?php echo $value['name'] ?>');" data-toggle="modal" data-target="#deleteTeam">Xóa chức vụ</a>
+                          <a href="#" class="text-danger" onclick="deleteTeam('<?php echo $value['id_team'] ?>', '<?php echo $value['name'] ?>');" data-toggle="modal" data-target="#deleteTeam">Xóa ban hoạt động</a>
                         </div>
                       </div>
                     </li>
@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="formModal">THÊM THÊM BAN HOẠT ĐỘNG</h5>
+          <h5 class="modal-title" id="formModal">THÊM BAN HOẠT ĐỘNG</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
