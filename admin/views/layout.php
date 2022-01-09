@@ -56,6 +56,14 @@ if (isset($arr[0])) {
       require_once 'pages/organization/position/edit.php';
       break;
 
+      // Thao tác khác
+    case 'Decentralization':
+      require_once 'pages/decentralization/decentralization.php';
+      break;
+    case 'ResetPassword':
+      require_once 'pages/reset-password/reset-password.php';
+      break;
+
       // Lỗi 404
     default:
       require_once 'pages/error/error-404.php';

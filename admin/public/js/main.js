@@ -48,6 +48,11 @@ function editCollaborate(id_user, id_student, fullname) {
   document.getElementById("edit-fullname").value = fullname;
 }
 
+// resetpassword
+function resetPassword(id_user, fullname) {
+  document.getElementById('resetpassword-info-user').innerHTML = fullname;
+  document.getElementById("resetpassword-id_user").value = id_user;
+}
 
 // Thanh tìm kiếm
 $(document).ready(function () {

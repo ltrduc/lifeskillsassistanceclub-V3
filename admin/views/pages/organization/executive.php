@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="section-body">
       <div class="row">
         <div class="col-md-12">
-          <div class="card">
+          <div class="card mb-2">
             <div class="card-body p-2">
               <nav aria-label="breadcrumb m-0">
                 <ol class="breadcrumb bg-white m-0">
@@ -52,10 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   <select class="form-control selectric" name="id_user">
                     <option value="" class="font-weight-bold">Chọn nhân sự</option>
                     <?php
-                    $getPersonnel = $Personnel->getPersonnel();
-                    if ($getPersonnel) {
+                    $getMember = $Personnel->getMember();
+                    if ($getMember) {
                       $i = 1;
-                      while ($value = $getPersonnel->fetch_assoc()) {
+                      while ($value = $getMember->fetch_assoc()) {
                     ?>
                         <option value="<?php echo $value['id_user'] ?>">[<?php echo $value['id_student'] ?>] <?php echo $value['fullname'] ?></option>
                     <?php }

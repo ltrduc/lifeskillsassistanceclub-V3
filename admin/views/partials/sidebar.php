@@ -2,8 +2,8 @@
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
       <a href="Home">
-        <img alt="image" src="public/assets/img/logo.png" class="header-logo" />
-        <span class="logo-name">LSA CLUB</span>
+        <img alt="image" src="public/assets/img/logo.png" class="header-logo">
+        <span class="logo-name" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">LSA CLUB</span>
       </a>
     </div>
     <ul class="sidebar-menu" id="sidebar-list">
@@ -68,7 +68,7 @@
         <a href="Decentralization" class="nav-link"><i data-feather="shield"></i><span>Phân quyền</span></a>
       </li>
       <li class="dropdown">
-        <a href="AccountAdministration" class="nav-link"><i data-feather="package"></i><span>Quản trị tài khoản</span></a>
+        <a href="ResetPassword" class="nav-link"><i data-feather="package"></i><span>Đặt lại mật khẩu</span></a>
       </li>
       <li class="menu-header">Thao tác khác</li>
       <li><a class="nav-link" href="SoftwareInformation"><i data-feather="sliders"></i><span>Thông tin phần mềm</span></a></li>

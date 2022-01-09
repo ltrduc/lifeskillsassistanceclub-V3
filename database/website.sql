@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 07, 2022 lúc 05:21 PM
+-- Thời gian đã tạo: Th1 09, 2022 lúc 12:52 PM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.0.14
 
@@ -38,10 +38,13 @@ CREATE TABLE `tbl_executive` (
 --
 
 INSERT INTO `tbl_executive` (`id_executive`, `id_user`, `id_position`) VALUES
-(1, 1, 1),
+(1, 15, 1),
 (2, 2, 2),
-(3, 3, 3),
-(4, 4, 4);
+(3, 1, 3),
+(4, 4, 4),
+(5, 5, 5),
+(6, 6, 6),
+(7, 9, 7);
 
 -- --------------------------------------------------------
 
@@ -60,14 +63,16 @@ CREATE TABLE `tbl_position` (
 --
 
 INSERT INTO `tbl_position` (`id_position`, `name`, `description`) VALUES
-(1, 'Chủ nhiệm', '<p>Chịu tr&aacute;ch nhiệm, l&ecirc;n kế hoạch, ph&acirc;n c&ocirc;ng nhiệm vụ chung cho to&agrave;n bộ hoạt động của c&acirc;u lạc bộ.Chịu tr&aacute;ch nhiệm, l&ecirc;n kế hoạch, ph&acirc;n c&ocirc;ng nhiệm vụ chung cho to&agrave;n bộ hoạt động của c&acirc;u lạc bộ.</p>\r\n'),
-(2, 'Phó chủ nhiệm', '<p>+ Nhận c&ocirc;ng việc, ph&acirc;n c&ocirc;ng trực tiếp từ chủ nhiệm c&acirc;u lạc bộ. Gi&aacute;m s&aacute;t, quản l&iacute; c&aacute;c bộ phận chức năng li&ecirc;n quan</p>\r\n\r\n<p>+ Theo d&otilde;i, đ&aacute;nh gi&aacute; tiến độ ho&agrave;n th&agrave;nh c&ocirc;ng việc của c&aacute;c ban.</p>\r\n\r\n<p>+ Xếp loại đ&aacute;nh gi&aacute; th&agrave;nh t&iacute;ch của c&aacute;c c&aacute; nh&acirc;n trong c&acirc;u lạc bộ.</p>\r\n\r\n<p>+ Chịu tr&aacute;ch nhiệm l&ecirc;n kế hoạch, tuyển th&agrave;nh vi&ecirc;n cho c&acirc;u lạc bộ.</p>\r\n'),
-(3, 'Trưởng ban hành chính', '<p>Hỗ trợ nhập liệu, thống k&ecirc; t&igrave;nh h&igrave;nh điểm danh từ ban nh&acirc;n sự, hỗ trợ tiếp nhận c&aacute;c vấn đề của sinh vi&ecirc;n c&ugrave;ng với thư k&yacute;/gi&aacute;o vụ của bộ m&ocirc;n khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n\r\n<p>Hỗ trợ giảng vi&ecirc;n trong việc nhập liệu, thống k&ecirc;,&hellip; khi c&oacute; y&ecirc;u cầu v&agrave; được sự đồng &yacute; của Trưởng ban v&agrave; Ban chủ nhiệm.</p>\r\n'),
-(4, 'Phó ban hành chính', '<p>Hỗ trợ nhập liệu, thống k&ecirc; t&igrave;nh h&igrave;nh điểm danh từ ban nh&acirc;n sự, hỗ trợ tiếp nhận c&aacute;c vấn đề của sinh vi&ecirc;n c&ugrave;ng với thư k&yacute;/gi&aacute;o vụ của bộ m&ocirc;n khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n\r\n<p>Hỗ trợ giảng vi&ecirc;n trong việc nhập liệu, thống k&ecirc;,&hellip; khi c&oacute; y&ecirc;u cầu v&agrave; được sự đồng &yacute; của Trưởng ban v&agrave; Ban chủ nhiệm.</p>\r\n'),
-(5, 'Trưởng ban nhân sự', '<p>Hỗ trợ cho c&aacute;c lớp học kỹ năng, chuẩn bị c&aacute;c dụng cụ, vật dụng; điều phối, gi&aacute;m s&aacute;t, quản l&yacute; t&igrave;nh h&igrave;nh lớp học; hỗ trợ cho giảng vi&ecirc;n/b&aacute;o c&aacute;o vi&ecirc;n đứng lớp. Hỗ trợ giảng vi&ecirc;n trong qu&aacute; tr&igrave;nh đứng lớp khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n'),
-(6, 'Phó ban nhân sự', '<p>Hỗ trợ cho c&aacute;c lớp học kỹ năng, chuẩn bị c&aacute;c dụng cụ, vật dụng; điều phối, gi&aacute;m s&aacute;t, quản l&yacute; t&igrave;nh h&igrave;nh lớp học; hỗ trợ cho giảng vi&ecirc;n/b&aacute;o c&aacute;o vi&ecirc;n đứng lớp. Hỗ trợ giảng vi&ecirc;n trong qu&aacute; tr&igrave;nh đứng lớp khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n'),
-(7, 'Trưởng ban truyền thông', '<p>X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n'),
-(8, 'Phó ban truyền thông', '<p>X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n');
+(1, 'Chủ Nhiệm', '<p>Chịu tr&aacute;ch nhiệm, l&ecirc;n kế hoạch, ph&acirc;n c&ocirc;ng nhiệm vụ chung cho to&agrave;n bộ hoạt động của c&acirc;u lạc bộ.</p>\r\n'),
+(2, 'Phó Chủ Nhiệm', '<p>- Nhận c&ocirc;ng việc, ph&acirc;n c&ocirc;ng trực tiếp từ chủ nhiệm c&acirc;u lạc bộ. Gi&aacute;m s&aacute;t, quản l&iacute; c&aacute;c bộ phận chức năng li&ecirc;n quan</p>\r\n\r\n<p>- Theo d&otilde;i, đ&aacute;nh gi&aacute; tiến độ ho&agrave;n th&agrave;nh c&ocirc;ng việc của c&aacute;c ban.</p>\r\n\r\n<p>- Xếp loại đ&aacute;nh gi&aacute; th&agrave;nh t&iacute;ch của c&aacute;c c&aacute; nh&acirc;n trong c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm l&ecirc;n kế hoạch, tuyển th&agrave;nh vi&ecirc;n cho c&acirc;u lạc bộ.</p>\r\n'),
+(3, 'Trưởng ban Hành Chính', '<p>- Hỗ trợ nhập liệu, thống k&ecirc; t&igrave;nh h&igrave;nh điểm danh từ ban nh&acirc;n sự, hỗ trợ tiếp nhận c&aacute;c vấn đề của sinh vi&ecirc;n c&ugrave;ng với thư k&yacute;/gi&aacute;o vụ của bộ m&ocirc;n khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n\r\n<p>- Hỗ trợ giảng vi&ecirc;n trong việc nhập liệu, thống k&ecirc;,&hellip; khi c&oacute; y&ecirc;u cầu v&agrave; được sự đồng &yacute; của Trưởng ban v&agrave; Ban chủ nhiệm.</p>\r\n'),
+(4, 'Phó ban Hành Chính', '<p>- Hỗ trợ nhập liệu, thống k&ecirc; t&igrave;nh h&igrave;nh điểm danh từ ban nh&acirc;n sự, hỗ trợ tiếp nhận c&aacute;c vấn đề của sinh vi&ecirc;n c&ugrave;ng với thư k&yacute;/gi&aacute;o vụ của bộ m&ocirc;n khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n\r\n<p>- Hỗ trợ giảng vi&ecirc;n trong việc nhập liệu, thống k&ecirc;,&hellip; khi c&oacute; y&ecirc;u cầu v&agrave; được sự đồng &yacute; của Trưởng ban v&agrave; Ban chủ nhiệm.</p>\r\n'),
+(5, 'Trưởng ban Nhân Sự', '<p>Hỗ trợ cho c&aacute;c lớp học kỹ năng, chuẩn bị c&aacute;c dụng cụ, vật dụng; điều phối, gi&aacute;m s&aacute;t, quản l&yacute; t&igrave;nh h&igrave;nh lớp học; hỗ trợ cho giảng vi&ecirc;n/b&aacute;o c&aacute;o vi&ecirc;n đứng lớp. Hỗ trợ giảng vi&ecirc;n trong qu&aacute; tr&igrave;nh đứng lớp khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n'),
+(6, 'Phó ban Nhân Sự', '<p>Hỗ trợ cho c&aacute;c lớp học kỹ năng, chuẩn bị c&aacute;c dụng cụ, vật dụng; điều phối, gi&aacute;m s&aacute;t, quản l&yacute; t&igrave;nh h&igrave;nh lớp học; hỗ trợ cho giảng vi&ecirc;n/b&aacute;o c&aacute;o vi&ecirc;n đứng lớp. Hỗ trợ giảng vi&ecirc;n trong qu&aacute; tr&igrave;nh đứng lớp khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n'),
+(7, 'Trưởng ban Sự kiện và Truyền Thông', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n'),
+(8, 'Phó ban Sự kiện và Truyền Thông - Team Thiết Kế', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n'),
+(9, 'Phó ban Sự kiện và Truyền Thông - Team Sự Kiện', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n'),
+(10, 'Phó ban Sự kiện và Truyền Thông - Team Nội Dung', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n');
 
 -- --------------------------------------------------------
 
@@ -95,13 +100,6 @@ CREATE TABLE `tbl_recruitment` (
   `content6` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `tbl_recruitment`
---
-
-INSERT INTO `tbl_recruitment` (`id_recruitment`, `fullname`, `id_student`, `faculty`, `birthday`, `per_email`, `stu_email`, `phone`, `facebook`, `id_team`, `resolution`, `content1`, `content2`, `content3`, `content4`, `content5`, `content6`) VALUES
-(1, 'Lê Trí Đức', '51900040', 'Khoa công nghệ thông tin', '2022-01-05', 'letriduc@gmail.com', '51900040@student.tdtu.edu.vn', 377025449, 'https://www.facebook.com/ltrduc/', 1, 1, 'Nhằm giúp các bạn sinh viên giải đáp các thắc mắc và đóng góp xây dựng về những môn học thuộc bộ môn kỹ năng phát triển và bền vững, CLB Kỹ năng sống (LSA) cùng với các Thầy/Cô Tổ bộ môn kỹ năng tạo form này để các bạn có thể gửi câu hỏi và đóng góp của mình để bộ môn kỹ năng giải đáp và xây dựng Tổ bộ môn kỹ năng ngày càng hoàn thiện. ', 'Nhằm giúp các bạn sinh viên giải đáp các thắc mắc và đóng góp xây dựng về những môn học thuộc bộ môn kỹ năng phát triển và bền vững, CLB Kỹ năng sống (LSA) cùng với các Thầy/Cô Tổ bộ môn kỹ năng tạo form này để các bạn có thể gửi câu hỏi và đóng góp của mình để bộ môn kỹ năng giải đáp và xây dựng Tổ bộ môn kỹ năng ngày càng hoàn thiện. ', 'Nhằm giúp các bạn sinh viên giải đáp các thắc mắc và đóng góp xây dựng về những môn học thuộc bộ môn kỹ năng phát triển và bền vững, CLB Kỹ năng sống (LSA) cùng với các Thầy/Cô Tổ bộ môn kỹ năng tạo form này để các bạn có thể gửi câu hỏi và đóng góp của mình để bộ môn kỹ năng giải đáp và xây dựng Tổ bộ môn kỹ năng ngày càng hoàn thiện. ', 'Nhằm giúp các bạn sinh viên giải đáp các thắc mắc và đóng góp xây dựng về những môn học thuộc bộ môn kỹ năng phát triển và bền vững, CLB Kỹ năng sống (LSA) cùng với các Thầy/Cô Tổ bộ môn kỹ năng tạo form này để các bạn có thể gửi câu hỏi và đóng góp của mình để bộ môn kỹ năng giải đáp và xây dựng Tổ bộ môn kỹ năng ngày càng hoàn thiện. ', 'Nhằm giúp các bạn sinh viên giải đáp các thắc mắc và đóng góp xây dựng về những môn học thuộc bộ môn kỹ năng phát triển và bền vững, CLB Kỹ năng sống (LSA) cùng với các Thầy/Cô Tổ bộ môn kỹ năng tạo form này để các bạn có thể gửi câu hỏi và đóng góp của mình để bộ môn kỹ năng giải đáp và xây dựng Tổ bộ môn kỹ năng ngày càng hoàn thiện. ', 'Nhằm giúp các bạn sinh viên giải đáp các thắc mắc và đóng góp xây dựng về những môn học thuộc bộ môn kỹ năng phát triển và bền vững, CLB Kỹ năng sống (LSA) cùng với các Thầy/Cô Tổ bộ môn kỹ năng tạo form này để các bạn có thể gửi câu hỏi và đóng góp của mình để bộ môn kỹ năng giải đáp và xây dựng Tổ bộ môn kỹ năng ngày càng hoàn thiện. ');
-
 -- --------------------------------------------------------
 
 --
@@ -119,9 +117,9 @@ CREATE TABLE `tbl_team` (
 --
 
 INSERT INTO `tbl_team` (`id_team`, `name`, `description`) VALUES
-(1, 'Ban hành chính', 'Hỗ trợ nhập liệu, thống kê tình hình điểm danh từ ban nhân sự, hỗ trợ tiếp nhận các vấn đề của sinh viên cùng với thư ký/giáo vụ của bộ môn khi có sự phân công.\nHỗ trợ giảng viên trong việc nhập liệu, thống kê,… khi có yêu cầu và được sự đồng ý của Trưởng'),
-(2, 'Ban truyền thông', 'Xây dựng kế hoạch và tổ chức các buổi chia sẻ, hoạt động ngoại khóa, thiện nguyện, … cho câu lạc bộ. \nChịu trách nhiệm chính về truyền thông cho câu lạc bộ. Quản lý Fanpage của câu lạc bộ, cung cấp hình ảnh của đội, viết bài, đưa thông tin về các kỹ năng '),
-(3, 'Ban nhân sự', '<p>Hỗ trợ cho c&aacute;c lớp học kỹ năng, chuẩn bị c&aacute;c dụng cụ, vật dụng; điều phối, gi&aacute;m s&aacute;t, quản l&yacute; t&igrave;nh h&igrave;nh lớp học; hỗ trợ cho giảng vi&ecirc;n/b&aacute;o c&aacute;o vi&ecirc;n đứng lớp. Hỗ trợ giảng vi&ecirc;n trong qu&aacute; tr&igrave;nh đứng lớp khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n');
+(1, 'Ban Hành Chính', '<p>- Hỗ trợ nhập liệu, thống k&ecirc; t&igrave;nh h&igrave;nh điểm danh từ ban nh&acirc;n sự, hỗ trợ tiếp nhận c&aacute;c vấn đề của sinh vi&ecirc;n c&ugrave;ng với thư k&yacute;/gi&aacute;o vụ của bộ m&ocirc;n khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n\r\n<p>- Hỗ trợ giảng vi&ecirc;n trong việc nhập liệu, thống k&ecirc;,&hellip; khi c&oacute; y&ecirc;u cầu v&agrave; được sự đồng &yacute; của Trưởng ban v&agrave; Ban chủ nhiệm.</p>\r\n'),
+(2, 'Ban Nhân Sự', '<p>Hỗ trợ cho c&aacute;c lớp học kỹ năng, chuẩn bị c&aacute;c dụng cụ, vật dụng; điều phối, gi&aacute;m s&aacute;t, quản l&yacute; t&igrave;nh h&igrave;nh lớp học; hỗ trợ cho giảng vi&ecirc;n/b&aacute;o c&aacute;o vi&ecirc;n đứng lớp. Hỗ trợ giảng vi&ecirc;n trong qu&aacute; tr&igrave;nh đứng lớp khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n'),
+(3, 'Ban Sự kiện và Truyền Thông', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n');
 
 -- --------------------------------------------------------
 
@@ -148,11 +146,25 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthday`, `facebook`, `id_team`, `phone`, `role`, `level`, `activate`) VALUES
-(1, '51900162', '01a542ee4e0aed3dd54e5ade72ba7d74', 'Nguyễn Thị Thảo Như', NULL, NULL, 1, NULL, 0, 3, 0),
-(2, '51900030', '17dd54b49eadccf8e149e6d224fd99d9', 'Nguyễn Quốc Đạt', NULL, NULL, 2, NULL, 0, 3, 0),
-(3, '019H0292', 'a4cbde89381503582267fcf7af3287c3', 'Nguyễn Mỹ Anh', NULL, NULL, 2, NULL, 0, 3, 0),
-(4, '51900076', 'dd9aae0b3d924c646b5f52614ba570e9', 'Nguyễn Trần Minh Hoa', NULL, NULL, 3, NULL, 0, 3, 0),
-(5, '51900040', '9774532db8f52128d641b1016f9728c7', 'Lê Trí Đức', NULL, NULL, 1, NULL, 0, 3, 0);
+(1, '51900040', '9774532db8f52128d641b1016f9728c7', 'Lê Trí Đức', NULL, NULL, 1, NULL, 0, 0, 0),
+(2, 'H1900308', 'c87566fe171afba085d2c43088176e26', 'Nguyễn Nhật Quyên', NULL, NULL, 1, NULL, 0, 0, 0),
+(3, '11900067', 'ee215d2465ef614e8cf9c16beae17a32', 'Phạm Ngọc Minh Thư', NULL, NULL, 1, NULL, 0, 3, 0),
+(4, '520H0401', '3ab20c95f18788229224f4fbc8531a15', 'Lê Gia Phú', NULL, NULL, 1, NULL, 0, 0, 0),
+(5, 'B19H0160', '4b233c55470bafcfaef8b0b310f5512a', 'Nguyễn Trần Phương Anh', NULL, NULL, 2, NULL, 0, 0, 0),
+(6, '51900119', '32e52bea4a9c000291c04d834c0f1d2b', 'Lê Thành Đăng Khoa', NULL, NULL, 2, NULL, 0, 0, 0),
+(7, '41900552', '3237d7b0be2ebc85beac9ae7e73fb0bb', 'Huỳnh Quốc Thắng', NULL, NULL, 2, NULL, 0, 3, 0),
+(8, '61900566', 'ba29c56c881c768be1d44f3bdcdbaccb', 'Ngô Trần Ngọc Thuận', NULL, NULL, 2, NULL, 0, 3, 0),
+(9, '019H0292', 'a4cbde89381503582267fcf7af3287c3', 'Nguyễn Mỹ Anh', NULL, NULL, 3, NULL, 0, 0, 0),
+(10, '720H1519', '34407949dee2cd3056e38e5cae9d02a5', 'Hoàng Ngọc Bảo Châu', NULL, NULL, 3, NULL, 0, 3, 0),
+(11, '02000939', 'd1763ac34f6a48a43af7045f32842945', 'Hồ Thị Bích Tuyền', NULL, NULL, 3, NULL, 0, 3, 0),
+(12, '020H0363', '2a62fe57d691560853438d40dd4e370e', 'Nguyễn Phạm Kim Ngân', NULL, NULL, 3, NULL, 0, 3, 0),
+(13, 'H2000506', 'bbf566384d1e09f37e0b1845301d3c62', 'Lê Thanh Vy', NULL, NULL, 3, NULL, 0, 3, 0),
+(14, '32001093', '28871e13c700c6690a6e84b8ce60999a', 'Nguyễn Thị Thư', NULL, NULL, 3, NULL, 0, 3, 0),
+(15, '41900468', '9408bb53069de3d9aeadd1d401e0356f', 'Nguyễn Duy Khánh Minh', NULL, NULL, 3, NULL, 0, 0, 0),
+(16, '51900076', 'dd9aae0b3d924c646b5f52614ba570e9', 'Nguyễn Trần Minh Hoa', NULL, NULL, NULL, NULL, 1, 3, 0),
+(17, '51900162', '01a542ee4e0aed3dd54e5ade72ba7d74', 'Nguyễn Thị Thảo Như', NULL, NULL, NULL, NULL, 1, 3, 0),
+(18, '51900030', '17dd54b49eadccf8e149e6d224fd99d9', 'Nguyễn Quốc Đạt', NULL, NULL, NULL, NULL, 1, 3, 0),
+(19, 'E20H0347', 'a2a2bea9bcf77c92a714ef3e669e2cdf', 'Phùng Lữ Thế Hoài', NULL, NULL, NULL, NULL, 1, 3, 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -200,19 +212,19 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT cho bảng `tbl_executive`
 --
 ALTER TABLE `tbl_executive`
-  MODIFY `id_executive` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_executive` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_position`
 --
 ALTER TABLE `tbl_position`
-  MODIFY `id_position` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_position` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_recruitment`
 --
 ALTER TABLE `tbl_recruitment`
-  MODIFY `id_recruitment` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_recruitment` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_team`
@@ -224,7 +236,7 @@ ALTER TABLE `tbl_team`
 -- AUTO_INCREMENT cho bảng `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

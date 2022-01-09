@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="section-body">
       <div class="row">
         <div class="col-md-12">
-          <div class="card">
+          <div class="card mb-2">
             <div class="card-body p-2">
               <nav aria-label="breadcrumb m-0">
                 <ol class="breadcrumb bg-white m-0">
@@ -86,8 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                           <td><?php echo $value['team'] ?></td>
                           <td><?php echo $value['phone'] ?></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-primary" onclick="editMember('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>','<?php echo $value['id_team'] ?>')" class="edit-member-btn" data-toggle="modal" data-target="#editMember"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
-                            <a href="#" class="btn btn-sm btn-danger" onclick="deleteMember('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" class="delete-member-btn" data-toggle="modal" data-target="#deleteMember"><i class="fas fa-trash"></i> Xóa </a>
+                            <a href="#" class="btn btn-sm btn-primary" onclick="editMember('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>','<?php echo $value['team'] ?>')" data-toggle="modal" data-target="#editMember"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
+                            <a href="#" class="btn btn-sm btn-danger" onclick="deleteMember('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#deleteMember"><i class="fas fa-trash"></i> Xóa </a>
                           </td>
                         </tr>
                     <?php }
@@ -230,7 +230,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <i class="fas fa-layer-group"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control" disabled id="edit-id_team" name="id_team">
+                <input type="text" class="form-control" disabled id="edit-team" name="team">
               </div>
             </div>
             <button type="submit" name="editMember" class="btn btn-primary m-t-15 waves-effect">Chỉnh sửa thành viên</button>

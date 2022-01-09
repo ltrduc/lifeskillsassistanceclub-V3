@@ -18,3 +18,6 @@ $Personnel = new Personnel();
 $Executive = new Executive();
 $Position = new Position();
 $Team = new Team();
+
+// Phân quyền
+$Decentralization = new Decentralization();

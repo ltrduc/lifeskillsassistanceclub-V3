@@ -31,7 +31,7 @@ class Personnel
     {
         $id_student     = strtoupper(mysqli_real_escape_string($this->db->link, $this->fm->validation($id_student)));
         $fullname       = mysqli_real_escape_string($this->db->link, $this->fm->validation($fullname));
-        $id_team           = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_team));
+        $id_team        = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_team));
         $password_hash  = md5($id_student);
         $role           = 0;
 
@@ -58,7 +58,7 @@ class Personnel
     // Cộng tác viên
     public function getCollaborate()
     {
-        $query  = "SELECT tbl_user.*, tbl_team.name AS team FROM tbl_user, tbl_team WHERE tbl_user.id_team = tbl_team.id_team AND role = '1' ORDER BY id_team ASC";
+        $query  = "SELECT * FROM tbl_user WHERE role = '1'";
         $result = $this->db->select($query);
         return $result;
     }
@@ -93,7 +93,7 @@ class Personnel
     // Nhân sự (Chung)
     public function getPersonnel()
     {
-        $query  = "SELECT * FROM tbl_user ORDER BY id_team ASC";
+        $query  = "SELECT * FROM tbl_user ORDER BY level ASC";
         $result = $this->db->select($query);
         return $result;
     }
@@ -134,10 +134,29 @@ class Personnel
         return '{"status":"error", "message":"Đã cập nhật liệu thất bại!"}';
     }
 
+
+    // Đặt lại mật khẩu
+    public function resetPassword($id_user)
+    {
+        $id_user        = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_user));
+        $query          = "SELECT * FROM tbl_user WHERE id_user = '$id_user' LIMIT 1";
+        $result         = $this->db->select($query);
+        $value          = $result->fetch_assoc();
+        $password_reset = md5($value['id_student']);
+
+        $query  = "UPDATE `tbl_user` SET `password`='$password_reset' WHERE `id_user`='$id_user'";
+        $result = $this->db->update($query);
+
+        if ($result) {
+            return '{"status":"success", "message":"Đã cập nhật liệu thành công!"}';
+        }
+        return '{"status":"error", "message":"Đã cập nhật liệu thất bại!"}';
+    }
+
     // Tuyển thành viên
     public function getRecruitment()
     {
-        $query  = "SELECT * FROM tbl_recruitment ORDER BY id_team ASC";
+        $query  = "SELECT tbl_recruitment.*, tbl_team.name AS team FROM tbl_recruitment, tbl_team WHERE tbl_recruitment.id_team = tbl_team.id_team ORDER BY id_team ASC";
         $result = $this->db->select($query);
         return $result;
     }

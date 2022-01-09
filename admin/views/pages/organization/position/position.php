@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="section-body">
       <div class="row">
         <div class="col-md-12">
-          <div class="card">
+          <div class="card mb-2">
             <div class="card-body p-2">
               <nav aria-label="breadcrumb m-0">
                 <ol class="breadcrumb bg-white m-0">

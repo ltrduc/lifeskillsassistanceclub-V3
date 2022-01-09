@@ -46,7 +46,7 @@ class Dashboard
     // Số lượng ban điều hành
     public function Administration()
     {
-        $query  = "SELECT COUNT(id_user) AS administration FROM tbl_user WHERE level = '0'";
+        $query  = "SELECT COUNT(id_executive) AS administration FROM tbl_executive";
         $result = $this->db->select($query);
         $value = $result->fetch_assoc();
         return $value['administration'];

@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="section-body">
       <div class="row">
         <div class="col-md-12">
-          <div class="card">
+          <div class="card mb-2">
             <div class="card-body p-2">
               <nav aria-label="breadcrumb m-0">
                 <ol class="breadcrumb bg-white m-0">
@@ -83,8 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                           <td><?php echo $value['fullname'] ?></td>
                           <td><?php echo $value['phone'] ?></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-primary" onclick="editCollaborate('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>')" class="edit-member-btn" data-toggle="modal" data-target="#editCollaborate"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
-                            <a href="#" class="btn btn-sm btn-danger" onclick="deleteCollaborate('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" class="delete-member-btn" data-toggle="modal" data-target="#deleteCollaborate"><i class="fas fa-trash"></i> Xóa </a>
+                            <a href="#" class="btn btn-sm btn-primary" onclick="editCollaborate('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#editCollaborate"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
+                            <a href="#" class="btn btn-sm btn-danger" onclick="deleteCollaborate('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#deleteCollaborate"><i class="fas fa-trash"></i> Xóa </a>
                           </td>
                         </tr>
                     <?php }
