@@ -1,21 +1,21 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (isset($_POST['addCollaborate'])) {
-    $id_student = $_POST['id_student'];
-    $fullname = $_POST['fullname'];
-    $check_Collaborate = $Personnel->setCollaborate($id_student, $fullname);
+    $id_student         = $_POST['id_student'];
+    $fullname           = $_POST['fullname'];
+    $check_Collaborate  = $Personnel->setCollaborate($id_student, $fullname);
   }
 
   if (isset($_POST['deleteCollaborate'])) {
-    $id_user = $_POST['id_user'];
-    $check_Collaborate = $Personnel->deletePersonnel($id_user);
+    $id_user            = $_POST['id_user'];
+    $check_Collaborate  = $Personnel->deletePersonnel($id_user);
   }
 
   if (isset($_POST['editCollaborate'])) {
-    $id_user = $_POST['id_user'];
-    $id_student = $_POST['id_student'];
-    $fullname = $_POST['fullname'];
-    $check_Collaborate = $Personnel->eidtPersonnel($id_user, $id_student, $fullname);
+    $id_user            = $_POST['id_user'];
+    $id_student         = $_POST['id_student'];
+    $fullname           = $_POST['fullname'];
+    $check_Collaborate  = $Personnel->eidtPersonnel($id_user, $id_student, $fullname);
   }
 
   if (isset($check_Collaborate)) {
@@ -112,17 +112,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="modal-body">
           <form action="Collaborate" method="post">
             <div class="form-group">
-              <label>Mã số sinh viên</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <i class="fas fa-address-card"></i>
-                  </div>
-                </div>
-                <input type="text" class="form-control" placeholder="51900001" name="id_student">
-              </div>
-            </div>
-            <div class="form-group">
               <label>Họ và tên</label>
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -131,6 +120,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   </div>
                 </div>
                 <input type="text" class="form-control" placeholder="Nguyễn Văn A" name="fullname">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Mã số sinh viên</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fas fa-address-card"></i>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="51900001" name="id_student">
               </div>
             </div>
             <div class="form-group">

@@ -19,23 +19,20 @@ class Decentralization
         $this->fm = new Format();
     }
 
-    public function setDecentralization($id_student, $level)
+    public function getDecentralization()
     {
-        $id_student = strtoupper(mysqli_real_escape_string($this->db->link, $this->fm->validation($id_student)));
-        $level      = mysqli_real_escape_string($this->db->link, $this->fm->validation($level));
-
-        if (empty($id_student) || empty($level)) {
-            return '{"status":"error", "message":"Vui lòng nhập đầy đủ dữ liệu!"}';
-        }
-
-        $query  = "SELECT * FROM `tbl_user` WHERE id_student = '$id_student' LIMIT 1";
+        $query  = " SELECT tbl_user.*, id_decentralization, admin, attendance, post FROM tbl_user, tbl_decentralization 
+                    WHERE tbl_decentralization.id_user = tbl_user.id_user ORDER BY admin DESC, attendance DESC, post DESC";
         $result = $this->db->select($query);
+        return $result;
+    }
 
-        if (!$result) {
-            return '{"status":"error", "message":"' . $id_student . ' không tồn tại!"}';
-        }
+    public function Admin($id_decentralization, $admin)
+    {
+        $id_decentralization    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_decentralization));
+        $admin                  = mysqli_real_escape_string($this->db->link, $this->fm->validation($admin));
 
-        $query  = "UPDATE `tbl_user` SET `level`='$level' WHERE `id_student`='$id_student'";
+        $query  = "UPDATE `tbl_decentralization` SET `admin`= '$admin', `attendance`='0', `post`='0' WHERE id_decentralization = '$id_decentralization'";
         $result = $this->db->update($query);
 
         if ($result) {
@@ -44,23 +41,12 @@ class Decentralization
         return '{"status":"error", "message":"Đã cập nhật liệu thất bại!"}';
     }
 
-    public function changeTeam($id_student, $id_team)
+    public function Attendance($id_decentralization, $attendance)
     {
-        $id_student = strtoupper(mysqli_real_escape_string($this->db->link, $this->fm->validation($id_student)));
-        $id_team    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_team));
+        $id_decentralization    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_decentralization));
+        $attendance             = mysqli_real_escape_string($this->db->link, $this->fm->validation($attendance));
 
-        if (empty($id_student) || empty($id_team)) {
-            return '{"status":"error", "message":"Vui lòng nhập đầy đủ dữ liệu!"}';
-        }
-
-        $query  = "SELECT * FROM `tbl_user` WHERE id_student = '$id_student' LIMIT 1";
-        $result = $this->db->select($query);
-
-        if (!$result) {
-            return '{"status":"error", "message":"' . $id_student . ' không tồn tại!"}';
-        }
-
-        $query  = "UPDATE `tbl_user` SET `id_team`='$id_team', `role`='0' WHERE `id_student`='$id_student'";
+        $query  = "UPDATE `tbl_decentralization` SET `admin`= '0', `attendance`='$attendance' WHERE id_decentralization = '$id_decentralization'";
         $result = $this->db->update($query);
 
         if ($result) {
@@ -69,26 +55,12 @@ class Decentralization
         return '{"status":"error", "message":"Đã cập nhật liệu thất bại!"}';
     }
 
-    public function changePersonnel($id_student, $role)
+    public function Post($id_decentralization, $post)
     {
-        $id_student = strtoupper(mysqli_real_escape_string($this->db->link, $this->fm->validation($id_student)));
-        $role    = mysqli_real_escape_string($this->db->link, $this->fm->validation($role));
+        $id_decentralization    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_decentralization));
+        $post                   = mysqli_real_escape_string($this->db->link, $this->fm->validation($post));
 
-        if (empty($id_student) || empty($role)) {
-            return '{"status":"error", "message":"Vui lòng nhập đầy đủ dữ liệu!"}';
-        }
-
-        $query  = "SELECT * FROM `tbl_user` WHERE id_student = '$id_student' LIMIT 1";
-        $result = $this->db->select($query);
-
-        if (!$result) {
-            return '{"status":"error", "message":"' . $id_student . ' không tồn tại!"}';
-        }
-
-        if ($role == 1) $role = 0;
-        else $role = 1;
-
-        $query  = "UPDATE `tbl_user` SET `role`='$role', `level`='3' WHERE `id_student`='$id_student'";
+        $query  = "UPDATE `tbl_decentralization` SET `admin`= '0', `post`='$post' WHERE id_decentralization = '$id_decentralization'";
         $result = $this->db->update($query);
 
         if ($result) {

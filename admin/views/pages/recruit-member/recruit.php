@@ -1,21 +1,21 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (isset($_POST['addMember'])) {
-    $id_student = $_POST['id_student'];
-    $fullname = $_POST['fullname'];
-    $id_team = $_POST['id_team'];
+    $id_student   = $_POST['id_student'];
+    $fullname     = $_POST['fullname'];
+    $id_team      = $_POST['id_team'];
     $check_Member = $Personnel->setMember($id_student, $fullname, $id_team);
   }
 
   if (isset($_POST['deleteMember'])) {
-    $id_user = $_POST['id_user'];
+    $id_user      = $_POST['id_user'];
     $check_Member = $Personnel->deletePersonnel($id_user);
   }
 
   if (isset($_POST['editMember'])) {
-    $id_user = $_POST['id_user'];
-    $id_student = $_POST['id_student'];
-    $fullname = $_POST['fullname'];
+    $id_user      = $_POST['id_user'];
+    $id_student   = $_POST['id_student'];
+    $fullname     = $_POST['fullname'];
     $check_Member = $Personnel->eidtPersonnel($id_user, $id_student, $fullname);
   }
 

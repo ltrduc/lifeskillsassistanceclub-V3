@@ -1,14 +1,14 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (isset($_POST['addExecutive'])) {
-    $id_user = $_POST['id_user'];
-    $id_position = $_POST['id_position'];
-    $check_Executive = $Executive->setExecutive($id_user, $id_position);
+    $id_user          = $_POST['id_user'];
+    $id_position      = $_POST['id_position'];
+    $check_Executive  = $Executive->setExecutive($id_user, $id_position);
   }
 
   if (isset($_POST['deleteExecutive'])) {
-    $id_executive = $_POST['id_executive'];
-    $check_Executive = $Executive->deleteExecutive($id_executive);
+    $id_executive     = $_POST['id_executive'];
+    $check_Executive  = $Executive->deleteExecutive($id_executive);
   }
 
   if (isset($check_Executive)) {

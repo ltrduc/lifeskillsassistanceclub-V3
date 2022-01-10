@@ -1,21 +1,20 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  if (isset($_POST['Decentralization'])) {
-    $id_student = $_POST['id_student'];
-    $level = $_POST['level'];
-    $check_Decentralization = $Decentralization->setDecentralization($id_student, $level);
+  $id_decentralization      = $_POST['id_decentralization'];
+
+  if (isset($_POST['admin'])) {
+    $admin                  = $_POST['admin'];
+    $check_Decentralization = $Decentralization->Admin($id_decentralization, $admin);
   }
 
-  if (isset($_POST['changeTeam'])) {
-    $id_student = $_POST['id_student'];
-    $id_team = $_POST['id_team'];
-    $check_Decentralization = $Decentralization->changeTeam($id_student, $id_team);
+  if (isset($_POST['attendance'])) {
+    $attendance             = $_POST['attendance'];
+    $check_Decentralization = $Decentralization->Attendance($id_decentralization, $attendance);
   }
 
-  if (isset($_POST['changePersonnel'])) {
-    $id_student = $_POST['id_student'];
-    $role = $_POST['role'];
-    $check_Decentralization = $Decentralization->changePersonnel($id_student, $role);
+  if (isset($_POST['post'])) {
+    $post                   = $_POST['post'];
+    $check_Decentralization = $Decentralization->Post($id_decentralization, $post);
   }
 
   if (isset($check_Decentralization)) {
@@ -48,90 +47,87 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <section class="section">
     <div class="section-body">
       <div class="row">
-        <div class="col-12 col-md-6 col-lg-6">
-          <div class="card card-primary">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+          <div class="card">
             <div class="card-header">
-              <h4>QUYỀN QUẢN TRỊ</h4>
+              <h4>BẢNG PHÂN QUYỀN</h4>
             </div>
             <div class="card-body">
-              <form action="Decentralization" method="post">
-                <div class="form-group">
-                  <label>Mã số sinh viên</label>
-                  <input type="text" name="id_student" class="form-control" placeholder="51900001">
-                </div>
-                <div class="form-group">
-                  <label>Quyền quản trị</label>
-                  <select class="form-control selectric" name="level">
-                    <option value="" class="font-weight-bold">Chọn quyền quản trị</option>
-                    <option value="0">Admin</option>
-                    <option value="1">Điểm danh</option>
-                    <option value="2">Bài đăng</option>
-                    <option value="3">Hủy tất cả quyền</option>
-                  </select>
-                </div>
-                <div class="form-group text-right">
-                  <button class="btn btn-primary mr-1" name="Decentralization" type="submit">Tạo quyền quản trị</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-6">
-          <div class="card card-secondary">
-            <div class="card-header">
-              <h4>CHUYỂN BAN HOẠT ĐỘNG</h4>
-            </div>
-            <div class="card-body">
-              <form action="Decentralization" method="post">
-                <div class="form-group">
-                  <label>Mã số sinh viên</label>
-                  <input type="text" name="id_student" class="form-control" placeholder="51900001">
-                </div>
-                <div class="form-group">
-                  <label>Ban hoạt động</label>
-                  <select class="form-control selectric" name="id_team">
-                    <option value="" class="font-weight-bold">Chọn ban hoạt động</option>
+              <div class="table-responsive">
+                <table class="table table-striped table-hover" id="table-1">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>MSSV</th>
+                      <th>Họ và tên</th>
+                      <th class="text-center">Admin</th>
+                      <th class="text-center">Điểm danh</th>
+                      <th class="text-center">Bài đăng</th>
+                    </tr>
+                  </thead>
+                  <tbody>
                     <?php
-                    $getTeam = $Team->getTeam();
+                    $getDecentralization = $Decentralization->getDecentralization();
                     $i = 1;
-                    if ($getTeam) {
-                      while ($value = $getTeam->fetch_assoc()) {
+                    if ($getDecentralization) {
+                      while ($value = $getDecentralization->fetch_assoc()) {
                     ?>
-                        <option value="<?php echo $value['id_team']; ?>"><?php echo $value['name']; ?></option>
+                        <tr>
+                          <td><?php echo $i++; ?></td>
+                          <td><?php echo $value['id_student'] ?></td>
+                          <td><?php echo $value['fullname'] ?></td>
+                          <td class="text-center">
+                            <form action="Decentralization" method="post">
+                              <?php if ($value['admin'] == 1) { ?>
+                                <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
+                                <button type="submit" name="admin" value="0" class="btn btn-sm btn-success btn-icon icon-left">
+                                  <i class="fas fa-toggle-on"></i></span>
+                                </button>
+                              <?php } else { ?>
+                                <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
+                                <button type="submit" name="admin" value="1" class="btn btn-sm btn-danger btn-icon icon-left">
+                                  <i class="fas fa-toggle-off"></i></span>
+                                </button>
+                              <?php } ?>
+                            </form>
+                          </td>
+                          <td class="text-center">
+                            <form action="Decentralization" method="post">
+                              <?php if ($value['attendance'] == 1) { ?>
+                                <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
+                                <button type="submit" name="attendance" value="0" class="btn btn-sm btn-success btn-icon icon-left">
+                                  <i class="fas fa-toggle-on"></i></span>
+                                </button>
+                              <?php } else { ?>
+                                <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
+                                <button type="submit" name="attendance" value="1" class="btn btn-sm btn-danger btn-icon icon-left">
+                                  <i class="fas fa-toggle-off"></i></span>
+                                </button>
+                              <?php } ?>
+                            </form>
+                          </td>
+                          <td class="text-center">
+                            <form action="Decentralization" method="post">
+                              <?php if ($value['post'] == 1) { ?>
+                                <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
+                                <button type="submit" name="post" value="0" class="btn btn-sm btn-success btn-icon icon-left">
+                                  <i class="fas fa-toggle-on"></i></span>
+                                </button>
+                              <?php } else { ?>
+                                <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
+                                <button type="submit" name="post" value="1" class="btn btn-sm btn-danger btn-icon icon-left">
+                                  <i class="fas fa-toggle-off"></i></span>
+                                </button>
+                              <?php } ?>
+                            </form>
+                          </td>
+                        </tr>
                     <?php }
                     } ?>
-                  </select>
-                </div>
-                <div class="form-group text-right">
-                  <button class="btn btn-primary mr-1" name="changeTeam" type="submit">Chuyển ban hoạt động</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-6">
-          <div class="card card-danger">
-            <div class="card-header">
-              <h4>CHUYỂN NHÂN SỰ</h4>
-            </div>
-            <div class="card-body">
-              <form action="Decentralization" method="post">
-                <div class="form-group">
-                  <label>Mã số sinh viên</label>
-                  <input type="text" name="id_student" class="form-control" placeholder="51900001">
-                </div>
-                <div class="form-group">
-                  <label>nhân sự</label>
-                  <select class="form-control selectric" name="role">
-                    <option value="" class="font-weight-bold">Chọn nhân sự</option>
-                    <option value="1">Thành viên</option>
-                    <option value="2">Cộng tác viên</option>
-                  </select>
-                </div>
-                <div class="form-group text-right">
-                  <button class="btn btn-primary mr-1" name="changePersonnel" type="submit">Chuyển nhân sự</button>
-                </div>
-              </form>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

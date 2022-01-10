@@ -6,9 +6,9 @@ if (!isset($_GET['id']) || $_GET['id'] == NULL) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $name = $_POST['name'];
-  $description = $_POST['description'];
-  $check_Team = $Team->eidtTeam($id_team, $name, $description);
+  $name         = $_POST['name'];
+  $description  = $_POST['description'];
+  $check_Team   = $Team->eidtTeam($id_team, $name, $description);
 
   if (isset($check_Team)) {
     $dataMessage = json_decode($check_Team);

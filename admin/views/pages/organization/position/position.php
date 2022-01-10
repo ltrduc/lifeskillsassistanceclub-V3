@@ -1,13 +1,13 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (isset($_POST['addPosition'])) {
-    $name = $_POST['name'];
-    $description = $_POST['description'];
+    $name           = $_POST['name'];
+    $description    = $_POST['description'];
     $check_Position = $Position->setPosition($name, $description);
   }
 
   if (isset($_POST['deletePosition'])) {
-    $id_position = $_POST['id_position'];
+    $id_position    = $_POST['id_position'];
     $check_Position = $Position->deletePosition($id_position);
   }
 

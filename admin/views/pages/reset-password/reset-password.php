@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (isset($_POST['resetPassword'])) {
-    $id_user = $_POST['id_user'];
+    $id_user      = $_POST['id_user'];
     $check_Member = $Personnel->resetPassword($id_user);
   }
 
@@ -49,8 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                       <th>#</th>
                       <th>MSSV</th>
                       <th>Họ và tên</th>
-                      <th>Quyền quản trị</th>
-                      <th>Thao tác</th>
+                      <th class="text-center">Thao tác</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -64,21 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                           <td><?php echo $i++; ?></td>
                           <td><?php echo $value['id_student'] ?></td>
                           <td><?php echo $value['fullname'] ?></td>
-                          <td>
-                            <?php
-                            if ($value['level'] == 0) {
-                              echo '<h6><span class="badge badge-danger">Admin</span></h6>';
-                            } else if ($value['level'] == 1) {
-                              echo '<h6><span class="badge badge-success">Điểm danh</span></h6>';
-                            } else if ($value['level'] == 2) {
-                              echo '<h6><span class="badge badge-primary">Bài đăng</span></h6>';
-                            } else {
-                              echo '<h6><span class="badge badge-light">Không</span></h6>';
-                            }
-                            ?>
-                          </td>
-                          <td>
-                            <a href="#" class="btn btn-sm btn-danger" onclick="resetPassword('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#resetPassword"><i class="fas fa-trash"></i> Đặt lại mật khẩu </a>
+                          <td class="text-center">
+                            <a href="#" class="btn btn-sm btn-danger" onclick="resetPassword('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#resetPassword"><i class="fas fa-trash"></i> Reset Password </a>
                           </td>
                         </tr>
                     <?php }
@@ -107,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </div>
           <div class="modal-body">Bạn có chắc muốn đặt lại mật khẩu của <strong id="resetpassword-info-user"></strong>?</div>
           <div class="modal-footer bg-whitesmoke br">
-            <button type="submit" name="resetPassword" class="btn btn-danger">Đặt lại mật khẩu</button>
+            <button type="submit" name="resetPassword" class="btn btn-danger">Reset Password</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
           </div>
         </form>

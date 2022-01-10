@@ -61,6 +61,7 @@ class Team
     public function deleteTeam($id_team)
     {
         $id_team    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_team));
+        
         $query      = "SELECT * FROM tbl_team WHERE id_team = '$id_team'";
         $result     = $this->db->select($query);
 

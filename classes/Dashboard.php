@@ -39,7 +39,7 @@ class Dashboard
     {
         $query  = "SELECT COUNT(id_user) AS member FROM tbl_user WHERE role = '0'";
         $result = $this->db->select($query);
-        $value = $result->fetch_assoc();
+        $value  = $result->fetch_assoc();
         return $value['member'];
     }
 
@@ -48,7 +48,7 @@ class Dashboard
     {
         $query  = "SELECT COUNT(id_executive) AS administration FROM tbl_executive";
         $result = $this->db->select($query);
-        $value = $result->fetch_assoc();
+        $value  = $result->fetch_assoc();
         return $value['administration'];
     }
 

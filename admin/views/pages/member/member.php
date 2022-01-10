@@ -1,21 +1,21 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (isset($_POST['addMember'])) {
-    $id_student = $_POST['id_student'];
-    $fullname = $_POST['fullname'];
-    $id_team = $_POST['id_team'];
+    $id_student   = $_POST['id_student'];
+    $fullname     = $_POST['fullname'];
+    $id_team      = $_POST['id_team'];
     $check_Member = $Personnel->setMember($id_student, $fullname, $id_team);
   }
 
   if (isset($_POST['deleteMember'])) {
-    $id_user = $_POST['id_user'];
+    $id_user      = $_POST['id_user'];
     $check_Member = $Personnel->deletePersonnel($id_user);
   }
 
   if (isset($_POST['editMember'])) {
-    $id_user = $_POST['id_user'];
-    $id_student = $_POST['id_student'];
-    $fullname = $_POST['fullname'];
+    $id_user      = $_POST['id_user'];
+    $id_student   = $_POST['id_student'];
+    $fullname     = $_POST['fullname'];
     $check_Member = $Personnel->eidtPersonnel($id_user, $id_student, $fullname);
   }
 
@@ -115,17 +115,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="modal-body">
           <form action="Member" method="post">
             <div class="form-group">
-              <label>Mã số sinh viên</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <i class="fas fa-address-card"></i>
-                  </div>
-                </div>
-                <input type="text" class="form-control" placeholder="51900001" name="id_student">
-              </div>
-            </div>
-            <div class="form-group">
               <label>Họ và tên</label>
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -134,6 +123,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                   </div>
                 </div>
                 <input type="text" class="form-control" placeholder="Nguyễn Văn A" name="fullname">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Mã số sinh viên</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fas fa-address-card"></i>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="51900001" name="id_student">
               </div>
             </div>
             <div class="form-group">

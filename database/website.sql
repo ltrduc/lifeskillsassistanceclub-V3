@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 09, 2022 lúc 12:52 PM
+-- Thời gian đã tạo: Th1 10, 2022 lúc 07:10 AM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.0.14
 
@@ -24,6 +24,43 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `tbl_decentralization`
+--
+
+CREATE TABLE `tbl_decentralization` (
+  `id_decentralization` int(255) NOT NULL,
+  `id_user` int(255) NOT NULL,
+  `admin` int(1) NOT NULL DEFAULT 0,
+  `attendance` int(1) NOT NULL DEFAULT 0,
+  `post` int(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_decentralization`
+--
+
+INSERT INTO `tbl_decentralization` (`id_decentralization`, `id_user`, `admin`, `attendance`, `post`) VALUES
+(1, 1, 1, 0, 0),
+(2, 2, 0, 0, 0),
+(3, 3, 1, 0, 0),
+(4, 4, 1, 0, 0),
+(5, 5, 0, 0, 0),
+(6, 6, 1, 0, 0),
+(7, 7, 0, 0, 0),
+(8, 8, 1, 0, 0),
+(9, 9, 0, 0, 0),
+(10, 10, 1, 0, 0),
+(11, 11, 1, 0, 0),
+(12, 12, 0, 0, 0),
+(13, 13, 0, 0, 0),
+(14, 14, 0, 0, 0),
+(15, 15, 0, 0, 0),
+(16, 16, 0, 0, 0),
+(17, 17, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `tbl_executive`
 --
 
@@ -38,13 +75,13 @@ CREATE TABLE `tbl_executive` (
 --
 
 INSERT INTO `tbl_executive` (`id_executive`, `id_user`, `id_position`) VALUES
-(1, 15, 1),
-(2, 2, 2),
+(1, 10, 1),
+(2, 3, 2),
 (3, 1, 3),
 (4, 4, 4),
-(5, 5, 5),
-(6, 6, 6),
-(7, 9, 7);
+(5, 6, 5),
+(6, 8, 6),
+(7, 11, 7);
 
 -- --------------------------------------------------------
 
@@ -137,7 +174,6 @@ CREATE TABLE `tbl_user` (
   `id_team` int(255) DEFAULT NULL,
   `phone` int(11) DEFAULT NULL,
   `role` int(1) NOT NULL,
-  `level` int(1) NOT NULL DEFAULT 3,
   `activate` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -145,30 +181,35 @@ CREATE TABLE `tbl_user` (
 -- Đang đổ dữ liệu cho bảng `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthday`, `facebook`, `id_team`, `phone`, `role`, `level`, `activate`) VALUES
-(1, '51900040', '9774532db8f52128d641b1016f9728c7', 'Lê Trí Đức', NULL, NULL, 1, NULL, 0, 0, 0),
-(2, 'H1900308', 'c87566fe171afba085d2c43088176e26', 'Nguyễn Nhật Quyên', NULL, NULL, 1, NULL, 0, 0, 0),
-(3, '11900067', 'ee215d2465ef614e8cf9c16beae17a32', 'Phạm Ngọc Minh Thư', NULL, NULL, 1, NULL, 0, 3, 0),
-(4, '520H0401', '3ab20c95f18788229224f4fbc8531a15', 'Lê Gia Phú', NULL, NULL, 1, NULL, 0, 0, 0),
-(5, 'B19H0160', '4b233c55470bafcfaef8b0b310f5512a', 'Nguyễn Trần Phương Anh', NULL, NULL, 2, NULL, 0, 0, 0),
-(6, '51900119', '32e52bea4a9c000291c04d834c0f1d2b', 'Lê Thành Đăng Khoa', NULL, NULL, 2, NULL, 0, 0, 0),
-(7, '41900552', '3237d7b0be2ebc85beac9ae7e73fb0bb', 'Huỳnh Quốc Thắng', NULL, NULL, 2, NULL, 0, 3, 0),
-(8, '61900566', 'ba29c56c881c768be1d44f3bdcdbaccb', 'Ngô Trần Ngọc Thuận', NULL, NULL, 2, NULL, 0, 3, 0),
-(9, '019H0292', 'a4cbde89381503582267fcf7af3287c3', 'Nguyễn Mỹ Anh', NULL, NULL, 3, NULL, 0, 0, 0),
-(10, '720H1519', '34407949dee2cd3056e38e5cae9d02a5', 'Hoàng Ngọc Bảo Châu', NULL, NULL, 3, NULL, 0, 3, 0),
-(11, '02000939', 'd1763ac34f6a48a43af7045f32842945', 'Hồ Thị Bích Tuyền', NULL, NULL, 3, NULL, 0, 3, 0),
-(12, '020H0363', '2a62fe57d691560853438d40dd4e370e', 'Nguyễn Phạm Kim Ngân', NULL, NULL, 3, NULL, 0, 3, 0),
-(13, 'H2000506', 'bbf566384d1e09f37e0b1845301d3c62', 'Lê Thanh Vy', NULL, NULL, 3, NULL, 0, 3, 0),
-(14, '32001093', '28871e13c700c6690a6e84b8ce60999a', 'Nguyễn Thị Thư', NULL, NULL, 3, NULL, 0, 3, 0),
-(15, '41900468', '9408bb53069de3d9aeadd1d401e0356f', 'Nguyễn Duy Khánh Minh', NULL, NULL, 3, NULL, 0, 0, 0),
-(16, '51900076', 'dd9aae0b3d924c646b5f52614ba570e9', 'Nguyễn Trần Minh Hoa', NULL, NULL, NULL, NULL, 1, 3, 0),
-(17, '51900162', '01a542ee4e0aed3dd54e5ade72ba7d74', 'Nguyễn Thị Thảo Như', NULL, NULL, NULL, NULL, 1, 3, 0),
-(18, '51900030', '17dd54b49eadccf8e149e6d224fd99d9', 'Nguyễn Quốc Đạt', NULL, NULL, NULL, NULL, 1, 3, 0),
-(19, 'E20H0347', 'a2a2bea9bcf77c92a714ef3e669e2cdf', 'Phùng Lữ Thế Hoài', NULL, NULL, NULL, NULL, 1, 3, 0);
+INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthday`, `facebook`, `id_team`, `phone`, `role`, `activate`) VALUES
+(1, '51900040', '9774532db8f52128d641b1016f9728c7', 'Lê Trí Đức', NULL, NULL, 1, NULL, 0, 0),
+(2, '51900356', '6d5557fa3520948ab7ec199835968295', 'Tạ Quốc Khánh', NULL, NULL, 1, NULL, 0, 0),
+(3, 'H1900308', 'c87566fe171afba085d2c43088176e26', 'Nguyễn Nhật Quyên', NULL, NULL, 1, NULL, 0, 0),
+(4, '520H0401', '3ab20c95f18788229224f4fbc8531a15', 'Lê Gia Phú', NULL, NULL, 1, NULL, 0, 0),
+(5, 'A2000244', '1f4e65a5c11fc2a437e65aedc2ba11eb', 'Phan Phương Thảo', NULL, NULL, 1, NULL, 0, 0),
+(6, 'B19H0160', '4b233c55470bafcfaef8b0b310f5512a', 'Nguyễn Trần Phương Anh', NULL, NULL, 2, NULL, 0, 0),
+(7, '020H0214', 'c13aceefb420263e13acbdb5ae57b05b', 'Ngô Nguyễn Minh Anh', NULL, NULL, 2, NULL, 0, 0),
+(8, '51900119', '32e52bea4a9c000291c04d834c0f1d2b', 'Lê Thành Đăng Khoa', NULL, NULL, 2, NULL, 0, 0),
+(9, '61900381', '12cdb316d70374121cb1cd1b940dda9f', 'Trần Ngọc Châu', NULL, NULL, 2, NULL, 0, 0),
+(10, '41900468', '9408bb53069de3d9aeadd1d401e0356f', 'Nguyễn Duy Khánh Minh', NULL, NULL, 3, NULL, 0, 0),
+(11, '019H0292', 'a4cbde89381503582267fcf7af3287c3', 'Nguyễn Mỹ Anh', NULL, NULL, 3, NULL, 0, 0),
+(12, '720H1519', '34407949dee2cd3056e38e5cae9d02a5', 'Hoàng Ngọc Bảo Châu', NULL, NULL, 3, NULL, 0, 0),
+(13, '02000939', 'd1763ac34f6a48a43af7045f32842945', 'Hồ Thị Bích Tuyền', NULL, NULL, 3, NULL, 0, 0),
+(14, '51900030', '17dd54b49eadccf8e149e6d224fd99d9', 'Nguyễn Quốc Đạt', NULL, NULL, NULL, NULL, 1, 0),
+(15, 'E20H0347', 'a2a2bea9bcf77c92a714ef3e669e2cdf', 'Phùng Lữ Thế Hoài', NULL, NULL, NULL, NULL, 1, 0),
+(16, '51900162', '01a542ee4e0aed3dd54e5ade72ba7d74', 'Nguyễn Thị Thảo Như', NULL, NULL, NULL, NULL, 1, 0),
+(17, '51900076', 'dd9aae0b3d924c646b5f52614ba570e9', 'Nguyễn Trần Minh Hoa', NULL, NULL, NULL, NULL, 1, 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
 --
+
+--
+-- Chỉ mục cho bảng `tbl_decentralization`
+--
+ALTER TABLE `tbl_decentralization`
+  ADD PRIMARY KEY (`id_decentralization`),
+  ADD KEY `fk_tbl_decentralization_id_user` (`id_user`);
 
 --
 -- Chỉ mục cho bảng `tbl_executive`
@@ -209,6 +250,12 @@ ALTER TABLE `tbl_user`
 --
 
 --
+-- AUTO_INCREMENT cho bảng `tbl_decentralization`
+--
+ALTER TABLE `tbl_decentralization`
+  MODIFY `id_decentralization` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
 -- AUTO_INCREMENT cho bảng `tbl_executive`
 --
 ALTER TABLE `tbl_executive`
@@ -236,11 +283,17 @@ ALTER TABLE `tbl_team`
 -- AUTO_INCREMENT cho bảng `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `tbl_decentralization`
+--
+ALTER TABLE `tbl_decentralization`
+  ADD CONSTRAINT `fk_tbl_decentralization_id_user` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `tbl_executive`

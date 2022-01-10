@@ -1,13 +1,13 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   if (isset($_POST['addTeam'])) {
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $check_Team = $Team->setTeam($name, $description);
+    $name         = $_POST['name'];
+    $description  = $_POST['description'];
+    $check_Team   = $Team->setTeam($name, $description);
   }
 
   if (isset($_POST['deleteTeam'])) {
-    $id_team = $_POST['id_team'];
+    $id_team    = $_POST['id_team'];
     $check_Team = $Team->deleteTeam($id_team);
   }
 

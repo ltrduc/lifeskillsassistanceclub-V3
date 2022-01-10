@@ -39,6 +39,10 @@ class Personnel
             return '{"status":"error", "message":"Vui lòng nhập đầy đủ dữ liệu!"}';
         }
 
+        if (strlen($id_student) > 9) {
+            return '{"status":"error", "message":"Mã số sinh viên không đúng cú pháp!"}';
+        }
+
         $query  = "SELECT * FROM tbl_user WHERE id_student = '$id_student' LIMIT 1";
         $result = $this->db->select($query);
 
@@ -50,7 +54,20 @@ class Personnel
         $result = $this->db->insert($query);
 
         if ($result) {
-            return '{"status":"success", "message":"Đã thêm dữ liệu thành công!"}';
+            $query  = "SELECT * FROM tbl_user WHERE id_student = '$id_student' LIMIT 1";
+            $result = $this->db->select($query);
+
+            if ($result) {
+                $value      = $result->fetch_assoc();
+                $id_user    = $value['id_user'];
+
+                $query      = "INSERT INTO `tbl_decentralization`(`id_user`) VALUES ('$id_user')";
+                $result     = $this->db->insert($query);
+
+                if ($result) {
+                    return '{"status":"success", "message":"Đã thêm dữ liệu thành công!"}';
+                }
+            }
         }
         return '{"status":"error", "message":"Đã thêm dữ liệu thất bại!"}';
     }
@@ -74,6 +91,10 @@ class Personnel
             return '{"status":"error", "message":"Vui lòng nhập đầy đủ dữ liệu!"}';
         }
 
+        if (strlen($id_student) > 9) {
+            return '{"status":"error", "message":"Mã số sinh viên không đúng cú pháp!"}';
+        }
+
         $query  = "SELECT * FROM tbl_user WHERE id_student = '$id_student' LIMIT 1";
         $result = $this->db->select($query);
 
@@ -85,7 +106,20 @@ class Personnel
         $result = $this->db->insert($query);
 
         if ($result) {
-            return '{"status":"success", "message":"Đã thêm dữ liệu thành công!"}';
+            $query  = "SELECT * FROM tbl_user WHERE id_student = '$id_student' LIMIT 1";
+            $result = $this->db->select($query);
+
+            if ($result) {
+                $value      = $result->fetch_assoc();
+                $id_user    = $value['id_user'];
+
+                $query      = "INSERT INTO `tbl_decentralization`(`id_user`) VALUES ('$id_user')";
+                $result     = $this->db->insert($query);
+
+                if ($result) {
+                    return '{"status":"success", "message":"Đã thêm dữ liệu thành công!"}';
+                }
+            }
         }
         return '{"status":"error", "message":"Đã thêm dữ liệu thất bại!"}';
     }
@@ -93,7 +127,7 @@ class Personnel
     // Nhân sự (Chung)
     public function getPersonnel()
     {
-        $query  = "SELECT * FROM tbl_user ORDER BY level ASC";
+        $query  = " SELECT * FROM tbl_user";
         $result = $this->db->select($query);
         return $result;
     }
@@ -125,6 +159,10 @@ class Personnel
             return '{"status":"error", "message":"Vui lòng nhập đầy đủ dữ liệu!"}';
         }
 
+        if (strlen($id_student) > 9) {
+            return '{"status":"error", "message":"Mã số sinh viên không đúng cú pháp!"}';
+        }
+
         $query  = "UPDATE `tbl_user` SET `id_student`='$id_student',`fullname`='$fullname' WHERE `id_user`='$id_user'";
         $result = $this->db->update($query);
 
@@ -134,21 +172,23 @@ class Personnel
         return '{"status":"error", "message":"Đã cập nhật liệu thất bại!"}';
     }
 
-
     // Đặt lại mật khẩu
     public function resetPassword($id_user)
     {
-        $id_user        = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_user));
-        $query          = "SELECT * FROM tbl_user WHERE id_user = '$id_user' LIMIT 1";
-        $result         = $this->db->select($query);
-        $value          = $result->fetch_assoc();
-        $password_reset = md5($value['id_student']);
-
-        $query  = "UPDATE `tbl_user` SET `password`='$password_reset' WHERE `id_user`='$id_user'";
-        $result = $this->db->update($query);
+        $id_user    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_user));
+        $query      = "SELECT * FROM tbl_user WHERE id_user = '$id_user' LIMIT 1";
+        $result     = $this->db->select($query);
 
         if ($result) {
-            return '{"status":"success", "message":"Đã cập nhật liệu thành công!"}';
+            $value          = $result->fetch_assoc();
+            $password_reset = md5($value['id_student']);
+
+            $query  = "UPDATE `tbl_user` SET `password`='$password_reset' WHERE `id_user`='$id_user'";
+            $result = $this->db->update($query);
+
+            if ($result) {
+                return '{"status":"success", "message":"Đã cập nhật liệu thành công!"}';
+            }
         }
         return '{"status":"error", "message":"Đã cập nhật liệu thất bại!"}';
     }

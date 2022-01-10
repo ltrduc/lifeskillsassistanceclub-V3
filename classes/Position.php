@@ -61,15 +61,25 @@ class Position
     public function deletePosition($id_position)
     {
         $id_position    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_position));
-        $query          = "SELECT * FROM tbl_position WHERE id_position = '$id_position'";
+
+        $query          = " SELECT tbl_executive.id_user, tbl_position.* FROM tbl_position, tbl_executive 
+                            WHERE tbl_executive.id_position = tbl_position.id_position AND tbl_position.id_position = '$id_position'";
         $result         = $this->db->select($query);
 
         if ($result) {
-            $query  = "DELETE FROM tbl_position WHERE id_position = '$id_position'";
-            $result = $this->db->delete($query);
+            $value      = $result->fetch_assoc();
+            $id_user    = $value['id_user'];
+
+            $query      = "DELETE FROM tbl_position WHERE id_position = '$id_position'";
+            $result     = $this->db->delete($query);
 
             if ($result) {
-                return '{"status":"success", "message":"Đã xóa dữ liệu thành công!"}';
+                $query  = "UPDATE `tbl_decentralization` SET `admin`= '0' WHERE id_user = '$id_user'";
+                $result = $this->db->update($query);
+
+                if ($result) {
+                    return '{"status":"success", "message":"Đã xóa dữ liệu thành công!"}';
+                }
             }
         }
         return '{"status":"error", "message":"Đã xóa dữ liệu thất bại!"}';

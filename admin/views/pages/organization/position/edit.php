@@ -6,8 +6,8 @@ if (!isset($_GET['id']) || $_GET['id'] == NULL) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
-    $description = $_POST['description'];
+    $name           = $_POST['name'];
+    $description    = $_POST['description'];
     $check_Position = $Position->eidtPosition($id_position, $name, $description);
 
     if (isset($check_Position)) {

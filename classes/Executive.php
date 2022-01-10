@@ -48,7 +48,7 @@ class Executive
         $result = $this->db->insert($query);
 
         if ($result) {
-            $query  = "UPDATE `tbl_user` SET `level`= '0' WHERE id_user = '$id_user'";
+            $query  = "UPDATE `tbl_decentralization` SET `admin`= '1' WHERE id_user = '$id_user'";
             $result = $this->db->update($query);
 
             if ($result) {
@@ -61,18 +61,19 @@ class Executive
     public function deleteExecutive($id_executive)
     {
         $id_executive   = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_executive));
+        
         $query          = "SELECT * FROM `tbl_executive` WHERE id_executive = '$id_executive'";
         $result         = $this->db->select($query);
 
         if ($result) {
-            $value = $result->fetch_assoc();
-            $id_user = $value['id_user'];
+            $value      = $result->fetch_assoc();
+            $id_user    = $value['id_user'];
 
-            $query  = "DELETE FROM tbl_executive WHERE id_executive = '$id_executive'";
-            $result = $this->db->delete($query);
+            $query      = "DELETE FROM tbl_executive WHERE id_executive = '$id_executive'";
+            $result     = $this->db->delete($query);
 
             if ($result) {
-                $query  = "UPDATE `tbl_user` SET `level`= '3' WHERE id_user = '$id_user'";
+                $query  = "UPDATE `tbl_decentralization` SET `admin`= '0' WHERE id_user = '$id_user'";
                 $result = $this->db->update($query);
 
                 if ($result) {

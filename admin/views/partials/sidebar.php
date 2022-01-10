@@ -3,7 +3,7 @@
     <div class="sidebar-brand">
       <a href="Home">
         <img alt="image" src="public/assets/img/logo.png" class="header-logo">
-        <span class="logo-name" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">LSA CLUB</span>
+        <span class="logo-name">LSA CLUB</span>
       </a>
     </div>
     <ul class="sidebar-menu" id="sidebar-list">
