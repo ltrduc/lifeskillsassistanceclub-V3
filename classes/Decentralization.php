@@ -68,4 +68,41 @@ class Decentralization
         }
         return '{"status":"error", "message":"Đã cập nhật liệu thất bại!"}';
     }
+
+    public function Administration($id_student, $role, $id_team)
+    {
+        $id_student = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_student));
+        $role       = mysqli_real_escape_string($this->db->link, $this->fm->validation($role));
+        $id_team    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_team));
+
+        if (empty($id_student)) return '{"status":"error", "message":"Vui lòng nhập mã số sinh viên!"}';
+
+        if ($role !== null) {
+            if ($role == 0) {
+                if (empty($id_team)) return '{"status":"error", "message":"Vui lòng chọn ban hoạt động!"}';
+                $query  = "UPDATE `tbl_user` SET `id_team`='$id_team', `role`='$role' WHERE id_student = '$id_student'";
+                $result = $this->db->update($query);
+                if ($result) return '{"status":"success", "message":"Đã cập nhật liệu thành công!"}';
+            }
+            if ($role == 1) {
+                $query  = "UPDATE `tbl_user` SET `id_team`=null, `role`='$role' WHERE id_student = '$id_student'";
+                $result = $this->db->update($query);
+                if ($result) return '{"status":"success", "message":"Đã cập nhật liệu thành công!"}';
+            }
+        }
+
+        if (!empty($id_team)) {
+            $query  = "SELECT * FROM `tbl_user` WHERE id_student = '$id_student'";
+            $result = $this->db->select($query);
+            $value  = $result->fetch_assoc();
+            $role   = $value['role'];
+
+            if ($role == 1) return '{"status":"error", "message":"' . $id_student . ' chưa phải là thành viên!"}';
+
+            $query  = "UPDATE `tbl_user` SET `id_team`='$id_team' WHERE id_student = '$id_student'";
+            $result = $this->db->update($query);
+            if ($result) return '{"status":"success", "message":"Đã cập nhật liệu thành công!"}';
+        }
+        return '{"status":"error", "message":"Đã cập nhật liệu thất bại!"}';
+    }
 }

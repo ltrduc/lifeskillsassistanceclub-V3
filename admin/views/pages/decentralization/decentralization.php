@@ -1,20 +1,28 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $id_decentralization      = $_POST['id_decentralization'];
-
   if (isset($_POST['admin'])) {
+    $id_decentralization    = $_POST['id_decentralization'];
     $admin                  = $_POST['admin'];
     $check_Decentralization = $Decentralization->Admin($id_decentralization, $admin);
   }
 
   if (isset($_POST['attendance'])) {
+    $id_decentralization    = $_POST['id_decentralization'];
     $attendance             = $_POST['attendance'];
     $check_Decentralization = $Decentralization->Attendance($id_decentralization, $attendance);
   }
 
   if (isset($_POST['post'])) {
+    $id_decentralization    = $_POST['id_decentralization'];
     $post                   = $_POST['post'];
     $check_Decentralization = $Decentralization->Post($id_decentralization, $post);
+  }
+
+  if (isset($_POST['administration'])) {
+    $id_student             = $_POST['id_student'];
+    $role                   = $_POST['role'];
+    $id_team                = $_POST['id_team'];
+    $check_Decentralization = $Decentralization->Administration($id_student, $role, $id_team);
   }
 
   if (isset($check_Decentralization)) {
@@ -47,7 +55,47 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <section class="section">
     <div class="section-body">
       <div class="row">
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">
+              <h4>CHUYỂN NHÂN SỰ</h4>
+            </div>
+            <div class="card-body">
+              <form action="Decentralization" method="post">
+                <div class="form-group">
+                  <label>Mã số sinh viên</label>
+                  <input type="text" class="form-control" placeholder="51900001" name="id_student">
+                </div>
+                <div class="form-group">
+                  <label>Chuyển nhân sự</label>
+                  <select class="form-control selectric" name="role">
+                    <option value="" class="font-weight-bold">Chọn nhân sự</option>
+                    <option value="0">Thành viên</option>
+                    <option value="1">Cộng tác viên</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Chuyển ban hoạt động</label>
+                  <select class="form-control selectric" name="id_team">
+                    <option value="" class="font-weight-bold">Chọn ban hoạt động</option>
+                    <?php
+                    $getTeam = $Team->getTeam();
+                    $i = 1;
+                    if ($getTeam) {
+                      while ($value = $getTeam->fetch_assoc()) {
+                    ?>
+                        <option value="<?php echo $value['id_team']; ?>"><?php echo $value['name']; ?></option>
+                    <?php }
+                    } ?>
+                  </select>
+                </div>
+                <div class="form-group text-right">
+                  <button class="btn btn-primary mr-1" name="administration" type="submit">Chuyển nhân sự</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
         <div class="col-md-8">
           <div class="card">
             <div class="card-header">
