@@ -1,55 +1,52 @@
+<?php
+include_once('./source/core/lib/session.php');
+include_once('./source/core/lib/database.php');
+include_once('./source/core/helpers/format.php');
+Session::checkLogin();
+?>
 
 <?php
 /**
- * login
+ * Login
  */
-class login
+class Login
 {
-	private $db;
-	private $fm;
+  private $db;
+  private $fm;
 
-	public function __construct()
-	{
-		$this->db = new Database();
-		$this->fm = new Format();
-	}
+  public function __construct()
+  {
+    $this->db = new Database();
+    $this->fm = new Format();
+  }
 
-	public function login($id_student, $password)
-	{
-		$id_student = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_student));
-		$password 	= mysqli_real_escape_string($this->db->link, $this->fm->validation($password));
+  public function myLogin($id_student, $password)
+  {
+    $id_student     = strtoupper(mysqli_real_escape_string($this->db->link, $this->fm->validation($id_student)));
+    $password       = mysqli_real_escape_string($this->db->link, $this->fm->validation($password));
+    $password_hash  = md5($password);
 
-		if (empty($id_student) || empty($password)) {
-			return ' { 
-				"id_student"	: "' . $id_student . '", 
-				"password" 		: "' . $password . '"
-			} ';
-		}
+    if (empty($id_student) || empty($password)) return ["status" => "error", "message" => "Vui lòng nhập đầy đủ dữ liệu!"];
 
-		if ($_POST['id_student'] == "lifeskillsassistance" && $_POST['password'] == "lsa07012020") {
-			Session::set('login', true);
-			Session::set('id_member', '050301');
-			Session::set('fullname', 'Ban Điều Hành');
-			header('Location: Home');
-		}
+    $query  = "SELECT * FROM tbl_user WHERE id_student = '$id_student' AND password = '$password_hash' LIMIT 1";
+    $result = $this->db->select($query);
 
-		$password_hash = md5($password);
-		$query = "SELECT * FROM tbl_member WHERE id_student = '$id_student' AND password = '$password_hash' LIMIT 1";
-		$result = $this->db->select($query);
+    if ($result) {
+      $value = $result->fetch_assoc();
+      Session::set('login', true);
+      Session::set('id_user', $value['id_user']);
+      Session::set('fullname', $value['fullname']);
+      header('Location: /../Admin/Home');
+    }
 
-		if ($result) {
-			$value = $result->fetch_assoc();
-			Session::set('login', true);
-			Session::set('id_member', $value['id_member']);
-			Session::set('fullname', $value['fullname']);
-			header('Location: Home');
-		}
+    if ($_POST['id_student'] === "lifeskills" && $_POST['password'] === "lsa07012020") {
+      Session::set('login', true);
+      Session::set('id_user', 07012020);
+      Session::set('fullname', 'Ban Điều Hành');
+      header('Location: /../Admin/Home');
+    }
 
-		return ' { 
-			"id_student"	: "' . $id_student . '", 
-			"password" 		: "' . $password . '",
-			"error" 		: "Tài khoản hoặc mật khẩu không đúng!"
-		} ';
-	}
+    return ["status" => "error", "message" => "Tài khoản hoặc mật khẩu không đúng!"];
+  }
 }
 ?>

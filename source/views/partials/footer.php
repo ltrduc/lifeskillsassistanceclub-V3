@@ -1,6 +1,6 @@
 <footer class="main-footer">
   <div class="footer-right">
-    <a class="font-weight-bold" href="https://www.facebook.com/lsa.lifeskillsassistanceclub">Life Skills Assistance Club</a></a>
+    <a class="font-weight-bold" href="https://www.facebook.com/lsa.lifeskillsassistanceclub">@lsa.lifeskillsassistanceclub · Cộng đồng</a></a>
   </div>
   <div class="footer-right">
   </div>

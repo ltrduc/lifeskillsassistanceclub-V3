@@ -36,6 +36,7 @@ class Session
         self::init();
         if (self::get("login") == false) {
             self::destroy();
+            header('Location: Auth/Login');
         }
     }
 
@@ -43,14 +44,14 @@ class Session
     {
         self::init();
         if (self::get("login") == true) {
-            header('Location: Admin/Home');
+            header('Location: /../Admin/Home');
         }
     }
 
     public static function destroy()
     {
         session_destroy();
-        header('Location: ../login.php');
+        header('Location: /../Auth/Login');
     }
 }
 ?>
