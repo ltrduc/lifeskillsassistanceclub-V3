@@ -1,6 +1,6 @@
 <?php
-	$uri = (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) ? 'https://' : 'http://';
-	$uri .= $_SERVER['HTTP_HOST'];
-	header('Location: '.$uri.'/admin/');
-	exit;
+// include '../lib/session.php';
+// Session::checkSession();
+require_once "./source/Bridge.php";
+$myApp = new App();
 ?>
