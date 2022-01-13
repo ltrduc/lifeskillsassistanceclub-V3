@@ -1,30 +1,3 @@
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  if (isset($_POST['addMember'])) {
-    $id_student   = $_POST['id_student'];
-    $fullname     = $_POST['fullname'];
-    $id_team      = $_POST['id_team'];
-    $check_Member = $Personnel->setMember($id_student, $fullname, $id_team);
-  }
-
-  if (isset($_POST['deleteMember'])) {
-    $id_user      = $_POST['id_user'];
-    $check_Member = $Personnel->deletePersonnel($id_user);
-  }
-
-  if (isset($_POST['editMember'])) {
-    $id_user      = $_POST['id_user'];
-    $id_student   = $_POST['id_student'];
-    $fullname     = $_POST['fullname'];
-    $check_Member = $Personnel->eidtPersonnel($id_user, $id_student, $fullname);
-  }
-
-  if (isset($check_Member)) {
-    $dataMessage = json_decode($check_Member);
-  }
-}
-?>
-
 <!-- Main Content -->
 <div class="main-content">
   <section class="section mb-3">
@@ -55,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <h4>DANH SÁCH THÀNH VIÊN</h4>
               <div class="card-header-action">
                 <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addMember">Thêm thành viên</a>
-                <a href="DetailedMember" class="btn btn-success">Danh sách chi tiết</a>
+                <a href="Admin/DetailedMember" class="btn btn-success">Danh sách chi tiết</a>
               </div>
             </div>
 
@@ -73,25 +46,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </tr>
                   </thead>
                   <tbody>
-                    <?php
-                    $getMember = $Personnel->getMember();
-                    $i = 1;
-                    if ($getMember) {
-                      while ($value = $getMember->fetch_assoc()) {
+                    <?php $i = 1;
+                    while ($value = $data['ListMember']->fetch_assoc()) {
                     ?>
-                        <tr>
-                          <td><?php echo $i++; ?></td>
-                          <td><?php echo $value['id_student'] ?></td>
-                          <td><?php echo $value['fullname'] ?></td>
-                          <td><?php echo $value['team'] ?></td>
-                          <td><?php echo $value['phone'] ?></td>
-                          <td>
-                            <a href="#" class="btn btn-sm btn-primary" onclick="editMember('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>','<?php echo $value['team'] ?>')" data-toggle="modal" data-target="#editMember"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
-                            <a href="#" class="btn btn-sm btn-danger" onclick="deleteMember('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#deleteMember"><i class="fas fa-trash"></i> Xóa </a>
-                          </td>
-                        </tr>
-                    <?php }
-                    } ?>
+                      <tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $value['id_student']; ?></td>
+                        <td><?php echo $value['fullname']; ?></td>
+                        <td><?php echo $value['team']; ?></td>
+                        <td><?php echo $value['phone']; ?></td>
+                        <td>
+                          <a href="#" class="btn btn-sm btn-primary" onclick="editMember('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>','<?php echo $value['team'] ?>')" data-toggle="modal" data-target="#editMember"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
+                          <a href="#" class="btn btn-sm btn-danger" onclick="deleteMember('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#deleteMember"><i class="fas fa-trash"></i> Xóa </a>
+                        </td>
+                      </tr>
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>
@@ -113,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </button>
         </div>
         <div class="modal-body">
-          <form action="Member" method="post">
+          <form action="Admin/Member" method="post">
             <div class="form-group">
               <label>Họ và tên</label>
               <div class="input-group">
@@ -146,15 +115,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
                 <select class="form-control selectric" name="id_team">
                   <option value="" class="font-weight-bold">Chọn ban hoạt động</option>
-                  <?php
-                  $getTeam = $Team->getTeam();
-                  $i = 1;
-                  if ($getTeam) {
-                    while ($value = $getTeam->fetch_assoc()) {
-                  ?>
-                      <option value="<?php echo $value['id_team']; ?>"><?php echo $value['name']; ?></option>
-                  <?php }
-                  } ?>
+                  <?php while ($value = $data['ListTeam']->fetch_assoc()) { ?>
+                    <option value="<?php echo $value['id_team']; ?>"><?php echo $value['name']; ?></option>
+                  <?php } ?>
                 </select>
               </div>
             </div>
@@ -169,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <div class="modal fade" id="deleteMember">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <form action="Member" method="post">
+        <form action="Admin/Member" method="post">
           <input type="hidden" id="delete-id_user" name="id_user">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">XÓA THÀNH VIÊN</h5>
@@ -198,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </button>
         </div>
         <div class="modal-body">
-          <form action="Member" method="post">
+          <form action="Admin/Member" method="post">
             <input type="hidden" id="edit-id_user" name="id_user">
             <div class="form-group">
               <label>Mã số sinh viên</label>

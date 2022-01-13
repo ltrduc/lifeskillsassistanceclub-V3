@@ -44,23 +44,19 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php
-                    $getMember = $Personnel->getMember();
-                    $i = 1;
-                    if ($getMember) {
-                      while ($value = $getMember->fetch_assoc()) {
+                    <?php $i = 1;
+                    while ($value = $data['ListMember']->fetch_assoc()) {
                     ?>
-                        <tr>
-                          <td><?php echo $i++; ?></td>
-                          <td><?php echo $value['id_student'] ?></td>
-                          <td><?php echo $value['fullname'] ?></td>
-                          <td><?php echo $fm->formatDate($value['birthday']) ?></td>
-                          <td><a href="<?php echo $value['facebook'] ?>"><?php echo $value['fullname'] ?></a></td>
-                          <td><?php echo $value['team'] ?></td>
-                          <td><?php echo $value['phone'] ?></td>
-                        </tr>
-                    <?php }
-                    } ?>
+                      <tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $value['id_student'] ?></td>
+                        <td><?php echo $value['fullname'] ?></td>
+                        <td><?php echo $value['birthday'] ?></td>
+                        <td><a href="<?php echo $value['facebook'] ?>"><?php echo $value['fullname'] ?></a></td>
+                        <td><?php echo $value['team'] ?></td>
+                        <td><?php echo $value['phone'] ?></td>
+                      </tr>
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>
@@ -70,3 +66,4 @@
       </div>
     </div>
   </section>
+</div>

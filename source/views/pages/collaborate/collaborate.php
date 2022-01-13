@@ -1,29 +1,3 @@
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  if (isset($_POST['addCollaborate'])) {
-    $id_student         = $_POST['id_student'];
-    $fullname           = $_POST['fullname'];
-    $check_Collaborate  = $Personnel->setCollaborate($id_student, $fullname);
-  }
-
-  if (isset($_POST['deleteCollaborate'])) {
-    $id_user            = $_POST['id_user'];
-    $check_Collaborate  = $Personnel->deletePersonnel($id_user);
-  }
-
-  if (isset($_POST['editCollaborate'])) {
-    $id_user            = $_POST['id_user'];
-    $id_student         = $_POST['id_student'];
-    $fullname           = $_POST['fullname'];
-    $check_Collaborate  = $Personnel->eidtPersonnel($id_user, $id_student, $fullname);
-  }
-
-  if (isset($check_Collaborate)) {
-    $dataMessage = json_decode($check_Collaborate);
-  }
-}
-?>
-
 <!-- Main Content -->
 <div class="main-content">
   <section class="section mb-3">
@@ -54,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <h4>DANH SÁCH CỘNG TÁC VIÊN</h4>
               <div class="card-header-action">
                 <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addCollaborate">Thêm cộng tác viên</a>
-                <a href="DetailedCollaborate" class="btn btn-success">Danh sách chi tiết</a>
+                <a href="Admin/DetailedCollaborate" class="btn btn-success">Danh sách chi tiết</a>
               </div>
             </div>
 
@@ -71,24 +45,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </tr>
                   </thead>
                   <tbody>
-                    <?php
-                    $getCollaborate = $Personnel->getCollaborate();
-                    $i = 1;
-                    if ($getCollaborate) {
-                      while ($value = $getCollaborate->fetch_assoc()) {
+                    <?php $i = 1;
+                    while ($value = $data['ListCollaborate']->fetch_assoc()) {
                     ?>
-                        <tr>
-                          <td><?php echo $i++; ?></td>
-                          <td><?php echo $value['id_student'] ?></td>
-                          <td><?php echo $value['fullname'] ?></td>
-                          <td><?php echo $value['phone'] ?></td>
-                          <td>
-                            <a href="#" class="btn btn-sm btn-primary" onclick="editCollaborate('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#editCollaborate"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
-                            <a href="#" class="btn btn-sm btn-danger" onclick="deleteCollaborate('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#deleteCollaborate"><i class="fas fa-trash"></i> Xóa </a>
-                          </td>
-                        </tr>
-                    <?php }
-                    } ?>
+                      <tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $value['id_student'] ?></td>
+                        <td><?php echo $value['fullname'] ?></td>
+                        <td><?php echo $value['phone'] ?></td>
+                        <td>
+                          <a href="#" class="btn btn-sm btn-primary" onclick="editCollaborate('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#editCollaborate"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
+                          <a href="#" class="btn btn-sm btn-danger" onclick="deleteCollaborate('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#deleteCollaborate"><i class="fas fa-trash"></i> Xóa </a>
+                        </td>
+                      </tr>
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>
@@ -110,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </button>
         </div>
         <div class="modal-body">
-          <form action="Collaborate" method="post">
+          <form action="Admin/Collaborate" method="post">
             <div class="form-group">
               <label>Họ và tên</label>
               <div class="input-group">
@@ -155,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <div class="modal fade" id="deleteCollaborate">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <form action="Collaborate" method="post">
+        <form action="Admin/Collaborate" method="post">
           <input type="hidden" id="delete-id_user" name="id_user">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">XÓA CỘNG TÁC VIÊN</h5>
@@ -184,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </button>
         </div>
         <div class="modal-body">
-          <form action="Collaborate" method="post">
+          <form action="Admin/Collaborate" method="post">
             <input type="hidden" id="edit-id_user" name="id_user">
             <div class="form-group">
               <label>Mã số sinh viên</label>

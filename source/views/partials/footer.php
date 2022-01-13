@@ -35,7 +35,7 @@
   DisplayReset();
 
   function showMessage() {
-    <?php if ($data['Notification'] > 0) { ?>
+    <?php if (count($data['Notification']) > 0) { ?>
       iziToast.<?php echo $data['Notification']['status'] ?>({
         message: "<?php echo $data['Notification']['message'] ?>",
         position: "topRight"

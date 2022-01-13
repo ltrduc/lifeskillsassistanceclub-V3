@@ -5,6 +5,12 @@ function DisplayReset() {
   }
 }
 
+// Năm học
+function deleteShoolYear(id_schoolyear, name) {
+  document.getElementById('delete-info-schoolyear').innerHTML = name;
+  document.getElementById("delete-id_schoolyear").value = id_schoolyear;
+}
+
 // Ban điều hành
 function deleteExecutive(id_executive, name) {
   document.getElementById('delete-info-executive').innerHTML = name;

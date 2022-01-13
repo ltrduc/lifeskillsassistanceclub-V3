@@ -62,6 +62,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-md-8">
           <div class="card">
             <div class="card-header">
@@ -81,14 +82,21 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>51900040</td>
-                      <td>Lê Trí Đức</td>
-                      <td class="text-center"><input type="radio" name="attendance[0]" value="Present"></td>
-                      <td class="text-center"><input type="radio" name="attendance[0]" value="Late"></td>
-                      <td class="text-center"><input type="radio" name="attendance[0]" value="Absent"></td>
-                    </tr>
+                    <?php
+                    $counter = 0;
+                    $i = 1;
+                    while ($value = $data['ListPersonnel']->fetch_assoc()) {
+                    ?>
+                      <tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $value['id_student']; ?><input type="hidden" name="id_user[<?php echo $counter ?>]" value="<?php echo $value['id_user']; ?>"></td>
+                        <td><?php echo $value['fullname']; ?></td>
+                        <td class="text-center"><input type="radio" name="attendance[<?php echo $counter ?>]" value="Present"></td>
+                        <td class="text-center"><input type="radio" name="attendance[<?php echo $counter ?>]" value="Late"></td>
+                        <td class="text-center"><input type="radio" name="attendance[<?php echo $counter ?>]" value="Absent"></td>
+                      </tr>
+                    <?php $counter++;
+                    } ?>
                   </tbody>
                 </table>
               </div>

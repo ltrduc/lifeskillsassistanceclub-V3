@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 12, 2022 lúc 07:59 PM
+-- Thời gian đã tạo: Th1 13, 2022 lúc 11:57 AM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.0.14
 
@@ -20,6 +20,36 @@ SET time_zone = "+00:00";
 --
 -- Cơ sở dữ liệu: `website`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_attendance`
+--
+
+CREATE TABLE `tbl_attendance` (
+  `id` int(255) NOT NULL,
+  `id_user` int(255) NOT NULL,
+  `id_schoolyear` int(255) NOT NULL,
+  `semester` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `date` date NOT NULL,
+  `shift` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `attendance` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_attendance`
+--
+
+INSERT INTO `tbl_attendance` (`id`, `id_user`, `id_schoolyear`, `semester`, `date`, `shift`, `attendance`) VALUES
+(1, 1, 6, 'Học kỳ 1', '2022-01-13', 'Ca 1', 'Present'),
+(2, 14, 6, 'Học kỳ 1', '2022-01-13', 'Ca 1', 'Present'),
+(3, 1, 6, 'Học kỳ 1', '2022-01-13', 'Ca 2', 'Present'),
+(4, 2, 6, 'Học kỳ 1', '2022-01-13', 'Ca 2', 'Present'),
+(5, 11, 6, 'Học kỳ 1', '2022-01-13', 'Ca 2', 'Present'),
+(6, 4, 6, 'Học kỳ 1', '2022-01-13', 'Ca 3', 'Present'),
+(7, 11, 6, 'Học kỳ 1', '2022-01-13', 'Ca 3', 'Present'),
+(8, 1, 6, 'Học kỳ 1', '2022-01-13', 'Ca 4', 'Present');
 
 -- --------------------------------------------------------
 
@@ -125,7 +155,7 @@ CREATE TABLE `tbl_recruitment` (
   `birthday` date NOT NULL,
   `per_email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `stu_email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `phone` int(11) NOT NULL,
+  `phone` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `facebook` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `id_team` int(255) NOT NULL,
   `resolution` int(1) NOT NULL,
@@ -136,6 +166,38 @@ CREATE TABLE `tbl_recruitment` (
   `content5` text COLLATE utf8_unicode_ci NOT NULL,
   `content6` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_recruitment`
+--
+
+INSERT INTO `tbl_recruitment` (`id_recruitment`, `fullname`, `id_student`, `faculty`, `birthday`, `per_email`, `stu_email`, `phone`, `facebook`, `id_team`, `resolution`, `content1`, `content2`, `content3`, `content4`, `content5`, `content6`) VALUES
+(1, 'Nguyễn Văn Hậu', '51900001', 'Công nghệ thông tin', '2001-01-09', 'nguyenvanhau@gmail.com', '51900001@student.tdtu.edu.vn', '968707558', 'https://www.facebook.com/ltrduc/', 1, 1, 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.'),
+(2, 'Lê Văn Thành', '51900002', 'Công nghệ thông tin', '2001-01-09', 'levanthanh@gmail.com', '51900002@student.tdtu.edu.vn', '968707555', 'https://www.facebook.com/ltrduc/', 2, 1, 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.'),
+(3, 'Trịnh Duy Khánh', '01900002', 'Khoa ngoại ngữ', '2001-01-09', 'trinhduykhanh@gmail.com', '01900002@student.tdtu.edu.vn', '931707555', 'https://www.facebook.com/ltrduc/', 3, 1, 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư. Những người khác dùng thiết bị này sẽ không nhìn thấy hoạt động của bạn. Tuy nhiên, hệ thống sẽ lưu các tệp đã tải xuống, dấu trang và các mục có trong danh sách đọc.');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_schoolyear`
+--
+
+CREATE TABLE `tbl_schoolyear` (
+  `id_schoolyear` int(255) NOT NULL,
+  `schoolyear` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_schoolyear`
+--
+
+INSERT INTO `tbl_schoolyear` (`id_schoolyear`, `schoolyear`) VALUES
+(1, '2017-2018'),
+(2, '2018-2019'),
+(3, '2019-2020'),
+(4, '2020-2021'),
+(5, '2021-2022'),
+(6, '2022-2023');
 
 -- --------------------------------------------------------
 
@@ -204,6 +266,14 @@ INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthd
 --
 
 --
+-- Chỉ mục cho bảng `tbl_attendance`
+--
+ALTER TABLE `tbl_attendance`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_tbl_attendance_id_user` (`id_user`),
+  ADD KEY `fk_tbl_attendance_id_schoolyear` (`id_schoolyear`);
+
+--
 -- Chỉ mục cho bảng `tbl_decentralization`
 --
 ALTER TABLE `tbl_decentralization`
@@ -232,6 +302,12 @@ ALTER TABLE `tbl_recruitment`
   ADD KEY `fk_tbl_recrutiment_id_team` (`id_team`);
 
 --
+-- Chỉ mục cho bảng `tbl_schoolyear`
+--
+ALTER TABLE `tbl_schoolyear`
+  ADD PRIMARY KEY (`id_schoolyear`);
+
+--
 -- Chỉ mục cho bảng `tbl_team`
 --
 ALTER TABLE `tbl_team`
@@ -247,6 +323,12 @@ ALTER TABLE `tbl_user`
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_attendance`
+--
+ALTER TABLE `tbl_attendance`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_decentralization`
@@ -270,7 +352,13 @@ ALTER TABLE `tbl_position`
 -- AUTO_INCREMENT cho bảng `tbl_recruitment`
 --
 ALTER TABLE `tbl_recruitment`
-  MODIFY `id_recruitment` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_recruitment` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_schoolyear`
+--
+ALTER TABLE `tbl_schoolyear`
+  MODIFY `id_schoolyear` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_team`
@@ -287,6 +375,13 @@ ALTER TABLE `tbl_user`
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
+
+--
+-- Các ràng buộc cho bảng `tbl_attendance`
+--
+ALTER TABLE `tbl_attendance`
+  ADD CONSTRAINT `fk_tbl_attendance_id_schoolyear` FOREIGN KEY (`id_schoolyear`) REFERENCES `tbl_schoolyear` (`id_schoolyear`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_tbl_attendance_id_user` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `tbl_decentralization`

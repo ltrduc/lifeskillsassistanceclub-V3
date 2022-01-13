@@ -7,6 +7,7 @@ class Admin extends Controller
   private $Personnel;
   private $Position;
   private $Team;
+  private $SchoolYear;
 
   function __construct()
   {
@@ -16,11 +17,13 @@ class Admin extends Controller
     $this->Position         = $this->model("Position");
     $this->Team             = $this->model("Team");
     $this->Decentralization = $this->model("Decentralization");
+    $this->SchoolYear       = $this->model("SchoolYear");
   }
 
   // Trang chủ
   public function Home()
   {
+    $Notification = [];
     $this->view("layout", [
       "page"                  => "home/dashboard",
       "CountPost"             => $this->Dashboard->Post(),
@@ -28,36 +31,163 @@ class Admin extends Controller
       "CountMember"           => $this->Dashboard->Member(),
       "CountAdministration"   => $this->Dashboard->Administration(),
       "CountPersonnel"        => $this->Dashboard->Personnel(),
+      "Notification"          => $Notification,
     ]);
   }
 
   // // Quản lý buổi trực
   public function Attendance()
   {
+    $Notification = [];
     $this->view("layout", [
-      "page" => "attendance/attendance",
+      "page"          => "attendance/attendance",
+      "ListPersonnel" => $this->Personnel->getPersonnel(),
+      "Notification"  => $Notification,
+    ]);
+  }
+
+  // Quản lý khóa học
+  public function SchoolYear()
+  {
+    $Notification = [];
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (isset($_POST['addSchoolYear'])) {
+        $schoolyear         = $_POST['schoolyear'];
+        $SchoolYear_Check   = $this->SchoolYear->setSchoolYear($schoolyear);
+      }
+      if (isset($_POST['deleteSchoolYear'])) {
+        $id_schoolyear      = $_POST['id_schoolyear'];
+        $SchoolYear_Check   = $this->SchoolYear->deleteSchoolYear($id_schoolyear);
+      }
+      if (isset($SchoolYear_Check)) $Notification = $SchoolYear_Check;
+    }
+
+    $this->view("layout", [
+      "page"            => "school-year/school-year",
+      "ListSchoolYear"  => $this->SchoolYear->getSchoolYear(),
+      "Notification"    => $Notification,
     ]);
   }
 
   // Thống kê buổi trực
   public function Statistics()
   {
+    $Notification = [];
     $this->view("layout", [
-      "page" => "attendance-statistics/statistics",
+      "page"          => "attendance-statistics/statistics",
+      "Notification"  => $Notification,
     ]);
   }
 
   public function GeneralStatistics()
   {
+    $Notification = [];
     $this->view("layout", [
-      "page" => "attendance-statistics/general",
+      "page"          => "attendance-statistics/general",
+      "Notification"  => $Notification,
     ]);
   }
 
   public function DetailedStatistics()
   {
+    $Notification = [];
     $this->view("layout", [
-      "page" => "attendance-statistics/detailed",
+      "page"          => "attendance-statistics/detailed",
+      "Notification"  => $Notification,
+    ]);
+  }
+
+  // Quản lý nhân sự
+  public function Member()
+  {
+    $Notification = [];
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (isset($_POST['addMember'])) {
+        $id_student   = $_POST['id_student'];
+        $fullname     = $_POST['fullname'];
+        $id_team      = $_POST['id_team'];
+        $Member_check = $this->Personnel->setMember($id_student, $fullname, $id_team);
+      }
+      if (isset($_POST['deleteMember'])) {
+        $id_user      = $_POST['id_user'];
+        $Member_check = $this->Personnel->deletePersonnel($id_user);
+      }
+      if (isset($_POST['editMember'])) {
+        $id_user      = $_POST['id_user'];
+        $id_student   = $_POST['id_student'];
+        $fullname     = $_POST['fullname'];
+        $Member_check = $this->Personnel->eidtPersonnel($id_user, $id_student, $fullname);
+      }
+      if (isset($Member_check)) $Notification = $Member_check;
+    }
+
+    $this->view("layout", [
+      "page"          => "member/member",
+      "ListMember"    => $this->Personnel->getMember(),
+      "ListTeam"      => $this->Team->getTeam(),
+      "Notification"  => $Notification,
+    ]);
+  }
+
+  public function DetailedMember()
+  {
+    $Notification = [];
+    $this->view("layout", [
+      "page"          => "member/detailed",
+      "ListMember"    => $this->Personnel->getMember(),
+      "Notification"  => $Notification,
+    ]);
+  }
+
+  public function Collaborate()
+  {
+    $Notification = [];
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (isset($_POST['addCollaborate'])) {
+        $id_student         = $_POST['id_student'];
+        $fullname           = $_POST['fullname'];
+        $Collaborate_check  = $this->Personnel->setCollaborate($id_student, $fullname);
+      }
+      if (isset($_POST['deleteCollaborate'])) {
+        $id_user            = $_POST['id_user'];
+        $Collaborate_check  = $this->Personnel->deletePersonnel($id_user);
+      }
+      if (isset($_POST['editCollaborate'])) {
+        $id_user            = $_POST['id_user'];
+        $id_student         = $_POST['id_student'];
+        $fullname           = $_POST['fullname'];
+        $Collaborate_check  = $this->Personnel->eidtPersonnel($id_user, $id_student, $fullname);
+      }
+      if (isset($Collaborate_check)) $Notification = $Collaborate_check;
+    }
+
+    $this->view("layout", [
+      "page"              => "collaborate/collaborate",
+      "ListCollaborate"   => $this->Personnel->getCollaborate(),
+      "Notification"      => $Notification,
+    ]);
+  }
+
+  public function DetailedCollaborate()
+  {
+    $Notification = [];
+    $this->view("layout", [
+      "page"              => "collaborate/detailed",
+      "ListCollaborate"   => $this->Personnel->getCollaborate(),
+      "Notification"      => $Notification,
+    ]);
+  }
+
+  public function RecruitMember()
+  {
+    $Notification = [];
+    $this->view("layout", [
+      "page"              => "recruit-member/recruit",
+      "ListRecruitment"   => $this->Personnel->getRecruitment(),
+      "Notification"      => $Notification,
     ]);
   }
 
