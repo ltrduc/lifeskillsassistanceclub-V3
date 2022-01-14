@@ -8,6 +8,7 @@ class Admin extends Controller
   private $Position;
   private $Team;
   private $SchoolYear;
+  private $Recruitment;
 
   function __construct()
   {
@@ -18,6 +19,7 @@ class Admin extends Controller
     $this->Team             = $this->model("Team");
     $this->Decentralization = $this->model("Decentralization");
     $this->SchoolYear       = $this->model("SchoolYear");
+    $this->Recruitment      = $this->model("Recruitment");
   }
 
   // Trang chủ
@@ -50,15 +52,14 @@ class Admin extends Controller
   public function SchoolYear()
   {
     $Notification = [];
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addSchoolYear'])) {
-        $schoolyear         = $_POST['schoolyear'];
-        $SchoolYear_Check   = $this->SchoolYear->setSchoolYear($schoolyear);
+        $schoolyear       = $_POST['schoolyear'];
+        $SchoolYear_Check = $this->SchoolYear->setSchoolYear($schoolyear);
       }
       if (isset($_POST['deleteSchoolYear'])) {
-        $id_schoolyear      = $_POST['id_schoolyear'];
-        $SchoolYear_Check   = $this->SchoolYear->deleteSchoolYear($id_schoolyear);
+        $id_schoolyear    = $_POST['id_schoolyear'];
+        $SchoolYear_Check = $this->SchoolYear->deleteSchoolYear($id_schoolyear);
       }
       if (isset($SchoolYear_Check)) $Notification = $SchoolYear_Check;
     }
@@ -102,7 +103,6 @@ class Admin extends Controller
   public function Member()
   {
     $Notification = [];
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addMember'])) {
         $id_student   = $_POST['id_student'];
@@ -144,7 +144,6 @@ class Admin extends Controller
   public function Collaborate()
   {
     $Notification = [];
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addCollaborate'])) {
         $id_student         = $_POST['id_student'];
@@ -184,9 +183,14 @@ class Admin extends Controller
   public function RecruitMember()
   {
     $Notification = [];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $RecruitMember_check  = $this->Recruitment->deleteRecruitment();
+      if (isset($RecruitMember_check)) $Notification = $RecruitMember_check;
+    }
+
     $this->view("layout", [
       "page"              => "recruit-member/recruit",
-      "ListRecruitment"   => $this->Personnel->getRecruitment(),
+      "ListRecruitment"   => $this->Recruitment->getRecruitment(),
       "Notification"      => $Notification,
     ]);
   }
@@ -221,7 +225,6 @@ class Admin extends Controller
   public function Team()
   {
     $Notification = [];
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addTeam'])) {
         $name           = $_POST['name'];
@@ -269,7 +272,6 @@ class Admin extends Controller
   public function Position()
   {
     $Notification = [];
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addPosition'])) {
         $name           = $_POST['name'];
@@ -318,7 +320,6 @@ class Admin extends Controller
   public function Decentralization()
   {
     $Notification = [];
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['admin'])) {
         $id_decentralization    = $_POST['id_decentralization'];
@@ -355,7 +356,6 @@ class Admin extends Controller
   public function ResetPassword()
   {
     $Notification = [];
-
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $id_user      = $_POST['id_user'];
       $Member_Check = $this->Personnel->resetPassword($id_user);

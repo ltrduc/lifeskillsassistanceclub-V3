@@ -45,20 +45,22 @@
           <div class="section-body">
             <h2 class="section-title mt-0">DANH SÁCH NĂM HỌC</h2>
             <div class="activities">
-              <?php while ($value = $data['ListSchoolYear']->fetch_assoc()) { ?>
-                <div class="activity">
-                  <div class="activity-icon bg-primary text-white">
-                    <i class="fas fa-arrows-alt"></i>
-                  </div>
-                  <div class="activity-detail">
-                    <div class="mb-2">
-                      <span class="text-job" style="font-size: 11px;">Năm học: <span class="text-success"><?php echo $value['schoolyear'] ?></span></span>
-                      <span class="bullet"></span>
-                      <a class="text-danger" style="font-size: 11px;" href="#" onclick="deleteShoolYear('<?php echo $value['id_schoolyear']; ?>', '<?php echo $value['schoolyear']; ?>')" data-toggle="modal" data-target="#deleteShoolYear">Xóa</a>
+              <?php if ($data['ListSchoolYear']) {
+                while ($value = $data['ListSchoolYear']->fetch_assoc()) { ?>
+                  <div class="activity">
+                    <div class="activity-icon bg-primary text-white">
+                      <i class="fas fa-arrows-alt"></i>
+                    </div>
+                    <div class="activity-detail">
+                      <div class="mb-2">
+                        <span class="text-job" style="font-size: 11px;">Năm học: <span class="text-success"><?php echo $value['schoolyear'] ?></span></span>
+                        <span class="bullet"></span>
+                        <a class="text-danger" style="font-size: 11px;" href="#" onclick="deleteShoolYear('<?php echo $value['id_schoolyear']; ?>', '<?php echo $value['schoolyear']; ?>')" data-toggle="modal" data-target="#deleteShoolYear">Xóa</a>
+                      </div>
                     </div>
                   </div>
-                </div>
-              <?php } ?>
+              <?php }
+              } ?>
             </div>
           </div>
         </div>

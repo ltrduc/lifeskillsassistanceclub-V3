@@ -47,20 +47,22 @@
                   </thead>
                   <tbody>
                     <?php $i = 1;
-                    while ($value = $data['ListMember']->fetch_assoc()) {
+                    if ($data['ListMember']) {
+                      while ($value = $data['ListMember']->fetch_assoc()) {
                     ?>
-                      <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $value['id_student']; ?></td>
-                        <td><?php echo $value['fullname']; ?></td>
-                        <td><?php echo $value['team']; ?></td>
-                        <td><?php echo $value['phone']; ?></td>
-                        <td>
-                          <a href="#" class="btn btn-sm btn-primary" onclick="editMember('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>','<?php echo $value['team'] ?>')" data-toggle="modal" data-target="#editMember"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
-                          <a href="#" class="btn btn-sm btn-danger" onclick="deleteMember('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#deleteMember"><i class="fas fa-trash"></i> Xóa </a>
-                        </td>
-                      </tr>
-                    <?php } ?>
+                        <tr>
+                          <td><?php echo $i++; ?></td>
+                          <td><?php echo $value['id_student']; ?></td>
+                          <td><?php echo $value['fullname']; ?></td>
+                          <td><?php echo $value['team']; ?></td>
+                          <td><?php echo $value['phone']; ?></td>
+                          <td>
+                            <a href="#" class="btn btn-sm btn-primary" onclick="editMember('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>','<?php echo $value['team'] ?>')" data-toggle="modal" data-target="#editMember"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
+                            <a href="#" class="btn btn-sm btn-danger" onclick="deleteMember('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#deleteMember"><i class="fas fa-trash"></i> Xóa </a>
+                          </td>
+                        </tr>
+                    <?php }
+                    } ?>
                   </tbody>
                 </table>
               </div>
@@ -115,9 +117,11 @@
                 </div>
                 <select class="form-control selectric" name="id_team">
                   <option value="" class="font-weight-bold">Chọn ban hoạt động</option>
-                  <?php while ($value = $data['ListTeam']->fetch_assoc()) { ?>
-                    <option value="<?php echo $value['id_team']; ?>"><?php echo $value['name']; ?></option>
-                  <?php } ?>
+                  <?php if ($data['ListMember']) {
+                    while ($value = $data['ListTeam']->fetch_assoc()) { ?>
+                      <option value="<?php echo $value['id_team']; ?>"><?php echo $value['name']; ?></option>
+                  <?php }
+                  } ?>
                 </select>
               </div>
             </div>

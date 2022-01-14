@@ -44,17 +44,18 @@
                   </thead>
                   <tbody>
                     <?php $i = 1;
-                    while ($value = $data['ListCollaborate']->fetch_assoc()) {
-                    ?>
-                      <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $value['id_student'] ?></td>
-                        <td><?php echo $value['fullname'] ?></td>
-                        <td><?php echo $value['birthday'] ?></td>
-                        <td><a href="<?php echo $value['facebook'] ?>"><?php echo $value['fullname'] ?></a></td>
-                        <td><?php echo $value['phone'] ?></td>
-                      </tr>
-                    <?php }  ?>
+                    if ($data['ListCollaborate']) {
+                      while ($value = $data['ListCollaborate']->fetch_assoc()) { ?>
+                        <tr>
+                          <td><?php echo $i++; ?></td>
+                          <td><?php echo $value['id_student'] ?></td>
+                          <td><?php echo $value['fullname'] ?></td>
+                          <td><?php echo $value['birthday'] ?></td>
+                          <td><a href="<?php echo $value['facebook'] ?>"><?php echo $value['fullname'] ?></a></td>
+                          <td><?php echo $value['phone'] ?></td>
+                        </tr>
+                    <?php }
+                    } ?>
                   </tbody>
                 </table>
               </div>

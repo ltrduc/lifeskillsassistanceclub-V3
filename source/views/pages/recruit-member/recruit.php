@@ -27,7 +27,7 @@
             <div class="card-header">
               <h4>DANH SÁCH TUYỂN THÀNH VIÊN</h4>
               <div class="card-header-action">
-                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deleteRecruit"><i class="fas fa-trash"></i> Xóa dữ liệu</a>
+                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deleteMember">Xóa tất cả dữ liệu</a>
               </div>
             </div>
 
@@ -53,24 +53,26 @@
                   </thead>
                   <tbody>
                     <?php $i = 1;
-                    while ($value = $data['ListRecruitment']->fetch_assoc()) {
+                    if ($data['ListRecruitment']) {
+                      while ($value = $data['ListRecruitment']->fetch_assoc()) {
                     ?>
-                      <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $value['id_student'] ?></td>
-                        <td><?php echo $value['fullname'] ?></td>
-                        <td><?php echo $value['birthday'] ?></td>
-                        <td><a href="<?php echo $value['facebook'] ?>"><?php echo $value['facebook'] ?></a></td>
-                        <td><?php echo $value['team'] ?></td>
-                        <td><?php echo $value['phone'] ?></td>
-                        <td><?php echo $value['content1'] ?></td>
-                        <td><?php echo $value['content2'] ?></td>
-                        <td><?php echo $value['content3'] ?></td>
-                        <td><?php echo $value['content4'] ?></td>
-                        <td><?php echo $value['content5'] ?></td>
-                        <td><?php echo $value['content6'] ?></td>
-                      </tr>
-                    <?php } ?>
+                        <tr>
+                          <td><?php echo $i++; ?></td>
+                          <td><?php echo $value['id_student'] ?></td>
+                          <td><?php echo $value['fullname'] ?></td>
+                          <td><?php echo $value['birthday'] ?></td>
+                          <td><a href="<?php echo $value['facebook'] ?>"><?php echo $value['facebook'] ?></a></td>
+                          <td><?php echo $value['team'] ?></td>
+                          <td><?php echo $value['phone'] ?></td>
+                          <td><?php echo $value['content1'] ?></td>
+                          <td><?php echo $value['content2'] ?></td>
+                          <td><?php echo $value['content3'] ?></td>
+                          <td><?php echo $value['content4'] ?></td>
+                          <td><?php echo $value['content5'] ?></td>
+                          <td><?php echo $value['content6'] ?></td>
+                        </tr>
+                    <?php }
+                    } ?>
                   </tbody>
                 </table>
               </div>
@@ -80,4 +82,25 @@
       </div>
     </div>
   </section>
+
+  <!-- Xóa danh sách tuyển thành viên -->
+  <div class="modal fade" id="deleteMember">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form action="Admin/RecruitMember" method="post">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">XÓA TẤT CẢ DỮ LIỆU</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Bạn có chắc chắn muốn <strong>xóa tất cả dữ liệu</strong>?</div>
+          <div class="modal-footer bg-whitesmoke br">
+            <button type="submit" name="deleteMember" class="btn btn-danger">Xóa dữ liệu</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

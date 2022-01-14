@@ -46,10 +46,12 @@
                   <select class="form-control selectric" name="id_team">
                     <option value="" class="font-weight-bold">Chọn ban hoạt động</option>
                     <?php $i = 1;
-                    while ($value = $data['ListTeam']->fetch_assoc()) {
+                    if ($data['ListTeam']) {
+                      while ($value = $data['ListTeam']->fetch_assoc()) {
                     ?>
-                      <option value="<?php echo $value['id_team']; ?>"><?php echo $value['name']; ?></option>
-                    <?php } ?>
+                        <option value="<?php echo $value['id_team']; ?>"><?php echo $value['name']; ?></option>
+                    <?php }
+                    } ?>
                   </select>
                 </div>
                 <div class="form-group text-right">
@@ -79,59 +81,61 @@
                   </thead>
                   <tbody>
                     <?php $i = 1;
-                    while ($value = $data['ListDecentralization']->fetch_assoc()) {
+                    if ($data['ListDecentralization']) {
+                      while ($value = $data['ListDecentralization']->fetch_assoc()) {
                     ?>
-                      <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $value['id_student'] ?></td>
-                        <td><?php echo $value['fullname'] ?></td>
-                        <td class="text-center">
-                          <form action="Admin/Decentralization" method="post">
-                            <?php if ($value['admin'] == 1) { ?>
-                              <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
-                              <button type="submit" name="admin" value="0" class="btn btn-sm btn-success btn-icon icon-left">
-                                <i class="fas fa-toggle-on"></i></span>
-                              </button>
-                            <?php } else { ?>
-                              <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
-                              <button type="submit" name="admin" value="1" class="btn btn-sm btn-danger btn-icon icon-left">
-                                <i class="fas fa-toggle-off"></i></span>
-                              </button>
-                            <?php } ?>
-                          </form>
-                        </td>
-                        <td class="text-center">
-                          <form action="Admin/Decentralization" method="post">
-                            <?php if ($value['attendance'] == 1) { ?>
-                              <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
-                              <button type="submit" name="attendance" value="0" class="btn btn-sm btn-success btn-icon icon-left">
-                                <i class="fas fa-toggle-on"></i></span>
-                              </button>
-                            <?php } else { ?>
-                              <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
-                              <button type="submit" name="attendance" value="1" class="btn btn-sm btn-danger btn-icon icon-left">
-                                <i class="fas fa-toggle-off"></i></span>
-                              </button>
-                            <?php } ?>
-                          </form>
-                        </td>
-                        <td class="text-center">
-                          <form action="Admin/Decentralization" method="post">
-                            <?php if ($value['post'] == 1) { ?>
-                              <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
-                              <button type="submit" name="post" value="0" class="btn btn-sm btn-success btn-icon icon-left">
-                                <i class="fas fa-toggle-on"></i></span>
-                              </button>
-                            <?php } else { ?>
-                              <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
-                              <button type="submit" name="post" value="1" class="btn btn-sm btn-danger btn-icon icon-left">
-                                <i class="fas fa-toggle-off"></i></span>
-                              </button>
-                            <?php } ?>
-                          </form>
-                        </td>
-                      </tr>
-                    <?php } ?>
+                        <tr>
+                          <td><?php echo $i++; ?></td>
+                          <td><?php echo $value['id_student'] ?></td>
+                          <td><?php echo $value['fullname'] ?></td>
+                          <td class="text-center">
+                            <form action="Admin/Decentralization" method="post">
+                              <?php if ($value['admin'] == 1) { ?>
+                                <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
+                                <button type="submit" name="admin" value="0" class="btn btn-sm btn-success btn-icon icon-left">
+                                  <i class="fas fa-toggle-on"></i></span>
+                                </button>
+                              <?php } else { ?>
+                                <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
+                                <button type="submit" name="admin" value="1" class="btn btn-sm btn-danger btn-icon icon-left">
+                                  <i class="fas fa-toggle-off"></i></span>
+                                </button>
+                              <?php } ?>
+                            </form>
+                          </td>
+                          <td class="text-center">
+                            <form action="Admin/Decentralization" method="post">
+                              <?php if ($value['attendance'] == 1) { ?>
+                                <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
+                                <button type="submit" name="attendance" value="0" class="btn btn-sm btn-success btn-icon icon-left">
+                                  <i class="fas fa-toggle-on"></i></span>
+                                </button>
+                              <?php } else { ?>
+                                <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
+                                <button type="submit" name="attendance" value="1" class="btn btn-sm btn-danger btn-icon icon-left">
+                                  <i class="fas fa-toggle-off"></i></span>
+                                </button>
+                              <?php } ?>
+                            </form>
+                          </td>
+                          <td class="text-center">
+                            <form action="Admin/Decentralization" method="post">
+                              <?php if ($value['post'] == 1) { ?>
+                                <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
+                                <button type="submit" name="post" value="0" class="btn btn-sm btn-success btn-icon icon-left">
+                                  <i class="fas fa-toggle-on"></i></span>
+                                </button>
+                              <?php } else { ?>
+                                <input type="hidden" style="width: 50px;" name="id_decentralization" value="<?php echo $value['id_decentralization'] ?>">
+                                <button type="submit" name="post" value="1" class="btn btn-sm btn-danger btn-icon icon-left">
+                                  <i class="fas fa-toggle-off"></i></span>
+                                </button>
+                              <?php } ?>
+                            </form>
+                          </td>
+                        </tr>
+                    <?php }
+                    } ?>
                   </tbody>
                 </table>
               </div>

@@ -34,10 +34,12 @@
                   <select class="form-control selectric" name="id_user">
                     <option value="" class="font-weight-bold">Chọn nhân sự</option>
                     <?php
-                    while ($value = $data['ListMember']->fetch_assoc()) {
+                    if ($data['ListMember']) {
+                      while ($value = $data['ListMember']->fetch_assoc()) {
                     ?>
-                      <option value="<?php echo $value['id_user'] ?>">[<?php echo $value['id_student'] ?>] <?php echo $value['fullname'] ?></option>
-                    <?php } ?>
+                        <option value="<?php echo $value['id_user'] ?>">[<?php echo $value['id_student'] ?>] <?php echo $value['fullname'] ?></option>
+                    <?php }
+                    } ?>
                   </select>
                 </div>
                 <div class="form-group">
@@ -45,10 +47,12 @@
                   <select class="form-control selectric" name="id_position">
                     <option value="" class="font-weight-bold">Chọn chức vụ</option>
                     <?php
-                    while ($value = $data['ListPosition']->fetch_assoc()) {
+                    if ($data['ListPosition']) {
+                      while ($value = $data['ListPosition']->fetch_assoc()) {
                     ?>
-                      <option value="<?php echo $value['id_position'] ?>"><?php echo $value['name'] ?></option>
-                    <?php } ?>
+                        <option value="<?php echo $value['id_position'] ?>"><?php echo $value['name'] ?></option>
+                    <?php }
+                    } ?>
                   </select>
                 </div>
                 <div class="form-group text-right">
@@ -78,18 +82,20 @@
                   </thead>
                   <tbody>
                     <?php $i = 1;
-                    while ($value = $data['ListExecutive']->fetch_assoc()) {
+                    if ($data['ListExecutive']) {
+                      while ($value = $data['ListExecutive']->fetch_assoc()) {
                     ?>
-                      <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $value['id_student']; ?></td>
-                        <td><?php echo $value['fullname']; ?></td>
-                        <td><?php echo $value['position']; ?></td>
-                        <td>
-                          <a href="#" class="btn btn-sm btn-danger" onclick="deleteExecutive('<?php echo $value['id_executive']; ?>', '<?php echo $value['fullname']; ?>')" data-toggle="modal" data-target="#deleteExecutive"><i class="fas fa-trash"></i> Xóa </a>
-                        </td>
-                      </tr>
-                    <?php } ?>
+                        <tr>
+                          <td><?php echo $i++; ?></td>
+                          <td><?php echo $value['id_student']; ?></td>
+                          <td><?php echo $value['fullname']; ?></td>
+                          <td><?php echo $value['position']; ?></td>
+                          <td>
+                            <a href="#" class="btn btn-sm btn-danger" onclick="deleteExecutive('<?php echo $value['id_executive']; ?>', '<?php echo $value['fullname']; ?>')" data-toggle="modal" data-target="#deleteExecutive"><i class="fas fa-trash"></i> Xóa </a>
+                          </td>
+                        </tr>
+                    <?php }
+                    } ?>
                   </tbody>
                 </table>
               </div>

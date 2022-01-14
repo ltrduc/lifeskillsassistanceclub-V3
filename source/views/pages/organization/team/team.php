@@ -33,23 +33,25 @@
             <div class="card-body">
               <ul class="list-unstyled list-unstyled-border list-unstyled-noborder">
                 <?php $i = 1;
-                while ($value = $data['ListTeam']->fetch_assoc()) { ?>
-                  <li class="media">
-                    <div class="media-body">
-                      <div class="media-title mb-1" style="text-transform: uppercase; color: brown;">
-                        [<?php echo $i++ ?>] <?php echo $value['name'] ?>
+                if ($data['ListTeam']) {
+                  while ($value = $data['ListTeam']->fetch_assoc()) { ?>
+                    <li class="media">
+                      <div class="media-body">
+                        <div class="media-title mb-1" style="text-transform: uppercase; color: brown;">
+                          [<?php echo $i++ ?>] <?php echo $value['name'] ?>
+                        </div>
+                        <div class="media-description text-dark">
+                          <?php echo $value['description']; ?>
+                        </div>
+                        <div class="media-links">
+                          <a href="Admin/EditTeam&id=<?php echo $value['id_team'] ?>">Chỉnh sửa</a>
+                          <div class="bullet"></div>
+                          <a href="#" class="text-danger" onclick="deleteTeam('<?php echo $value['id_team'] ?>', '<?php echo $value['name'] ?>');" data-toggle="modal" data-target="#deleteTeam">Xóa ban hoạt động</a>
+                        </div>
                       </div>
-                      <div class="media-description text-dark">
-                        <?php echo $value['description']; ?>
-                      </div>
-                      <div class="media-links">
-                        <a href="Admin/EditTeam&id=<?php echo $value['id_team'] ?>">Chỉnh sửa</a>
-                        <div class="bullet"></div>
-                        <a href="#" class="text-danger" onclick="deleteTeam('<?php echo $value['id_team'] ?>', '<?php echo $value['name'] ?>');" data-toggle="modal" data-target="#deleteTeam">Xóa ban hoạt động</a>
-                      </div>
-                    </div>
-                  </li>
-                <?php } ?>
+                    </li>
+                <?php }
+                } ?>
               </ul>
             </div>
           </div>

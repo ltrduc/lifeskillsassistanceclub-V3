@@ -41,17 +41,19 @@
                   </thead>
                   <tbody>
                     <?php $i = 1;
-                    while ($value = $data['ListPersonnel']->fetch_assoc()) {
+                    if ($data['ListPersonnel']) {
+                      while ($value = $data['ListPersonnel']->fetch_assoc()) {
                     ?>
-                      <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $value['id_student'] ?></td>
-                        <td><?php echo $value['fullname'] ?></td>
-                        <td class="text-center">
-                          <a href="#" class="btn btn-sm btn-danger" onclick="resetPassword('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#resetPassword"><i class="fas fa-trash"></i> Reset Password </a>
-                        </td>
-                      </tr>
-                    <?php } ?>
+                        <tr>
+                          <td><?php echo $i++; ?></td>
+                          <td><?php echo $value['id_student'] ?></td>
+                          <td><?php echo $value['fullname'] ?></td>
+                          <td class="text-center">
+                            <a href="#" class="btn btn-sm btn-danger" onclick="resetPassword('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#resetPassword"><i class="fas fa-trash"></i> Reset Password </a>
+                          </td>
+                        </tr>
+                    <?php }
+                    } ?>
                   </tbody>
                 </table>
               </div>
