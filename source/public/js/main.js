@@ -5,6 +5,18 @@ function DisplayReset() {
   }
 }
 
+// Thống kê
+function deleteStatistics(id_schoolyear, semester, schoolyear) {
+  document.getElementById('delete-info-schoolyear').innerHTML = schoolyear;
+  document.getElementById('delete-info-semester').innerHTML = semester;
+  document.getElementById("delete-id_schoolyear").value = id_schoolyear;
+  document.getElementById("delete-semester").value = semester;
+}
+
+function deleteDetailedStatistics(id_attendance, fullname) {
+  document.getElementById('delete-info-fullname').innerHTML = fullname;
+  document.getElementById("delete-id_attendance").value = id_attendance;
+}
 // Năm học
 function deleteShoolYear(id_schoolyear, name) {
   document.getElementById('delete-info-schoolyear').innerHTML = name;

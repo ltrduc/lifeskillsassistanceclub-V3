@@ -10,7 +10,10 @@
                 <ol class="breadcrumb bg-white m-0">
                   <li class="breadcrumb-item"><a href="Home"><i class="fas fa-home"></i>Trang chủ</a></li>
                   <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-chalkboard"></i> Thống kê buổi trực</li>
-                  <li class="breadcrumb-item active" aria-current="page"><i class="fab fa-squarespace"></i> Tổng quan <strong>Học kỳ 1|Năm học 2020-2021</strong></li>
+                  <?php if ($data['ListGeneralStatistics']) {
+                    $value = $data['ListGeneralStatistics']->fetch_assoc();
+                  } ?>
+                  <li class="breadcrumb-item active" aria-current="page"><i class="fab fa-squarespace"></i> Tổng quan <strong><?php echo $data['semester'] ?>|Năm học <?php echo $value['schoolyear'] ?></strong></li>
                 </ol>
               </nav>
             </div>
@@ -28,12 +31,12 @@
             <div class="card-header">
               <h4>DANH SÁCH TỔNG QUAN</h4>
               <div class="card-header-action">
-                <a href="Admin/DetailedStatistics&id=?" class="btn btn-primary btn-icon icon-right">Xem chi tiết <i class="fas fa-chevron-right"></i></a>
+                <a href="Admin/DetailedStatistics&id_schoolyear=<?php echo $data['id_schoolyear'] ?>&semester=<?php echo $data['semester'] ?>" class="btn btn-primary btn-icon icon-right">Xem chi tiết <i class="fas fa-chevron-right"></i></a>
               </div>
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-striped table-hover" id="table-1">
+                <table class="table table-striped table-hover" id="tableExport">
                   <thead>
                     <tr>
                       <th>#</th>
@@ -46,15 +49,20 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>51900040</td>
-                      <td>Lê Trí Đức</td>
-                      <td>Ban Hành chính</td>
-                      <td>1</td>
-                      <td>0</td>
-                      <td>0</td>
-                    </tr>
+                    <?php $i = 1;
+                    if ($data['ListGeneralStatistics']) {
+                      while ($value = $data['ListGeneralStatistics']->fetch_assoc()) { ?>
+                        <tr>
+                          <td><?php echo $i++; ?></td>
+                          <td><?php echo $value['id_student']; ?></td>
+                          <td><?php echo $value['fullname']; ?></td>
+                          <td><?php echo $value['team']; ?></td>
+                          <td><?php echo $value['Present']; ?></td>
+                          <td><?php echo $value['Late']; ?></td>
+                          <td><?php echo $value['Absent']; ?></td>
+                        </tr>
+                    <?php }
+                    } ?>
                   </tbody>
                 </table>
               </div>

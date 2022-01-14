@@ -10,6 +10,7 @@ class Admin extends Controller
   private $SchoolYear;
   private $Recruitment;
   private $Attendance;
+  private $Statistics;
 
   function __construct()
   {
@@ -22,6 +23,7 @@ class Admin extends Controller
     $this->SchoolYear       = $this->model("SchoolYear");
     $this->Recruitment      = $this->model("Recruitment");
     $this->Attendance       = $this->model("Attendance");
+    $this->Statistics       = $this->model("Statistics");
   }
 
   // Trang chủ
@@ -95,27 +97,59 @@ class Admin extends Controller
   public function Statistics()
   {
     $Notification = [];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $id_schoolyear  = $_POST['id_schoolyear'];
+      $semester       = $_POST['semester'];
+      $Notification   = $this->Statistics->deleteStatistics($id_schoolyear, $semester);
+    }
+
     $this->view("layout", [
-      "page"          => "attendance-statistics/statistics",
-      "Notification"  => $Notification,
+      "page"            => "attendance-statistics/statistics",
+      "ListStatistics"  =>  $this->Statistics->getStatistics(),
+      "Notification"    => $Notification,
     ]);
   }
 
   public function GeneralStatistics()
   {
-    $Notification = [];
+    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) {
+      header('Location: Statistics');
+    }
+
+    $Notification   = [];
+    $id_schoolyear  = $_GET['id_schoolyear'];
+    $semester       = $_GET['semester'];
+
     $this->view("layout", [
-      "page"          => "attendance-statistics/general",
-      "Notification"  => $Notification,
+      "page"                  => "attendance-statistics/general",
+      "id_schoolyear"         => $id_schoolyear,
+      "semester"              => $semester,
+      "ListGeneralStatistics" => $this->Statistics->getGeneralStatistics($id_schoolyear, $semester),
+      "Notification"          => $Notification,
     ]);
   }
 
   public function DetailedStatistics()
   {
-    $Notification = [];
+    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) {
+      header('Location: Statistics');
+    }
+
+    $Notification   = [];
+    $id_schoolyear  = $_GET['id_schoolyear'];
+    $semester       = $_GET['semester'];
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $id_attendance  = $_POST['id_attendance'];
+      $Notification   = $this->Statistics->deleteDetailedStatistics($id_attendance);
+    }
+
     $this->view("layout", [
-      "page"          => "attendance-statistics/detailed",
-      "Notification"  => $Notification,
+      "page"                    => "attendance-statistics/detailed",
+      "id_schoolyear"           => $id_schoolyear,
+      "semester"                => $semester,
+      "ListDetailedStatistics"  => $this->Statistics->getDetailedStatistics($id_schoolyear, $semester),
+      "Notification"            => $Notification,
     ]);
   }
 

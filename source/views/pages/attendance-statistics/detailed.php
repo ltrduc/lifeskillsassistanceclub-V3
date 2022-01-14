@@ -10,7 +10,10 @@
                 <ol class="breadcrumb bg-white m-0">
                   <li class="breadcrumb-item"><a href="Home"><i class="fas fa-home"></i>Trang chủ</a></li>
                   <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-chalkboard"></i> Thống kê buổi trực</li>
-                  <li class="breadcrumb-item active" aria-current="page"><i class="fab fa-squarespace"></i> Chi tiết <strong>Học kỳ 1|Năm học 2020-2021</strong></li>
+                  <?php if ($data['ListDetailedStatistics']) {
+                    $value = $data['ListDetailedStatistics']->fetch_assoc();
+                  } ?>
+                  <li class="breadcrumb-item active" aria-current="page"><i class="fab fa-squarespace"></i> Chi tiết <strong><?php echo $data['semester'] ?>|Năm học <?php echo $value['schoolyear'] ?></strong></li>
                 </ol>
               </nav>
             </div>
@@ -44,16 +47,23 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>51900040</td>
-                      <td>Lê Trí Đức</td>
-                      <td>Ban Hành chính</td>
-                      <td>2020-2021</td>
-                      <td>Học kỳ 1</td>
-                      <td>Ca1 : 2020-2021</td>
-                      <td><a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Xóa</a></td>
-                    </tr>
+                    <?php $i = 1;
+                    if ($data['ListDetailedStatistics']) {
+                      while ($value = $data['ListDetailedStatistics']->fetch_assoc()) { ?>
+                        <tr>
+                          <td><?php echo $i++; ?></td>
+                          <td><?php echo $value['id_student']; ?></td>
+                          <td><?php echo $value['fullname']; ?></td>
+                          <td><?php echo $value['team']; ?></td>
+                          <td><?php echo $value['schoolyear']; ?></td>
+                          <td><?php echo $value['semester']; ?></td>
+                          <td><?php echo $value['shift']; ?> : <?php echo $value['date']; ?></td>
+                          <td>
+                            <a href="#" class="btn btn-sm btn-danger" onclick="deleteDetailedStatistics('<?php echo $value['id_attendance'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#deleteDetailedStatistics"><i class="fas fa-trash"></i> Xóa </a>
+                          </td>
+                        </tr>
+                    <?php }
+                    } ?>
                   </tbody>
                 </table>
               </div>
@@ -63,4 +73,26 @@
       </div>
     </div>
   </section>
+
+  <!-- Xóa thống kê -->
+  <div class="modal fade" id="deleteDetailedStatistics">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form action="" method="post">
+          <input type="hidden" id="delete-id_attendance" name="id_attendance">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">XÓA THỐNG KÊ</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Bạn có chắc muốn xóa dữ liệu <strong id="delete-info-fullname"></strong>?</div>
+          <div class="modal-footer bg-whitesmoke br">
+            <button type="submit" name="deleteDetailedStatistics" class="btn btn-danger">Xóa thống kê</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

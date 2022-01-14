@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 14, 2022 lúc 11:05 AM
+-- Thời gian đã tạo: Th1 14, 2022 lúc 08:30 PM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.0.14
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_attendance` (
-  `id` int(255) NOT NULL,
+  `id_attendance` int(255) NOT NULL,
   `id_user` int(255) NOT NULL,
   `id_schoolyear` int(255) NOT NULL,
   `semester` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE `tbl_attendance` (
 -- Đang đổ dữ liệu cho bảng `tbl_attendance`
 --
 
-INSERT INTO `tbl_attendance` (`id`, `id_user`, `id_schoolyear`, `semester`, `date`, `shift`, `attendance`) VALUES
+INSERT INTO `tbl_attendance` (`id_attendance`, `id_user`, `id_schoolyear`, `semester`, `date`, `shift`, `attendance`) VALUES
 (1, 1, 6, 'Học kỳ 1', '2022-01-13', 'Ca 1', 'Present'),
 (2, 14, 6, 'Học kỳ 1', '2022-01-13', 'Ca 1', 'Present'),
 (3, 1, 6, 'Học kỳ 1', '2022-01-13', 'Ca 2', 'Present'),
@@ -49,7 +49,17 @@ INSERT INTO `tbl_attendance` (`id`, `id_user`, `id_schoolyear`, `semester`, `dat
 (5, 11, 6, 'Học kỳ 1', '2022-01-13', 'Ca 2', 'Present'),
 (6, 4, 6, 'Học kỳ 1', '2022-01-13', 'Ca 3', 'Present'),
 (7, 11, 6, 'Học kỳ 1', '2022-01-13', 'Ca 3', 'Present'),
-(8, 1, 6, 'Học kỳ 1', '2022-01-13', 'Ca 4', 'Present');
+(8, 1, 6, 'Học kỳ 1', '2022-01-13', 'Ca 4', 'Present'),
+(9, 1, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
+(10, 2, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
+(11, 3, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
+(12, 4, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
+(13, 5, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
+(14, 6, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
+(15, 7, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
+(16, 8, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
+(17, 9, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
+(18, 10, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present');
 
 -- --------------------------------------------------------
 
@@ -271,7 +281,7 @@ INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthd
 -- Chỉ mục cho bảng `tbl_attendance`
 --
 ALTER TABLE `tbl_attendance`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`id_attendance`),
   ADD KEY `fk_tbl_attendance_id_user` (`id_user`),
   ADD KEY `fk_tbl_attendance_id_schoolyear` (`id_schoolyear`);
 
@@ -330,7 +340,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT cho bảng `tbl_attendance`
 --
 ALTER TABLE `tbl_attendance`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_attendance` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_decentralization`

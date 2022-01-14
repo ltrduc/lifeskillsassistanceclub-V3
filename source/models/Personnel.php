@@ -118,6 +118,7 @@ class Personnel
   public function deletePersonnel($id_user)
   {
     $id_user    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_user));
+    
     $query      = "SELECT * FROM tbl_user WHERE id_user = '$id_user'";
     $result     = $this->db->select($query);
 

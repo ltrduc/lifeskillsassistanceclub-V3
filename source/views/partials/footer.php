@@ -37,8 +37,9 @@
   function showMessage() {
     <?php if (count($data['Notification']) > 0) { ?>
       iziToast.<?php echo $data['Notification']['status'] ?>({
+        title: "Thông báo!",
         message: "<?php echo $data['Notification']['message'] ?>",
-        position: "topRight"
+        position: "bottomRight"
       });
     <?php } ?>
   };
