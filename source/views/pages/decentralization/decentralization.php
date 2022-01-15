@@ -8,7 +8,7 @@
             <div class="card-body p-2">
               <nav aria-label="breadcrumb m-0">
                 <ol class="breadcrumb bg-white m-0">
-                  <li class="breadcrumb-item"><a href="Home"><i class="fas fa-home"></i>Trang chủ</a></li>
+                  <li class="breadcrumb-item"><a href="Admin/Home"><i class="fas fa-home"></i>Trang chủ</a></li>
                   <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-chalkboard"></i> Phân quyền</li>
                 </ol>
               </nav>
@@ -47,8 +47,7 @@
                     <option value="" class="font-weight-bold">Chọn ban hoạt động</option>
                     <?php $i = 1;
                     if ($data['ListTeam']) {
-                      while ($value = $data['ListTeam']->fetch_assoc()) {
-                    ?>
+                      while ($value = $data['ListTeam']->fetch_assoc()) { ?>
                         <option value="<?php echo $value['id_team']; ?>"><?php echo $value['name']; ?></option>
                     <?php }
                     } ?>
@@ -82,8 +81,7 @@
                   <tbody>
                     <?php $i = 1;
                     if ($data['ListDecentralization']) {
-                      while ($value = $data['ListDecentralization']->fetch_assoc()) {
-                    ?>
+                      while ($value = $data['ListDecentralization']->fetch_assoc()) { ?>
                         <tr>
                           <td><?php echo $i++; ?></td>
                           <td><?php echo $value['id_student'] ?></td>

@@ -8,7 +8,7 @@
             <div class="card-body p-2">
               <nav aria-label="breadcrumb m-0">
                 <ol class="breadcrumb bg-white m-0">
-                  <li class="breadcrumb-item"><a href="Home"><i class="fas fa-home"></i>Trang chủ</a></li>
+                  <li class="breadcrumb-item"><a href="Admin/Home"><i class="fas fa-home"></i>Trang chủ</a></li>
                   <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-chalkboard"></i> Quản lý ban điều hành </li>
                 </ol>
               </nav>
@@ -35,8 +35,7 @@
                     <option value="" class="font-weight-bold">Chọn nhân sự</option>
                     <?php
                     if ($data['ListMember']) {
-                      while ($value = $data['ListMember']->fetch_assoc()) {
-                    ?>
+                      while ($value = $data['ListMember']->fetch_assoc()) { ?>
                         <option value="<?php echo $value['id_user'] ?>">[<?php echo $value['id_student'] ?>] <?php echo $value['fullname'] ?></option>
                     <?php }
                     } ?>
@@ -48,8 +47,7 @@
                     <option value="" class="font-weight-bold">Chọn chức vụ</option>
                     <?php
                     if ($data['ListPosition']) {
-                      while ($value = $data['ListPosition']->fetch_assoc()) {
-                    ?>
+                      while ($value = $data['ListPosition']->fetch_assoc()) { ?>
                         <option value="<?php echo $value['id_position'] ?>"><?php echo $value['name'] ?></option>
                     <?php }
                     } ?>
@@ -83,8 +81,7 @@
                   <tbody>
                     <?php $i = 1;
                     if ($data['ListExecutive']) {
-                      while ($value = $data['ListExecutive']->fetch_assoc()) {
-                    ?>
+                      while ($value = $data['ListExecutive']->fetch_assoc()) { ?>
                         <tr>
                           <td><?php echo $i++; ?></td>
                           <td><?php echo $value['id_student']; ?></td>

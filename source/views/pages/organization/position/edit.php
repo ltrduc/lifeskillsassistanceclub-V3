@@ -8,8 +8,8 @@
             <div class="card-body p-2">
               <nav aria-label="breadcrumb m-0">
                 <ol class="breadcrumb bg-white m-0">
-                  <li class="breadcrumb-item"><a href="Home"><i class="fas fa-home"></i>Trang chủ</a></li>
-                  <li class="breadcrumb-item"><a href="Position"><i class="fas fa-chalkboard"></i>Quản lý chức vụ</a></li>
+                  <li class="breadcrumb-item"><a href="Admin/Home"><i class="fas fa-home"></i>Trang chủ</a></li>
+                  <li class="breadcrumb-item"><a href="Admin/Position"><i class="fas fa-chalkboard"></i>Quản lý chức vụ</a></li>
                   <li class="breadcrumb-item active" aria-current="page"><i class="fab fa-squarespace"></i> Chỉnh sửa chức vụ</strong></li>
                 </ol>
               </nav>
@@ -30,9 +30,7 @@
             </div>
             <div class="card-body">
               <form action="" method="post">
-                <?php
-                $value = $data['ListPositionId']->fetch_assoc();
-                ?>
+                <?php $value = $data['ListPositionId']->fetch_assoc(); ?>
                 <div class="form-group">
                   <label>Tên chức vụ</label>
                   <input type="text" name="name" class="form-control" value="<?php echo $value['name'] ?>" placeholder="Trưởng ban Hành chính">

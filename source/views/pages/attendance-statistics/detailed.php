@@ -1,6 +1,6 @@
 <!-- Main Content -->
 <div class="main-content">
-  <section class="section mb-3">
+  <section class="section mb-0">
     <div class="section-body">
       <div class="row">
         <div class="col-md-12">
@@ -8,11 +8,9 @@
             <div class="card-body p-2">
               <nav aria-label="breadcrumb m-0">
                 <ol class="breadcrumb bg-white m-0">
-                  <li class="breadcrumb-item"><a href="Home"><i class="fas fa-home"></i>Trang chủ</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-chalkboard"></i> Thống kê buổi trực</li>
-                  <?php if ($data['ListDetailedStatistics']) {
-                    $value = $data['ListDetailedStatistics']->fetch_assoc();
-                  } ?>
+                  <li class="breadcrumb-item"><a href="Admin/Home"><i class="fas fa-home"></i>Trang chủ</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><a href="Admin/Statistics"><i class="fas fa-chalkboard"></i> Thống kê buổi trực</a></li>
+                  <?php if ($data['ListDetailedStatistics']) { $value = $data['ListDetailedStatistics']->fetch_assoc(); } ?>
                   <li class="breadcrumb-item active" aria-current="page"><i class="fab fa-squarespace"></i> Chi tiết <strong><?php echo $data['semester'] ?>|Năm học <?php echo $value['schoolyear'] ?></strong></li>
                 </ol>
               </nav>

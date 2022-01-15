@@ -8,7 +8,7 @@
             <div class="card-body p-2">
               <nav aria-label="breadcrumb m-0">
                 <ol class="breadcrumb bg-white m-0">
-                  <li class="breadcrumb-item"><a href="Home"><i class="fas fa-home"></i>Trang chủ</a></li>
+                  <li class="breadcrumb-item"><a href="Admin/Home"><i class="fas fa-home"></i>Trang chủ</a></li>
                   <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-chalkboard"></i> Quản lý cộng tác viên</li>
                 </ol>
               </nav>
@@ -47,8 +47,7 @@
                   <tbody>
                     <?php $i = 1;
                     if ($data['ListCollaborate']) {
-                      while ($value = $data['ListCollaborate']->fetch_assoc()) {
-                    ?>
+                      while ($value = $data['ListCollaborate']->fetch_assoc()) { ?>
                         <tr>
                           <td><?php echo $i++; ?></td>
                           <td><?php echo $value['id_student'] ?></td>
