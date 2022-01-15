@@ -74,10 +74,18 @@
             <div class="card">
               <div class="card-header">
                 <h4>DANH SÁCH THÀNH VIÊN</h4>
+                <div class="card-header-form">
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="Search-Attendance" placeholder="Search">
+                    <div class="input-group-btn">
+                      <button type="button" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="card-body">
+              <div class="card-body pt-0">
                 <div class="table-responsive">
-                  <table class="table table-striped table-hover" id="table-1">
+                  <table class="table table-striped table-hover" id="Attendance-Table">
                     <thead>
                       <tr>
                         <th>#</th>
@@ -93,7 +101,7 @@
                       $counter = 0;
                       $i = 1;
                       while ($value = $data['ListPersonnel']->fetch_assoc()) { ?>
-                        <tr>
+                        <tr class="Attendance-tr">
                           <td><?php echo $i++; ?></td>
                           <td><?php echo $value['id_student']; ?><input type="hidden" name="id_user[<?php echo $counter ?>]" value="<?php echo $value['id_user']; ?>"></td>
                           <td><?php echo $value['fullname']; ?></td>

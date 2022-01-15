@@ -80,4 +80,11 @@ $(document).ready(function () {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
+
+  $("#Search-Attendance").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#Attendance-Table .Attendance-tr").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 });
