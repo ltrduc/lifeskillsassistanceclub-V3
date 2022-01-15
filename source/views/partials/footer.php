@@ -23,6 +23,7 @@
 <script src="source/public/js/page/toastr.js"></script>
 <script src="source/public/bundles/datatables/export-tables/buttons.print.min.js"></script>
 <script src="source/public/js/page/datatables.js"></script>
+<script src="source/public/bundles/bootstrap-daterangepicker/daterangepicker.js"></script>
 <script src="source/public/js/page/index.js"></script>
 <!-- Template JS File -->
 <script src="source/public/js/scripts.js"></script>

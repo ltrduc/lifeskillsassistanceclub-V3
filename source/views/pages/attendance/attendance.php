@@ -51,7 +51,7 @@
                 </div>
                 <div class="form-group">
                   <label>Ngày trực</label>
-                  <input type="date" class="form-control" name="date">
+                  <input type="text" class="form-control datepicker" name="date">
                 </div>
                 <div class="form-group">
                   <label>Ca trực</label>

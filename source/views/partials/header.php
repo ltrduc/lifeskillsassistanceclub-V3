@@ -8,6 +8,7 @@
 
   <base href="http://127.0.0.1:8080/">
   <!-- General CSS Files -->
+  <link rel="stylesheet" href="source/public/bundles/bootstrap-daterangepicker/daterangepicker.css">
   <link rel="stylesheet" href="source/public/bundles/prism/prism.css">
   <link rel="stylesheet" href="source/public/css/app.min.css">
   <link rel="stylesheet" href="source/public/bundles/datatables/datatables.min.css">
