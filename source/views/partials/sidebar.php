@@ -2,8 +2,8 @@
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
       <a href="Admin/Home">
-        <img alt="image" src="source/public/img/logo.png" class="header-logo">
-        <span class="logo-name">LSA CLUB</span>
+        <img alt="image" src="source/public/img/favicon.ico" class="header-logo">
+        <span class="logo-name">LIFE SKILLS</span>
       </a>
     </div>
     <ul class="sidebar-menu" id="sidebar-list">
