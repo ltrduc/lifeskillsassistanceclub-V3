@@ -11,6 +11,8 @@ class Admin extends Controller
   private $Recruitment;
   private $Attendance;
   private $Statistics;
+  private $Subject;
+  private $Course;
 
   function __construct()
   {
@@ -24,6 +26,8 @@ class Admin extends Controller
     $this->Recruitment      = $this->model("Recruitment");
     $this->Attendance       = $this->model("Attendance");
     $this->Statistics       = $this->model("Statistics");
+    $this->Subject          = $this->model("Subject");
+    $this->Course           = $this->model("Course");
   }
 
   // Trang chủ
@@ -66,19 +70,78 @@ class Admin extends Controller
       "page"            => "attendance/attendance",
       "ListPersonnel"   => $this->Personnel->getPersonnel(),
       "ListSchoolYear"  => $this->SchoolYear->getSchoolYear(),
-      "Attendance"      => $this->model("Attendance"),
       "Notification"    => $Notification,
     ]);
   }
 
   // Quản lý khóa học
+  public function Course()
+  {
+    $Notification = [];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (isset($_POST['addcourse'])) {
+        $id_subject     = $_POST['id_subject'];
+        $group          = $_POST['group'];
+        $teacher        = $_POST['teacher'];
+        $period         = $_POST['period'];
+        $local          = $_POST['local'];
+        $date           = $_POST['date'];
+        $semester       = $_POST['semester'];
+        $id_schoolyear  = $_POST['id_schoolyear'];
+        $Notification   = $this->Course->setCourse($id_subject, $group, $teacher, $period, $local, $date, $semester, $id_schoolyear);
+      }
+    }
+
+    $this->view("layout", [
+      "page"            => "course/course",
+      "ListSubject"     => $this->Subject->getSubject(),
+      "ListSchoolYear"  => $this->SchoolYear->getSchoolYear(),
+      "Notification"    => $Notification,
+    ]);
+  }
+
+  public function Subject()
+  {
+    $Notification = [];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (isset($_POST['addSubject'])) {
+        $subject        = $_POST['subject'];
+        $note           = $_POST['note'];
+        $Notification   = $this->Subject->setSubject($subject, $note);
+      }
+      if (isset($_POST['editSubject'])) {
+        $id_subject     = $_POST['id_subject'];
+        $subject        = $_POST['subject'];
+        $note           = $_POST['note'];
+        $Notification   = $this->Subject->editSubject($id_subject, $subject, $note);
+      }
+      if (isset($_POST['deleteSubject'])) {
+        $id_subject     = $_POST['id_subject'];
+        $Notification   = $this->Subject->deleteSubject($id_subject);
+      }
+    }
+
+    $this->view("layout", [
+      "page"          => "subject/subject",
+      "ListSubject"   => $this->Subject->getSubject(),
+      "Notification"  => $Notification,
+    ]);
+  }
+
   public function SchoolYear()
   {
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addSchoolYear'])) {
         $schoolyear     = $_POST['schoolyear'];
-        $Notification   = $this->SchoolYear->setSchoolYear($schoolyear);
+        $note           = $_POST['note'];
+        $Notification   = $this->SchoolYear->setSchoolYear($schoolyear, $note);
+      }
+      if (isset($_POST['editSchoolYear'])) {
+        $id_schoolyear  = $_POST['id_schoolyear'];
+        $schoolyear     = $_POST['schoolyear'];
+        $note           = $_POST['note'];
+        $Notification   = $this->SchoolYear->editSchoolYear($id_schoolyear, $schoolyear, $note);
       }
       if (isset($_POST['deleteSchoolYear'])) {
         $id_schoolyear  = $_POST['id_schoolyear'];

@@ -83,7 +83,7 @@
                   </div>
                 </div>
               </div>
-              <div class="card-body pt-0">
+              <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-striped table-hover" id="Attendance-Table">
                     <thead>
@@ -100,16 +100,18 @@
                       <?php
                       $counter = 0;
                       $i = 1;
-                      while ($value = $data['ListPersonnel']->fetch_assoc()) { ?>
-                        <tr class="Attendance-tr">
-                          <td><?php echo $i++; ?></td>
-                          <td><?php echo $value['id_student']; ?><input type="hidden" name="id_user[<?php echo $counter ?>]" value="<?php echo $value['id_user']; ?>"></td>
-                          <td><?php echo $value['fullname']; ?></td>
-                          <td class="text-center"><input type="radio" name="attendance[<?php echo $counter ?>]" value="Present"></td>
-                          <td class="text-center"><input type="radio" name="attendance[<?php echo $counter ?>]" value="Late"></td>
-                          <td class="text-center"><input type="radio" name="attendance[<?php echo $counter ?>]" value="Absent"></td>
-                        </tr>
+                      if ($data['ListPersonnel']) {
+                        while ($value = $data['ListPersonnel']->fetch_assoc()) { ?>
+                          <tr class="Attendance-tr">
+                            <td><?php echo $i++; ?></td>
+                            <td><?php echo $value['id_student']; ?><input type="hidden" name="id_user[<?php echo $counter ?>]" value="<?php echo $value['id_user']; ?>"></td>
+                            <td><?php echo $value['fullname']; ?></td>
+                            <td class="text-center"><input type="radio" name="attendance[<?php echo $counter ?>]" value="Present"></td>
+                            <td class="text-center"><input type="radio" name="attendance[<?php echo $counter ?>]" value="Late"></td>
+                            <td class="text-center"><input type="radio" name="attendance[<?php echo $counter ?>]" value="Absent"></td>
+                          </tr>
                       <?php $counter++;
+                        }
                       } ?>
                     </tbody>
                   </table>

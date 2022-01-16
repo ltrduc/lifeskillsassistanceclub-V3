@@ -17,10 +17,29 @@ function deleteDetailedStatistics(id_attendance, fullname) {
   document.getElementById('delete-info-fullname').innerHTML = fullname;
   document.getElementById("delete-id_attendance").value = id_attendance;
 }
+
+// Môn học
+function deleteSubject(id_subject, subject) {
+  document.getElementById('delete-info-subject').innerHTML = subject;
+  document.getElementById("delete-id_subject").value = id_subject;
+}
+
+function editSubject(id_subject, subject, note) {
+  document.getElementById("edit-id_subject").value = id_subject;
+  document.getElementById("edit-subject").value = subject;
+  document.getElementById("edit-note").value = note;
+}
+
 // Năm học
-function deleteShoolYear(id_schoolyear, name) {
-  document.getElementById('delete-info-schoolyear').innerHTML = name;
+function deleteSchoolYear(id_schoolyear, schoolyear) {
+  document.getElementById('delete-info-schoolyear').innerHTML = schoolyear;
   document.getElementById("delete-id_schoolyear").value = id_schoolyear;
+}
+
+function editSchoolYear(id_schoolyear, schoolyear, note) {
+  document.getElementById("edit-id_schoolyear").value = id_schoolyear;
+  document.getElementById("edit-schoolyear").value = schoolyear;
+  document.getElementById("edit-note").value = note;
 }
 
 // Ban điều hành

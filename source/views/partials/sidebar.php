@@ -22,7 +22,8 @@
       <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="slack"></i><span>Quản lý khóa học</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="Admin/Timetable">Quản lý lịch học</a></li>
+          <li><a class="nav-link" href="Admin/Course">Quản lý lịch học</a></li>
+          <li><a class="nav-link" href="Admin/Subject">Quản lý môn học</a></li>
           <li><a class="nav-link" href="Admin/SchoolYear">Quản lý năm học</a></li>
         </ul>
       </li>

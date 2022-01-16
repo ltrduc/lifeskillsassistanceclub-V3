@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 14, 2022 lúc 08:30 PM
+-- Thời gian đã tạo: Th1 16, 2022 lúc 07:57 PM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.0.14
 
@@ -60,6 +60,38 @@ INSERT INTO `tbl_attendance` (`id_attendance`, `id_user`, `id_schoolyear`, `seme
 (16, 8, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
 (17, 9, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
 (18, 10, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_course`
+--
+
+CREATE TABLE `tbl_course` (
+  `id_course` int(255) NOT NULL,
+  `id_subject` int(255) NOT NULL,
+  `group` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `teacher` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `period` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `local` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `date` date NOT NULL,
+  `semester` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `id_schoolyear` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_course`
+--
+
+INSERT INTO `tbl_course` (`id_course`, `id_subject`, `group`, `teacher`, `period`, `local`, `date`, `semester`, `id_schoolyear`) VALUES
+(1, 1, '01', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-01-17', 'Học kỳ 1', 6),
+(2, 1, '02', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-01-17', 'Học kỳ 1', 6),
+(3, 1, '03', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-01-18', 'Học kỳ 1', 6),
+(4, 1, '04', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-01-18', 'Học kỳ 1', 6),
+(5, 1, '05', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 10A', '2022-01-17', 'Học kỳ 1', 6),
+(6, 1, '06', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-01-17', 'Học kỳ 1', 6),
+(7, 1, '07', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 10A', '2022-01-18', 'Học kỳ 1', 6),
+(8, 1, '08', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-01-18', 'Học kỳ 1', 6);
 
 -- --------------------------------------------------------
 
@@ -196,20 +228,44 @@ INSERT INTO `tbl_recruitment` (`id_recruitment`, `fullname`, `id_student`, `facu
 
 CREATE TABLE `tbl_schoolyear` (
   `id_schoolyear` int(255) NOT NULL,
-  `schoolyear` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `schoolyear` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_schoolyear`
 --
 
-INSERT INTO `tbl_schoolyear` (`id_schoolyear`, `schoolyear`) VALUES
-(1, '2017-2018'),
-(2, '2018-2019'),
-(3, '2019-2020'),
-(4, '2020-2021'),
-(5, '2021-2022'),
-(6, '2022-2023');
+INSERT INTO `tbl_schoolyear` (`id_schoolyear`, `schoolyear`, `note`) VALUES
+(1, '2017-2018', NULL),
+(2, '2018-2019', NULL),
+(3, '2019-2020', NULL),
+(4, '2020-2021', NULL),
+(5, '2021-2022', NULL),
+(6, '2022-2023', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_subject`
+--
+
+CREATE TABLE `tbl_subject` (
+  `id_subject` int(255) NOT NULL,
+  `subject` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_subject`
+--
+
+INSERT INTO `tbl_subject` (`id_subject`, `subject`, `note`) VALUES
+(1, 'Thái độ sống 1', NULL),
+(2, 'Thái độ sống 2', NULL),
+(3, 'Thái độ sống 3', NULL),
+(4, 'Xây dựng team & lãnh đạo', NULL),
+(5, 'Tư duy phản biện', NULL);
 
 -- --------------------------------------------------------
 
@@ -286,6 +342,14 @@ ALTER TABLE `tbl_attendance`
   ADD KEY `fk_tbl_attendance_id_schoolyear` (`id_schoolyear`);
 
 --
+-- Chỉ mục cho bảng `tbl_course`
+--
+ALTER TABLE `tbl_course`
+  ADD PRIMARY KEY (`id_course`),
+  ADD KEY `fk_tbl_course_id_subject` (`id_subject`),
+  ADD KEY `fk_tbl_course_	id_schoolyear` (`id_schoolyear`);
+
+--
 -- Chỉ mục cho bảng `tbl_decentralization`
 --
 ALTER TABLE `tbl_decentralization`
@@ -320,6 +384,12 @@ ALTER TABLE `tbl_schoolyear`
   ADD PRIMARY KEY (`id_schoolyear`);
 
 --
+-- Chỉ mục cho bảng `tbl_subject`
+--
+ALTER TABLE `tbl_subject`
+  ADD PRIMARY KEY (`id_subject`);
+
+--
 -- Chỉ mục cho bảng `tbl_team`
 --
 ALTER TABLE `tbl_team`
@@ -341,6 +411,12 @@ ALTER TABLE `tbl_user`
 --
 ALTER TABLE `tbl_attendance`
   MODIFY `id_attendance` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_course`
+--
+ALTER TABLE `tbl_course`
+  MODIFY `id_course` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_decentralization`
@@ -373,6 +449,12 @@ ALTER TABLE `tbl_schoolyear`
   MODIFY `id_schoolyear` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT cho bảng `tbl_subject`
+--
+ALTER TABLE `tbl_subject`
+  MODIFY `id_subject` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT cho bảng `tbl_team`
 --
 ALTER TABLE `tbl_team`
@@ -394,6 +476,13 @@ ALTER TABLE `tbl_user`
 ALTER TABLE `tbl_attendance`
   ADD CONSTRAINT `fk_tbl_attendance_id_schoolyear` FOREIGN KEY (`id_schoolyear`) REFERENCES `tbl_schoolyear` (`id_schoolyear`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_tbl_attendance_id_user` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `tbl_course`
+--
+ALTER TABLE `tbl_course`
+  ADD CONSTRAINT `fk_tbl_course_	id_schoolyear` FOREIGN KEY (`id_schoolyear`) REFERENCES `tbl_schoolyear` (`id_schoolyear`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_tbl_course_id_subject` FOREIGN KEY (`id_subject`) REFERENCES `tbl_subject` (`id_subject`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `tbl_decentralization`
