@@ -96,7 +96,11 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4>LỊCH HỌC HÔM NAY - NGÀY <?php echo date("d/m/Y"); ?></h4>
+            <h4>LỊCH HỌC HÔM NAY - NGÀY
+              <?php
+              date_default_timezone_set("Asia/Ho_Chi_Minh");
+              echo strtoupper(date('d/m/Y - h:i a', time()));
+              ?></h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">

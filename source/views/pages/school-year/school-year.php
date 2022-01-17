@@ -38,7 +38,7 @@
                   <input type="text" name="note" class="form-control">
                 </div>
                 <div class="form-group text-right">
-                  <button class="btn btn-success mr-1" name="addSchoolYear" type="submit">Thêm năm học</button>
+                  <button class="btn btn-success mr-1" name="addSchoolYear" type="submit">Thêm mới năm học</button>
                 </div>
               </form>
             </div>

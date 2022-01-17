@@ -27,7 +27,7 @@
             <div class="card-header">
               <h4>DANH SÁCH LỊCH HỌC</h4>
               <div class="card-header-action">
-                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addCourse"><i class="fas fa-plus"></i> Thêm lịch học</a>
+                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addCourse"><i class="fas fa-plus"></i> Thêm mới lịch học</a>
               </div>
             </div>
 
@@ -177,7 +177,7 @@
             </div>
             <div class="modal-footer">
               <div class="form-group">
-                <button name="addCourse" type="submit" tabindex="9" class="btn btn-success">Thêm lịch học</button>
+                <button name="addCourse" type="submit" tabindex="9" class="btn btn-success">Thêm mới lịch học</button>
               </div>
             </div>
           </form>

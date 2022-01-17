@@ -27,8 +27,8 @@
             <div class="card-header">
               <h4>DANH SÁCH CỘNG TÁC VIÊN</h4>
               <div class="card-header-action">
-                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addCollaborate"><i class="fas fa-plus"></i> Thêm cộng tác viên</a>
-                <a href="Admin/DetailedCollaborate" class="btn btn-primary">Danh sách chi tiết <i class="fas fa-chevron-right"></i></a>
+                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addCollaborate"><i class="fas fa-plus"></i> Thêm mới cộng tác viên</a>
+                <a href="Admin/DetailedCollaborate" class="btn btn-primary">Xem chi tiết <i class="fas fa-chevron-right"></i></a>
               </div>
             </div>
 
@@ -81,7 +81,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="Admin/Collaborate" method="post">
+          <form action="Admin/Collaborate" method="post" class="needs-validation" novalidate="">
             <div class="form-group">
               <label>Họ và tên</label>
               <div class="input-group">
@@ -90,7 +90,8 @@
                     <i class="fas fa-user-check"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control" placeholder="Nguyễn Văn A" name="fullname">
+                <input type="text" class="form-control" placeholder="Nguyễn Văn A" name="fullname" tabindex="1" required autofocus>
+                <div class="invalid-feedback">Vui lòng không bỏ trống họ và tên!</div>
               </div>
             </div>
             <div class="form-group">
@@ -101,7 +102,8 @@
                     <i class="fas fa-address-card"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control" placeholder="51900001" name="id_student">
+                <input type="text" class="form-control" placeholder="51900001" name="id_student" tabindex="2" required autofocus>
+                <div class="invalid-feedback">Vui lòng không bỏ trống mã số sinh viên!</div>
               </div>
             </div>
             <div class="form-group">
@@ -112,10 +114,12 @@
                     <i class="fas fa-layer-group"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control" disabled placeholder="Không có" name="team">
+                <input type="text" class="form-control" disabled placeholder="[---]" name="team">
               </div>
             </div>
-            <button type="submit" name="addCollaborate" class="btn btn-primary m-t-15 waves-effect">Thêm cộng tác viên</button>
+            <div class="form-group text-right">
+              <button type="submit" name="addCollaborate" tabindex="3" class="btn btn-success m-t-15 waves-effect">Thêm mới cộng tác viên</button>
+            </div>
           </form>
         </div>
       </div>
@@ -155,19 +159,8 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="Admin/Collaborate" method="post">
+          <form action="Admin/Collaborate" method="post" class="needs-validation" novalidate="">
             <input type="hidden" id="edit-id_user" name="id_user">
-            <div class="form-group">
-              <label>Mã số sinh viên</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <i class="fas fa-address-card"></i>
-                  </div>
-                </div>
-                <input type="text" class="form-control" placeholder="51900001" id="edit-id_student" name="id_student">
-              </div>
-            </div>
             <div class="form-group">
               <label>Họ và tên</label>
               <div class="input-group">
@@ -176,7 +169,20 @@
                     <i class="fas fa-user-check"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control" placeholder="Nguyễn Văn A" id="edit-fullname" name="fullname">
+                <input type="text" class="form-control" placeholder="Nguyễn Văn A" id="edit-fullname" name="fullname" tabindex="1" required autofocus>
+                <div class="invalid-feedback">Vui lòng không bỏ trống họ và tên!</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Mã số sinh viên</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fas fa-address-card"></i>
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="51900001" id="edit-id_student" name="id_student" tabindex="2" required autofocus>
+                <div class="invalid-feedback">Vui lòng không bỏ trống mã số sinh viên!</div>
               </div>
             </div>
             <div class="form-group">
@@ -187,10 +193,12 @@
                     <i class="fas fa-layer-group"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control" disabled placeholder="Không có" name="team">
+                <input type="text" class="form-control" disabled placeholder="[---]" name="team">
               </div>
             </div>
-            <button type="submit" name="editCollaborate" class="btn btn-primary m-t-15 waves-effect">Chỉnh sửa cộng tác viên</button>
+            <div class="form-group text-right">
+              <button type="submit" name="editCollaborate" tabindex="3" class="btn btn-primary m-t-15 waves-effect">Chỉnh sửa cộng tác viên</button>
+            </div>
           </form>
         </div>
       </div>

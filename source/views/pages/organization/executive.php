@@ -54,7 +54,7 @@
                   </select>
                 </div>
                 <div class="form-group text-right">
-                  <button class="btn btn-success mr-1" name="addExecutive" type="submit">Thêm ban điều hành</button>
+                  <button class="btn btn-success mr-1" name="addExecutive" type="submit">Thêm mới ban điều hành</button>
                 </div>
               </form>
             </div>
