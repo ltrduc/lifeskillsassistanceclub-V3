@@ -27,8 +27,8 @@
             <div class="card-header">
               <h4>DANH SÁCH THÀNH VIÊN</h4>
               <div class="card-header-action">
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addMember">Thêm thành viên</a>
-                <a href="Admin/DetailedMember" class="btn btn-success">Danh sách chi tiết</a>
+                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addMember"><i class="fas fa-plus"></i> Thêm thành viên</a>
+                <a href="Admin/DetailedMember" class="btn btn-primary">Danh sách chi tiết <i class="fas fa-chevron-right"></i></a>
               </div>
             </div>
 

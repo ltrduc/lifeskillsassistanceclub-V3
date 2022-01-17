@@ -27,8 +27,8 @@
             <div class="card-header">
               <h4>DANH SÁCH CỘNG TÁC VIÊN</h4>
               <div class="card-header-action">
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addCollaborate">Thêm cộng tác viên</a>
-                <a href="Admin/DetailedCollaborate" class="btn btn-success">Danh sách chi tiết</a>
+                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addCollaborate"><i class="fas fa-plus"></i> Thêm cộng tác viên</a>
+                <a href="Admin/DetailedCollaborate" class="btn btn-primary">Danh sách chi tiết <i class="fas fa-chevron-right"></i></a>
               </div>
             </div>
 

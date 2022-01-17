@@ -68,7 +68,7 @@
                   <div class="invalid-feedback">Vui lòng không bỏ trống ca trực!</div>
                 </div>
                 <div class="form-group text-right">
-                  <button class="btn btn-primary mr-1" tabindex="5" type="submit">Điểm danh</button>
+                  <button class="btn btn-success mr-1" tabindex="5" type="submit">Điểm danh</button>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table table-striped table-hover" id="Attendance-Table">
+                  <table class="table table-sm table-hover" id="Attendance-Table">
                     <thead>
                       <tr>
                         <th>#</th>

@@ -27,7 +27,7 @@
             <div class="card-header">
               <h4>DANH SÁCH CHỨC VỤ</h4>
               <div class="card-header-action">
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addPosition">Thêm chức vụ</a>
+                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addPosition"><i class="fas fa-plus"></i> Thêm chức vụ</a>
               </div>
             </div>
             <div class="card-body">
@@ -84,7 +84,7 @@
               </script>
             </div>
             <div class="form-group text-right mb-0">
-              <button class="btn btn-primary mr-1" name="addPosition" type="submit">Thêm chức vụ</button>
+              <button class="btn btn-success mr-1" name="addPosition" type="submit">Thêm chức vụ</button>
             </div>
           </form>
         </div>

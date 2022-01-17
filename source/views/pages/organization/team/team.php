@@ -27,7 +27,7 @@
             <div class="card-header">
               <h4>DANH SÁCH BAN HOẠT ĐỘNG</h4>
               <div class="card-header-action">
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#addTeam">Thêm ban hoạt động</a>
+                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addTeam"><i class="fas fa-plus"></i> Thêm ban hoạt động</a>
               </div>
             </div>
             <div class="card-body">
@@ -84,7 +84,7 @@
               </script>
             </div>
             <div class="form-group text-right mb-0">
-              <button class="btn btn-primary mr-1" name="addTeam" type="submit">Thêm ban hoạt động</button>
+              <button class="btn btn-success mr-1" name="addTeam" type="submit">Thêm ban hoạt động</button>
             </div>
           </form>
         </div>
