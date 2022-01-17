@@ -21,7 +21,7 @@
 
   <section class="section">
     <div class="section-body">
-      <form action="Admin/Attendance" method="post">
+      <form action="Admin/Attendance" method="post" class="needs-validation" novalidate="">
         <div class="row">
           <div class="col-md-4">
             <div class="card">
@@ -31,7 +31,7 @@
               <div class="card-body">
                 <div class="form-group">
                   <label>Năm học</label>
-                  <select class="form-control selectric" name="id_schoolyear">
+                  <select class="form-control selectric" name="id_schoolyear" tabindex="1" required autofocus>
                     <option value="" class="font-weight-bold">Chọn Năm học</option>
                     <?php if ($data['ListSchoolYear']) {
                       while ($value = $data['ListSchoolYear']->fetch_assoc()) { ?>
@@ -39,32 +39,36 @@
                     <?php }
                     } ?>
                   </select>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống năm học!</div>
                 </div>
                 <div class="form-group">
                   <label>Học kỳ</label>
-                  <select class="form-control selectric" name="semester">
+                  <select class="form-control selectric" name="semester" tabindex="2" required autofocus>
                     <option value="" class="font-weight-bold">Chọn Học kỳ</option>
                     <option value="Học kỳ 1">Học kỳ 1</option>
                     <option value="Học kỳ 2">Học kỳ 2</option>
                     <option value="Học kỳ Hè">Học kỳ Hè</option>
                   </select>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống học kỳ!</div>
                 </div>
                 <div class="form-group">
                   <label>Ngày trực</label>
-                  <input type="text" class="form-control datepicker" name="date">
+                  <input type="text" class="form-control datepicker" name="date" tabindex="3" required autofocus>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống ngày trực!</div>
                 </div>
                 <div class="form-group">
                   <label>Ca trực</label>
-                  <select class="form-control selectric" name="shift">
+                  <select class="form-control selectric" name="shift" tabindex="4" required autofocus>
                     <option value="" class="font-weight-bold">Chọn Ca trực</option>
                     <option value="Ca 1">Ca 1</option>
                     <option value="Ca 2">Ca 2</option>
                     <option value="Ca 3">Ca 3</option>
                     <option value="Ca 4">Ca 4</option>
                   </select>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống ca trực!</div>
                 </div>
                 <div class="form-group text-right">
-                  <button class="btn btn-primary mr-1" type="submit">Điểm danh</button>
+                  <button class="btn btn-primary mr-1" tabindex="5" type="submit">Điểm danh</button>
                 </div>
               </div>
             </div>

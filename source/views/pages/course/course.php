@@ -78,12 +78,12 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
-          <form action="Admin/Course" method="POST">
+          <form action="Admin/Course" method="POST" class="needs-validation" novalidate="">
             <div class="row">
               <div class="col-sm">
                 <div class="form-group">
                   <label for="subjects">Môn học: </label>
-                  <select name="id_subject" class="form-control">
+                  <select name="id_subject" class="form-control" tabindex="1" required autofocus>
                     <option value="" class="font-weight-bold">Chọn môn học</option>
                     <?php if ($data['ListSubject']) {
                       while ($value = $data['ListSubject']->fetch_assoc()) { ?>
@@ -91,75 +91,93 @@
                     <?php }
                     } ?>
                   </select>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống môn học!</div>
                 </div>
               </div>
               <div class="col-sm">
                 <div class="form-group">
                   <label for="group">Nhóm:</label>
-                  <input type="text" class="form-control" name="group" placeholder="01">
+                  <input type="text" class="form-control" name="group" placeholder="01" tabindex="2" required autofocus>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống nhóm!</div>
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-sm">
                 <div class="form-group">
-                  <label for="teacher">Tên Giảng viên: </label>
-                  <input type="text" class="form-control" name="teacher" placeholder="Nguyễn Thị Nhung">
+                  <label for="teacher">Giảng viên: </label>
+                  <input type="text" class="form-control" name="teacher" placeholder="Nguyễn Thị Nhung" tabindex="3" required autofocus>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống Giảng viên!</div>
                 </div>
               </div>
               <div class="col-sm">
-                <label for="period">Buổi học: </label>
-                <select name="period" class="form-control mb-3">
-                  <option value="" class="font-weight-bold">Chọn buổi học</option>
-                  <option value="SA:01">SA:01</option>
-                  <option value="SA:02">SA:02</option>
-                  <option value="CH:01">CH:01</option>
-                  <option value="CH:02">CH:02</option>
-                </select>
+                <div class="form-group">
+                  <label for="period">Buổi học: </label>
+                  <select name="period" class="form-control" tabindex="4" required autofocus>
+                    <option value="" class="font-weight-bold">Chọn buổi học</option>
+                    <option value="SA:01">SA:01</option>
+                    <option value="SA:02">SA:02</option>
+                    <option value="CH:01">CH:01</option>
+                    <option value="CH:02">CH:02</option>
+                  </select>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống buổi học!</div>
+                </div>
               </div>
             </div>
             <div class="row">
               <div class="col-sm">
-                <label for="local">Địa điểm</label>
-                <select name="local" class="form-control mb-3">
-                  <option value="" class="font-weight-bold">Chọn địa điểm</option>
-                  <option value="HT 02A">HT 02A</option>
-                  <option value="HT 06B">HT 06B</option>
-                  <option value="HT 10A">HT 10A</option>
-                  <option value="HT 10F">HT 10F</option>
-                  <option value="[---]">[---]</option>
-                </select>
+                <div class="form-group">
+                  <label for="local">Địa điểm</label>
+                  <select name="local" class="form-control" tabindex="5" required autofocus>
+                    <option value="" class="font-weight-bold">Chọn địa điểm</option>
+                    <option value="HT 02A">HT 02A</option>
+                    <option value="HT 06B">HT 06B</option>
+                    <option value="HT 10A">HT 10A</option>
+                    <option value="HT 10F">HT 10F</option>
+                    <option value="[---]">[---]</option>
+                  </select>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống địa điểm!</div>
+                </div>
               </div>
               <div class="col-sm">
-                <label for="date">Ngày bắt đầu:</label>
-                <input type="text" class="form-control datepicker" name="date">
+                <div class="form-group">
+                  <label for="date">Ngày bắt đầu:</label>
+                  <input type="text" class="form-control datepicker" name="date" tabindex="6" required autofocus>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống ngày bắt đầu!</div>
+                </div>
               </div>
             </div>
             <div class="row">
               <div class="col-sm">
-                <label for="semester">Học kỳ</label>
-                <select name="semester" class="form-control mb-3">
-                  <option value="" class="font-weight-bold">Chọn học kỳ</option>
-                  <option value="Học kỳ 1">Học kỳ 1</option>
-                  <option value="Học kỳ 2">Học kỳ 2</option>
-                  <option value="Học kỳ Hè">Học kỳ Hè</option>
-                </select>
+                <div class="form-group">
+                  <label for="semester">Học kỳ</label>
+                  <select name="semester" class="form-control" tabindex="7" required autofocus>
+                    <option value="" class="font-weight-bold">Chọn học kỳ</option>
+                    <option value="Học kỳ 1">Học kỳ 1</option>
+                    <option value="Học kỳ 2">Học kỳ 2</option>
+                    <option value="Học kỳ Hè">Học kỳ Hè</option>
+                  </select>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống học kỳ!</div>
+                </div>
               </div>
               <div class="col-sm">
-                <label for="id_schoolyear">Niên học:</label>
-                <select name="id_schoolyear" class="form-control">
-                  <option value="" class="font-weight-bold">Chọn niên học</option>
-                  <?php if ($data['ListSchoolYear']) {
-                    while ($value = $data['ListSchoolYear']->fetch_assoc()) { ?>
-                      <option value="<?php echo $value['id_schoolyear'] ?>"><?php echo $value['schoolyear'] ?></option>
-                  <?php }
-                  } ?>
-                </select>
+                <div class="form-group">
+                  <label for="id_schoolyear">Năm học:</label>
+                  <select name="id_schoolyear" class="form-control" tabindex="8" required autofocus>
+                    <option value="" class="font-weight-bold">Chọn năm học</option>
+                    <?php if ($data['ListSchoolYear']) {
+                      while ($value = $data['ListSchoolYear']->fetch_assoc()) { ?>
+                        <option value="<?php echo $value['id_schoolyear'] ?>"><?php echo $value['schoolyear'] ?></option>
+                    <?php }
+                    } ?>
+                  </select>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống năm học!</div>
+                </div>
               </div>
             </div>
             <div class="modal-footer">
               <div class="form-group">
-                <button name="addCourse" type="submit" class="btn btn-success">Thêm lịch học</button>
+                <button name="addCourse" type="submit" tabindex="9" class="btn btn-success">Thêm lịch học</button>
               </div>
             </div>
           </form>

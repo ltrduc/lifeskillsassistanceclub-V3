@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="source/public/bundles/prism/prism.css">
   <link rel="stylesheet" href="source/public/css/app.min.css">
   <link rel="stylesheet" href="source/public/bundles/datatables/datatables.min.css">
+  <link rel="stylesheet" href="source/public/bundles/bootstrap-social/bootstrap-social.css">
   <link rel="stylesheet" href="source/public/bundles/izitoast/css/iziToast.min.css">
   <link rel="stylesheet" href="source/public/bundles/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
   <!-- Template CSS -->
