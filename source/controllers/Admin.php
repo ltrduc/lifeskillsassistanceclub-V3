@@ -41,6 +41,7 @@ class Admin extends Controller
       "CountMember"           => $this->Dashboard->Member(),
       "CountAdministration"   => $this->Dashboard->Administration(),
       "CountPersonnel"        => $this->Dashboard->Personnel(),
+      "ListCourseToday"       => $this->Course->getCourseToday(),
       "Notification"          => $Notification,
     ]);
   }
@@ -79,7 +80,7 @@ class Admin extends Controller
   {
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      if (isset($_POST['addcourse'])) {
+      if (isset($_POST['addCourse'])) {
         $id_subject     = $_POST['id_subject'];
         $group          = $_POST['group'];
         $teacher        = $_POST['teacher'];
@@ -90,13 +91,43 @@ class Admin extends Controller
         $id_schoolyear  = $_POST['id_schoolyear'];
         $Notification   = $this->Course->setCourse($id_subject, $group, $teacher, $period, $local, $date, $semester, $id_schoolyear);
       }
+      if (isset($_POST['deleteCourse'])) {
+        $id_schoolyear  = $_POST['id_schoolyear'];
+        $semester       = $_POST['semester'];
+        $date           = $_POST['date'];
+        $Notification   = $this->Course->deleteCourse($id_schoolyear, $semester, $date);
+      }
     }
 
     $this->view("layout", [
       "page"            => "course/course",
       "ListSubject"     => $this->Subject->getSubject(),
+      "ListCourse"      => $this->Course->getCourse(),
       "ListSchoolYear"  => $this->SchoolYear->getSchoolYear(),
       "Notification"    => $Notification,
+    ]);
+  }
+
+  public function DetailedCourse()
+  {
+    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL) || (!isset($_GET['date']) || $_GET['date'] == NULL)) {
+      header('Location: Course');
+    }
+
+    $Notification = [];
+    $id_schoolyear  = $_GET['id_schoolyear'];
+    $semester       = $_GET['semester'];
+    $date           = $_GET['date'];
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $id_course      = $_POST['id_course'];
+      $Notification   = $this->Course->deleteDetailedCourse($id_course);
+    }
+
+    $this->view("layout", [
+      "page"                => "course/detailed",
+      "ListDetailedCourse"  => $this->Course->getDetailedCourse($id_schoolyear, $semester, $date),
+      "Notification"        => $Notification,
     ]);
   }
 

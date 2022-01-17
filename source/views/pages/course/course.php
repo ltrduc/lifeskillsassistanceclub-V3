@@ -27,7 +27,7 @@
             <div class="card-header">
               <h4>DANH SÁCH LỊCH HỌC</h4>
               <div class="card-header-action">
-                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#ManagerCourse">Thêm lịch học</a>
+                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addCourse"><i class="fas fa-plus"></i> Thêm lịch học</a>
               </div>
             </div>
 
@@ -36,24 +36,29 @@
                 <table class="table table-striped table-hover" id="table-1">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>Ngày học</th>
-                      <th>Học kỳ</th>
-                      <th>Năm học</th>
-                      <th>Thao tác</th>
+                      <th style="width: 5%;">#</th>
+                      <th style="width: 6%;">Ngày học</th>
+                      <th style="width: 6%;">Học kỳ</th>
+                      <th style="width: 6%;">Năm học</th>
+                      <th style="width: 10%;">Thao tác</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>04-01-2022</td>
-                      <td>Học kỳ 1</td>
-                      <td>2020-2021</td>
-                      <td>
-                        <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editMember"><i class="fas fa-book"></i> Xem lịch học </a>
-                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteMember"><i class="fas fa-trash"></i> Xóa lịch học </a>
-                      </td>
-                    </tr>
+                    <?php if ($data['ListCourse']) {
+                      $i = 1;
+                      while ($value = $data['ListCourse']->fetch_assoc()) { ?>
+                        <tr>
+                          <td><?php echo $i++; ?></td>
+                          <td><?php echo date("d/m/Y", strtotime($value['date'])); ?></td>
+                          <td>Học kỳ 1</td>
+                          <td>2020-2021</td>
+                          <td>
+                            <a href="Admin/DetailedCourse&id_schoolyear=<?php echo $value['id_schoolyear'] ?>&semester=<?php echo $value['semester'] ?>&date=<?php echo $value['date'] ?>" class="btn btn-sm btn-primary"><i class="fas fa-book"></i> Xem lịch học </a>
+                            <a href="#" class="btn btn-sm btn-danger" onclick="deleteCourse('<?php echo $value['id_schoolyear'] ?>','<?php echo $value['semester'] ?>','<?php echo $value['date'] ?>')" data-toggle="modal" data-target="#deleteCourse"><i class="fas fa-trash"></i> Xóa lịch học </a>
+                          </td>
+                        </tr>
+                    <?php }
+                    } ?>
                   </tbody>
                 </table>
               </div>
@@ -65,7 +70,7 @@
   </section>
 
   <!-- Quản lý lịch học -->
-  <div class="modal fade" id="ManagerCourse">
+  <div class="modal fade" id="addCourse">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -154,7 +159,7 @@
             </div>
             <div class="modal-footer">
               <div class="form-group">
-                <button name="addcourse" type="submit" class="btn btn-success">Thêm lịch học</button>
+                <button name="addCourse" type="submit" class="btn btn-success">Thêm lịch học</button>
               </div>
             </div>
           </form>
@@ -164,20 +169,22 @@
   </div>
 
   <!-- Xóa thành viên -->
-  <div class="modal fade" id="deleteMember">
+  <div class="modal fade" id="deleteCourse">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <form action="Admin/Member" method="post">
-          <input type="hidden" id="delete-id_user" name="id_user">
+        <form action="Admin/Course" method="post">
+          <input type="hidden" id="delete-id_schoolyear" name="id_schoolyear">
+          <input type="hidden" id="delete-semester" name="semester">
+          <input type="hidden" id="delete-date" name="date">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">XÓA THÀNH VIÊN</h5>
+            <h5 class="modal-title" id="exampleModalLabel">XÓA LỊCH HỌC</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Bạn có chắc chắn muốn xóa <strong id="delete-info-member"></strong>?</div>
+          <div class="modal-body">Bạn có chắc chắn muốn xóa lịch học ngày <strong id="delete-info-date"></strong>?</div>
           <div class="modal-footer bg-whitesmoke br">
-            <button type="submit" name="deleteMember" class="btn btn-danger">Xóa thành viên</button>
+            <button type="submit" name="deleteCourse" class="btn btn-danger">Xóa lịch học</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
           </div>
         </form>

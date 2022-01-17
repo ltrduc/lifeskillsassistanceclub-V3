@@ -18,6 +18,20 @@ function deleteDetailedStatistics(id_attendance, fullname) {
   document.getElementById("delete-id_attendance").value = id_attendance;
 }
 
+// Lịch học
+function deleteCourse(id_schoolyear, semester, date) {
+  document.getElementById('delete-info-date').innerHTML = date;
+  document.getElementById("delete-id_schoolyear").value = id_schoolyear;
+  document.getElementById("delete-semester").value = semester;
+  document.getElementById("delete-date").value = date;
+}
+
+function deleteDetailedCourse(id_course, subject, group) {
+  document.getElementById('delete-info-subject').innerHTML = subject;
+  document.getElementById('delete-info-group').innerHTML = group;
+  document.getElementById("delete-id_course").value = id_course;
+}
+
 // Môn học
 function deleteSubject(id_subject, subject) {
   document.getElementById('delete-info-subject').innerHTML = subject;

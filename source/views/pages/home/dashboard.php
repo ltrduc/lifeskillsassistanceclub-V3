@@ -96,7 +96,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4>LỊCH HỌC HÔM NAY - NGÀY 04/01/2022</h4>
+            <h4>LỊCH HỌC HÔM NAY - NGÀY <?php echo date("d/m/Y"); ?></h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -113,24 +113,20 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Thái độ sống 1</td>
-                    <td>01</td>
-                    <td>AM:01</td>
-                    <td>07/01/2022</td>
-                    <td>Hội trường 10A</td>
-                    <td>Nguyễn Thị Nhung</td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>Thái độ sống 1</td>
-                    <td>03</td>
-                    <td>PM:02</td>
-                    <td>07/01/2022</td>
-                    <td>Hội trường 10A</td>
-                    <td>Nguyễn Thị Nhung</td>
-                  </tr>
+                  <?php if ($data['ListCourseToday']) {
+                    $i = 1;
+                    while ($value = $data['ListCourseToday']->fetch_assoc()) { ?>
+                      <tr>
+                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $value['subject']; ?></td>
+                        <td><?php echo $value['group']; ?></td>
+                        <td><?php echo $value['period']; ?></td>
+                        <td><?php echo date("d/m/Y", strtotime($value['date'])); ?></td>
+                        <td><?php echo $value['local']; ?></td>
+                        <td><?php echo $value['teacher']; ?></td>
+                      </tr>
+                  <?php }
+                  } ?>
                 </tbody>
               </table>
             </div>
