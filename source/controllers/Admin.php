@@ -14,6 +14,7 @@ class Admin extends Controller
   private $Subject;
   private $Course;
   private $Schedule;
+  private $Password;
 
   function __construct()
   {
@@ -30,6 +31,7 @@ class Admin extends Controller
     $this->Subject          = $this->model("Subject");
     $this->Course           = $this->model("Course");
     $this->Schedule         = $this->model("Schedule");
+    $this->Password         = $this->model("Password");
   }
 
   // TRANG CHỦ
@@ -536,12 +538,29 @@ class Admin extends Controller
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $id_user      = $_POST['id_user'];
-      $Notification = $this->Personnel->resetPassword($id_user);
+      $Notification = $this->Password->resetPassword($id_user);
     }
 
     $this->view("layout", [
       "page"          => "reset-password/reset-password",
       "ListPersonnel" =>  $this->Personnel->getPersonnel(),
+      "Notification"  =>  $Notification,
+    ]);
+  }
+
+  public function ChangePassword()
+  {
+    $Notification = [];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $id_user        = $_POST['id_user'];
+      $oldPassword    = $_POST['oldPassword'];
+      $newPassword    = $_POST['newPassword'];
+      $reNewPassword  = $_POST['reNewPassword'];
+      $Notification   = $this->Password->ChangePassword($id_user, $oldPassword, $newPassword, $reNewPassword);
+    }
+
+    $this->view("layout", [
+      "page"          => "change-password/change-password",
       "Notification"  =>  $Notification,
     ]);
   }

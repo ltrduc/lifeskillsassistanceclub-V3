@@ -58,7 +58,7 @@
               <a href="profile.html" class="dropdown-item has-icon"> <i class="far
 										fa-user"></i> Thông tin cá nhân
               </a>
-              <a href="#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
+              <a href="Admin/ChangePassword" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
                 Đổi mật khẩu
               </a>
               <div class="dropdown-divider"></div>

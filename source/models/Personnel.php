@@ -118,7 +118,7 @@ class Personnel
   public function deletePersonnel($id_user)
   {
     $id_user    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_user));
-    
+
     $query      = "SELECT * FROM tbl_user WHERE id_user = '$id_user'";
     $result     = $this->db->select($query);
 
@@ -146,25 +146,6 @@ class Personnel
 
     if ($result) return ["status" => "success", "message" => "Đã cập nhật liệu thành công!"];
 
-    return ["status" => "error", "message" => "Đã cập nhật liệu thất bại!"];
-  }
-
-  // Đặt lại mật khẩu
-  public function resetPassword($id_user)
-  {
-    $id_user    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_user));
-    $query      = "SELECT * FROM tbl_user WHERE id_user = '$id_user' LIMIT 1";
-    $result     = $this->db->select($query);
-
-    if ($result) {
-      $value          = $result->fetch_assoc();
-      $password_reset = md5($value['id_student']);
-
-      $query          = "UPDATE `tbl_user` SET `password`='$password_reset' WHERE `id_user`='$id_user'";
-      $result         = $this->db->update($query);
-
-      if ($result) return ["status" => "success", "message" => "Đã cập nhật liệu thành công!"];
-    }
     return ["status" => "error", "message" => "Đã cập nhật liệu thất bại!"];
   }
 }
