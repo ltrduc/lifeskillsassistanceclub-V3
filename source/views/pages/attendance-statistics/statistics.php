@@ -27,7 +27,7 @@
             <div class="col-12 col-sm-6 col-md-6 col-lg-3">
               <article class="article">
                 <div class="article-header">
-                  <div class="article-image" data-background="source/public/img/blog/img16.png">
+                  <div class="article-image" data-background="source/public/img/banner/5.png">
                   </div>
                   <div class="article-title">
                     <h2><a href="#"><?php echo $value['semester'] ?> <br> Năm học <?php echo $value['schoolyear'] ?></a></h2>
