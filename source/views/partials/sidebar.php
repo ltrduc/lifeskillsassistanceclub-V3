@@ -16,6 +16,7 @@
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="calendar"></i><span>Quản lý lịch trực</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="Admin/Attendance">Điểm danh buổi trực</a></li>
+          <li><a class="nav-link" href="Admin/Schedule">Quản lý trực ban</a></li>
           <li><a class="nav-link" href="Admin/Statistics">Thống kê buổi trực</a></li>
         </ul>
       </li>
@@ -25,13 +26,6 @@
           <li><a class="nav-link" href="Admin/Course">Quản lý lịch học</a></li>
           <li><a class="nav-link" href="Admin/Subject">Quản lý môn học</a></li>
           <li><a class="nav-link" href="Admin/SchoolYear">Quản lý năm học</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="clipboard"></i><span>Quản lý trực ban</span></a>
-        <ul class="dropdown-menu">
-          <li><a class="nav-link" href="Admin/Administrative">Ban hành chính</a></li>
-          <li><a class="nav-link" href="Admin/Media">Ban truyền thông</a></li>
         </ul>
       </li>
       <li class="dropdown">

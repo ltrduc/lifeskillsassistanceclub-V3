@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 16, 2022 lúc 07:57 PM
+-- Thời gian đã tạo: Th1 18, 2022 lúc 12:11 PM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.0.14
 
@@ -223,6 +223,35 @@ INSERT INTO `tbl_recruitment` (`id_recruitment`, `fullname`, `id_student`, `facu
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `tbl_schedule`
+--
+
+CREATE TABLE `tbl_schedule` (
+  `id_schedule` int(255) NOT NULL,
+  `id_user` int(255) NOT NULL,
+  `session` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `shift` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_schedule`
+--
+
+INSERT INTO `tbl_schedule` (`id_schedule`, `id_user`, `session`, `shift`) VALUES
+(1, 1, 'Monday', 'Ca1 Ca2 Ca3'),
+(2, 1, 'Tuesday', 'Ca2 Ca3'),
+(3, 2, 'Tuesday', 'Ca2 Ca4'),
+(4, 2, 'Monday', 'Ca2 Ca4'),
+(5, 3, 'Monday', 'Ca2 Ca4'),
+(6, 11, 'Monday', 'Ca2 Ca3 '),
+(7, 10, 'Saturday', 'Ca4 '),
+(8, 12, 'Friday', 'Ca3 Ca4 '),
+(9, 13, 'Friday', 'Ca2 '),
+(10, 4, 'Thursday', 'Ca3 ');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `tbl_schoolyear`
 --
 
@@ -302,7 +331,7 @@ CREATE TABLE `tbl_user` (
   `birthday` date DEFAULT NULL,
   `facebook` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `id_team` int(255) DEFAULT NULL,
-  `phone` int(11) DEFAULT NULL,
+  `phone` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
   `role` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -311,23 +340,23 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthday`, `facebook`, `id_team`, `phone`, `role`) VALUES
-(1, '51900040', '9774532db8f52128d641b1016f9728c7', 'Lê Trí Đức', NULL, NULL, 1, NULL, 0),
-(2, '51900356', '6d5557fa3520948ab7ec199835968295', 'Tạ Quốc Khánh', NULL, NULL, 1, NULL, 0),
-(3, 'H1900308', 'c87566fe171afba085d2c43088176e26', 'Nguyễn Nhật Quyên', NULL, NULL, 1, NULL, 0),
-(4, '520H0401', '3ab20c95f18788229224f4fbc8531a15', 'Lê Gia Phú', NULL, NULL, 1, NULL, 0),
-(5, 'A2000244', '1f4e65a5c11fc2a437e65aedc2ba11eb', 'Phan Phương Thảo', NULL, NULL, 1, NULL, 0),
-(6, 'B19H0160', '4b233c55470bafcfaef8b0b310f5512a', 'Nguyễn Trần Phương Anh', NULL, NULL, 2, NULL, 0),
-(7, '020H0214', 'c13aceefb420263e13acbdb5ae57b05b', 'Ngô Nguyễn Minh Anh', NULL, NULL, 2, NULL, 0),
-(8, '51900119', '32e52bea4a9c000291c04d834c0f1d2b', 'Lê Thành Đăng Khoa', NULL, NULL, 2, NULL, 0),
-(9, '61900381', '12cdb316d70374121cb1cd1b940dda9f', 'Trần Ngọc Châu', NULL, NULL, 2, NULL, 0),
-(10, '41900468', '9408bb53069de3d9aeadd1d401e0356f', 'Nguyễn Duy Khánh Minh', NULL, NULL, 3, NULL, 0),
-(11, '019H0292', 'a4cbde89381503582267fcf7af3287c3', 'Nguyễn Mỹ Anh', NULL, NULL, 3, NULL, 0),
-(12, '720H1519', '34407949dee2cd3056e38e5cae9d02a5', 'Hoàng Ngọc Bảo Châu', NULL, NULL, 3, NULL, 0),
-(13, '02000939', 'd1763ac34f6a48a43af7045f32842945', 'Hồ Thị Bích Tuyền', NULL, NULL, 3, NULL, 0),
-(14, '51900030', '17dd54b49eadccf8e149e6d224fd99d9', 'Nguyễn Quốc Đạt', NULL, NULL, NULL, NULL, 1),
-(15, 'E20H0347', 'a2a2bea9bcf77c92a714ef3e669e2cdf', 'Phùng Lữ Thế Hoài', NULL, NULL, NULL, NULL, 1),
-(16, '51900162', '01a542ee4e0aed3dd54e5ade72ba7d74', 'Nguyễn Thị Thảo Như', NULL, NULL, NULL, NULL, 1),
-(17, '51900076', 'dd9aae0b3d924c646b5f52614ba570e9', 'Nguyễn Trần Minh Hoa', NULL, NULL, NULL, NULL, 1);
+(1, '51900040', '9774532db8f52128d641b1016f9728c7', 'Lê Trí Đức', NULL, NULL, 1, '0377025001', 0),
+(2, '51900356', '6d5557fa3520948ab7ec199835968295', 'Tạ Quốc Khánh', NULL, NULL, 1, '0377025002', 0),
+(3, 'H1900308', 'c87566fe171afba085d2c43088176e26', 'Nguyễn Nhật Quyên', NULL, NULL, 1, '0377025003', 0),
+(4, '520H0401', '3ab20c95f18788229224f4fbc8531a15', 'Lê Gia Phú', NULL, NULL, 1, '0377025004', 0),
+(5, 'A2000244', '1f4e65a5c11fc2a437e65aedc2ba11eb', 'Phan Phương Thảo', NULL, NULL, 1, '0377025005', 0),
+(6, 'B19H0160', '4b233c55470bafcfaef8b0b310f5512a', 'Nguyễn Trần Phương Anh', NULL, NULL, 2, '0377025006', 0),
+(7, '020H0214', 'c13aceefb420263e13acbdb5ae57b05b', 'Ngô Nguyễn Minh Anh', NULL, NULL, 2, '0377025007', 0),
+(8, '51900119', '32e52bea4a9c000291c04d834c0f1d2b', 'Lê Thành Đăng Khoa', NULL, NULL, 2, '0377025008', 0),
+(9, '61900381', '12cdb316d70374121cb1cd1b940dda9f', 'Trần Ngọc Châu', NULL, NULL, 2, '0377025009', 0),
+(10, '41900468', '9408bb53069de3d9aeadd1d401e0356f', 'Nguyễn Duy Khánh Minh', NULL, NULL, 3, '0377025010', 0),
+(11, '019H0292', 'a4cbde89381503582267fcf7af3287c3', 'Nguyễn Mỹ Anh', NULL, NULL, 3, '0377025011', 0),
+(12, '720H1519', '34407949dee2cd3056e38e5cae9d02a5', 'Hoàng Ngọc Bảo Châu', NULL, NULL, 3, '0377025012', 0),
+(13, '02000939', 'd1763ac34f6a48a43af7045f32842945', 'Hồ Thị Bích Tuyền', NULL, NULL, 3, '0377025013', 0),
+(14, '51900030', '17dd54b49eadccf8e149e6d224fd99d9', 'Nguyễn Quốc Đạt', NULL, NULL, NULL, '0377025014', 1),
+(15, 'E20H0347', 'a2a2bea9bcf77c92a714ef3e669e2cdf', 'Phùng Lữ Thế Hoài', NULL, NULL, NULL, '0377025015', 1),
+(16, '51900162', '01a542ee4e0aed3dd54e5ade72ba7d74', 'Nguyễn Thị Thảo Như', NULL, NULL, NULL, '0377025016', 1),
+(17, '51900076', 'dd9aae0b3d924c646b5f52614ba570e9', 'Nguyễn Trần Minh Hoa', NULL, NULL, NULL, '0377025017', 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -376,6 +405,13 @@ ALTER TABLE `tbl_position`
 ALTER TABLE `tbl_recruitment`
   ADD PRIMARY KEY (`id_recruitment`),
   ADD KEY `fk_tbl_recrutiment_id_team` (`id_team`);
+
+--
+-- Chỉ mục cho bảng `tbl_schedule`
+--
+ALTER TABLE `tbl_schedule`
+  ADD PRIMARY KEY (`id_schedule`),
+  ADD KEY `fk_tbl_schedule_id_user` (`id_user`);
 
 --
 -- Chỉ mục cho bảng `tbl_schoolyear`
@@ -443,6 +479,12 @@ ALTER TABLE `tbl_recruitment`
   MODIFY `id_recruitment` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT cho bảng `tbl_schedule`
+--
+ALTER TABLE `tbl_schedule`
+  MODIFY `id_schedule` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT cho bảng `tbl_schoolyear`
 --
 ALTER TABLE `tbl_schoolyear`
@@ -502,6 +544,12 @@ ALTER TABLE `tbl_executive`
 --
 ALTER TABLE `tbl_recruitment`
   ADD CONSTRAINT `fk_tbl_recrutiment_id_team` FOREIGN KEY (`id_team`) REFERENCES `tbl_team` (`id_team`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `tbl_schedule`
+--
+ALTER TABLE `tbl_schedule`
+  ADD CONSTRAINT `fk_tbl_schedule_id_user` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `tbl_user`

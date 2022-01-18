@@ -30,16 +30,15 @@
             <div class="card-body">
               <form action="Admin/Executive" method="post">
                 <div class="form-group">
-                  <label>Nhân sự</label>
-                  <select class="form-control selectric" name="id_user">
-                    <option value="" class="font-weight-bold">Chọn nhân sự</option>
-                    <?php
-                    if ($data['ListMember']) {
+                  <label>Mã số sinh viên</label>
+                  <input type="text" class="form-control" placeholder="Nhập số sinh viên" name="id_student" list="id_student">
+                  <datalist id="id_student">
+                    <?php if ($data['ListMember']) {
                       while ($value = $data['ListMember']->fetch_assoc()) { ?>
-                        <option value="<?php echo $value['id_user'] ?>">[<?php echo $value['id_student'] ?>] <?php echo $value['fullname'] ?></option>
+                        <option value="<?php echo $value['id_student'] ?>">[<?php echo $value['team'] ?>] <?php echo $value['fullname'] ?></option>
                     <?php }
                     } ?>
-                  </select>
+                  </datalist>
                 </div>
                 <div class="form-group">
                   <label>Chức vụ</label>

@@ -4,6 +4,10 @@ function DisplayReset() {
     window.history.replaceState(null, null, window.location.href);
   }
 }
+// Lịch trực ban
+function deleteSchedule(id_schedule) {
+  document.getElementById("delete-id_schedule").value = id_schedule;
+}
 
 // Thống kê
 function deleteStatistics(id_schoolyear, semester, schoolyear) {
@@ -117,6 +121,13 @@ $(document).ready(function () {
   $("#Search-Attendance").on("keyup", function () {
     var value = $(this).val().toLowerCase();
     $("#Attendance-Table .Attendance-tr").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+  $("#Search-Schedule").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#Schedule-Table .fc-list-item").filter(function () {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });

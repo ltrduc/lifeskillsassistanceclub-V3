@@ -13,6 +13,7 @@ class Admin extends Controller
   private $Statistics;
   private $Subject;
   private $Course;
+  private $Schedule;
 
   function __construct()
   {
@@ -28,9 +29,10 @@ class Admin extends Controller
     $this->Statistics       = $this->model("Statistics");
     $this->Subject          = $this->model("Subject");
     $this->Course           = $this->model("Course");
+    $this->Schedule         = $this->model("Schedule");
   }
 
-  // Trang chủ
+  // TRANG CHỦ
   public function Home()
   {
     $Notification = [];
@@ -46,7 +48,7 @@ class Admin extends Controller
     ]);
   }
 
-  // // Quản lý buổi trực
+  // QUẢN LÝ LỊCH TRỰC
   public function Attendance()
   {
     $Notification = [];
@@ -75,7 +77,106 @@ class Admin extends Controller
     ]);
   }
 
-  // Quản lý khóa học
+  public function Schedule()
+  {
+    $Notification = [];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (isset($_POST['addSchedule'])) {
+        $id_student  = $_POST['id_student'];
+        $session  = $_POST['session'];
+        $shift1   = "";
+        $shift2   = "";
+        $shift3   = "";
+        $shift4   = "";
+
+        if (isset($_POST['shift1'])) $shift1 = $_POST['shift1'];
+        if (isset($_POST['shift2'])) $shift2 = $_POST['shift2'];
+        if (isset($_POST['shift3'])) $shift3 = $_POST['shift3'];
+        if (isset($_POST['shift4'])) $shift4 = $_POST['shift4'];
+        $Notification = $this->Schedule->setSchedule($id_student, $session, $shift1, $shift2, $shift3, $shift4);
+      }
+      if (isset($_POST['deleteSchedule'])) {
+        $id_schedule  = $_POST['id_schedule'];
+        $Notification = $this->Schedule->deleteSchedule($id_schedule);
+      }
+      if (isset($_POST['deleteAllSchedule'])) {
+        $Notification = $this->Schedule->deleteAllSchedule();
+      }
+    }
+
+    $this->view("layout", [
+      "page"            => "schedule/Schedule",
+      "Monday"          => $this->Schedule->getSchedule(),
+      "Tuesday"         => $this->Schedule->getSchedule(),
+      "Wednesday"       => $this->Schedule->getSchedule(),
+      "Thursday"        => $this->Schedule->getSchedule(),
+      "Friday"          => $this->Schedule->getSchedule(),
+      "Saturday"        => $this->Schedule->getSchedule(),
+      "ListMember"      => $this->Personnel->getMember(),
+      "Notification"    => $Notification,
+    ]);
+  }
+
+  public function Statistics()
+  {
+    $Notification = [];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $id_schoolyear  = $_POST['id_schoolyear'];
+      $semester       = $_POST['semester'];
+      $Notification   = $this->Statistics->deleteStatistics($id_schoolyear, $semester);
+    }
+
+    $this->view("layout", [
+      "page"            => "attendance-statistics/statistics",
+      "ListStatistics"  =>  $this->Statistics->getStatistics(),
+      "Notification"    => $Notification,
+    ]);
+  }
+
+  public function GeneralStatistics()
+  {
+    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) {
+      header('Location: Statistics');
+    }
+
+    $Notification   = [];
+    $id_schoolyear  = $_GET['id_schoolyear'];
+    $semester       = $_GET['semester'];
+
+    $this->view("layout", [
+      "page"                  => "attendance-statistics/general",
+      "id_schoolyear"         => $id_schoolyear,
+      "semester"              => $semester,
+      "ListGeneralStatistics" => $this->Statistics->getGeneralStatistics($id_schoolyear, $semester),
+      "Notification"          => $Notification,
+    ]);
+  }
+
+  public function DetailedStatistics()
+  {
+    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) {
+      header('Location: Statistics');
+    }
+
+    $Notification   = [];
+    $id_schoolyear  = $_GET['id_schoolyear'];
+    $semester       = $_GET['semester'];
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $id_attendance  = $_POST['id_attendance'];
+      $Notification   = $this->Statistics->deleteDetailedStatistics($id_attendance);
+    }
+
+    $this->view("layout", [
+      "page"                    => "attendance-statistics/detailed",
+      "id_schoolyear"           => $id_schoolyear,
+      "semester"                => $semester,
+      "ListDetailedStatistics"  => $this->Statistics->getDetailedStatistics($id_schoolyear, $semester),
+      "Notification"            => $Notification,
+    ]);
+  }
+
+  // QUẢN LÝ KHÓA HỌC
   public function Course()
   {
     $Notification = [];
@@ -187,67 +288,7 @@ class Admin extends Controller
     ]);
   }
 
-  // Thống kê buổi trực
-  public function Statistics()
-  {
-    $Notification = [];
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $id_schoolyear  = $_POST['id_schoolyear'];
-      $semester       = $_POST['semester'];
-      $Notification   = $this->Statistics->deleteStatistics($id_schoolyear, $semester);
-    }
-
-    $this->view("layout", [
-      "page"            => "attendance-statistics/statistics",
-      "ListStatistics"  =>  $this->Statistics->getStatistics(),
-      "Notification"    => $Notification,
-    ]);
-  }
-
-  public function GeneralStatistics()
-  {
-    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) {
-      header('Location: Statistics');
-    }
-
-    $Notification   = [];
-    $id_schoolyear  = $_GET['id_schoolyear'];
-    $semester       = $_GET['semester'];
-
-    $this->view("layout", [
-      "page"                  => "attendance-statistics/general",
-      "id_schoolyear"         => $id_schoolyear,
-      "semester"              => $semester,
-      "ListGeneralStatistics" => $this->Statistics->getGeneralStatistics($id_schoolyear, $semester),
-      "Notification"          => $Notification,
-    ]);
-  }
-
-  public function DetailedStatistics()
-  {
-    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) {
-      header('Location: Statistics');
-    }
-
-    $Notification   = [];
-    $id_schoolyear  = $_GET['id_schoolyear'];
-    $semester       = $_GET['semester'];
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $id_attendance  = $_POST['id_attendance'];
-      $Notification   = $this->Statistics->deleteDetailedStatistics($id_attendance);
-    }
-
-    $this->view("layout", [
-      "page"                    => "attendance-statistics/detailed",
-      "id_schoolyear"           => $id_schoolyear,
-      "semester"                => $semester,
-      "ListDetailedStatistics"  => $this->Statistics->getDetailedStatistics($id_schoolyear, $semester),
-      "Notification"            => $Notification,
-    ]);
-  }
-
-  // Quản lý nhân sự
+  // QUẢN LÝ NHÂN SỰ
   public function Member()
   {
     $Notification = [];
@@ -340,15 +381,15 @@ class Admin extends Controller
     ]);
   }
 
-  // Quản lý cơ cấu
+  // QUẢN LÝ CƠ CẤU
   public function Executive()
   {
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addExecutive'])) {
-        $id_user      = $_POST['id_user'];
+        $id_student   = $_POST['id_student'];
         $id_position  = $_POST['id_position'];
-        $Notification = $this->Executive->setExecutive($id_user, $id_position);
+        $Notification = $this->Executive->setExecutive($id_student, $id_position);
       }
       if (isset($_POST['deleteExecutive'])) {
         $id_executive = $_POST['id_executive'];
@@ -453,7 +494,7 @@ class Admin extends Controller
     ]);
   }
 
-  // Thao tác khác
+  // THAO TÁC KHÁC
   public function Decentralization()
   {
     $Notification = [];
@@ -483,9 +524,10 @@ class Admin extends Controller
 
     $this->view("layout", [
       "page"                  => "decentralization/decentralization",
-      "ListTeam"              =>  $this->Team->getTeam(),
-      "ListDecentralization"  =>  $this->Decentralization->getDecentralization(),
-      "Notification"          =>  $Notification,
+      "ListTeam"              => $this->Team->getTeam(),
+      "ListPersonnel"         => $this->Personnel->getPersonnel(),
+      "ListDecentralization"  => $this->Decentralization->getDecentralization(),
+      "Notification"          => $Notification,
     ]);
   }
 

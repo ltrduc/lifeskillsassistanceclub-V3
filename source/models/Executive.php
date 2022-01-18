@@ -27,12 +27,20 @@ class Executive
     return $result;
   }
 
-  public function setExecutive($id_user, $id_position)
+  public function setExecutive($id_student, $id_position)
   {
-    $id_user        = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_user));
+    $id_student     = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_student));
     $id_position    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_position));
 
-    if (empty($id_user) || empty($id_position)) return ["status" => "error", "message" => "Vui lòng nhập đầy đủ dữ liệu!"];
+    if (empty($id_student) || empty($id_position)) return ["status" => "error", "message" => "Vui lòng nhập đầy đủ dữ liệu!"];
+
+    $query_user  = "SELECT * FROM tbl_user WHERE id_student = '$id_student' AND role = '0'";
+    $result_user = $this->db->select($query_user);
+
+    if (!$result_user) return ["status" => "error", "message" => "" . $id_student . " không tồn tại hoặc chưa phải là thành viên!"];
+
+    $value_user = $result_user->fetch_assoc();
+    $id_user    = $value_user['id_user'];
 
     $query  = "SELECT * FROM tbl_executive WHERE id_user = '$id_user' OR id_position = '$id_position' LIMIT 1";
     $result = $this->db->select($query);

@@ -11,6 +11,7 @@
 <script src="source/public/js/app.min.js"></script>
 <!-- JS Libraies -->
 <script src="source/public/bundles/prism/prism.js"></script>
+<script src="source/public/bundles/fullcalendar/fullcalendar.min.js"></script>
 <script src="source/public/bundles/izitoast/js/iziToast.min.js"></script>
 <!-- Page Specific JS File -->
 <script src="source/public/bundles/datatables/datatables.min.js"></script>
@@ -25,6 +26,7 @@
 <script src="source/public/js/page/datatables.js"></script>
 <script src="source/public/bundles/bootstrap-daterangepicker/daterangepicker.js"></script>
 <script src="source/public/js/page/index.js"></script>
+<script src="source/public/js/page/calendar.js"></script>
 <!-- Template JS File -->
 <script src="source/public/js/scripts.js"></script>
 <!-- Custom JS File -->

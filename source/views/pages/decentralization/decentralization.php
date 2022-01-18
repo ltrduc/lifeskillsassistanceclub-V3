@@ -31,7 +31,14 @@
               <form action="Admin/Decentralization" method="post">
                 <div class="form-group">
                   <label>Mã số sinh viên</label>
-                  <input type="text" class="form-control" placeholder="51900001" name="id_student">
+                  <input type="text" class="form-control" placeholder="Nhập số sinh viên" name="id_student" list="id_student">
+                  <datalist id="id_student">
+                    <?php if ($data['ListPersonnel']) {
+                      while ($value = $data['ListPersonnel']->fetch_assoc()) { ?>
+                        <option value="<?php echo $value['id_student'] ?>"><?php echo $value['fullname'] ?></option>
+                    <?php }
+                    } ?>
+                  </datalist>
                 </div>
                 <div class="form-group">
                   <label>Chuyển nhân sự</label>
