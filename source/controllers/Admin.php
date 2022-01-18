@@ -15,6 +15,7 @@ class Admin extends Controller
   private $Course;
   private $Schedule;
   private $Password;
+  private $Profile;
 
   function __construct()
   {
@@ -31,6 +32,7 @@ class Admin extends Controller
     $this->Subject          = $this->model("Subject");
     $this->Course           = $this->model("Course");
     $this->Schedule         = $this->model("Schedule");
+    $this->Profile          = $this->model("Profile");
     $this->Password         = $this->model("Password");
   }
 
@@ -561,6 +563,22 @@ class Admin extends Controller
 
     $this->view("layout", [
       "page"          => "change-password/change-password",
+      "Notification"  =>  $Notification,
+    ]);
+  }
+
+  public function Profile()
+  {
+    if (!isset($_GET['user']) || $_GET['user'] == NULL) {
+      header('Location: Home');
+    }
+
+    $Notification = [];
+    $id_user      = $_GET['user'];
+
+    $this->view("layout", [
+      "page"          => "profile/profile",
+      "Profile"       =>  $this->Profile->getProfile($id_user),
       "Notification"  =>  $Notification,
     ]);
   }

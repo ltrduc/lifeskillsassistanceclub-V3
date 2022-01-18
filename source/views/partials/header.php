@@ -55,7 +55,7 @@
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="source/public/img/logo.png" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
               <div class="dropdown-title">Xin chào, <?php echo Session::get('fullname') ?></div>
-              <a href="Admin/Profile" class="dropdown-item has-icon"> <i class="far
+              <a href="Admin/Profile&user=<?php echo Session::get('id_user') ?>" class="dropdown-item has-icon"> <i class="far
 										fa-user"></i> Thông tin cá nhân
               </a>
               <a href="Admin/ChangePassword" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
