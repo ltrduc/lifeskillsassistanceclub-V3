@@ -123,21 +123,21 @@
                         <div class="col-md-4 col-12 b-r">
                           <div class="form-group">
                             <label class="font-weight-bold">Số điện thoại</label>
-                            <input type="text" class="form-control" placeholder="0377000001" value="<?php if ($value['phone'] == '[---]') echo ""; else $value['phone']; ?>" name="phone" tabindex="2" required autofocus>
+                            <input type="text" class="form-control" placeholder="0377000001" value="<?php if ($value['phone'] == '[---]') echo ""; else echo $value['phone']; ?>" name="phone" tabindex="2" required autofocus>
                             <div class="invalid-feedback">Vui lòng không bỏ trống số điện thoại!</div>
                           </div>
                         </div>
                         <div class="col-md-4 col-12 b-r">
                           <div class="form-group">
                             <label class="font-weight-bold">Ngày sinh</label>
-                            <input type="date" class="form-control" name="birthday" <?php if ($value['birthday'] == '[---]') echo 'tabindex="3" required autofocus'; ?>>
+                            <input type="date" class="form-control" name="birthday" <?php if ($value['birthday'] == '[---]') echo 'tabindex="3" required autofocus'; else echo "value=".$value['birthday']."";?>>
                             <div class="invalid-feedback">Vui lòng không bỏ trống ngày sinh!</div>
                           </div>
                         </div>
                         <div class="col-md-8 col-12 b-r">
                           <div class="form-group">
                             <label class="font-weight-bold">Link Facebook</label>
-                            <input type="text" class="form-control" placeholder="https://www.facebook.com/profile" name="facebook" tabindex="4" required autofocus>
+                            <input type="text" class="form-control" placeholder="https://www.facebook.com/profile" name="facebook" tabindex="4" value="<?php if ($value['facebook'] == '[---]') echo ""; else echo $value['facebook']; ?>" required autofocus>
                             <div class="invalid-feedback">Vui lòng không bỏ trống link facebook!</div>
                           </div>
                         </div>

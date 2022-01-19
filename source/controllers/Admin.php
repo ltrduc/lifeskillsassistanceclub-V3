@@ -292,6 +292,16 @@ class Admin extends Controller
     ]);
   }
 
+  // QUẢN LÝ THIẾT BỊ
+  public function Borrow()
+  {
+    $Notification = [];
+    $this->view("layout", [
+      "page"            => "borrow/borrow",
+      "Notification"    => $Notification,
+    ]);
+  }
+
   // QUẢN LÝ NHÂN SỰ
   public function Member()
   {

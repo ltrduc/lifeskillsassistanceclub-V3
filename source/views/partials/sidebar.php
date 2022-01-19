@@ -31,7 +31,7 @@
       <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="settings"></i><span>Quản lý thiết bị</span></a>
         <ul class="dropdown-menu">
-          <li><a class="nav-link" href="Admin/Equipment">Thống kê thiết bị</a></li>
+          <li><a class="nav-link" href="Admin/Device">Thống kê thiết bị</a></li>
           <li><a class="nav-link" href="Admin/Borrow">Quản lý mượn-trả</a></li>
         </ul>
       </li>
