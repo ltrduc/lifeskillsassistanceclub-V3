@@ -1,15 +1,12 @@
-<?php
-if ($data['Profile']) {
+<?php if ($data['Profile']) {
   $value = $data['Profile']->fetch_assoc();
-  if (Session::get('id_user') != $value['id_user']) {
-    echo '<script>window.location = "Admin/Home"</script>';
-  }
-?>
+  if (Session::get('id_user') != $value['id_user']) echo '<script>window.location = "Admin/Home"</script>'; ?>
   <!-- Main Content -->
   <div class="main-content">
     <section class="section">
       <div class="section-body">
         <div class="row mt-sm-4">
+          <!-- THÔNG TIN CHUNG -->
           <div class="col-12 col-md-12 col-lg-4">
             <div class="card author-box">
               <div class="card-body">
@@ -25,11 +22,7 @@ if ($data['Profile']) {
                   <div class="mb-2 mt-3">
                     <div class="text-small font-weight-bold">Trang FaceBook</div>
                   </div>
-                  <a href="<?php if ($value['facebook'] != '[---]') {
-                              echo $value['facebook'];
-                            } else {
-                              echo "Admin/Profile&user=" . $value['id_user'] . "";
-                            } ?> " class="btn btn-social-icon mr-1 btn-facebook">
+                  <a href="<?php if ($value['facebook'] != '[---]') { echo $value['facebook']; } else { echo "Admin/Profile&user=" . $value['id_user'] . ""; } ?> " class="btn btn-social-icon mr-1 btn-facebook">
                     <i class="fab fa-facebook-f"></i>
                   </a>
                   <div class="w-100 d-sm-none"></div>
@@ -37,6 +30,7 @@ if ($data['Profile']) {
               </div>
             </div>
           </div>
+          <!-- THÔNG TIN CÁ NHÂN VÀ CHỈNH SỬA THÔNG TIN -->
           <div class="col-12 col-md-12 col-lg-8">
             <div class="card">
               <div class="card-header">
@@ -49,8 +43,10 @@ if ($data['Profile']) {
                   </li>
                 </ul>
               </div>
+              <!-- THÔNG TIN CÁ NHÂN VÀ CHỈNH SỬA THÔNG TIN -->
               <div class="card-body">
                 <div class="tab-content" id="myTabContent2">
+                  <!-- THÔNG TIN CÁ NHÂN -->
                   <div class="tab-pane fade active show" id="about" role="tabpanel" aria-labelledby="about-tab">
                     <div class="row">
                       <div class="col-md-12">
@@ -79,14 +75,9 @@ if ($data['Profile']) {
                       <div class="col-md-8 col-12 b-r">
                         <strong>Link Facebook</strong>
                         <br>
-                        <p class="text-muted"><a href="<?php if ($value['facebook'] != '[---]') {
-                                                          echo $value['facebook'];
-                                                        } else {
-                                                          echo "Admin/Profile&user=" . $value['id_user'] . "";
-                                                        } ?> "><?php echo $value['facebook'] ?></a></p>
+                        <p class="text-muted"><a href="<?php if ($value['facebook'] != '[---]') { echo $value['facebook']; } else { echo "Admin/Profile&user=" . $value['id_user'] . ""; } ?> "><?php echo $value['facebook'] ?></a></p>
                       </div>
                     </div>
-
                     <div class="row">
                       <div class="col-md-12">
                         <h6 class="text-dark">[2]. THÔNG TIN HOẠT ĐỘNG</h6>
@@ -109,10 +100,75 @@ if ($data['Profile']) {
                     </div>
                   </div>
 
+                  <!-- CHỈNH SỬA THÔNG TIN -->
                   <div class="tab-pane fade" id="setting" role="tabpanel" aria-labelledby="setting-tab">
-                    Sed sed metus vel lacus hendrerit tempus. Sed efficitur velit tortor, ac efficitur est lobortis
-                    quis. Nullam lacinia metus erat, sed fermentum justo rutrum ultrices. Proin quis iaculis tellus.
-                    Etiam ac vehicula eros, pharetra consectetur dui.
+                    <form action="" method="post" class="needs-validation" novalidate="">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h6 class="text-dark">[1]. THÔNG TIN CÁ NHÂN</h6>
+                        </div>
+                        <div class="col-md-4 col-12 b-r">
+                          <div class="form-group">
+                            <label class="font-weight-bold">Họ và Tên</label>
+                            <input type="text" class="form-control" placeholder="Nguyễn Văn A" name="fullname" value="<?php echo $value['fullname'] ?>" tabindex="1" required autofocus>
+                            <div class="invalid-feedback">Vui lòng không bỏ trống họ và tên!</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-12 b-r">
+                          <div class="form-group">
+                            <label class="font-weight-bold">Mã số sinh viên</label>
+                            <input type="text" class="form-control" value="<?php echo $value['id_student'] ?>" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-12 b-r">
+                          <div class="form-group">
+                            <label class="font-weight-bold">Số điện thoại</label>
+                            <input type="text" class="form-control" placeholder="0377000001" value="<?php if ($value['phone'] == '[---]') echo ""; else $value['phone']; ?>" name="phone" tabindex="2" required autofocus>
+                            <div class="invalid-feedback">Vui lòng không bỏ trống số điện thoại!</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-12 b-r">
+                          <div class="form-group">
+                            <label class="font-weight-bold">Ngày sinh</label>
+                            <input type="date" class="form-control" name="birthday" <?php if ($value['birthday'] == '[---]') echo 'tabindex="3" required autofocus'; ?>>
+                            <div class="invalid-feedback">Vui lòng không bỏ trống ngày sinh!</div>
+                          </div>
+                        </div>
+                        <div class="col-md-8 col-12 b-r">
+                          <div class="form-group">
+                            <label class="font-weight-bold">Link Facebook</label>
+                            <input type="text" class="form-control" placeholder="https://www.facebook.com/profile" name="facebook" tabindex="4" required autofocus>
+                            <div class="invalid-feedback">Vui lòng không bỏ trống link facebook!</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h6 class="text-dark">[2]. THÔNG TIN HOẠT ĐỘNG</h6>
+                        </div>
+                        <div class="col-md-4 col-12 b-r">
+                          <div class="form-group">
+                            <label class="font-weight-bold">Nhân sự</label>
+                            <input type="text" class="form-control" value="<?php echo $value['role'] ?>" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-12 b-r">
+                          <div class="form-group">
+                            <label class="font-weight-bold">Ban hoạt động</label>
+                            <input type="text" class="form-control" value="<?php echo $value['team'] ?>" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-12 b-r">
+                          <div class="form-group">
+                            <label class="font-weight-bold">Chức vụ</label>
+                            <input type="text" class="form-control" value="<?php echo $value['position'] ?>" disabled>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group text-right">
+                        <button class="btn btn-sm btn-primary">Chỉnh sửa thông tin</button>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>

@@ -576,6 +576,14 @@ class Admin extends Controller
     $Notification = [];
     $id_user      = $_GET['user'];
 
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $fullname       = $_POST['fullname'];
+      $phone          = $_POST['phone'];
+      $birthday       = $_POST['birthday'];
+      $facebook       = $_POST['facebook'];
+      $Notification   = $this->Profile->updateProfile($id_user, $fullname, $phone, $birthday, $facebook);
+    }
+
     $this->view("layout", [
       "page"          => "profile/profile",
       "Profile"       =>  $this->Profile->getProfile($id_user),

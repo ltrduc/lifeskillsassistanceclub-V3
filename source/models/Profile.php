@@ -31,4 +31,27 @@ class Profile
     $result = $this->db->select($query);
     return $result;
   }
+
+  public function updateProfile($id_user, $fullname, $phone, $birthday, $facebook)
+  {
+    $id_user      = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_user));;
+    $fullname     = mysqli_real_escape_string($this->db->link, $this->fm->validation($fullname));
+    $phone        = mysqli_real_escape_string($this->db->link, $this->fm->validation($phone));
+    $birthday     = mysqli_real_escape_string($this->db->link, $this->fm->validation($birthday));
+    $facebook     = mysqli_real_escape_string($this->db->link, $this->fm->validation($facebook));
+
+    if (empty($id_user) || empty($fullname) || empty($phone) || empty($facebook)) return ["status" => "error", "message" => "Vui lòng nhập đầy đủ dữ liệu!"];
+
+    if (empty($birthday)) {
+      $query  = "UPDATE `tbl_user` SET `fullname`='$fullname',`facebook`='$facebook', `phone`='$phone' WHERE `id_user`='$id_user'";
+      $result = $this->db->update($query);
+    } else {
+      $query  = "UPDATE `tbl_user` SET `fullname`='$fullname',`birthday`='$birthday',`facebook`='$facebook', `phone`='$phone' WHERE `id_user`='$id_user'";
+      $result = $this->db->update($query);
+    }
+
+    if ($result) return ["status" => "success", "message" => "Đã cập nhật liệu thành công!"];
+
+    return ["status" => "error", "message" => "Đã cập nhật liệu thất bại!"];
+  }
 }
