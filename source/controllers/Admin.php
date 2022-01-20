@@ -23,7 +23,7 @@ class Admin extends Controller
   private $Borrow;
   private $Permission;
   private $pmsAdmin;
-  private $pmsAttendanc;
+  private $pmsAttendance;
   private $pmsPost;
 
   function __construct()
@@ -46,9 +46,9 @@ class Admin extends Controller
     $this->Borrow           = $this->model("Borrow");
     $this->Permission       = $this->model("Permission");
 
-    $this->pmsAdmin         = $this->Permission->Admin(Session::get('id_user'));
-    $this->pmsAttendance    = $this->Permission->Attendance(Session::get('id_user'));
-    $this->pmsPost          = $this->Permission->Post(Session::get('id_user'));
+    $this->pmsAdmin         = $this->Permission->Admin(Session::get('pmsAdmin'));
+    $this->pmsAttendance    = $this->Permission->Attendance(Session::get('pmsAttendance'));
+    $this->pmsPost          = $this->Permission->Post(Session::get('pmsPost'));
   }
 
   // TRANG CHỦ
@@ -70,6 +70,8 @@ class Admin extends Controller
   // QUẢN LÝ LỊCH TRỰC
   public function Attendance()
   {
+    if (!$this->pmsAdmin && !$this->pmsAttendance) header('Location: Home');
+
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (empty($_POST['id_schoolyear']) || empty($_POST['semester']) || empty($_POST['date']) || empty($_POST['shift'])) {
@@ -138,6 +140,8 @@ class Admin extends Controller
 
   public function Statistics()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $id_schoolyear  = $_POST['id_schoolyear'];
@@ -154,6 +158,8 @@ class Admin extends Controller
 
   public function GeneralStatistics()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) {
       header('Location: Statistics');
     }
@@ -173,6 +179,8 @@ class Admin extends Controller
 
   public function DetailedStatistics()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) {
       header('Location: Statistics');
     }
@@ -253,6 +261,8 @@ class Admin extends Controller
 
   public function Subject()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addSubject'])) {
@@ -281,6 +291,8 @@ class Admin extends Controller
 
   public function SchoolYear()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addSchoolYear'])) {
@@ -310,6 +322,8 @@ class Admin extends Controller
   // QUẢN LÝ THIẾT BỊ
   public function Borrow()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addBorrow'])) {
@@ -352,6 +366,8 @@ class Admin extends Controller
   // QUẢN LÝ NHÂN SỰ
   public function Member()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addMember'])) {
@@ -382,6 +398,8 @@ class Admin extends Controller
 
   public function DetailedMember()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification = [];
     $this->view("layout", [
       "page"          => "member/detailed",
@@ -392,6 +410,8 @@ class Admin extends Controller
 
   public function Collaborate()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addCollaborate'])) {
@@ -420,6 +440,8 @@ class Admin extends Controller
 
   public function DetailedCollaborate()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification = [];
     $this->view("layout", [
       "page"              => "collaborate/detailed",
@@ -430,6 +452,8 @@ class Admin extends Controller
 
   public function RecruitMember()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification   = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $Notification = $this->Recruitment->deleteRecruitment();
@@ -445,6 +469,8 @@ class Admin extends Controller
   // QUẢN LÝ CƠ CẤU
   public function Executive()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addExecutive'])) {
@@ -469,6 +495,8 @@ class Admin extends Controller
 
   public function Team()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addTeam'])) {
@@ -491,6 +519,8 @@ class Admin extends Controller
 
   public function EditTeam()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     if (!isset($_GET['id']) || $_GET['id'] == NULL) {
       header('Location: Team');
     }
@@ -513,6 +543,8 @@ class Admin extends Controller
 
   public function Position()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addPosition'])) {
@@ -535,6 +567,8 @@ class Admin extends Controller
 
   public function EditPosition()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     if (!isset($_GET['id']) || $_GET['id'] == NULL) {
       header('Location: Position');
     }
@@ -558,6 +592,8 @@ class Admin extends Controller
   // THAO TÁC KHÁC
   public function Decentralization()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['admin'])) {
@@ -594,6 +630,8 @@ class Admin extends Controller
 
   public function ResetPassword()
   {
+    if (!$this->pmsAdmin) header('Location: Home');
+
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $id_user      = $_POST['id_user'];
@@ -611,7 +649,7 @@ class Admin extends Controller
   {
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $id_user        = $_POST['id_user'];
+      $id_user        = Session::get('id_user');
       $oldPassword    = $_POST['oldPassword'];
       $newPassword    = $_POST['newPassword'];
       $reNewPassword  = $_POST['reNewPassword'];
@@ -626,12 +664,8 @@ class Admin extends Controller
 
   public function Profile()
   {
-    if (!isset($_GET['user']) || $_GET['user'] == NULL) {
-      header('Location: Home');
-    }
-
-    $Notification = [];
-    $id_user      = $_GET['user'];
+    $Notification     = [];
+    $id_user          = Session::get('id_user');
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $fullname       = $_POST['fullname'];

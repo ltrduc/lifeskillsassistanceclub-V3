@@ -5,7 +5,7 @@ include_once('./source/core/helpers/format.php');
 
 <?php
 /**
- * Permission
+ * Permission 
  */
 class Permission
 {
@@ -18,45 +18,21 @@ class Permission
     $this->fm = new Format();
   }
 
-  public function Admin($id_user)
+  public function Admin($pmsAdmin)
   {
-    $query  = "SELECT * FROM tbl_decentralization WHERE id_user = '$id_user' LIMIT 1";
-    $result = $this->db->select($query);
-
-    if ($result) {
-      $value = $result->fetch_assoc();
-      if ($value['admin'] == 1) {
-        return true;
-      }
-    }
+    if ($pmsAdmin == 1) return true;
     return false;
   }
 
-  public function Attendance($id_user)
+  public function Attendance($pmsAttendance)
   {
-    $query  = "SELECT * FROM tbl_decentralization WHERE id_user = '$id_user' LIMIT 1";
-    $result = $this->db->select($query);
-
-    if ($result) {
-      $value = $result->fetch_assoc();
-      if ($value['attendance'] == 1) {
-        return true;
-      }
-    }
+    if ($pmsAttendance == 1) return true;
     return false;
   }
 
-  public function Post($id_user)
+  public function Post($pmsPost)
   {
-    $query  = "SELECT * FROM tbl_decentralization WHERE id_user = '$id_user' LIMIT 1";
-    $result = $this->db->select($query);
-
-    if ($result) {
-      $value = $result->fetch_assoc();
-      if ($value['post'] == 1) {
-        return true;
-      }
-    }
+    if ($pmsPost == 1) return true;
     return false;
   }
 }

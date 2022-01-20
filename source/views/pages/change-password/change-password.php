@@ -55,7 +55,6 @@
                   </div>
                 </div>
                 <div class="form-group text-right">
-                  <input type="hidden" name="id_user" value="<?php echo Session::get('id_user') ?>">
                   <button class="btn btn-primary" tabindex="4" type="submit">Đổi mật khẩu</button>
                 </div>
               </form>

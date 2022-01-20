@@ -1,6 +1,5 @@
 <?php if ($data['Profile']) {
-  $value = $data['Profile']->fetch_assoc();
-  if (Session::get('id_user') != $value['id_user']) echo '<script>window.location = "Admin/Home"</script>'; ?>
+  $value = $data['Profile']->fetch_assoc(); ?>
   <!-- Main Content -->
   <div class="main-content">
     <section class="section">
