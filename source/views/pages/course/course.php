@@ -54,7 +54,9 @@
                           <td>2020-2021</td>
                           <td>
                             <a href="Admin/DetailedCourse&id_schoolyear=<?php echo $value['id_schoolyear'] ?>&semester=<?php echo $value['semester'] ?>&date=<?php echo $value['date'] ?>" class="btn btn-sm btn-primary"><i class="fas fa-book"></i> Xem lịch học </a>
-                            <a href="#" class="btn btn-sm btn-danger" onclick="deleteCourse('<?php echo $value['id_schoolyear'] ?>','<?php echo $value['semester'] ?>','<?php echo $value['date'] ?>')" data-toggle="modal" data-target="#deleteCourse"><i class="fas fa-trash"></i> Xóa lịch học </a>
+                            <?php if (Session::get('pmsAdmin') == 1) { ?>
+                              <a href="#" class="btn btn-sm btn-danger" onclick="deleteCourse('<?php echo $value['id_schoolyear'] ?>','<?php echo $value['semester'] ?>','<?php echo $value['date'] ?>')" data-toggle="modal" data-target="#deleteCourse"><i class="fas fa-trash"></i> Xóa lịch học </a>
+                            <?php } ?>
                           </td>
                         </tr>
                     <?php }

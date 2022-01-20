@@ -36,7 +36,9 @@
               </div>
               <div class="card-header-action">
                 <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addSchedule"><i class="fas fa-plus"></i> Đăng ký lịch trực</a>
-                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deleteAllSchedule"><i class="fas fa-trash"></i> Xóa tất cả</a>
+                <?php if (Session::get('pmsAdmin') == 1) { ?>
+                  <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deleteAllSchedule"><i class="fas fa-trash"></i> Xóa tất cả</a>
+                <?php } ?>
               </div>
             </div>
             <div class="card-body">
@@ -60,8 +62,10 @@
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content">
-                                    <div class="bullet"></div>
-                                    <a href="#" class="text-danger" onclick="deleteSchedule('<?php echo $value['id_schedule']; ?>');" data-toggle="modal" data-target="#deleteSchedule" style="font-size: 13px;">Xóa</a>
+                                    <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
+                                      <div class="bullet"></div>
+                                      <a href="#" class="text-danger" onclick="deleteSchedule('<?php echo $value['id_schedule']; ?>');" data-toggle="modal" data-target="#deleteSchedule" style="font-size: 13px;">Xóa</a>
+                                    <?php } ?>
                                   </td>
                                 </tr>
                           <?php }
@@ -82,8 +86,10 @@
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content">
-                                    <div class="bullet"></div>
-                                    <a href="#" class="text-danger" onclick="deleteSchedule('<?php echo $value['id_schedule']; ?>');" data-toggle="modal" data-target="#deleteSchedule" style="font-size: 13px;">Xóa</a>
+                                    <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
+                                      <div class="bullet"></div>
+                                      <a href="#" class="text-danger" onclick="deleteSchedule('<?php echo $value['id_schedule']; ?>');" data-toggle="modal" data-target="#deleteSchedule" style="font-size: 13px;">Xóa</a>
+                                    <?php } ?>
                                   </td>
                                 </tr>
                           <?php }
@@ -104,8 +110,10 @@
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content">
-                                    <div class="bullet"></div>
-                                    <a href="#" class="text-danger" onclick="deleteSchedule('<?php echo $value['id_schedule']; ?>');" data-toggle="modal" data-target="#deleteSchedule" style="font-size: 13px;">Xóa</a>
+                                    <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
+                                      <div class="bullet"></div>
+                                      <a href="#" class="text-danger" onclick="deleteSchedule('<?php echo $value['id_schedule']; ?>');" data-toggle="modal" data-target="#deleteSchedule" style="font-size: 13px;">Xóa</a>
+                                    <?php } ?>
                                   </td>
                                 </tr>
                           <?php }
@@ -126,8 +134,10 @@
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content">
-                                    <div class="bullet"></div>
-                                    <a href="#" class="text-danger" onclick="deleteSchedule('<?php echo $value['id_schedule']; ?>');" data-toggle="modal" data-target="#deleteSchedule" style="font-size: 13px;">Xóa</a>
+                                    <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
+                                      <div class="bullet"></div>
+                                      <a href="#" class="text-danger" onclick="deleteSchedule('<?php echo $value['id_schedule']; ?>');" data-toggle="modal" data-target="#deleteSchedule" style="font-size: 13px;">Xóa</a>
+                                    <?php } ?>
                                   </td>
                                 </tr>
                           <?php }
@@ -148,8 +158,10 @@
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content">
-                                    <div class="bullet"></div>
-                                    <a href="#" class="text-danger" onclick="deleteSchedule('<?php echo $value['id_schedule']; ?>');" data-toggle="modal" data-target="#deleteSchedule" style="font-size: 13px;">Xóa</a>
+                                    <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
+                                      <div class="bullet"></div>
+                                      <a href="#" class="text-danger" onclick="deleteSchedule('<?php echo $value['id_schedule']; ?>');" data-toggle="modal" data-target="#deleteSchedule" style="font-size: 13px;">Xóa</a>
+                                    <?php } ?>
                                   </td>
                                 </tr>
                           <?php }
@@ -170,8 +182,10 @@
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content">
-                                    <div class="bullet"></div>
-                                    <a href="#" class="text-danger" onclick="deleteSchedule('<?php echo $value['id_schedule']; ?>');" data-toggle="modal" data-target="#deleteSchedule" style="font-size: 13px;">Xóa</a>
+                                    <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
+                                      <div class="bullet"></div>
+                                      <a href="#" class="text-danger" onclick="deleteSchedule('<?php echo $value['id_schedule']; ?>');" data-toggle="modal" data-target="#deleteSchedule" style="font-size: 13px;">Xóa</a>
+                                    <?php } ?>
                                   </td>
                                 </tr>
                           <?php }

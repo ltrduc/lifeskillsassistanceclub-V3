@@ -39,7 +39,9 @@
                       <th>Ngày bắt đầu</th>
                       <th>Địa điểm</th>
                       <th>Giảng viên</th>
-                      <th>Thao tác</th>
+                      <?php if (Session::get('pmsAdmin') == 1) { ?>
+                        <th>Thao tác</th>
+                      <?php } ?>
                     </tr>
                   </thead>
                   <tbody>
@@ -54,9 +56,11 @@
                           <td><?php echo date("d/m/Y", strtotime($value['date'])); ?></td>
                           <td><?php echo $value['local']; ?></td>
                           <td><?php echo $value['teacher']; ?></td>
-                          <td>
-                            <a href="#" class="btn btn-sm btn-danger" onclick="deleteDetailedCourse('<?php echo $value['id_course'] ?>', '<?php echo $value['subject'] ?>', '<?php echo $value['group'] ?>')" data-toggle="modal" data-target="#deleteDetailedCourse"><i class="fas fa-trash"></i> Xóa </a>
-                          </td>
+                          <?php if (Session::get('pmsAdmin') == 1) { ?>
+                            <td>
+                              <a href="#" class="btn btn-sm btn-danger" onclick="deleteDetailedCourse('<?php echo $value['id_course'] ?>', '<?php echo $value['subject'] ?>', '<?php echo $value['group'] ?>')" data-toggle="modal" data-target="#deleteDetailedCourse"><i class="fas fa-trash"></i> Xóa </a>
+                            </td>
+                          <?php } ?>
                         </tr>
                     <?php }
                     } ?>
