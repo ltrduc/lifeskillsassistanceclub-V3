@@ -1,4 +1,8 @@
 <?php
+include './source/core/lib/session.php';
+Session::checkSession();
+?>
+<?php
 class Admin extends Controller
 {
   private $Dashboard;
@@ -17,6 +21,9 @@ class Admin extends Controller
   private $Password;
   private $Profile;
   private $Borrow;
+  private $pmsAdmin;
+  private $pmsAttendanc;
+  private $pmsPost;
 
   function __construct()
   {
@@ -36,6 +43,10 @@ class Admin extends Controller
     $this->Profile          = $this->model("Profile");
     $this->Password         = $this->model("Password");
     $this->Borrow           = $this->model("Borrow");
+
+    $this->pmsAdmin         = $this->Permission->Admin(Session::get('id_user'));
+    $this->pmsAttendance    = $this->Permission->Attendance(Session::get('id_user'));
+    $this->pmsPost          = $this->Permission->Post(Session::get('id_user'));
   }
 
   // TRANG CHỦ
