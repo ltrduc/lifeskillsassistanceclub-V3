@@ -21,6 +21,7 @@ class Admin extends Controller
   private $Password;
   private $Profile;
   private $Borrow;
+  private $Permission;
   private $pmsAdmin;
   private $pmsAttendanc;
   private $pmsPost;
@@ -43,6 +44,7 @@ class Admin extends Controller
     $this->Profile          = $this->model("Profile");
     $this->Password         = $this->model("Password");
     $this->Borrow           = $this->model("Borrow");
+    $this->Permission       = $this->model("Permission");
 
     $this->pmsAdmin         = $this->Permission->Admin(Session::get('id_user'));
     $this->pmsAttendance    = $this->Permission->Attendance(Session::get('id_user'));
