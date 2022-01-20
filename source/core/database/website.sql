@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 18, 2022 lúc 12:11 PM
+-- Thời gian đã tạo: Th1 20, 2022 lúc 10:39 AM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.0.14
 
@@ -60,6 +60,31 @@ INSERT INTO `tbl_attendance` (`id_attendance`, `id_user`, `id_schoolyear`, `seme
 (16, 8, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
 (17, 9, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
 (18, 10, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_borrow`
+--
+
+CREATE TABLE `tbl_borrow` (
+  `id_borrow` int(255) NOT NULL,
+  `borrower` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `device` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `quantily` int(255) NOT NULL,
+  `date` date NOT NULL,
+  `purpose` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_borrow`
+--
+
+INSERT INTO `tbl_borrow` (`id_borrow`, `borrower`, `phone`, `device`, `quantily`, `date`, `purpose`, `status`) VALUES
+(1, 'Lê Thành Đăng Khoa', '0968707558', 'Bút chiếu', 1, '2022-01-20', 'Giảng dạy', 0),
+(2, 'Nguyễn Quốc Đạt', '0968736521', 'Jack cấm mạng', 1, '2022-01-22', 'Giảng dạy', 0);
 
 -- --------------------------------------------------------
 
@@ -371,6 +396,12 @@ ALTER TABLE `tbl_attendance`
   ADD KEY `fk_tbl_attendance_id_schoolyear` (`id_schoolyear`);
 
 --
+-- Chỉ mục cho bảng `tbl_borrow`
+--
+ALTER TABLE `tbl_borrow`
+  ADD PRIMARY KEY (`id_borrow`);
+
+--
 -- Chỉ mục cho bảng `tbl_course`
 --
 ALTER TABLE `tbl_course`
@@ -447,6 +478,12 @@ ALTER TABLE `tbl_user`
 --
 ALTER TABLE `tbl_attendance`
   MODIFY `id_attendance` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_borrow`
+--
+ALTER TABLE `tbl_borrow`
+  MODIFY `id_borrow` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_course`

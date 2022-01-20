@@ -16,6 +16,7 @@ class Admin extends Controller
   private $Schedule;
   private $Password;
   private $Profile;
+  private $Borrow;
 
   function __construct()
   {
@@ -34,6 +35,7 @@ class Admin extends Controller
     $this->Schedule         = $this->model("Schedule");
     $this->Profile          = $this->model("Profile");
     $this->Password         = $this->model("Password");
+    $this->Borrow           = $this->model("Borrow");
   }
 
   // TRANG CHỦ
@@ -296,8 +298,40 @@ class Admin extends Controller
   public function Borrow()
   {
     $Notification = [];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (isset($_POST['addBorrow'])) {
+        $borrower     = $_POST['borrower'];
+        $phone        = $_POST['phone'];
+        $device       = $_POST['device'];
+        $quantily     = $_POST['quantily'];
+        $date         = $_POST['date'];
+        $purpose      = $_POST['purpose'];
+        $Notification = $this->Borrow->setBorrow($borrower, $phone, $device, $quantily, $date, $purpose);
+      }
+      if (isset($_POST['editBorrow'])) {
+        $id_borrow    = $_POST['id_borrow'];
+        $borrower     = $_POST['borrower'];
+        $phone        = $_POST['phone'];
+        $device       = $_POST['device'];
+        $quantily     = $_POST['quantily'];
+        $date         = $_POST['date'];
+        $purpose      = $_POST['purpose'];
+        $Notification = $this->Borrow->editBorrow($id_borrow, $borrower, $phone, $device, $quantily, $date, $purpose);
+      }
+      if (isset($_POST['deleteBorrow'])) {
+        $id_borrow    = $_POST['id_borrow'];
+        $Notification = $this->Borrow->deleteBorrow($id_borrow);
+      }
+      if (isset($_POST['updateStatus'])) {
+        $id_borrow    = $_POST['id_borrow'];
+        $status       = $_POST['updateStatus'];
+        $Notification = $this->Borrow->updateStatus($id_borrow, $status);
+      }
+    }
+
     $this->view("layout", [
       "page"            => "borrow/borrow",
+      "ListBorrow"      => $this->Borrow->getBorrow(),
       "Notification"    => $Notification,
     ]);
   }

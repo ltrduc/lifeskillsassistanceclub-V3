@@ -5,7 +5,16 @@
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>Life Skills Assistance</title>
-  <base href="http://127.0.0.1:8080/">
+
+  <?php
+  if (!empty($_SERVER['HTTPS']) && ('on' == $_SERVER['HTTPS'])) {
+    $uri = 'https://' . $_SERVER['HTTP_HOST'] . '/';
+  } else {
+    $uri = 'http://' . $_SERVER['HTTP_HOST'] . '/';
+  }
+  ?>
+
+  <base href="<?php echo $uri ?>">
   <!-- General CSS Files -->
   <link rel="stylesheet" href="source/public/css/app.min.css">
   <link rel="stylesheet" href="source/public/bundles/prism/prism.css">

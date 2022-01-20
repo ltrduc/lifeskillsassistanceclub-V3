@@ -60,6 +60,22 @@ function editSchoolYear(id_schoolyear, schoolyear, note) {
   document.getElementById("edit-note").value = note;
 }
 
+// Quản lý mượn-trả
+function deleteBorrow(id_borrow, borrower) {
+  document.getElementById('delete-info-borrower').innerHTML = borrower;
+  document.getElementById("delete-id_borrow").value = id_borrow;
+}
+
+function editBorrow(id_borrow, borrower, phone, device, quantily, date, purpose) {
+  document.getElementById('edit-id_borrow').value = id_borrow;
+  document.getElementById("edit-borrower").value = borrower;
+  document.getElementById('edit-phone').value = phone;
+  document.getElementById("edit-device").value = device;
+  document.getElementById('edit-quantily').value = quantily;
+  document.getElementById("edit-date").value = date;
+  document.getElementById('edit-purpose').value = purpose;
+}
+
 // Ban điều hành
 function deleteExecutive(id_executive, name) {
   document.getElementById('delete-info-executive').innerHTML = name;

@@ -42,34 +42,45 @@
                       <th>Thiết bị</th>
                       <th>Số lượng</th>
                       <th>Ngày mượn</th>
-                      <th>Lý do</th>
+                      <th>Mục đích</th>
                       <th>Trạng thái</th>
                       <th>Thao tác</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Lê Trí Đức</td>
-                      <td>0377025449</td>
-                      <td>Bút chiếu</td>
-                      <td>1</td>
-                      <td>2021-01-22</td>
-                      <td>Giảng dạy</td>
-                      <td>Đã trả</td>
-                      <td>
-                        <form action="Admin/Borrow" method="post" style="display: inline;">
-                          <button type="submit" value="0" class="btn btn-sm btn-success btn-icon icon-left">
-                            <i class="fas fa-toggle-on"></i></span>
-                          </button>
-                          <button type="submit" value="1" class="btn btn-sm btn-danger btn-icon icon-left">
-                            <i class="fas fa-toggle-off"></i></span>
-                          </button>
-                        </form>
-                        <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editBorrow"><i class="fas fa-file-signature"></i></a>
-                        <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteBorrow"><i class="fas fa-trash"></i></a>
-                      </td>
-                    </tr>
+                    <?php if ($data['ListBorrow']) {
+                      $i = 1;
+                      while ($value = $data['ListBorrow']->fetch_assoc()) { ?>
+                        <tr>
+                          <td><?php echo $i++; ?></td>
+                          <td><?php echo $value['borrower']; ?></td>
+                          <td><?php echo $value['phone']; ?></td>
+                          <td><?php echo $value['device']; ?></td>
+                          <td><?php echo $value['quantily']; ?></td>
+                          <td><?php echo $value['date']; ?></td>
+                          <td><?php echo $value['purpose']; ?></td>
+                          <td>
+                            <?php if ($value['id_status'] == 1) { ?>
+                              <h6><span class="badge badge-success"><?php echo $value['status']; ?></span></h6>
+                            <?php } else { ?>
+                              <h6><span class="badge badge-danger"><?php echo $value['status']; ?></span></h6>
+                            <?php } ?>
+                          </td>
+                          <td>
+                            <form action="Admin/Borrow" method="post" style="display: inline;">
+                              <input type="hidden" name="id_borrow" value="<?php echo $value['id_borrow']; ?>">
+                              <?php if ($value['id_status'] == 1) { ?>
+                                <button type="submit" value="0" name="updateStatus" class="btn btn-sm btn-success btn-icon icon-left"><i class="fas fa-toggle-on"></i></span></button>
+                              <?php } else { ?>
+                                <button type="submit" value="1" name="updateStatus" class="btn btn-sm btn-danger btn-icon icon-left"><i class="fas fa-toggle-off"></i></span></button>
+                              <?php } ?>
+                            </form>
+                            <a href="#" class="btn btn-sm btn-primary" onclick="editBorrow('<?php echo $value['id_borrow'] ?>','<?php echo $value['borrower'] ?>','<?php echo $value['phone'] ?>','<?php echo $value['device'] ?>','<?php echo $value['quantily'] ?>','<?php echo $value['date'] ?>','<?php echo $value['purpose'] ?>')" data-toggle="modal" data-target="#editBorrow"><i class="fas fa-file-signature"></i></a>
+                            <a href="#" class="btn btn-sm btn-danger" onclick="deleteBorrow('<?php echo $value['id_borrow'] ?>','<?php echo $value['borrower'] ?>')" data-toggle="modal" data-target="#deleteBorrow"><i class="fas fa-trash"></i></a>
+                          </td>
+                        </tr>
+                    <?php }
+                    } ?>
                   </tbody>
                 </table>
               </div>
@@ -96,43 +107,43 @@
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Người mượn</label>
-                  <input type="text" class="form-control" placeholder="Nguyễn Văn A" tabindex="1" required autofocus>
+                  <input type="text" class="form-control" placeholder="Nguyễn Văn A" name="borrower" tabindex="1" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống người mượn!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Số điện thoại</label>
-                  <input type="number" class="form-control" placeholder="0377000001" tabindex="2" required autofocus>
+                  <input type="number" class="form-control" placeholder="0377000001" name="phone" tabindex="2" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống số điện thoại!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Thiết bị</label>
-                  <input type="text" class="form-control" placeholder="Bút chiếu" tabindex="3" required autofocus>
+                  <input type="text" class="form-control" placeholder="Bút chiếu" name="device" tabindex="3" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống thiết bị!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Số lượng</label>
-                  <input type="number" class="form-control" placeholder="1" tabindex="4" required autofocus>
+                  <input type="number" class="form-control" placeholder="1" name="quantily" tabindex="4" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống số lượng!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Ngày mượn</label>
-                  <input type="text" class="form-control datepicker" tabindex="5" required autofocus>
+                  <input type="text" class="form-control datepicker" name="date" tabindex="5" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống ngày mượn!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>Lý do</label>
-                  <input type="text" class="form-control" placeholder="Giảng dạy" tabindex="6" required autofocus>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống lý do!</div>
+                  <label>Mục đích</label>
+                  <input type="text" class="form-control" placeholder="Giảng dạy" name="purpose" tabindex="6" required autofocus>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống mục đích!</div>
                 </div>
               </div>
               <div class="col-md-12">
@@ -152,13 +163,14 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <form action="Admin/Borrow" method="post">
+          <input type="hidden" id="delete-id_borrow" name="id_borrow">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">XÓA MƯỢN-TRẢ</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Bạn có chắc chắn muốn xóa người mượn <strong id="delete-info-borrow">Lê Trí Đức</strong>?</div>
+          <div class="modal-body">Bạn có chắc chắn muốn xóa người mượn <strong id="delete-info-borrower"></strong>?</div>
           <div class="modal-footer bg-whitesmoke br">
             <button type="submit" name="deleteBorrow" class="btn btn-danger">Xóa mượn-trả</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
@@ -180,47 +192,48 @@
         </div>
         <div class="modal-body">
           <form action="Admin/Borrow" method="post" class="needs-validation" novalidate="">
+            <input type="hidden" id="edit-id_borrow" name="id_borrow">
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Người mượn</label>
-                  <input type="text" class="form-control" placeholder="Nguyễn Văn A" tabindex="1" required autofocus>
+                  <input type="text" class="form-control" placeholder="Nguyễn Văn A" id="edit-borrower" name="borrower" tabindex="1" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống người mượn!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Số điện thoại</label>
-                  <input type="number" class="form-control" placeholder="0377000001" tabindex="2" required autofocus>
+                  <input type="number" class="form-control" placeholder="0377000001" id="edit-phone" name="phone" tabindex="2" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống số điện thoại!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Thiết bị</label>
-                  <input type="text" class="form-control" placeholder="Bút chiếu" tabindex="3" required autofocus>
+                  <input type="text" class="form-control" placeholder="Bút chiếu" id="edit-device" name="device" tabindex="3" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống thiết bị!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Số lượng</label>
-                  <input type="number" class="form-control" placeholder="1" tabindex="4" required autofocus>
+                  <input type="number" class="form-control" placeholder="1" id="edit-quantily" name="quantily" tabindex="4" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống số lượng!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Ngày mượn</label>
-                  <input type="text" class="form-control datepicker" tabindex="5" required autofocus>
+                  <input type="text" class="form-control datepicker" id="edit-date" name="date" tabindex="5" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống ngày mượn!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
-                  <label>Lý do</label>
-                  <input type="text" class="form-control" placeholder="Giảng dạy" tabindex="6" required autofocus>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống lý do!</div>
+                  <label>Mục đích</label>
+                  <input type="text" class="form-control" placeholder="Giảng dạy" id="edit-purpose" name="purpose" tabindex="6" required autofocus>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống mục đích!</div>
                 </div>
               </div>
               <div class="col-md-12">
