@@ -44,7 +44,7 @@ class Login
 
     if ($_POST['id_student'] === "lifeskills" && $_POST['password'] === "lsa07012020") {
       Session::set('login', true);
-      Session::set('id_user', 07012020);
+      Session::set('id_user', 0);
       Session::set('fullname', 'Ban Điều Hành');
       Session::set('pmsAdmin', 1);
       Session::set('pmsAttendance', 1);

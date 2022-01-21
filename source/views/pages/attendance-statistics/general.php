@@ -26,9 +26,11 @@
           <div class="card">
             <div class="card-header">
               <h4>DANH SÁCH TỔNG QUAN</h4>
-              <div class="card-header-action">
-                <a href="Admin/DetailedStatistics&id_schoolyear=<?php echo $data['id_schoolyear'] ?>&semester=<?php echo $data['semester'] ?>" class="btn btn-primary btn-icon icon-right">Xem chi tiết <i class="fas fa-chevron-right"></i></a>
-              </div>
+              <?php if (Session::get('pmsAdmin') == 1) { ?>
+                <div class="card-header-action">
+                  <a href="Admin/DetailedStatistics&id_schoolyear=<?php echo $data['id_schoolyear'] ?>&semester=<?php echo $data['semester'] ?>" class="btn btn-primary btn-icon icon-right">Xem chi tiết <i class="fas fa-chevron-right"></i></a>
+                </div>
+              <?php } ?>
             </div>
             <div class="card-body">
               <div class="table-responsive">

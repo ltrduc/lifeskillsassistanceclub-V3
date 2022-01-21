@@ -41,7 +41,10 @@
                 <?php } ?>
               </div>
             </div>
-            <div class="card-body">
+            <div class="card-body pt-2">
+              <div class="notification pb-2">
+                <code> <strong>Lưu ý:</strong> Danh mục này chỉ dành cho Ban Hành Chính, Ban Sự kiện và Truyền Thông. Các Ban còn lại vui lòng không đăng ký ở danh mục này.</code>
+              </div>
               <div class="fc-overflow">
                 <div class="fc fc-unthemed fc-ltr">
                   <div class="fc-view-container">

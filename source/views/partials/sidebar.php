@@ -15,68 +15,56 @@
       <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="calendar"></i><span>Quản lý lịch trực</span></a>
         <ul class="dropdown-menu">
-          <?php if (Session::get('pmsAdmin') == 1 || Session::get('pmsAttendance') == 1) { ?>
-            <li><a class="nav-link" href="Admin/Attendance">Điểm danh buổi trực</a></li>
-          <?php } ?>
+          <li><a class="nav-link" href="Admin/Attendance">Điểm danh buổi trực</a></li>
           <li><a class="nav-link" href="Admin/Schedule">Quản lý trực ban</a></li>
-          <?php if (Session::get('pmsAdmin') == 1) { ?>
-            <li><a class="nav-link" href="Admin/Statistics">Thống kê buổi trực</a></li>
-          <?php } ?>
+          <li><a class="nav-link" href="Admin/Statistics">Thống kê buổi trực</a></li>
         </ul>
       </li>
       <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="slack"></i><span>Quản lý khóa học</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="Admin/Course">Quản lý lịch học</a></li>
-          <?php if (Session::get('pmsAdmin') == 1) { ?>
-            <li><a class="nav-link" href="Admin/Subject">Quản lý môn học</a></li>
-            <li><a class="nav-link" href="Admin/SchoolYear">Quản lý năm học</a></li>
-          <?php } ?>
+          <li><a class="nav-link" href="Admin/Subject">Quản lý môn học</a></li>
+          <li><a class="nav-link" href="Admin/SchoolYear">Quản lý năm học</a></li>
         </ul>
       </li>
-      <?php if (Session::get('pmsAdmin') == 1) { ?>
-        <li class="dropdown">
-          <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="settings"></i><span>Quản lý thiết bị</span></a>
-          <ul class="dropdown-menu">
-            <li><a class="nav-link" href="Admin/Device">Thống kê thiết bị</a></li>
-            <li><a class="nav-link" href="Admin/Borrow">Quản lý mượn-trả</a></li>
-          </ul>
-        </li>
-      <?php } ?>
-      <?php if (Session::get('pmsAdmin') == 1 || Session::get('pmsPost') == 1) { ?>
-        <li class="dropdown">
-          <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="cast"></i><span>Quản lý trang web</span></a>
-          <ul class="dropdown-menu">
-            <li><a class="nav-link" href="Admin/Post">Quản lý bài đăng</a></li>
-            <li><a class="nav-link" href="Admin/ActivityPhoto">Quản lý ảnh hoạt động</a></li>
-          </ul>
-        </li>
-      <?php } ?>
-      <?php if (Session::get('pmsAdmin') == 1) { ?>
-        <li class="dropdown">
-          <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="users"></i><span>Quản lý nhân sự</span></a>
-          <ul class="dropdown-menu">
-            <li><a class="nav-link" href="Admin/Member">Quản lý thành viên</a></li>
-            <li><a class="nav-link" href="Admin/Collaborate">Quản lý cộng tác viên</a></li>
-            <li><a class="nav-link" href="Admin/RecruitMember">Quản lý tuyển thành viên</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="hard-drive"></i><span>Quản lý cơ cấu</span></a>
-          <ul class="dropdown-menu">
-            <li><a class="nav-link" href="Admin/Executive">Quản lý ban điều hành</a></li>
-            <li><a class="nav-link" href="Admin/Team">Quản lý ban hoạt động</a></li>
-            <li><a class="nav-link" href="Admin/Position">Quản lý chức vụ</a></li>
-          </ul>
-        </li>
-        <li class="menu-header">Thao tác năng cao</li>
-        <li class="dropdown">
-          <a href="Admin/Decentralization" class="nav-link"><i data-feather="shield"></i><span>Phân quyền</span></a>
-        </li>
-        <li class="dropdown">
-          <a href="Admin/ResetPassword" class="nav-link"><i data-feather="package"></i><span>Đặt lại mật khẩu</span></a>
-        </li>
-      <?php } ?>
+      <li class="dropdown">
+        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="settings"></i><span>Quản lý thiết bị</span></a>
+        <ul class="dropdown-menu">
+          <li><a class="nav-link" href="Admin/Device">Thống kê thiết bị</a></li>
+          <li><a class="nav-link" href="Admin/Borrow">Quản lý mượn-trả</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="cast"></i><span>Quản lý trang web</span></a>
+        <ul class="dropdown-menu">
+          <li><a class="nav-link" href="Admin/Post">Quản lý bài đăng</a></li>
+          <li><a class="nav-link" href="Admin/ActivityPhoto">Quản lý ảnh hoạt động</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="users"></i><span>Quản lý nhân sự</span></a>
+        <ul class="dropdown-menu">
+          <li><a class="nav-link" href="Admin/Member">Quản lý thành viên</a></li>
+          <li><a class="nav-link" href="Admin/Collaborate">Quản lý cộng tác viên</a></li>
+          <li><a class="nav-link" href="Admin/RecruitMember">Quản lý tuyển thành viên</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="hard-drive"></i><span>Quản lý cơ cấu</span></a>
+        <ul class="dropdown-menu">
+          <li><a class="nav-link" href="Admin/Executive">Quản lý ban điều hành</a></li>
+          <li><a class="nav-link" href="Admin/Team">Quản lý ban hoạt động</a></li>
+          <li><a class="nav-link" href="Admin/Position">Quản lý chức vụ</a></li>
+        </ul>
+      </li>
+      <li class="menu-header">Thao tác năng cao</li>
+      <li class="dropdown">
+        <a href="Admin/Decentralization" class="nav-link"><i data-feather="shield"></i><span>Phân quyền</span></a>
+      </li>
+      <li class="dropdown">
+        <a href="Admin/ResetPassword" class="nav-link"><i data-feather="package"></i><span>Đặt lại mật khẩu</span></a>
+      </li>
       <li class="menu-header">Thao tác khác</li>
       <li><a class="nav-link" href="Admin/SoftwareInformation"><i data-feather="sliders"></i><span>Thông tin phần mềm</span></a></li>
     </ul>

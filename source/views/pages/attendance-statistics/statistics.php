@@ -37,7 +37,9 @@
                   <p class="text-justify">Thống kê dữ liệu liệu điểm danh <strong><?php echo $value['semester'] ?> / <?php echo $value['schoolyear'] ?></strong>.</p>
                   <div class="article-cta">
                     <a href="Admin/GeneralStatistics&id_schoolyear=<?php echo $value['id_schoolyear'] ?>&semester=<?php echo $value['semester'] ?>" class="btn btn-primary btn-icon icon-right"><i class="fas fa-paperclip"></i> Tổng quan</a>
-                    <a href="#" class="btn btn-icon icon-left btn-danger" onclick="deleteStatistics('<?php echo $value['id_schoolyear'] ?>', '<?php echo $value['semester'] ?>','<?php echo $value['schoolyear'] ?>')" data-toggle="modal" data-target="#deleteStatistics"><i class="fas fa-trash"></i> Xóa</a>
+                    <?php if (Session::get('pmsAdmin') == 1) { ?>
+                      <a href="#" class="btn btn-icon icon-left btn-danger" onclick="deleteStatistics('<?php echo $value['id_schoolyear'] ?>', '<?php echo $value['semester'] ?>','<?php echo $value['schoolyear'] ?>')" data-toggle="modal" data-target="#deleteStatistics"><i class="fas fa-trash"></i> Xóa</a>
+                    <?php } ?>
                   </div>
                 </div>
               </article>

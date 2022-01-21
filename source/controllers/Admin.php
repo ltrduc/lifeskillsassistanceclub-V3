@@ -140,8 +140,6 @@ class Admin extends Controller
 
   public function Statistics()
   {
-    if (!$this->pmsAdmin) header('Location: Home');
-
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $id_schoolyear  = $_POST['id_schoolyear'];
@@ -158,8 +156,6 @@ class Admin extends Controller
 
   public function GeneralStatistics()
   {
-    if (!$this->pmsAdmin) header('Location: Home');
-
     if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) {
       header('Location: Statistics');
     }
@@ -678,6 +674,15 @@ class Admin extends Controller
     $this->view("layout", [
       "page"          => "profile/profile",
       "Profile"       =>  $this->Profile->getProfile($id_user),
+      "Notification"  =>  $Notification,
+    ]);
+  }
+
+  public function SoftwareInformation()
+  {
+    $Notification     = [];
+    $this->view("layout", [
+      "page"          => "software-information/software-information",
       "Notification"  =>  $Notification,
     ]);
   }
