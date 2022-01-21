@@ -22,6 +22,8 @@ class Admin extends Controller
   private $Profile;
   private $Borrow;
   private $Permission;
+  private $Device;
+
   private $pmsAdmin;
   private $pmsAttendance;
   private $pmsPost;
@@ -45,6 +47,7 @@ class Admin extends Controller
     $this->Password         = $this->model("Password");
     $this->Borrow           = $this->model("Borrow");
     $this->Permission       = $this->model("Permission");
+    $this->Device           = $this->model("Device");
 
     $this->pmsAdmin         = $this->Permission->Admin(Session::get('pmsAdmin'));
     $this->pmsAttendance    = $this->Permission->Attendance(Session::get('pmsAttendance'));
@@ -316,6 +319,82 @@ class Admin extends Controller
   }
 
   // QUẢN LÝ THIẾT BỊ
+  public function DeviceGroup()
+  {
+    if (!$this->pmsAdmin) header('Location: Home');
+
+    $Notification = [];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (isset($_POST['addDeviceGroup'])) {
+        $devicegroup    = $_POST['devicegroup'];
+        $note           = $_POST['note'];
+        $Notification   = $this->Device->setDeviceGroup($devicegroup, $note);
+      }
+      if (isset($_POST['editDeviceGroup'])) {
+        $id_devicegroup = $_POST['id_devicegroup'];
+        $devicegroup    = $_POST['devicegroup'];
+        $note           = $_POST['note'];
+        $Notification   = $this->Device->editDeviceGroup($id_devicegroup, $devicegroup, $note);
+      }
+      if (isset($_POST['deleteDeviceGroup'])) {
+        $id_devicegroup = $_POST['id_devicegroup'];
+        $Notification   = $this->Device->deleteDeviceGroup($id_devicegroup);
+      }
+    }
+
+    $this->view("layout", [
+      "page"            => "device/device-group",
+      "ListDeviceGroup" => $this->Device->getDeviceGroup(),
+      "Notification"    => $Notification,
+    ]);
+  }
+
+  public function Device()
+  {
+    if (!$this->pmsAdmin) header('Location: Home');
+
+    $Notification = [];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (isset($_POST['addDevice'])) {
+        $id_devicegroup = $_POST['id_devicegroup'];
+        $device         = $_POST['device'];
+        $description    = $_POST['description'];
+        $note           = $_POST['note'];
+        $Notification   = $this->Device->setDevice($id_devicegroup, $device, $description, $note);
+      }
+      if (isset($_POST['editDevice'])) {
+        $id_device      = $_POST['id_device'];
+        $id_devicegroup = $_POST['id_devicegroup'];
+        $device         = $_POST['device'];
+        $description    = $_POST['description'];
+        $note           = $_POST['note'];
+        $Notification   = $this->Device->editDevice($id_device, $id_devicegroup, $device, $description, $note);
+      }
+      if (isset($_POST['deleteDevice'])) {
+        $id_device      = $_POST['id_device'];
+        $Notification   = $this->Device->deleteDevice($id_device);
+      }
+    }
+
+    $this->view("layout", [
+      "page"            => "device/device",
+      "ListDevice"      => $this->Device->getDevice(),
+      "ListDeviceGroup" => $this->Device->getDeviceGroup(),
+      "Notification"    => $Notification,
+    ]);
+  }
+
+  public function DeviceStatistics()
+  {
+    if (!$this->pmsAdmin) header('Location: Home');
+
+    $Notification = [];
+    $this->view("layout", [
+      "page"            => "device/device-statistics",
+      "Notification"    => $Notification,
+    ]);
+  }
+
   public function Borrow()
   {
     if (!$this->pmsAdmin) header('Location: Home');

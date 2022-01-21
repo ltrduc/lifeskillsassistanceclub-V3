@@ -118,7 +118,7 @@
                 </div>
                 <select class="form-control selectric" name="id_team" tabindex="3" required autofocus>
                   <option value="" class="font-weight-bold">Chọn ban hoạt động</option>
-                  <?php if ($data['ListMember']) {
+                  <?php if ($data['ListTeam']) {
                     while ($value = $data['ListTeam']->fetch_assoc()) { ?>
                       <option value="<?php echo $value['id_team']; ?>"><?php echo $value['name']; ?></option>
                   <?php }

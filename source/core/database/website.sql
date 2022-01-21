@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 20, 2022 lúc 10:39 AM
+-- Thời gian đã tạo: Th1 21, 2022 lúc 04:41 PM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
 -- Phiên bản PHP: 8.0.14
 
@@ -154,6 +154,79 @@ INSERT INTO `tbl_decentralization` (`id_decentralization`, `id_user`, `admin`, `
 (15, 15, 0, 0, 0),
 (16, 16, 0, 0, 0),
 (17, 17, 0, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_device`
+--
+
+CREATE TABLE `tbl_device` (
+  `id_device` int(255) NOT NULL,
+  `id_devicegroup` int(255) NOT NULL,
+  `device` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_device`
+--
+
+INSERT INTO `tbl_device` (`id_device`, `id_devicegroup`, `device`, `description`, `note`) VALUES
+(1, 1, 'Bảng lớn', 'Bảng dùng cho giảng viên giảng dạy', NULL),
+(2, 1, 'Bảng nhỏ', 'Bảng dùng cho sinh viên học tập', NULL),
+(3, 2, 'Bút lông đỏ', NULL, NULL),
+(4, 2, 'Bút lông đen', NULL, NULL),
+(5, 2, 'Bút lông xanh', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_devicegroup`
+--
+
+CREATE TABLE `tbl_devicegroup` (
+  `id_devicegroup` int(255) NOT NULL,
+  `devicegroup` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_devicegroup`
+--
+
+INSERT INTO `tbl_devicegroup` (`id_devicegroup`, `devicegroup`, `note`) VALUES
+(1, 'Bảng', NULL),
+(2, 'Bút', NULL),
+(3, 'Giấy', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `tbl_devicestatistics`
+--
+
+CREATE TABLE `tbl_devicestatistics` (
+  `id_devicestatistics` int(255) NOT NULL,
+  `id_device` int(255) NOT NULL,
+  `quantily` int(255) NOT NULL,
+  `using` int(255) NOT NULL DEFAULT 0,
+  `donotuse` int(255) NOT NULL DEFAULT 0,
+  `normal` int(255) NOT NULL DEFAULT 0,
+  `broken` int(255) NOT NULL DEFAULT 0,
+  `lost` int(255) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_devicestatistics`
+--
+
+INSERT INTO `tbl_devicestatistics` (`id_devicestatistics`, `id_device`, `quantily`, `using`, `donotuse`, `normal`, `broken`, `lost`) VALUES
+(1, 1, 30, 0, 0, 0, 0, 0),
+(2, 2, 220, 0, 0, 0, 0, 0),
+(3, 3, 200, 0, 0, 0, 0, 0),
+(4, 4, 120, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -417,6 +490,26 @@ ALTER TABLE `tbl_decentralization`
   ADD KEY `fk_tbl_decentralization_id_user` (`id_user`);
 
 --
+-- Chỉ mục cho bảng `tbl_device`
+--
+ALTER TABLE `tbl_device`
+  ADD PRIMARY KEY (`id_device`),
+  ADD KEY `fk_tbl_device_id_devicegroup` (`id_devicegroup`);
+
+--
+-- Chỉ mục cho bảng `tbl_devicegroup`
+--
+ALTER TABLE `tbl_devicegroup`
+  ADD PRIMARY KEY (`id_devicegroup`);
+
+--
+-- Chỉ mục cho bảng `tbl_devicestatistics`
+--
+ALTER TABLE `tbl_devicestatistics`
+  ADD PRIMARY KEY (`id_devicestatistics`),
+  ADD KEY `fk_tbl_devicestatistics_id_device` (`id_device`);
+
+--
 -- Chỉ mục cho bảng `tbl_executive`
 --
 ALTER TABLE `tbl_executive`
@@ -498,6 +591,24 @@ ALTER TABLE `tbl_decentralization`
   MODIFY `id_decentralization` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
+-- AUTO_INCREMENT cho bảng `tbl_device`
+--
+ALTER TABLE `tbl_device`
+  MODIFY `id_device` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_devicegroup`
+--
+ALTER TABLE `tbl_devicegroup`
+  MODIFY `id_devicegroup` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `tbl_devicestatistics`
+--
+ALTER TABLE `tbl_devicestatistics`
+  MODIFY `id_devicestatistics` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT cho bảng `tbl_executive`
 --
 ALTER TABLE `tbl_executive`
@@ -568,6 +679,18 @@ ALTER TABLE `tbl_course`
 --
 ALTER TABLE `tbl_decentralization`
   ADD CONSTRAINT `fk_tbl_decentralization_id_user` FOREIGN KEY (`id_user`) REFERENCES `tbl_user` (`id_user`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `tbl_device`
+--
+ALTER TABLE `tbl_device`
+  ADD CONSTRAINT `fk_tbl_device_id_devicegroup` FOREIGN KEY (`id_devicegroup`) REFERENCES `tbl_devicegroup` (`id_devicegroup`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `tbl_devicestatistics`
+--
+ALTER TABLE `tbl_devicestatistics`
+  ADD CONSTRAINT `fk_tbl_devicestatistics_id_device` FOREIGN KEY (`id_device`) REFERENCES `tbl_device` (`id_device`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `tbl_executive`

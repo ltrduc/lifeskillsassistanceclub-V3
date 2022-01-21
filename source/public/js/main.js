@@ -60,6 +60,32 @@ function editSchoolYear(id_schoolyear, schoolyear, note) {
   document.getElementById("edit-note").value = note;
 }
 
+// Quản lý thiết bị
+function deleteDeviceGroup(id_devicegroup, devicegroup) {
+  document.getElementById('delete-info-devicegroup').innerHTML = devicegroup;
+  document.getElementById("delete-id_devicegroup").value = id_devicegroup;
+}
+
+function editDeviceGroup(id_devicegroup, devicegroup, note) {
+  document.getElementById("edit-id_devicegroup").value = id_devicegroup;
+  document.getElementById("edit-devicegroup").value = devicegroup;
+  document.getElementById("edit-note").value = note;
+}
+
+function deleteDevice(id_device, device) {
+  document.getElementById('delete-info-device').innerHTML = device;
+  document.getElementById("delete-id_device").value = id_device;
+}
+
+function editDevice(devicegroup, id_device, id_devicegroup, description, device, note) {
+  document.getElementById("edit-id_device").value = id_device;
+  document.getElementById("edit-id_devicegroup").value = id_devicegroup;
+  document.getElementById("edit-id_devicegroup-disabled").value = devicegroup;
+  document.getElementById("edit-device").value = device;
+  document.getElementById("edit-description").value = description;
+  document.getElementById("edit-note").value = note;
+}
+
 // Quản lý mượn-trả
 function deleteBorrow(id_borrow, borrower) {
   document.getElementById('delete-info-borrower').innerHTML = borrower;
