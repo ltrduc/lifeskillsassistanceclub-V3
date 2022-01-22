@@ -42,7 +42,7 @@ class Login
       header('Location: /../Admin/Home');
     }
 
-    if ($_POST['id_student'] === "lifeskills" && $_POST['password'] === "lsa07012020") {
+    if ($id_student === "LIFESKILLSASSISTANCE" && $password === "LSA07012020") {
       Session::set('login', true);
       Session::set('id_user', 0);
       Session::set('fullname', 'Ban Điều Hành');
