@@ -1,12 +1,4 @@
 <?php
-include_once('./source/core/lib/database.php');
-include_once('./source/core/helpers/format.php');
-?>
-
-<?php
-/**
- * Position
- */
 class Position
 {
   private $db;

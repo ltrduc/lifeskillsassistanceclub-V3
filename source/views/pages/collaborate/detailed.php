@@ -43,8 +43,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $i = 1;
-                    if ($data['ListCollaborate']) {
+                    <?php if ($data['ListCollaborate']) {
+                      $i = 1;
                       while ($value = $data['ListCollaborate']->fetch_assoc()) { ?>
                         <tr>
                           <td><?php echo $i++; ?></td>

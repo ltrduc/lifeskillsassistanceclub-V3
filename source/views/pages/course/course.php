@@ -45,11 +45,12 @@
                   </thead>
                   <tbody>
                     <?php if ($data['ListCourse']) {
+                      $fm = new Format();
                       $i = 1;
                       while ($value = $data['ListCourse']->fetch_assoc()) { ?>
                         <tr>
                           <td><?php echo $i++; ?></td>
-                          <td><?php echo date("d/m/Y", strtotime($value['date'])); ?></td>
+                          <td><?php echo $fm->formatDate($value['date']); ?></td>
                           <td>Học kỳ 1</td>
                           <td>2020-2021</td>
                           <td>

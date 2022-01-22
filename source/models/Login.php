@@ -1,14 +1,5 @@
 <?php
-include_once('./source/core/lib/session.php');
-include_once('./source/core/lib/database.php');
-include_once('./source/core/helpers/format.php');
 Session::checkLogin();
-?>
-
-<?php
-/**
- * Login
- */
 class Login
 {
   private $db;
@@ -47,12 +38,11 @@ class Login
       Session::set('id_user', 0);
       Session::set('fullname', 'Ban Điều Hành');
       Session::set('pmsAdmin', 1);
-      Session::set('pmsAttendance', 1);
-      Session::set('pmsPost', 1);
+      Session::set('pmsAttendance', 0);
+      Session::set('pmsPost', 0);
       header('Location: /../Admin/Home');
     }
 
     return ["status" => "error", "message" => "Tài khoản hoặc mật khẩu không đúng!"];
   }
 }
-?>

@@ -1,7 +1,4 @@
-<?php
-include './source/core/lib/session.php';
-Session::checkSession();
-?>
+<?php Session::checkSession(); ?>
 <?php
 class Admin extends Controller
 {

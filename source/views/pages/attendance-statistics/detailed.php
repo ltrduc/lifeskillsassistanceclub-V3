@@ -43,8 +43,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $i = 1;
-                    if ($data['ListDetailedStatistics']) {
+                    <?php if ($data['ListDetailedStatistics']) {
+                      $fm = new Format();
+                      $i = 1;
                       while ($value = $data['ListDetailedStatistics']->fetch_assoc()) { ?>
                         <tr>
                           <td><?php echo $i++; ?></td>
@@ -53,7 +54,7 @@
                           <td><?php echo $value['team']; ?></td>
                           <td><?php echo $value['schoolyear']; ?></td>
                           <td><?php echo $value['semester']; ?></td>
-                          <td><?php echo $value['shift']; ?> : <?php echo $value['date']; ?></td>
+                          <td><?php echo $value['shift']; ?> : <?php echo $fm->formatDate($value['date']); ?></td>
                           <td>
                             <a href="#" class="btn btn-sm btn-danger" onclick="deleteDetailedStatistics('<?php echo $value['id_attendance'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#deleteDetailedStatistics"><i class="fas fa-trash"></i> Xóa </a>
                           </td>

@@ -44,8 +44,8 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $i = 1;
-                    if ($data['ListMember']) {
+                    <?php if ($data['ListMember']) {
+                      $i = 1;
                       while ($value = $data['ListMember']->fetch_assoc()) { ?>
                         <tr>
                           <td><?php echo $i++; ?></td>

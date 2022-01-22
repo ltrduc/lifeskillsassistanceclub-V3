@@ -1,4 +1,5 @@
 <?php if ($data['Profile']) {
+  $fm = new Format();
   $value = $data['Profile']->fetch_assoc(); ?>
   <!-- Main Content -->
   <div class="main-content">
@@ -69,7 +70,7 @@
                       <div class="col-md-4 col-12 b-r">
                         <strong>Ngày sinh</strong>
                         <br>
-                        <p class="text-muted"><?php echo $value['birthday'] ?></p>
+                        <p class="text-muted"><?php echo $fm->formatDate($value['birthday']) ?></p>
                       </div>
                       <div class="col-md-8 col-12 b-r">
                         <strong>Link Facebook</strong>

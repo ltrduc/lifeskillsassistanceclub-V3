@@ -1,12 +1,4 @@
 <?php
-include_once('./source/core/lib/database.php');
-include_once('./source/core/helpers/format.php');
-?>
-
-<?php
-/**
- * Executive
- */
 class Executive
 {
   private $db;
@@ -20,9 +12,7 @@ class Executive
 
   public function getExecutive()
   {
-    $query  = " SELECT id_executive, tbl_user.id_student AS id_student, tbl_user.fullname AS fullname, tbl_position.name AS position
-                FROM tbl_executive, tbl_user, tbl_position
-                WHERE tbl_executive.id_user = tbl_user.id_user AND tbl_executive.id_position = tbl_position.id_position";
+    $query  = "SELECT id_executive, tbl_user.id_student AS id_student, tbl_user.fullname AS fullname, tbl_position.name AS position FROM tbl_executive, tbl_user, tbl_position WHERE tbl_executive.id_user = tbl_user.id_user AND tbl_executive.id_position = tbl_position.id_position";
     $result = $this->db->select($query);
     return $result;
   }

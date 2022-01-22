@@ -46,6 +46,7 @@
                   </thead>
                   <tbody>
                     <?php if ($data['ListDetailedCourse']) {
+                      $fm = new Format();
                       $i = 1;
                       while ($value = $data['ListDetailedCourse']->fetch_assoc()) { ?>
                         <tr>
@@ -53,7 +54,7 @@
                           <td><?php echo $value['subject']; ?></td>
                           <td><?php echo $value['group']; ?></td>
                           <td><?php echo $value['period']; ?></td>
-                          <td><?php echo date("d/m/Y", strtotime($value['date'])); ?></td>
+                          <td><?php echo $fm->formatDate($value['date']); ?></td>
                           <td><?php echo $value['local']; ?></td>
                           <td><?php echo $value['teacher']; ?></td>
                           <?php if (Session::get('pmsAdmin') == 1) { ?>

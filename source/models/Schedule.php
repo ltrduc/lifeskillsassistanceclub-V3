@@ -1,12 +1,4 @@
 <?php
-include_once('./source/core/lib/database.php');
-include_once('./source/core/helpers/format.php');
-?>
-
-<?php
-/**
- * Schedule
- */
 class Schedule
 {
   private $db;
@@ -87,7 +79,7 @@ class Schedule
     $result     = $this->db->delete($query);
 
     if ($result) return ["status" => "success", "message" => "Đã xóa dữ liệu thành công!"];
-    
+
     return ["status" => "error", "message" => "Đã xóa dữ liệu thất bại!"];
   }
 }
