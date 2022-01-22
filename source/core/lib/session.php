@@ -33,7 +33,7 @@ class Session
     self::init();
     if (self::get("login") == false) {
       self::destroy();
-      header('Location: Auth/Login');
+      header('Location: /../Auth/Login');
     }
   }
 
