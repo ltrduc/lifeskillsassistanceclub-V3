@@ -29,11 +29,12 @@
             </div>
             <div class="card-body">
               <form action="" method="post" class="needs-validation" novalidate="">
+                <input style="display:none" type="text" id="username" name="username" autocomplete="username" disabled>
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Mật khẩu cũ</label>
-                      <input type="password" name="oldPassword" class="form-control" tabindex="1" required autofocus>
+                      <input type="password" name="oldPassword" class="form-control" autocomplete="current-password" tabindex="1" required autofocus>
                       <div class="invalid-feedback">Vui lòng nhập mật khẩu cũ!</div>
                       <small id="passwordHelpBlock" class="form-text text-muted">
                         Mật khẩu của bạn phải dài 8-30 ký tự, chứa các chữ cái và số,
@@ -44,12 +45,12 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Mật khẩu mới</label>
-                      <input type="password" name="newPassword" class="form-control" tabindex="2" required autofocus>
+                      <input type="password" name="newPassword" class="form-control" autocomplete="new-password" tabindex="2" required autofocus>
                       <div class="invalid-feedback">Vui lòng nhập mật khẩu mới!</div>
                     </div>
                     <div class="form-group">
                       <label>Xác nhận mật khẩu</label>
-                      <input type="password" name="reNewPassword" class="form-control" tabindex="3" required autofocus>
+                      <input type="password" name="reNewPassword" class="form-control" autocomplete="new-password" tabindex="3" required autofocus>
                       <div class="invalid-feedback">Vui lòng nhập xác nhận mật khẩu!</div>
                     </div>
                   </div>

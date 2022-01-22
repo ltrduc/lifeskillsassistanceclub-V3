@@ -43,14 +43,14 @@
                 <form method="POST" action="Auth/Login" class="needs-validation" novalidate="">
                   <div class="form-group">
                     <label for="id_student">Mã số sinh viên</label>
-                    <input id="id_student" type="text" class="form-control" name="id_student" tabindex="1" required autofocus>
+                    <input id="id_student" type="text" class="form-control" name="id_student" autoComplete="id_student" tabindex="1" required autofocus>
                     <div class="invalid-feedback">Vui lòng nhập mã số sinh viên!</div>
                   </div>
                   <div class="form-group">
                     <div class="d-block">
                       <label for="password" class="control-label">Mật khẩu</label>
                     </div>
-                    <input id="password" type="password" class="form-control" name="password" tabindex="2" required autofocus>
+                    <input id="password" type="password" class="form-control" name="password" autoComplete="current-password" tabindex="2" required autofocus>
                     <div class="invalid-feedback"> Vui lòng nhập mật khẩu!</div>
                   </div>
                   <div class="form-group">
@@ -93,10 +93,11 @@
     DisplayReset();
 
     function showMessage() {
-      <?php if ($data['Notification'] > 0) { ?>
+      <?php if (count($data['Notification']) > 0) { ?>
         iziToast.<?php echo $data['Notification']['status'] ?>({
+          title: "Thông báo!",
           message: "<?php echo $data['Notification']['message'] ?>",
-          position: "topRight"
+          position: "bottomRight"
         });
       <?php } ?>
     };
