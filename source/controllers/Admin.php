@@ -70,7 +70,7 @@ class Admin extends Controller
   // QUẢN LÝ LỊCH TRỰC
   public function Attendance()
   {
-    if (!$this->pmsAdmin && !$this->pmsAttendance) self::redirect("Home");
+    if (!$this->pmsAdmin && !$this->pmsAttendance) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -175,7 +175,7 @@ class Admin extends Controller
 
   public function DetailedStatistics()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) {
       header('Location: Statistics');
@@ -257,7 +257,7 @@ class Admin extends Controller
 
   public function Subject()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -287,7 +287,7 @@ class Admin extends Controller
 
   public function SchoolYear()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -318,7 +318,7 @@ class Admin extends Controller
   // QUẢN LÝ THIẾT BỊ
   public function DeviceGroup()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -348,7 +348,7 @@ class Admin extends Controller
 
   public function Device()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -383,7 +383,7 @@ class Admin extends Controller
 
   public function DeviceStatistics()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     $this->view("layout", [
@@ -394,7 +394,7 @@ class Admin extends Controller
 
   public function Borrow()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -438,7 +438,7 @@ class Admin extends Controller
   // QUẢN LÝ NHÂN SỰ
   public function Member()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -470,7 +470,7 @@ class Admin extends Controller
 
   public function DetailedMember()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     $this->view("layout", [
@@ -482,7 +482,7 @@ class Admin extends Controller
 
   public function Collaborate()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -512,7 +512,7 @@ class Admin extends Controller
 
   public function DetailedCollaborate()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     $this->view("layout", [
@@ -524,7 +524,7 @@ class Admin extends Controller
 
   public function RecruitMember()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification   = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -541,7 +541,7 @@ class Admin extends Controller
   // QUẢN LÝ CƠ CẤU
   public function Executive()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -567,7 +567,7 @@ class Admin extends Controller
 
   public function Team()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -591,7 +591,7 @@ class Admin extends Controller
 
   public function EditTeam()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     if (!isset($_GET['id']) || $_GET['id'] == NULL) {
       header('Location: Team');
@@ -615,7 +615,7 @@ class Admin extends Controller
 
   public function Position()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -639,7 +639,7 @@ class Admin extends Controller
 
   public function EditPosition()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     if (!isset($_GET['id']) || $_GET['id'] == NULL) {
       header('Location: Position');
@@ -664,7 +664,7 @@ class Admin extends Controller
   // THAO TÁC KHÁC
   public function Decentralization()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -702,7 +702,7 @@ class Admin extends Controller
 
   public function ResetPassword()
   {
-    if (!$this->pmsAdmin) self::redirect("Home");
+    if (!$this->pmsAdmin) echo '<script>window.location="Home"</script>';
 
     $Notification = [];
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -761,13 +761,5 @@ class Admin extends Controller
       "page"          => "software-information/software-information",
       "Notification"  =>  $Notification,
     ]);
-  }
-
-  public static function redirect($url)
-  {
-    ob_start();
-    if (!empty($url)) header("Location: {$url}");
-    exit;
-    ob_end_flush();
   }
 }
