@@ -1,9 +1,4 @@
 <?php
-$filepath = realpath(dirname(__FILE__));
-include($filepath . '/../config/config.php');
-?>
-
-<?php
 class Database
 {
   protected $host   = DB_HOST;

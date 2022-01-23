@@ -21,11 +21,7 @@ class Session
 
   public static function get($key)
   {
-    if (isset($_SESSION[$key])) {
-      return $_SESSION[$key];
-    } else {
-      return false;
-    }
+    return isset($_SESSION[$key]) ? $_SESSION[$key] : false;
   }
 
   public static function checkSession()
@@ -33,7 +29,7 @@ class Session
     self::init();
     if (self::get("login") == false) {
       self::destroy();
-      echo '<script>window.location="/../Auth/Login"</script>';
+      self::redirect("/../Auth/Login");
     }
   }
 
@@ -41,13 +37,20 @@ class Session
   {
     self::init();
     if (self::get("login") == true) {
-      echo '<script>window.location="/../Admin/Home"</script>';
+      self::redirect("/../Admin/Home");
     }
   }
 
   public static function destroy()
   {
     session_destroy();
-    echo '<script>window.location="/../Auth/Login"</script>';
+    self::redirect("/../Auth/Login");
+  }
+
+  public static function redirect($url)
+  {
+    ob_start();
+    if (!empty($url)) header("location: {$url}");
+    ob_end_flush();
   }
 }
