@@ -33,7 +33,7 @@ class Session
     self::init();
     if (self::get("login") == false) {
       self::destroy();
-      echo '<script>window.location="/../Auth/Login"</script>';
+      self::redirect("/../Auth/Login");
     }
   }
 
@@ -48,6 +48,14 @@ class Session
   public static function destroy()
   {
     session_destroy();
-    echo '<script>window.location="/../Auth/Login"</script>';
+    self::redirect("/../Auth/Login");
+  }
+
+  public static function redirect($url)
+  {
+    ob_start();
+    if (!empty($url)) header("Location: {$url}");
+    exit;
+    ob_end_flush();
   }
 }

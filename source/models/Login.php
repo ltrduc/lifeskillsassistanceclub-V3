@@ -30,7 +30,7 @@ class Login
       Session::set('pmsAdmin', $value['admin']);
       Session::set('pmsAttendance', $value['attendance']);
       Session::set('pmsPost', $value['post']);
-      echo '<script>window.location="/../Admin/Home"</script>';
+      self::redirect("/../Admin/Home");
     }
 
     if ($id_student === "LIFESKILLSASSISTANCE" && $password === "LSA07012020") {
@@ -40,9 +40,17 @@ class Login
       Session::set('pmsAdmin', 1);
       Session::set('pmsAttendance', 0);
       Session::set('pmsPost', 0);
-      echo '<script>window.location="/../Admin/Home"</script>';
+      self::redirect("/../Admin/Home");
     }
 
     return ["status" => "error", "message" => "Tài khoản hoặc mật khẩu không đúng!"];
+  }
+
+  public static function redirect($url)
+  {
+    ob_start();
+    if (!empty($url)) header("Location: {$url}");
+    exit;
+    ob_end_flush();
   }
 }
