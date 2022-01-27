@@ -126,7 +126,7 @@ class Admin extends Controller
     }
 
     $this->view("layout", [
-      "page"            => "schedule/Schedule",
+      "page"            => "schedule/schedule",
       "Monday"          => $this->Schedule->getSchedule(),
       "Tuesday"         => $this->Schedule->getSchedule(),
       "Wednesday"       => $this->Schedule->getSchedule(),
