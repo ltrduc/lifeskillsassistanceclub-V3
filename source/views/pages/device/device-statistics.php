@@ -29,7 +29,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered table-md table-hover" id="table-1">
+                <table class="table table-striped table-md table-hover" id="table-1">
                   <thead>
                     <tr>
                       <th colspan="4">Thông tin thiết bị</th>
