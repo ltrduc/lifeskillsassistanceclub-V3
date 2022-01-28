@@ -44,7 +44,7 @@
                           <?php echo $value['description']; ?>
                         </div>
                         <div class="media-links">
-                          <a href="Admin/EditTeam&id=<?php echo $value['id_team'] ?>">Chỉnh sửa</a>
+                          <a href="Admin/updateTeam&id=<?php echo $value['id_team'] ?>">Chỉnh sửa</a>
                           <div class="bullet"></div>
                           <a href="#" class="text-danger" onclick="deleteTeam('<?php echo $value['id_team'] ?>', '<?php echo $value['name'] ?>');" data-toggle="modal" data-target="#deleteTeam">Xóa ban hoạt động</a>
                         </div>

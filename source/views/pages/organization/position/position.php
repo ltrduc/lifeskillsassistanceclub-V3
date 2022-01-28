@@ -44,7 +44,7 @@
                           <?php echo $value['description']; ?>
                         </div>
                         <div class="media-links">
-                          <a href="Admin/EditPosition&id=<?php echo $value['id_position'] ?>">Chỉnh sửa</a>
+                          <a href="Admin/updatePosition&id=<?php echo $value['id_position'] ?>">Chỉnh sửa</a>
                           <div class="bullet"></div>
                           <a href="#" class="text-danger" onclick="deletePosition('<?php echo $value['id_position'] ?>', '<?php echo $value['name'] ?>');" data-toggle="modal" data-target="#deletePosition">Xóa chức vụ</a>
                         </div>

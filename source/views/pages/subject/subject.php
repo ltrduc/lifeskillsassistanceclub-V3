@@ -70,7 +70,7 @@
                           <td><?php echo $value['subject']; ?></td>
                           <td><?php echo $value['note']; ?></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-primary" onclick="editSubject('<?php echo $value['id_subject'] ?>', '<?php echo $value['subject'] ?>','<?php echo $value['note'] ?>')" data-toggle="modal" data-target="#editSubject"><i class="fas fa-file-signature"></i> Sửa </a>
+                            <a href="#" class="btn btn-sm btn-primary" onclick="updateSubject('<?php echo $value['id_subject'] ?>', '<?php echo $value['subject'] ?>','<?php echo $value['note'] ?>')" data-toggle="modal" data-target="#updateSubject"><i class="fas fa-file-signature"></i> Sửa </a>
                             <a href="#" class="btn btn-sm btn-danger" onclick="deleteSubject('<?php echo $value['id_subject']; ?>', '<?php echo $value['subject']; ?>')" data-toggle="modal" data-target="#deleteSubject"><i class="fas fa-trash"></i> Xóa </a>
                           </td>
                         </tr>
@@ -109,7 +109,7 @@
   </div>
 
   <!-- Sửa môn học -->
-  <div class="modal fade" id="editSubject">
+  <div class="modal fade" id="updateSubject">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -120,17 +120,17 @@
         </div>
         <div class="modal-body">
           <form action="Admin/Subject" method="post">
-            <input type="hidden" id="edit-id_subject" name="id_subject">
+            <input type="hidden" id="update-id_subject" name="id_subject">
             <div class="form-group">
               <label>Năm học</label>
-              <input type="text" id="edit-subject" name="subject" placeholder="Thái độ sống 1" class="form-control">
+              <input type="text" id="update-subject" name="subject" placeholder="Thái độ sống 1" class="form-control">
             </div>
             <div class="form-group">
               <label>Ghi chú</label>
-              <input type="text" id="edit-note" name="note" class="form-control">
+              <input type="text" id="update-note" name="note" class="form-control">
             </div>
             <div class="form-group text-right">
-              <button class="btn btn-primary mr-1" name="editSubject" type="submit">Chỉnh sửa môn học</button>
+              <button class="btn btn-primary mr-1" name="updateSubject" type="submit">Chỉnh sửa môn học</button>
             </div>
           </form>
         </div>

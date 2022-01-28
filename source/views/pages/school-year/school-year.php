@@ -70,7 +70,7 @@
                           <td><?php echo $value['schoolyear']; ?></td>
                           <td><?php echo $value['note']; ?></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-primary" onclick="editSchoolYear('<?php echo $value['id_schoolyear'] ?>', '<?php echo $value['schoolyear'] ?>','<?php echo $value['note'] ?>')" data-toggle="modal" data-target="#editSchoolYear"><i class="fas fa-file-signature"></i> Sửa </a>
+                            <a href="#" class="btn btn-sm btn-primary" onclick="updateSchoolYear('<?php echo $value['id_schoolyear'] ?>', '<?php echo $value['schoolyear'] ?>','<?php echo $value['note'] ?>')" data-toggle="modal" data-target="#updateSchoolYear"><i class="fas fa-file-signature"></i> Sửa </a>
                             <a href="#" class="btn btn-sm btn-danger" onclick="deleteSchoolYear('<?php echo $value['id_schoolyear']; ?>', '<?php echo $value['schoolyear']; ?>')" data-toggle="modal" data-target="#deleteSchoolYear"><i class="fas fa-trash"></i> Xóa </a>
                           </td>
                         </tr>
@@ -109,7 +109,7 @@
   </div>
 
   <!-- Sửa năm học -->
-  <div class="modal fade" id="editSchoolYear">
+  <div class="modal fade" id="updateSchoolYear">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -120,17 +120,17 @@
         </div>
         <div class="modal-body">
           <form action="Admin/SchoolYear" method="post">
-            <input type="hidden" id="edit-id_schoolyear" name="id_schoolyear">
+            <input type="hidden" id="update-id_schoolyear" name="id_schoolyear">
             <div class="form-group">
               <label>Năm học</label>
-              <input type="text" id="edit-schoolyear" name="schoolyear" placeholder="2021-2022" class="form-control">
+              <input type="text" id="update-schoolyear" name="schoolyear" placeholder="2021-2022" class="form-control">
             </div>
             <div class="form-group">
               <label>Ghi chú</label>
-              <input type="text" id="edit-note" name="note" class="form-control">
+              <input type="text" id="update-note" name="note" class="form-control">
             </div>
             <div class="form-group text-right">
-              <button class="btn btn-primary mr-1" name="editSchoolYear" type="submit">Chỉnh sửa năm học</button>
+              <button class="btn btn-primary mr-1" name="updateSchoolYear" type="submit">Chỉnh sửa năm học</button>
             </div>
           </form>
         </div>
