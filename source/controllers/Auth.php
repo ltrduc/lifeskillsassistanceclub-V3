@@ -11,6 +11,7 @@ class Auth extends Controller
   public function Login()
   {
     $Notification = [];
+    
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $id_student   = $_POST['id_student'];
       $password     = $_POST['password'];

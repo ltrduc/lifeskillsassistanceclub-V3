@@ -37,7 +37,7 @@ class SchoolYear
     return ["status" => "error", "message" => "Đã thêm dữ liệu thất bại!"];
   }
 
-  public function editSchoolYear($id_schoolyear, $schoolyear, $note)
+  public function updateSchoolYear($id_schoolyear, $schoolyear, $note)
   {
     $id_schoolyear  = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_schoolyear));
     $schoolyear     = mysqli_real_escape_string($this->db->link, $this->fm->validation($schoolyear));

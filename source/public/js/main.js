@@ -42,10 +42,10 @@ function deleteSubject(id_subject, subject) {
   document.getElementById("delete-id_subject").value = id_subject;
 }
 
-function editSubject(id_subject, subject, note) {
-  document.getElementById("edit-id_subject").value = id_subject;
-  document.getElementById("edit-subject").value = subject;
-  document.getElementById("edit-note").value = note;
+function updateSubject(id_subject, subject, note) {
+  document.getElementById("update-id_subject").value = id_subject;
+  document.getElementById("update-subject").value = subject;
+  document.getElementById("update-note").value = note;
 }
 
 // Năm học
@@ -54,10 +54,10 @@ function deleteSchoolYear(id_schoolyear, schoolyear) {
   document.getElementById("delete-id_schoolyear").value = id_schoolyear;
 }
 
-function editSchoolYear(id_schoolyear, schoolyear, note) {
-  document.getElementById("edit-id_schoolyear").value = id_schoolyear;
-  document.getElementById("edit-schoolyear").value = schoolyear;
-  document.getElementById("edit-note").value = note;
+function updateSchoolYear(id_schoolyear, schoolyear, note) {
+  document.getElementById("update-id_schoolyear").value = id_schoolyear;
+  document.getElementById("update-schoolyear").value = schoolyear;
+  document.getElementById("update-note").value = note;
 }
 
 // Quản lý thiết bị
@@ -66,10 +66,10 @@ function deleteDeviceGroup(id_devicegroup, devicegroup) {
   document.getElementById("delete-id_devicegroup").value = id_devicegroup;
 }
 
-function editDeviceGroup(id_devicegroup, devicegroup, note) {
-  document.getElementById("edit-id_devicegroup").value = id_devicegroup;
-  document.getElementById("edit-devicegroup").value = devicegroup;
-  document.getElementById("edit-note").value = note;
+function updateDeviceGroup(id_devicegroup, devicegroup, note) {
+  document.getElementById("update-id_devicegroup").value = id_devicegroup;
+  document.getElementById("update-devicegroup").value = devicegroup;
+  document.getElementById("update-note").value = note;
 }
 
 function deleteDevice(id_device, device) {
@@ -77,13 +77,13 @@ function deleteDevice(id_device, device) {
   document.getElementById("delete-id_device").value = id_device;
 }
 
-function editDevice(devicegroup, id_device, id_devicegroup, description, device, note) {
-  document.getElementById("edit-id_device").value = id_device;
-  document.getElementById("edit-id_devicegroup").value = id_devicegroup;
-  document.getElementById("edit-id_devicegroup-disabled").value = devicegroup;
-  document.getElementById("edit-device").value = device;
-  document.getElementById("edit-description").value = description;
-  document.getElementById("edit-note").value = note;
+function updateDevice(devicegroup, id_device, id_devicegroup, description, device, note) {
+  document.getElementById("update-id_device").value = id_device;
+  document.getElementById("update-id_devicegroup").value = id_devicegroup;
+  document.getElementById("update-id_devicegroup-disabled").value = devicegroup;
+  document.getElementById("update-device").value = device;
+  document.getElementById("update-description").value = description;
+  document.getElementById("update-note").value = note;
 }
 
 // Quản lý mượn-trả
@@ -92,14 +92,14 @@ function deleteBorrow(id_borrow, borrower) {
   document.getElementById("delete-id_borrow").value = id_borrow;
 }
 
-function editBorrow(id_borrow, borrower, phone, device, quantily, date, purpose) {
-  document.getElementById('edit-id_borrow').value = id_borrow;
-  document.getElementById("edit-borrower").value = borrower;
-  document.getElementById('edit-phone').value = phone;
-  document.getElementById("edit-device").value = device;
-  document.getElementById('edit-quantily').value = quantily;
-  document.getElementById("edit-date").value = date;
-  document.getElementById('edit-purpose').value = purpose;
+function updateBorrow(id_borrow, borrower, phone, device, quantily, date, purpose) {
+  document.getElementById('update-id_borrow').value = id_borrow;
+  document.getElementById("update-borrower").value = borrower;
+  document.getElementById('update-phone').value = phone;
+  document.getElementById("update-device").value = device;
+  document.getElementById('update-quantily').value = quantily;
+  document.getElementById("update-date").value = date;
+  document.getElementById('update-purpose').value = purpose;
 }
 
 // Ban điều hành
@@ -126,11 +126,11 @@ function deleteMember(id_user, fullname) {
   document.getElementById("delete-id_user").value = id_user;
 }
 
-function editMember(id_user, id_student, fullname, team) {
-  document.getElementById("edit-id_user").value = id_user;
-  document.getElementById("edit-id_student").value = id_student;
-  document.getElementById("edit-fullname").value = fullname;
-  document.getElementById("edit-team").value = team;
+function updateMember(id_user, id_student, fullname, team) {
+  document.getElementById("update-id_user").value = id_user;
+  document.getElementById("update-id_student").value = id_student;
+  document.getElementById("update-fullname").value = fullname;
+  document.getElementById("update-team").value = team;
 }
 
 // Cộng tác viên
@@ -139,10 +139,10 @@ function deleteCollaborate(id_user, fullname) {
   document.getElementById("delete-id_user").value = id_user;
 }
 
-function editCollaborate(id_user, id_student, fullname) {
-  document.getElementById("edit-id_user").value = id_user;
-  document.getElementById("edit-id_student").value = id_student;
-  document.getElementById("edit-fullname").value = fullname;
+function updateCollaborate(id_user, id_student, fullname) {
+  document.getElementById("update-id_user").value = id_user;
+  document.getElementById("update-id_student").value = id_student;
+  document.getElementById("update-fullname").value = fullname;
 }
 
 // resetpassword

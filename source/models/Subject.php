@@ -37,7 +37,7 @@ class Subject
     return ["status" => "error", "message" => "Đã thêm dữ liệu thất bại!"];
   }
 
-  public function editSubject($id_subject, $subject, $note)
+  public function updateSubject($id_subject, $subject, $note)
   {
     $id_subject = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_subject));
     $subject    = mysqli_real_escape_string($this->db->link, $this->fm->validation($subject));

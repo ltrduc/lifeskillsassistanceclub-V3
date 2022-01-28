@@ -89,7 +89,7 @@
                           <td><?php echo $value['description']; ?></td>
                           <td><?php echo $value['note']; ?></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-primary" onclick="editDevice('<?php echo $value['devicegroup']; ?>','<?php echo $value['id_device']; ?>', '<?php echo $value['id_devicegroup']; ?>', '<?php echo $value['description']; ?>', '<?php echo $value['device']; ?>', '<?php echo $value['note']; ?>');" data-toggle="modal" data-target="#editDevice"><i class="fas fa-file-signature"></i> Sửa </a>
+                            <a href="#" class="btn btn-sm btn-primary" onclick="updateDevice('<?php echo $value['devicegroup']; ?>','<?php echo $value['id_device']; ?>', '<?php echo $value['id_devicegroup']; ?>', '<?php echo $value['description']; ?>', '<?php echo $value['device']; ?>', '<?php echo $value['note']; ?>');" data-toggle="modal" data-target="#updateDevice"><i class="fas fa-file-signature"></i> Sửa </a>
                             <a href="#" class="btn btn-sm btn-danger" onclick="deleteDevice('<?php echo $value['id_device']; ?>', '<?php echo $value['device']; ?>');" data-toggle="modal" data-target="#deleteDevice"><i class="fas fa-trash"></i> Xóa </a>
                           </td>
                         </tr>
@@ -128,7 +128,7 @@
   </div>
 
   <!-- Sửa thiết bị -->
-  <div class="modal fade" id="editDevice">
+  <div class="modal fade" id="updateDevice">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -139,26 +139,26 @@
         </div>
         <div class="modal-body">
           <form action="Admin/Device" method="post">
-            <input type="hidden" id="edit-id_device" name="id_device">
+            <input type="hidden" id="update-id_device" name="id_device">
             <div class="form-group">
               <label>Nhóm thiết bị</label>
-              <input type="hidden" id="edit-id_devicegroup" name="id_devicegroup" class="form-control">
-              <input type="text" id="edit-id_devicegroup-disabled" disabled name="id_devicegroup" class="form-control">
+              <input type="hidden" id="update-id_devicegroup" name="id_devicegroup" class="form-control">
+              <input type="text" id="update-id_devicegroup-disabled" disabled name="id_devicegroup" class="form-control">
             </div>
             <div class="form-group">
               <label>Thiết bị</label>
-              <input type="text" id="edit-device" name="device" class="form-control">
+              <input type="text" id="update-device" name="device" class="form-control">
             </div>
             <div class="form-group">
               <label>Mô tả</label>
-              <input type="text" id="edit-description" name="description" class="form-control">
+              <input type="text" id="update-description" name="description" class="form-control">
             </div>
             <div class="form-group">
               <label>Ghi chú</label>
-              <input type="text" id="edit-note" name="note" class="form-control">
+              <input type="text" id="update-note" name="note" class="form-control">
             </div>
             <div class="form-group text-right">
-              <button class="btn btn-primary mr-1" name="editDevice" type="submit">Chỉnh sửa thiết bị</button>
+              <button class="btn btn-primary mr-1" name="updateDevice" type="submit">Chỉnh sửa thiết bị</button>
             </div>
           </form>
         </div>

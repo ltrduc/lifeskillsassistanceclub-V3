@@ -56,7 +56,7 @@
                           <td><?php echo $value['team']; ?></td>
                           <td><?php echo $value['phone']; ?></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-primary" onclick="editMember('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>','<?php echo $value['team'] ?>')" data-toggle="modal" data-target="#editMember"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
+                            <a href="#" class="btn btn-sm btn-primary" onclick="updateMember('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>','<?php echo $value['team'] ?>')" data-toggle="modal" data-target="#updateMember"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
                             <a href="#" class="btn btn-sm btn-danger" onclick="deleteMember('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#deleteMember"><i class="fas fa-trash"></i> Xóa </a>
                           </td>
                         </tr>
@@ -159,7 +159,7 @@
   </div>
 
   <!-- Sửa thành viên -->
-  <div class="modal fade" id="editMember">
+  <div class="modal fade" id="updateMember">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -170,7 +170,7 @@
         </div>
         <div class="modal-body">
           <form action="Admin/Member" method="post" class="needs-validation" novalidate="">
-            <input type="hidden" id="edit-id_user" name="id_user">
+            <input type="hidden" id="update-id_user" name="id_user">
             <div class="form-group">
               <label>Họ và tên</label>
               <div class="input-group">
@@ -179,7 +179,7 @@
                     <i class="fas fa-user-check"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control" placeholder="Nguyễn Văn A" id="edit-fullname" name="fullname" tabindex="1" required autofocus>
+                <input type="text" class="form-control" placeholder="Nguyễn Văn A" id="update-fullname" name="fullname" tabindex="1" required autofocus>
                 <div class="invalid-feedback">Vui lòng không bỏ trống họ và tên!</div>
               </div>
             </div>
@@ -191,7 +191,7 @@
                     <i class="fas fa-address-card"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control" placeholder="51900001" id="edit-id_student" name="id_student" tabindex="2" required autofocus>
+                <input type="text" class="form-control" placeholder="51900001" id="update-id_student" name="id_student" tabindex="2" required autofocus>
                 <div class="invalid-feedback">Vui lòng không bỏ trống mã số sinh viên!</div>
               </div>
             </div>
@@ -203,11 +203,11 @@
                     <i class="fas fa-layer-group"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control" disabled id="edit-team" name="team">
+                <input type="text" class="form-control" disabled id="update-team" name="team">
               </div>
             </div>
             <div class="form-group text-right">
-              <button type="submit" name="editMember" tabindex="3" class="btn btn-primary m-t-15 waves-effect">Chỉnh sửa thành viên</button>
+              <button type="submit" name="updateMember" tabindex="3" class="btn btn-primary m-t-15 waves-effect">Chỉnh sửa thành viên</button>
             </div>
           </form>
         </div>

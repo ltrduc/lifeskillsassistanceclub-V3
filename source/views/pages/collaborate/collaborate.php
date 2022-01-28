@@ -54,7 +54,7 @@
                           <td><?php echo $value['fullname'] ?></td>
                           <td><?php echo $value['phone'] ?></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-primary" onclick="editCollaborate('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#editCollaborate"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
+                            <a href="#" class="btn btn-sm btn-primary" onclick="updateCollaborate('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#updateCollaborate"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
                             <a href="#" class="btn btn-sm btn-danger" onclick="deleteCollaborate('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#deleteCollaborate"><i class="fas fa-trash"></i> Xóa </a>
                           </td>
                         </tr>
@@ -149,7 +149,7 @@
   </div>
 
   <!-- Sửa cộng tác viên -->
-  <div class="modal fade" id="editCollaborate">
+  <div class="modal fade" id="updateCollaborate">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -160,7 +160,7 @@
         </div>
         <div class="modal-body">
           <form action="Admin/Collaborate" method="post" class="needs-validation" novalidate="">
-            <input type="hidden" id="edit-id_user" name="id_user">
+            <input type="hidden" id="update-id_user" name="id_user">
             <div class="form-group">
               <label>Họ và tên</label>
               <div class="input-group">
@@ -169,7 +169,7 @@
                     <i class="fas fa-user-check"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control" placeholder="Nguyễn Văn A" id="edit-fullname" name="fullname" tabindex="1" required autofocus>
+                <input type="text" class="form-control" placeholder="Nguyễn Văn A" id="update-fullname" name="fullname" tabindex="1" required autofocus>
                 <div class="invalid-feedback">Vui lòng không bỏ trống họ và tên!</div>
               </div>
             </div>
@@ -181,7 +181,7 @@
                     <i class="fas fa-address-card"></i>
                   </div>
                 </div>
-                <input type="text" class="form-control" placeholder="51900001" id="edit-id_student" name="id_student" tabindex="2" required autofocus>
+                <input type="text" class="form-control" placeholder="51900001" id="update-id_student" name="id_student" tabindex="2" required autofocus>
                 <div class="invalid-feedback">Vui lòng không bỏ trống mã số sinh viên!</div>
               </div>
             </div>
@@ -197,7 +197,7 @@
               </div>
             </div>
             <div class="form-group text-right">
-              <button type="submit" name="editCollaborate" tabindex="3" class="btn btn-primary m-t-15 waves-effect">Chỉnh sửa cộng tác viên</button>
+              <button type="submit" name="updateCollaborate" tabindex="3" class="btn btn-primary m-t-15 waves-effect">Chỉnh sửa cộng tác viên</button>
             </div>
           </form>
         </div>

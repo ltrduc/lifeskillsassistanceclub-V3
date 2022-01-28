@@ -39,7 +39,7 @@ class Borrow
     return ["status" => "error", "message" => "Đã thêm dữ liệu thất bại!"];
   }
 
-  public function editBorrow($id_borrow, $borrower, $phone, $device, $quantily, $date, $purpose)
+  public function updateBorrow($id_borrow, $borrower, $phone, $device, $quantily, $date, $purpose)
   {
     $id_borrow  = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_borrow));
     $borrower   = mysqli_real_escape_string($this->db->link, $this->fm->validation($borrower));

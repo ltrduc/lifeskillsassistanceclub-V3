@@ -75,7 +75,7 @@
                                 <button type="submit" value="1" name="updateStatus" class="btn btn-sm btn-danger btn-icon icon-left"><i class="fas fa-toggle-off"></i></span></button>
                               <?php } ?>
                             </form>
-                            <a href="#" class="btn btn-sm btn-primary" onclick="editBorrow('<?php echo $value['id_borrow'] ?>','<?php echo $value['borrower'] ?>','<?php echo $value['phone'] ?>','<?php echo $value['device'] ?>','<?php echo $value['quantily'] ?>','<?php echo $value['date'] ?>','<?php echo $value['purpose'] ?>')" data-toggle="modal" data-target="#editBorrow"><i class="fas fa-file-signature"></i></a>
+                            <a href="#" class="btn btn-sm btn-primary" onclick="updateBorrow('<?php echo $value['id_borrow'] ?>','<?php echo $value['borrower'] ?>','<?php echo $value['phone'] ?>','<?php echo $value['device'] ?>','<?php echo $value['quantily'] ?>','<?php echo $value['date'] ?>','<?php echo $value['purpose'] ?>')" data-toggle="modal" data-target="#updateBorrow"><i class="fas fa-file-signature"></i></a>
                             <a href="#" class="btn btn-sm btn-danger" onclick="deleteBorrow('<?php echo $value['id_borrow'] ?>','<?php echo $value['borrower'] ?>')" data-toggle="modal" data-target="#deleteBorrow"><i class="fas fa-trash"></i></a>
                           </td>
                         </tr>
@@ -181,7 +181,7 @@
   </div>
 
   <!-- Sửa mượn trả -->
-  <div class="modal fade" id="editBorrow">
+  <div class="modal fade" id="updateBorrow">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -192,53 +192,53 @@
         </div>
         <div class="modal-body">
           <form action="Admin/Borrow" method="post" class="needs-validation" novalidate="">
-            <input type="hidden" id="edit-id_borrow" name="id_borrow">
+            <input type="hidden" id="update-id_borrow" name="id_borrow">
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Người mượn</label>
-                  <input type="text" class="form-control" placeholder="Nguyễn Văn A" id="edit-borrower" name="borrower" tabindex="1" required autofocus>
+                  <input type="text" class="form-control" placeholder="Nguyễn Văn A" id="update-borrower" name="borrower" tabindex="1" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống người mượn!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Số điện thoại</label>
-                  <input type="number" class="form-control" placeholder="0377000001" id="edit-phone" name="phone" tabindex="2" required autofocus>
+                  <input type="number" class="form-control" placeholder="0377000001" id="update-phone" name="phone" tabindex="2" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống số điện thoại!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Thiết bị</label>
-                  <input type="text" class="form-control" placeholder="Bút chiếu" id="edit-device" name="device" tabindex="3" required autofocus>
+                  <input type="text" class="form-control" placeholder="Bút chiếu" id="update-device" name="device" tabindex="3" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống thiết bị!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Số lượng</label>
-                  <input type="number" class="form-control" placeholder="1" id="edit-quantily" name="quantily" tabindex="4" required autofocus>
+                  <input type="number" class="form-control" placeholder="1" id="update-quantily" name="quantily" tabindex="4" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống số lượng!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Ngày mượn</label>
-                  <input type="text" class="form-control datepicker" id="edit-date" name="date" tabindex="5" required autofocus>
+                  <input type="text" class="form-control datepicker" id="update-date" name="date" tabindex="5" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống ngày mượn!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Mục đích</label>
-                  <input type="text" class="form-control" placeholder="Giảng dạy" id="edit-purpose" name="purpose" tabindex="6" required autofocus>
+                  <input type="text" class="form-control" placeholder="Giảng dạy" id="update-purpose" name="purpose" tabindex="6" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống mục đích!</div>
                 </div>
               </div>
               <div class="col-md-12">
                 <div class="form-group text-right">
-                  <button type="submit" name="editBorrow" tabindex="7" class="btn btn-primary m-t-15 waves-effect">Chỉnh sửa</button>
+                  <button type="submit" name="updateBorrow" tabindex="7" class="btn btn-primary m-t-15 waves-effect">Chỉnh sửa</button>
                 </div>
               </div>
             </div>

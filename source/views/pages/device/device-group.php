@@ -70,7 +70,7 @@
                           <td><?php echo $value['devicegroup']; ?></td>
                           <td><?php echo $value['note']; ?></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-primary" onclick="editDeviceGroup('<?php echo $value['id_devicegroup'] ?>', '<?php echo $value['devicegroup'] ?>','<?php echo $value['note'] ?>')" data-toggle="modal" data-target="#editDeviceGroup"><i class="fas fa-file-signature"></i> Sửa </a>
+                            <a href="#" class="btn btn-sm btn-primary" onclick="updateDeviceGroup('<?php echo $value['id_devicegroup'] ?>', '<?php echo $value['devicegroup'] ?>','<?php echo $value['note'] ?>')" data-toggle="modal" data-target="#updateDeviceGroup"><i class="fas fa-file-signature"></i> Sửa </a>
                             <a href="#" class="btn btn-sm btn-danger" onclick="deleteDeviceGroup('<?php echo $value['id_devicegroup']; ?>', '<?php echo $value['devicegroup']; ?>')" data-toggle="modal" data-target="#deleteDeviceGroup"><i class="fas fa-trash"></i> Xóa </a>
                           </td>
                         </tr>
@@ -109,7 +109,7 @@
   </div>
 
   <!-- Sửa nhóm thiết bị -->
-  <div class="modal fade" id="editDeviceGroup">
+  <div class="modal fade" id="updateDeviceGroup">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -120,17 +120,17 @@
         </div>
         <div class="modal-body">
           <form action="Admin/DeviceGroup" method="post">
-            <input type="hidden" id="edit-id_devicegroup" name="id_devicegroup">
+            <input type="hidden" id="update-id_devicegroup" name="id_devicegroup">
             <div class="form-group">
               <label>Nhóm thiết bị</label>
-              <input type="text" id="edit-devicegroup" name="devicegroup" placeholder="Bảng" class="form-control">
+              <input type="text" id="update-devicegroup" name="devicegroup" placeholder="Bảng" class="form-control">
             </div>
             <div class="form-group">
               <label>Ghi chú</label>
-              <input type="text" id="edit-note" name="note" class="form-control">
+              <input type="text" id="update-note" name="note" class="form-control">
             </div>
             <div class="form-group text-right">
-              <button class="btn btn-primary mr-1" name="editDeviceGroup" type="submit">Chỉnh sửa nhóm thiết bị</button>
+              <button class="btn btn-primary mr-1" name="updateDeviceGroup" type="submit">Chỉnh sửa nhóm thiết bị</button>
             </div>
           </form>
         </div>

@@ -51,32 +51,40 @@ class Admin extends Controller
     $this->pmsPost          = $this->Permission->Post(Session::get('pmsPost'));
   }
 
-  // TRANG CHỦ
+  /*
+  |--------------------------------------------------------------------------
+  | TRANG CHỦ
+  |--------------------------------------------------------------------------
+  */
   public function Home()
   {
-    $Notification = [];
     $this->view("layout", [
-      "page"                  => "home/dashboard",
-      "CountPost"             => $this->Dashboard->Post(),
-      "CountCollaborate"      => $this->Dashboard->Collaborate(),
-      "CountMember"           => $this->Dashboard->Member(),
-      "CountAdministration"   => $this->Dashboard->Administration(),
-      "CountPersonnel"        => $this->Dashboard->Personnel(),
-      "ListCourseToday"       => $this->Course->getCourseToday(),
-      "Notification"          => $Notification,
+      "page"                => "home/dashboard",
+      "CountPost"           => $this->Dashboard->Post(),
+      "CountCollaborate"    => $this->Dashboard->Collaborate(),
+      "CountMember"         => $this->Dashboard->Member(),
+      "CountAdministration" => $this->Dashboard->Administration(),
+      "CountPersonnel"      => $this->Dashboard->Personnel(),
+      "ListCourseToday"     => $this->Course->getCourseToday(),
+      "Notification"        => [],
     ]);
   }
 
-  // QUẢN LÝ LỊCH TRỰC
+  /*
+  |--------------------------------------------------------------------------
+  | QUẢN LÝ LỊCH TRỰC
+  |--------------------------------------------------------------------------
+  */
   public function Attendance()
   {
     if (!$this->pmsAdmin && !$this->pmsAttendance) self::redirect("Home");
 
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (empty($_POST['id_schoolyear']) || empty($_POST['semester']) || empty($_POST['date']) || empty($_POST['shift'])) {
         $Notification = ["status" => "error", "message" => "Vui lòng nhập đầy đủ dữ liệu!"];
-      } else if (empty($_POST['attendance'])) {
+      } elseif (empty($_POST['attendance'])) {
         $Notification = ["status" => "error", "message" => "Chưa có thành viên nào điểm danh!"];
       } else {
         foreach ($_POST['attendance'] as $id => $attendance) {;
@@ -101,19 +109,21 @@ class Admin extends Controller
   public function Schedule()
   {
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addSchedule'])) {
-        $id_student  = $_POST['id_student'];
-        $session  = $_POST['session'];
-        $shift1   = "";
-        $shift2   = "";
-        $shift3   = "";
-        $shift4   = "";
+        $id_student = $_POST['id_student'];
+        $session    = $_POST['session'];
+        $shift1     = "";
+        $shift2     = "";
+        $shift3     = "";
+        $shift4     = "";
 
         if (isset($_POST['shift1'])) $shift1 = $_POST['shift1'];
         if (isset($_POST['shift2'])) $shift2 = $_POST['shift2'];
         if (isset($_POST['shift3'])) $shift3 = $_POST['shift3'];
         if (isset($_POST['shift4'])) $shift4 = $_POST['shift4'];
+
         $Notification = $this->Schedule->setSchedule($id_student, $session, $shift1, $shift2, $shift3, $shift4);
       }
       if (isset($_POST['deleteSchedule'])) {
@@ -126,21 +136,22 @@ class Admin extends Controller
     }
 
     $this->view("layout", [
-      "page"            => "schedule/schedule",
-      "Monday"          => $this->Schedule->getSchedule(),
-      "Tuesday"         => $this->Schedule->getSchedule(),
-      "Wednesday"       => $this->Schedule->getSchedule(),
-      "Thursday"        => $this->Schedule->getSchedule(),
-      "Friday"          => $this->Schedule->getSchedule(),
-      "Saturday"        => $this->Schedule->getSchedule(),
-      "ListMember"      => $this->Personnel->getMember(),
-      "Notification"    => $Notification,
+      "page"          => "schedule/schedule",
+      "Monday"        => $this->Schedule->getSchedule(),
+      "Tuesday"       => $this->Schedule->getSchedule(),
+      "Wednesday"     => $this->Schedule->getSchedule(),
+      "Thursday"      => $this->Schedule->getSchedule(),
+      "Friday"        => $this->Schedule->getSchedule(),
+      "Saturday"      => $this->Schedule->getSchedule(),
+      "ListMember"    => $this->Personnel->getMember(),
+      "Notification"  => $Notification,
     ]);
   }
 
   public function Statistics()
   {
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $id_schoolyear  = $_POST['id_schoolyear'];
       $semester       = $_POST['semester'];
@@ -156,9 +167,7 @@ class Admin extends Controller
 
   public function GeneralStatistics()
   {
-    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) {
-      header('Location: Statistics');
-    }
+    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) self::redirect("Statistics");
 
     $Notification   = [];
     $id_schoolyear  = $_GET['id_schoolyear'];
@@ -166,9 +175,9 @@ class Admin extends Controller
 
     $this->view("layout", [
       "page"                  => "attendance-statistics/general",
+      "ListGeneralStatistics" => $this->Statistics->getGeneralStatistics($id_schoolyear, $semester),
       "id_schoolyear"         => $id_schoolyear,
       "semester"              => $semester,
-      "ListGeneralStatistics" => $this->Statistics->getGeneralStatistics($id_schoolyear, $semester),
       "Notification"          => $Notification,
     ]);
   }
@@ -176,14 +185,11 @@ class Admin extends Controller
   public function DetailedStatistics()
   {
     if (!$this->pmsAdmin) self::redirect("Home");
+    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) self::redirect("Statistics");
 
-    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) {
-      header('Location: Statistics');
-    }
-
-    $Notification   = [];
-    $id_schoolyear  = $_GET['id_schoolyear'];
-    $semester       = $_GET['semester'];
+    $Notification     = [];
+    $id_schoolyear    = $_GET['id_schoolyear'];
+    $semester         = $_GET['semester'];
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $id_attendance  = $_POST['id_attendance'];
@@ -192,17 +198,22 @@ class Admin extends Controller
 
     $this->view("layout", [
       "page"                    => "attendance-statistics/detailed",
+      "ListDetailedStatistics"  => $this->Statistics->getDetailedStatistics($id_schoolyear, $semester),
       "id_schoolyear"           => $id_schoolyear,
       "semester"                => $semester,
-      "ListDetailedStatistics"  => $this->Statistics->getDetailedStatistics($id_schoolyear, $semester),
       "Notification"            => $Notification,
     ]);
   }
 
-  // QUẢN LÝ KHÓA HỌC
+  /*
+  |--------------------------------------------------------------------------
+  | QUẢN LÝ KHÓA HỌC
+  |--------------------------------------------------------------------------
+  */
   public function Course()
   {
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addCourse'])) {
         $id_subject     = $_POST['id_subject'];
@@ -234,18 +245,20 @@ class Admin extends Controller
 
   public function DetailedCourse()
   {
-    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL) || (!isset($_GET['date']) || $_GET['date'] == NULL)) {
-      header('Location: Course');
+    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) ||
+      (!isset($_GET['semester']) || $_GET['semester'] == NULL) || (!isset($_GET['date']) || $_GET['date'] == NULL)
+    ) {
+      self::redirect("Course");
     }
 
-    $Notification = [];
+    $Notification   = [];
     $id_schoolyear  = $_GET['id_schoolyear'];
     $semester       = $_GET['semester'];
     $date           = $_GET['date'];
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $id_course      = $_POST['id_course'];
-      $Notification   = $this->Course->deleteDetailedCourse($id_course);
+      $id_course    = $_POST['id_course'];
+      $Notification = $this->Course->deleteDetailedCourse($id_course);
     }
 
     $this->view("layout", [
@@ -260,17 +273,18 @@ class Admin extends Controller
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addSubject'])) {
         $subject        = $_POST['subject'];
         $note           = $_POST['note'];
         $Notification   = $this->Subject->setSubject($subject, $note);
       }
-      if (isset($_POST['editSubject'])) {
+      if (isset($_POST['updateSubject'])) {
         $id_subject     = $_POST['id_subject'];
         $subject        = $_POST['subject'];
         $note           = $_POST['note'];
-        $Notification   = $this->Subject->editSubject($id_subject, $subject, $note);
+        $Notification   = $this->Subject->updateSubject($id_subject, $subject, $note);
       }
       if (isset($_POST['deleteSubject'])) {
         $id_subject     = $_POST['id_subject'];
@@ -279,9 +293,9 @@ class Admin extends Controller
     }
 
     $this->view("layout", [
-      "page"          => "subject/subject",
-      "ListSubject"   => $this->Subject->getSubject(),
-      "Notification"  => $Notification,
+      "page"            => "subject/subject",
+      "ListSubject"     => $this->Subject->getSubject(),
+      "Notification"    => $Notification,
     ]);
   }
 
@@ -290,17 +304,18 @@ class Admin extends Controller
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addSchoolYear'])) {
         $schoolyear     = $_POST['schoolyear'];
         $note           = $_POST['note'];
         $Notification   = $this->SchoolYear->setSchoolYear($schoolyear, $note);
       }
-      if (isset($_POST['editSchoolYear'])) {
+      if (isset($_POST['updateSchoolYear'])) {
         $id_schoolyear  = $_POST['id_schoolyear'];
         $schoolyear     = $_POST['schoolyear'];
         $note           = $_POST['note'];
-        $Notification   = $this->SchoolYear->editSchoolYear($id_schoolyear, $schoolyear, $note);
+        $Notification   = $this->SchoolYear->updateSchoolYear($id_schoolyear, $schoolyear, $note);
       }
       if (isset($_POST['deleteSchoolYear'])) {
         $id_schoolyear  = $_POST['id_schoolyear'];
@@ -315,23 +330,28 @@ class Admin extends Controller
     ]);
   }
 
-  // QUẢN LÝ THIẾT BỊ
+  /*
+  |--------------------------------------------------------------------------
+  | QUẢN LÝ THIẾT BỊ
+  |--------------------------------------------------------------------------
+  */
   public function DeviceGroup()
   {
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addDeviceGroup'])) {
         $devicegroup    = $_POST['devicegroup'];
         $note           = $_POST['note'];
         $Notification   = $this->Device->setDeviceGroup($devicegroup, $note);
       }
-      if (isset($_POST['editDeviceGroup'])) {
+      if (isset($_POST['updateDeviceGroup'])) {
         $id_devicegroup = $_POST['id_devicegroup'];
         $devicegroup    = $_POST['devicegroup'];
         $note           = $_POST['note'];
-        $Notification   = $this->Device->editDeviceGroup($id_devicegroup, $devicegroup, $note);
+        $Notification   = $this->Device->updateDeviceGroup($id_devicegroup, $devicegroup, $note);
       }
       if (isset($_POST['deleteDeviceGroup'])) {
         $id_devicegroup = $_POST['id_devicegroup'];
@@ -351,6 +371,7 @@ class Admin extends Controller
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addDevice'])) {
         $id_devicegroup = $_POST['id_devicegroup'];
@@ -359,13 +380,13 @@ class Admin extends Controller
         $note           = $_POST['note'];
         $Notification   = $this->Device->setDevice($id_devicegroup, $device, $description, $note);
       }
-      if (isset($_POST['editDevice'])) {
+      if (isset($_POST['updateDevice'])) {
         $id_device      = $_POST['id_device'];
         $id_devicegroup = $_POST['id_devicegroup'];
         $device         = $_POST['device'];
         $description    = $_POST['description'];
         $note           = $_POST['note'];
-        $Notification   = $this->Device->editDevice($id_device, $id_devicegroup, $device, $description, $note);
+        $Notification   = $this->Device->updateDevice($id_device, $id_devicegroup, $device, $description, $note);
       }
       if (isset($_POST['deleteDevice'])) {
         $id_device      = $_POST['id_device'];
@@ -386,6 +407,7 @@ class Admin extends Controller
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     $this->view("layout", [
       "page"            => "device/device-statistics",
       "Notification"    => $Notification,
@@ -397,6 +419,7 @@ class Admin extends Controller
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addBorrow'])) {
         $borrower     = $_POST['borrower'];
@@ -407,7 +430,7 @@ class Admin extends Controller
         $purpose      = $_POST['purpose'];
         $Notification = $this->Borrow->setBorrow($borrower, $phone, $device, $quantily, $date, $purpose);
       }
-      if (isset($_POST['editBorrow'])) {
+      if (isset($_POST['updateBorrow'])) {
         $id_borrow    = $_POST['id_borrow'];
         $borrower     = $_POST['borrower'];
         $phone        = $_POST['phone'];
@@ -415,7 +438,7 @@ class Admin extends Controller
         $quantily     = $_POST['quantily'];
         $date         = $_POST['date'];
         $purpose      = $_POST['purpose'];
-        $Notification = $this->Borrow->editBorrow($id_borrow, $borrower, $phone, $device, $quantily, $date, $purpose);
+        $Notification = $this->Borrow->updateBorrow($id_borrow, $borrower, $phone, $device, $quantily, $date, $purpose);
       }
       if (isset($_POST['deleteBorrow'])) {
         $id_borrow    = $_POST['id_borrow'];
@@ -429,18 +452,23 @@ class Admin extends Controller
     }
 
     $this->view("layout", [
-      "page"            => "borrow/borrow",
-      "ListBorrow"      => $this->Borrow->getBorrow(),
-      "Notification"    => $Notification,
+      "page"          => "borrow/borrow",
+      "ListBorrow"    => $this->Borrow->getBorrow(),
+      "Notification"  => $Notification,
     ]);
   }
 
-  // QUẢN LÝ NHÂN SỰ
+  /*
+  |--------------------------------------------------------------------------
+  | QUẢN LÝ NHÂN SỰ
+  |--------------------------------------------------------------------------
+  */
   public function Member()
   {
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addMember'])) {
         $id_student   = $_POST['id_student'];
@@ -452,7 +480,7 @@ class Admin extends Controller
         $id_user      = $_POST['id_user'];
         $Notification = $this->Personnel->deletePersonnel($id_user);
       }
-      if (isset($_POST['editMember'])) {
+      if (isset($_POST['updateMember'])) {
         $id_user      = $_POST['id_user'];
         $id_student   = $_POST['id_student'];
         $fullname     = $_POST['fullname'];
@@ -473,6 +501,7 @@ class Admin extends Controller
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     $this->view("layout", [
       "page"          => "member/detailed",
       "ListMember"    => $this->Personnel->getMember(),
@@ -485,28 +514,29 @@ class Admin extends Controller
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addCollaborate'])) {
-        $id_student   = $_POST['id_student'];
-        $fullname     = $_POST['fullname'];
-        $Notification = $this->Personnel->setCollaborate($id_student, $fullname);
+        $id_student     = $_POST['id_student'];
+        $fullname       = $_POST['fullname'];
+        $Notification   = $this->Personnel->setCollaborate($id_student, $fullname);
       }
       if (isset($_POST['deleteCollaborate'])) {
-        $id_user      = $_POST['id_user'];
-        $Notification = $this->Personnel->deletePersonnel($id_user);
+        $id_user        = $_POST['id_user'];
+        $Notification   = $this->Personnel->deletePersonnel($id_user);
       }
-      if (isset($_POST['editCollaborate'])) {
-        $id_user      = $_POST['id_user'];
-        $id_student   = $_POST['id_student'];
-        $fullname     = $_POST['fullname'];
-        $Notification = $this->Personnel->eidtPersonnel($id_user, $id_student, $fullname);
+      if (isset($_POST['updateCollaborate'])) {
+        $id_user        = $_POST['id_user'];
+        $id_student     = $_POST['id_student'];
+        $fullname       = $_POST['fullname'];
+        $Notification   = $this->Personnel->eidtPersonnel($id_user, $id_student, $fullname);
       }
     }
 
     $this->view("layout", [
-      "page"              => "collaborate/collaborate",
-      "ListCollaborate"   => $this->Personnel->getCollaborate(),
-      "Notification"      => $Notification,
+      "page"            => "collaborate/collaborate",
+      "ListCollaborate" => $this->Personnel->getCollaborate(),
+      "Notification"    => $Notification,
     ]);
   }
 
@@ -515,10 +545,11 @@ class Admin extends Controller
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     $this->view("layout", [
-      "page"              => "collaborate/detailed",
-      "ListCollaborate"   => $this->Personnel->getCollaborate(),
-      "Notification"      => $Notification,
+      "page"            => "collaborate/detailed",
+      "ListCollaborate" => $this->Personnel->getCollaborate(),
+      "Notification"    => $Notification,
     ]);
   }
 
@@ -532,18 +563,23 @@ class Admin extends Controller
     }
 
     $this->view("layout", [
-      "page"              => "recruit-member/recruit",
-      "ListRecruitment"   => $this->Recruitment->getRecruitment(),
-      "Notification"      => $Notification,
+      "page"            => "recruit-member/recruit",
+      "ListRecruitment" => $this->Recruitment->getRecruitment(),
+      "Notification"    => $Notification,
     ]);
   }
 
-  // QUẢN LÝ CƠ CẤU
+  /*
+  |--------------------------------------------------------------------------
+  | QUẢN LÝ CƠ CẤU
+  |--------------------------------------------------------------------------
+  */
   public function Executive()
   {
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addExecutive'])) {
         $id_student   = $_POST['id_student'];
@@ -570,6 +606,7 @@ class Admin extends Controller
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addTeam'])) {
         $name         = $_POST['name'];
@@ -589,25 +626,22 @@ class Admin extends Controller
     ]);
   }
 
-  public function EditTeam()
+  public function updateTeam()
   {
     if (!$this->pmsAdmin) self::redirect("Home");
+    if (!isset($_GET['id']) || $_GET['id'] == NULL) self::redirect("Team");
 
-    if (!isset($_GET['id']) || $_GET['id'] == NULL) {
-      header('Location: Team');
-    }
-
-    $Notification = [];
-    $id_team      = $_GET['id'];
+    $Notification     = [];
+    $id_team          = $_GET['id'];
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $name         = $_POST['name'];
-      $description  = $_POST['description'];
-      $Notification = $this->Team->eidtTeam($id_team, $name, $description);
+      $name           = $_POST['name'];
+      $description    = $_POST['description'];
+      $Notification   = $this->Team->eidtTeam($id_team, $name, $description);
     }
 
     $this->view("layout", [
-      "page"          => "organization/team/edit",
+      "page"          => "organization/team/update",
       "ListTeamId"    =>  $this->Team->getTeamId($id_team),
       "Notification"  =>  $Notification,
     ]);
@@ -618,6 +652,7 @@ class Admin extends Controller
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['addPosition'])) {
         $name         = $_POST['name'];
@@ -637,16 +672,14 @@ class Admin extends Controller
     ]);
   }
 
-  public function EditPosition()
+  public function updatePosition()
   {
     if (!$this->pmsAdmin) self::redirect("Home");
 
-    if (!isset($_GET['id']) || $_GET['id'] == NULL) {
-      header('Location: Position');
-    }
+    if (!isset($_GET['id']) || $_GET['id'] == NULL) self::redirect("Position");
 
-    $Notification = [];
-    $id_position  = $_GET['id'];
+    $Notification   = [];
+    $id_position    = $_GET['id'];
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $name         = $_POST['name'];
@@ -655,18 +688,23 @@ class Admin extends Controller
     }
 
     $this->view("layout", [
-      "page"              => "organization/position/edit",
-      "ListPositionId"    =>  $this->Position->getPositionId($id_position),
-      "Notification"      =>  $Notification,
+      "page"            => "organization/position/update",
+      "ListPositionId"  =>  $this->Position->getPositionId($id_position),
+      "Notification"    =>  $Notification,
     ]);
   }
 
-  // THAO TÁC KHÁC
+  /*
+  |--------------------------------------------------------------------------
+  | THAO TÁC KHÁC
+  |--------------------------------------------------------------------------
+  */
   public function Decentralization()
   {
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       if (isset($_POST['admin'])) {
         $id_decentralization  = $_POST['id_decentralization'];
@@ -705,9 +743,10 @@ class Admin extends Controller
     if (!$this->pmsAdmin) self::redirect("Home");
 
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $id_user      = $_POST['id_user'];
-      $Notification = $this->Password->resetPassword($id_user);
+      $id_user        = $_POST['id_user'];
+      $Notification   = $this->Password->resetPassword($id_user);
     }
 
     $this->view("layout", [
@@ -720,6 +759,7 @@ class Admin extends Controller
   public function ChangePassword()
   {
     $Notification = [];
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $id_user        = Session::get('id_user');
       $oldPassword    = $_POST['oldPassword'];
@@ -757,6 +797,7 @@ class Admin extends Controller
   public function SoftwareInformation()
   {
     $Notification     = [];
+    
     $this->view("layout", [
       "page"          => "software-information/software-information",
       "Notification"  =>  $Notification,

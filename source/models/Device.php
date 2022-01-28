@@ -38,7 +38,7 @@ class Device
     return ["status" => "error", "message" => "Đã thêm dữ liệu thất bại!"];
   }
 
-  public function editDeviceGroup($id_devicegroup, $devicegroup, $note)
+  public function updateDeviceGroup($id_devicegroup, $devicegroup, $note)
   {
     $id_devicegroup = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_devicegroup));
     $devicegroup    = mysqli_real_escape_string($this->db->link, $this->fm->validation($devicegroup));
@@ -100,7 +100,7 @@ class Device
     return ["status" => "error", "message" => "Đã thêm dữ liệu thất bại!"];
   }
 
-  public function editDevice($id_device, $id_devicegroup, $device, $description, $note)
+  public function updateDevice($id_device, $id_devicegroup, $device, $description, $note)
   {
     $id_device      = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_device));
     $id_devicegroup = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_devicegroup));
