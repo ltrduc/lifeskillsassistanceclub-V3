@@ -133,4 +133,48 @@ class Device
     }
     return ["status" => "error", "message" => "Đã xóa dữ liệu thất bại!"];
   }
+
+  // Thống kê thiết bị
+  public function getDeviceStatistics()
+  {
+    $query  = "SELECT tbl_devicestatistics.*, tbl_device.device, tbl_devicegroup.devicegroup FROM `tbl_devicestatistics`, `tbl_device`, `tbl_devicegroup` WHERE tbl_devicestatistics.id_device = tbl_device.id_device AND tbl_device.id_devicegroup = tbl_devicegroup.id_devicegroup";
+    $result = $this->db->select($query);
+    return $result;
+  }
+
+  public function setDeviceStatistics($id_device, $quantily)
+  {
+    $id_device  = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_device));
+    $quantily   = mysqli_real_escape_string($this->db->link, $this->fm->validation($quantily));
+
+    if (empty($id_device) || empty($quantily)) return ["status" => "error", "message" => "Vui lòng nhập đầy đủ dữ liệu!"];
+
+    $query      = "SELECT * FROM `tbl_devicestatistics` WHERE id_device = '$id_device' LIMIT 1";
+    $result     = $this->db->select($query);
+
+    if ($result) return ["status" => "error", "message" => "Thiết bị đã tồn tại!"];
+
+    $query      = "INSERT INTO `tbl_devicestatistics`(`id_device`, `quantily`, `donotuse`) VALUES ('$id_device','$quantily','$quantily')";
+    $result     = $this->db->insert($query);
+
+    if ($result) return ["status" => "success", "message" => "Đã thêm dữ liệu thành công!"];
+
+    return ["status" => "error", "message" => "Đã thêm dữ liệu thất bại!"];
+  }
+
+  public function deleteDeviceStatistics($id_devicestatistics)
+  {
+    $id_devicestatistics  = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_devicestatistics));
+
+    $query      = "SELECT * FROM tbl_devicestatistics WHERE id_devicestatistics = '$id_devicestatistics'";
+    $result     = $this->db->select($query);
+
+    if ($result) {
+      $query    = "DELETE FROM tbl_devicestatistics WHERE id_devicestatistics = '$id_devicestatistics'";
+      $result   = $this->db->delete($query);
+
+      if ($result) return ["status" => "success", "message" => "Đã xóa dữ liệu thành công!"];
+    }
+    return ["status" => "error", "message" => "Đã xóa dữ liệu thất bại!"];
+  }
 }

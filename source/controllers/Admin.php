@@ -408,9 +408,23 @@ class Admin extends Controller
 
     $Notification = [];
 
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (isset($_POST['addDeviceStatistics'])) {
+        $id_device            = $_POST['id_device'];
+        $quantily             = $_POST['quantily'];
+        $Notification         = $this->Device->setDeviceStatistics($id_device, $quantily);
+      }
+      if (isset($_POST['deleteDeviceStatistics'])) {
+        $id_devicestatistics  = $_POST['id_devicestatistics'];
+        $Notification         = $this->Device->deleteDeviceStatistics($id_devicestatistics);
+      }
+    }
+
     $this->view("layout", [
-      "page"            => "device/device-statistics",
-      "Notification"    => $Notification,
+      "page"                  => "device/device-statistics",
+      "ListDevice"            => $this->Device->getDevice(),
+      "ListDeviceStatistics"  => $this->Device->getDeviceStatistics(),
+      "Notification"          => $Notification,
     ]);
   }
 
@@ -797,7 +811,7 @@ class Admin extends Controller
   public function SoftwareInformation()
   {
     $Notification     = [];
-    
+
     $this->view("layout", [
       "page"          => "software-information/software-information",
       "Notification"  =>  $Notification,
