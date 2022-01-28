@@ -89,7 +89,7 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table class="table table-sm table-hover" id="Attendance-Table">
+                  <table class="table table-md table-bordered table-hover" id="Attendance-Table">
                     <thead>
                       <tr>
                         <th>#</th>
