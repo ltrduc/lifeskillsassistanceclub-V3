@@ -655,7 +655,7 @@ class Admin extends Controller
     }
 
     $this->view("layout", [
-      "page"          => "organization/team/update",
+      "page"          => "organization/team/edit",
       "ListTeamId"    =>  $this->Team->getTeamId($id_team),
       "Notification"  =>  $Notification,
     ]);
@@ -702,7 +702,7 @@ class Admin extends Controller
     }
 
     $this->view("layout", [
-      "page"            => "organization/position/update",
+      "page"            => "organization/position/edit",
       "ListPositionId"  =>  $this->Position->getPositionId($id_position),
       "Notification"    =>  $Notification,
     ]);
