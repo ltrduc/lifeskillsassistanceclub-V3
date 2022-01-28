@@ -86,6 +86,11 @@ function updateDevice(devicegroup, id_device, id_devicegroup, description, devic
   document.getElementById("update-note").value = note;
 }
 
+function deleteDeviceStatistics(id_devicestatistics, device) {
+  document.getElementById('delete-info-device').innerHTML = device;
+  document.getElementById("delete-id_devicestatistics").value = id_devicestatistics;
+}
+
 // Quản lý mượn-trả
 function deleteBorrow(id_borrow, borrower) {
   document.getElementById('delete-info-borrower').innerHTML = borrower;
