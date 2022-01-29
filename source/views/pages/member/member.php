@@ -54,7 +54,7 @@
                           <td><?php echo $value['id_student']; ?></td>
                           <td><?php echo $value['fullname']; ?></td>
                           <td><?php echo $value['team']; ?></td>
-                          <td><?php echo $value['phone']; ?></td>
+                          <td><?php echo ($value['phone'] != "") ? $value['phone'] : '[---]'; ?></td>
                           <td>
                             <a href="#" class="btn btn-sm btn-primary" onclick="updateMember('<?php echo $value['id_user'] ?>', '<?php echo $value['id_student'] ?>','<?php echo $value['fullname'] ?>','<?php echo $value['team'] ?>')" data-toggle="modal" data-target="#updateMember"><i class="fas fa-file-signature"></i> Chỉnh sửa </a>
                             <a href="#" class="btn btn-sm btn-danger" onclick="deleteMember('<?php echo $value['id_user'] ?>','<?php echo $value['fullname'] ?>')" data-toggle="modal" data-target="#deleteMember"><i class="fas fa-trash"></i> Xóa </a>
@@ -77,7 +77,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="formModal">THÊM THÀNH VIÊN</h5>
+          <h5 class="modal-title" id="formModal">THÊM MỚI THÀNH VIÊN</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -93,7 +93,7 @@
                   </div>
                 </div>
                 <input type="text" class="form-control" placeholder="Nguyễn Văn A" name="fullname" tabindex="1" required autofocus>
-                <div class="invalid-feedback">Vui lòng không bỏ trống họ và tên!</div>
+                <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
               </div>
             </div>
             <div class="form-group">
@@ -105,7 +105,7 @@
                   </div>
                 </div>
                 <input type="text" class="form-control" placeholder="51900001" name="id_student" tabindex="2" required autofocus>
-                <div class="invalid-feedback">Vui lòng không bỏ trống mã số sinh viên!</div>
+                <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
               </div>
             </div>
             <div class="form-group">
@@ -124,7 +124,7 @@
                   <?php }
                   } ?>
                 </select>
-                <div class="invalid-feedback">Vui lòng không bỏ trống ban hoạt động!</div>
+                <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
               </div>
             </div>
             <div class="form-group text-right">
@@ -180,7 +180,7 @@
                   </div>
                 </div>
                 <input type="text" class="form-control" placeholder="Nguyễn Văn A" id="update-fullname" name="fullname" tabindex="1" required autofocus>
-                <div class="invalid-feedback">Vui lòng không bỏ trống họ và tên!</div>
+                <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
               </div>
             </div>
             <div class="form-group">
@@ -192,7 +192,7 @@
                   </div>
                 </div>
                 <input type="text" class="form-control" placeholder="51900001" id="update-id_student" name="id_student" tabindex="2" required autofocus>
-                <div class="invalid-feedback">Vui lòng không bỏ trống mã số sinh viên!</div>
+                <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
               </div>
             </div>
             <div class="form-group">

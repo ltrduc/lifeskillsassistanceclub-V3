@@ -37,7 +37,7 @@
               <div class="card-header-action">
                 <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addSchedule"><i class="fas fa-plus"></i> Đăng ký lịch trực</a>
                 <?php if (Session::get('pmsAdmin') == 1) { ?>
-                  <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deleteAllSchedule"><i class="fas fa-trash"></i> Xóa tất cả</a>
+                  <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deleteAllSchedule"><i class="fas fa-trash"></i> Xóa tất cả lịch trực</a>
                 <?php } ?>
               </div>
             </div>
@@ -219,10 +219,10 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="Admin/Schedule" method="post">
+          <form action="Admin/Schedule" method="post" class="needs-validation" novalidate="">
             <div class="form-group">
               <label>Mã số sinh viên</label>
-              <input type="text" class="form-control" placeholder="Nhập số sinh viên" name="id_student" list="id_student">
+              <input type="text" class="form-control" placeholder="51900001" name="id_student" list="id_student" tabindex="1" required autofocus>
               <datalist id="id_student">
                 <?php if ($data['ListMember']) {
                   while ($value = $data['ListMember']->fetch_assoc()) { ?>
@@ -230,10 +230,11 @@
                 <?php }
                 } ?>
               </datalist>
+              <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
             </div>
             <div class="form-group">
               <label>Buổi trực</label>
-              <select class="form-control selectric" name="session">
+              <select class="form-control selectric" name="session" tabindex="2" required autofocus>
                 <option value="" class="font-weight-bold">Chọn buổi trực</option>
                 <option value="Monday">Thứ 2</option>
                 <option value="Tuesday">Thứ 3</option>
@@ -242,6 +243,7 @@
                 <option value="Friday">Thứ 6</option>
                 <option value="Saturday">Thứ 7</option>
               </select>
+              <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
             </div>
             <div class="form-group">
               <label>Ca trực:</label>
@@ -295,6 +297,7 @@
     </div>
   </div>
 
+  <!-- Xóa tất cả lịch trực -->
   <div class="modal fade" id="deleteAllSchedule">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

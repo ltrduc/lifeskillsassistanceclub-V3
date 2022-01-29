@@ -9,7 +9,7 @@
               <nav aria-label="breadcrumb m-0">
                 <ol class="breadcrumb bg-white m-0">
                   <li class="breadcrumb-item"><a href="Admin/Home"><i class="fas fa-home"></i>Trang chủ</a></li>
-                  <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-chalkboard"></i> Quản lý danh mục thiết bị </li>
+                  <li class="breadcrumb-item active" aria-current="page"><i class="fas fa-chalkboard"></i> Danh mục thiết bị </li>
                 </ol>
               </nav>
             </div>
@@ -22,48 +22,58 @@
   <section class="section">
     <div class="section-body">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h4>THÊM DANH MỤC THIẾT BỊ</h4>
+              <h4>THÊM MỚI THIẾT BỊ</h4>
             </div>
             <div class="card-body">
               <form action="Admin/Device" method="post">
-                <div class="form-group">
-                  <label>Nhóm thiết bị</label>
-                  <select class="form-control selectric" name="id_devicegroup">
-                    <option value="" class="font-weight-bold">Chọn nhóm thiết bị</option>
-                    <?php if ($data['ListDeviceGroup']) {
-                      while ($value = $data['ListDeviceGroup']->fetch_assoc()) { ?>
-                        <option value="<?php echo $value['id_devicegroup']; ?>"><?php echo $value['devicegroup']; ?></option>
-                    <?php }
-                    } ?>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Thiết bị</label>
-                  <input type="text" name="device" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label>Mô tả</label>
-                  <input type="text" name="description" class="form-control">
-                </div>
-                <div class="form-group">
-                  <label>Ghi chú</label>
-                  <input type="text" name="note" class="form-control">
-                </div>
-                <div class="form-group text-right">
-                  <button class="btn btn-success mr-1" name="addDevice" type="submit">Thêm mới</button>
+                <div class="row">
+                  <div class="col-sm">
+                    <div class="form-group">
+                      <label>Nhóm thiết bị</label>
+                      <select class="form-control selectric" name="id_devicegroup">
+                        <option value="" class="font-weight-bold">Chọn nhóm thiết bị</option>
+                        <?php if ($data['ListDeviceGroup']) {
+                          while ($value = $data['ListDeviceGroup']->fetch_assoc()) { ?>
+                            <option value="<?php echo $value['id_devicegroup']; ?>"><?php echo $value['devicegroup']; ?></option>
+                        <?php }
+                        } ?>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="form-group">
+                      <label>Thiết bị</label>
+                      <input type="text" name="device" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="form-group">
+                      <label>Mô tả</label>
+                      <input type="text" name="description" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-sm">
+                    <div class="form-group">
+                      <label>Ghi chú</label>
+                      <input type="text" name="note" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-12 text-right">
+                    <button class="btn btn-success mr-1" name="addDevice" type="submit">Thêm mới thiết bị</button>
+                  </div>
                 </div>
               </form>
             </div>
           </div>
         </div>
 
-        <div class="col-md-8">
+        <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h4>DANH SÁCH DANH MỤC THIẾT BỊ</h4>
+              <h4>DANH MỤC THIẾT BỊ</h4>
             </div>
             <div class="card-body">
               <div class="table-responsive">

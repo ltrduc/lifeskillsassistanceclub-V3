@@ -33,7 +33,7 @@
                 <?php $value = $data['ListTeamId']->fetch_assoc(); ?>
                 <div class="form-group">
                   <label>Tên ban hoạt động</label>
-                  <input type="text" name="name" class="form-control" value="<?php echo $value['name'] ?>" placeholder="Trưởng ban Hành chính">
+                  <input type="text" name="name" class="form-control" value="<?php echo $value['name'] ?>" placeholder="Ban Hành chính">
                 </div>
                 <div class="form-group">
                   <label>Mô tả ban hoạt động</label>

@@ -25,7 +25,7 @@
         <div class="col-md-4">
           <div class="card">
             <div class="card-header">
-              <h4>THÊM NĂM HỌC</h4>
+              <h4>THÊM MỚI NĂM HỌC</h4>
             </div>
             <div class="card-body">
               <form action="Admin/SchoolYear" method="post">

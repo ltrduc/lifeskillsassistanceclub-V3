@@ -71,21 +71,21 @@
     </div>
   </section>
 
-  <!-- Xóa thống kê -->
+  <!-- Xóa dữ liệu -->
   <div class="modal fade" id="deleteDetailedStatistics">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <form action="" method="post">
           <input type="hidden" id="delete-id_attendance" name="id_attendance">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">XÓA THỐNG KÊ</h5>
+            <h5 class="modal-title" id="exampleModalLabel">XÓA DỮ LIỆU</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
           <div class="modal-body">Bạn có chắc muốn xóa dữ liệu <strong id="delete-info-fullname"></strong>?</div>
           <div class="modal-footer bg-whitesmoke br">
-            <button type="submit" name="deleteDetailedStatistics" class="btn btn-danger">Xóa thống kê</button>
+            <button type="submit" name="deleteDetailedStatistics" class="btn btn-danger">Xóa dữ liệu</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
           </div>
         </form>

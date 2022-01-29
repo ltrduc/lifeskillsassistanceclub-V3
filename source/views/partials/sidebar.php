@@ -32,7 +32,7 @@
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="settings"></i><span>Quản lý thiết bị</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="Admin/DeviceGroup">Quản lý nhóm thiết bị</a></li>
-          <li><a class="nav-link" href="Admin/Device">Quản lý danh mục thiết bị</a></li>
+          <li><a class="nav-link" href="Admin/Device">Danh mục thiết bị</a></li>
           <li><a class="nav-link" href="Admin/DeviceStatistics">Thống kê thiết bị</a></li>
           <li><a class="nav-link" href="Admin/Borrow">Quản lý mượn-trả</a></li>
         </ul>

@@ -46,15 +46,16 @@
                   <tbody>
                     <?php if ($data['ListMember']) {
                       $i = 1;
+                      $fm = new Format();
                       while ($value = $data['ListMember']->fetch_assoc()) { ?>
                         <tr>
                           <td><?php echo $i++; ?></td>
                           <td><?php echo $value['id_student'] ?></td>
                           <td><?php echo $value['fullname'] ?></td>
-                          <td><?php echo $value['birthday'] ?></td>
-                          <td><a href="<?php echo $value['facebook'] ?>"><?php echo $value['fullname'] ?></a></td>
+                          <td><?php echo ($value['birthday'] != "") ? $fm->formatDate($value['birthday']) : '[---]'; ?></td>
+                          <td><a href="<?php echo $value['facebook'] ?>"><?php echo ($value['facebook'] != "") ? $value['facebook'] : '[---]'; ?></a></td>
                           <td><?php echo $value['team'] ?></td>
-                          <td><?php echo $value['phone'] ?></td>
+                          <td><?php echo ($value['phone'] != "") ? $value['phone'] : '[---]'; ?></td>
                         </tr>
                     <?php }
                     } ?>

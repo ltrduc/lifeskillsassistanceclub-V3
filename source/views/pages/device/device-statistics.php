@@ -89,7 +89,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="formModal">THÊM THỐNG KÊ</h5>
+          <h5 class="modal-title" id="formModal">THÊM MỚI THỐNG KÊ</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -106,12 +106,12 @@
                 <?php }
                 } ?>
               </select>
-              <div class="invalid-feedback">Vui lòng không bỏ trống thiết bị!</div>
+              <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
             </div>
             <div class="form-group">
               <label>Số lượng</label>
               <input type="number" class="form-control" placeholder="200" name="quantily" tabindex="2" required autofocus>
-              <div class="invalid-feedback">Vui lòng không bỏ trống số lượng!</div>
+              <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
             </div>
             <div class="form-group text-right">
               <button type="submit" name="addDeviceStatistics" tabindex="3" class="btn btn-success m-t-15 waves-effect">Thêm mới thống kê</button>

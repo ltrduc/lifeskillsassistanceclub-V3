@@ -50,13 +50,14 @@
                   </thead>
                   <tbody>
                     <?php $i = 1;
+                    $fm = new Format();
                     if ($data['ListRecruitment']) {
                       while ($value = $data['ListRecruitment']->fetch_assoc()) { ?>
                         <tr>
                           <td><?php echo $i++; ?></td>
                           <td><?php echo $value['id_student'] ?></td>
                           <td><?php echo $value['fullname'] ?></td>
-                          <td><?php echo $value['birthday'] ?></td>
+                          <td><?php echo $fm->formatDate($value['birthday']) ?></td>
                           <td><?php echo $value['team'] ?></td>
                           <td><?php echo $value['content1'] ?></td>
                           <td><?php echo $value['content2'] ?></td>

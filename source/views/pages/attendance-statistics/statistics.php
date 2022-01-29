@@ -30,7 +30,7 @@
                   <div class="article-image" data-background="source/public/img/banner/5.png">
                   </div>
                   <div class="article-title">
-                    <h2><a href="#"><?php echo $value['semester'] ?> <br> Năm học <?php echo $value['schoolyear'] ?></a></h2>
+                    <h2><a><?php echo $value['semester'] ?> <br> Năm học <?php echo $value['schoolyear'] ?></a></h2>
                   </div>
                 </div>
                 <div class="article-details">
@@ -63,7 +63,7 @@
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Bạn có chắc muốn xóa dữ liệu <strong id="delete-info-semester"></strong> / <strong id="delete-info-schoolyear"></strong>?</div>
+          <div class="modal-body">Bạn có chắc muốn xóa thống kê <strong id="delete-info-semester"></strong> / <strong id="delete-info-schoolyear"></strong>?</div>
           <div class="modal-footer bg-whitesmoke br">
             <button type="submit" name="deleteStatistics" class="btn btn-danger">Xóa thống kê</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>

@@ -25,7 +25,7 @@
         <div class="col-md-4">
           <div class="card">
             <div class="card-header">
-              <h4>THÊM NHÓM THIẾT BỊ</h4>
+              <h4>THÊM MỚI NHÓM THIẾT BỊ</h4>
             </div>
             <div class="card-body">
               <form action="Admin/DeviceGroup" method="post">
@@ -38,7 +38,7 @@
                   <input type="text" name="note" class="form-control">
                 </div>
                 <div class="form-group text-right">
-                  <button class="btn btn-success mr-1" name="addDeviceGroup" type="submit">Thêm mới</button>
+                  <button class="btn btn-success mr-1" name="addDeviceGroup" type="submit">Thêm mới nhóm thiết bị</button>
                 </div>
               </form>
             </div>

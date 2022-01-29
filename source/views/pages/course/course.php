@@ -77,7 +77,7 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="formModal">THÊM LỊCH HỌC</h5>
+          <h5 class="modal-title" id="formModal">THÊM MỚI LỊCH HỌC</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         </div>
         <div class="modal-body">
@@ -94,14 +94,14 @@
                     <?php }
                     } ?>
                   </select>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống môn học!</div>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
               <div class="col-sm">
                 <div class="form-group">
                   <label for="group">Nhóm:</label>
                   <input type="text" class="form-control" name="group" placeholder="01" tabindex="2" required autofocus>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống nhóm!</div>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
             </div>
@@ -110,7 +110,7 @@
                 <div class="form-group">
                   <label for="teacher">Giảng viên: </label>
                   <input type="text" class="form-control" name="teacher" placeholder="Nguyễn Thị Nhung" tabindex="3" required autofocus>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống Giảng viên!</div>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
               <div class="col-sm">
@@ -123,7 +123,7 @@
                     <option value="CH:01">CH:01</option>
                     <option value="CH:02">CH:02</option>
                   </select>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống buổi học!</div>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
             </div>
@@ -139,14 +139,14 @@
                     <option value="HT 10F">HT 10F</option>
                     <option value="[---]">[---]</option>
                   </select>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống địa điểm!</div>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
               <div class="col-sm">
                 <div class="form-group">
                   <label for="date">Ngày bắt đầu:</label>
-                  <input type="text" class="form-control datepicker" name="date" tabindex="6" required autofocus>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống ngày bắt đầu!</div>
+                  <input type="date" class="form-control" name="date" tabindex="6" required autofocus>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
             </div>
@@ -160,7 +160,7 @@
                     <option value="Học kỳ 2">Học kỳ 2</option>
                     <option value="Học kỳ Hè">Học kỳ Hè</option>
                   </select>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống học kỳ!</div>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
               <div class="col-sm">
@@ -174,7 +174,7 @@
                     <?php }
                     } ?>
                   </select>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống năm học!</div>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
             </div>

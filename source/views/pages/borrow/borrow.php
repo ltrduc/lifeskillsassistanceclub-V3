@@ -108,42 +108,42 @@
                 <div class="form-group">
                   <label>Người mượn</label>
                   <input type="text" class="form-control" placeholder="Nguyễn Văn A" name="borrower" tabindex="1" required autofocus>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống người mượn!</div>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Số điện thoại</label>
                   <input type="number" class="form-control" placeholder="0377000001" name="phone" tabindex="2" required autofocus>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống số điện thoại!</div>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Thiết bị</label>
                   <input type="text" class="form-control" placeholder="Bút chiếu" name="device" tabindex="3" required autofocus>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống thiết bị!</div>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Số lượng</label>
                   <input type="number" class="form-control" placeholder="1" name="quantily" tabindex="4" required autofocus>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống số lượng!</div>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Ngày mượn</label>
-                  <input type="text" class="form-control datepicker" name="date" tabindex="5" required autofocus>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống ngày mượn!</div>
+                  <input type="date" class="form-control" name="date" tabindex="5" required autofocus>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="form-group">
                   <label>Mục đích</label>
                   <input type="text" class="form-control" placeholder="Giảng dạy" name="purpose" tabindex="6" required autofocus>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống mục đích!</div>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
               <div class="col-md-12">

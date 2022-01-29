@@ -22,7 +22,8 @@
                   <div class="mb-2 mt-3">
                     <div class="text-small font-weight-bold">Trang FaceBook</div>
                   </div>
-                  <a href="<?php if ($value['facebook'] != '[---]') { echo $value['facebook']; } else { echo "Admin/Profile&user=" . $value['id_user'] . ""; } ?> " class="btn btn-social-icon mr-1 btn-facebook">
+
+                  <a href="<?php echo ($value['facebook'] != '[---]') ? $value['facebook'] : "Admin/Profile&user=" . $value['id_user'] . ""; ?>" class="btn btn-social-icon mr-1 btn-facebook">
                     <i class="fab fa-facebook-f"></i>
                   </a>
                   <div class="w-100 d-sm-none"></div>
@@ -75,7 +76,7 @@
                       <div class="col-md-8 col-12 b-r">
                         <strong>Link Facebook</strong>
                         <br>
-                        <p class="text-muted"><a href="<?php if ($value['facebook'] != '[---]') { echo $value['facebook']; } else { echo "Admin/Profile&user=" . $value['id_user'] . ""; } ?> "><?php echo $value['facebook'] ?></a></p>
+                        <p class="text-muted"><a href="<?php echo ($value['facebook'] != '[---]') ? $value['facebook'] : "Admin/Profile&user=" . $value['id_user'] . ""; ?>"><?php echo $value['facebook'] ?></a></p>
                       </div>
                     </div>
                     <div class="row">
@@ -111,7 +112,7 @@
                           <div class="form-group">
                             <label class="font-weight-bold">Họ và Tên</label>
                             <input type="text" class="form-control" placeholder="Nguyễn Văn A" name="fullname" value="<?php echo $value['fullname'] ?>" tabindex="1" required autofocus>
-                            <div class="invalid-feedback">Vui lòng không bỏ trống họ và tên!</div>
+                            <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                           </div>
                         </div>
                         <div class="col-md-4 col-12 b-r">
@@ -123,22 +124,23 @@
                         <div class="col-md-4 col-12 b-r">
                           <div class="form-group">
                             <label class="font-weight-bold">Số điện thoại</label>
-                            <input type="text" class="form-control" placeholder="0377000001" value="<?php if ($value['phone'] == '[---]') echo ""; else echo $value['phone']; ?>" name="phone" tabindex="2" required autofocus>
-                            <div class="invalid-feedback">Vui lòng không bỏ trống số điện thoại!</div>
+
+                            <input type="text" class="form-control" placeholder="0377000001" value="<?php echo ($value['phone'] == '[---]') ? "" : $value['phone']; ?>" name="phone" tabindex="2" required autofocus>
+                            <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                           </div>
                         </div>
                         <div class="col-md-4 col-12 b-r">
                           <div class="form-group">
                             <label class="font-weight-bold">Ngày sinh</label>
-                            <input type="date" class="form-control" name="birthday" <?php if ($value['birthday'] == '[---]') echo 'tabindex="3" required autofocus'; else echo "value=".$value['birthday']."";?>>
-                            <div class="invalid-feedback">Vui lòng không bỏ trống ngày sinh!</div>
+                            <input type="date" class="form-control" name="birthday" <?php echo ($value['birthday'] == '[---]') ? 'tabindex="3" required autofocus' : "value=" . $value['birthday'] . ""; ?>>
+                            <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                           </div>
                         </div>
                         <div class="col-md-8 col-12 b-r">
                           <div class="form-group">
                             <label class="font-weight-bold">Link Facebook</label>
-                            <input type="text" class="form-control" placeholder="https://www.facebook.com/profile" name="facebook" tabindex="4" value="<?php if ($value['facebook'] == '[---]') echo ""; else echo $value['facebook']; ?>" required autofocus>
-                            <div class="invalid-feedback">Vui lòng không bỏ trống link facebook!</div>
+                            <input type="text" class="form-control" placeholder="https://www.facebook.com/profile" name="facebook" tabindex="4" value="<?php echo ($value['facebook'] == '[---]') ? "" : $value['facebook']; ?>" required autofocus>
+                            <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                           </div>
                         </div>
                       </div>
@@ -165,8 +167,8 @@
                           </div>
                         </div>
                       </div>
-                      <div class="form-group text-right">
-                        <button class="btn btn-sm btn-primary">Chỉnh sửa thông tin</button>
+                      <div class="form-group mb-0 text-right">
+                        <button class="btn btn-primary">Chỉnh sửa thông tin</button>
                       </div>
                     </form>
                   </div>

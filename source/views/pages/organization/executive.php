@@ -25,13 +25,13 @@
         <div class="col-md-4">
           <div class="card">
             <div class="card-header">
-              <h4>THÊM BAN ĐIỀU HÀNH</h4>
+              <h4>THÊM MỚI BAN ĐIỀU HÀNH</h4>
             </div>
             <div class="card-body">
               <form action="Admin/Executive" method="post">
                 <div class="form-group">
                   <label>Mã số sinh viên</label>
-                  <input type="text" class="form-control" placeholder="Nhập số sinh viên" name="id_student" list="id_student">
+                  <input type="text" class="form-control" placeholder="51900001" name="id_student" list="id_student">
                   <datalist id="id_student">
                     <?php if ($data['ListMember']) {
                       while ($value = $data['ListMember']->fetch_assoc()) { ?>
