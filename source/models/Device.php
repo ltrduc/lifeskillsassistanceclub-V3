@@ -177,4 +177,29 @@ class Device
     }
     return ["status" => "error", "message" => "Đã xóa dữ liệu thất bại!"];
   }
+
+  public function updateDeviceStatistics($id_devicestatistics, $quantily, $donotuse, $broken, $lost)
+  {
+    $id_devicestatistics  = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_devicestatistics));
+    $quantily             = mysqli_real_escape_string($this->db->link, $this->fm->validation($quantily));
+    $donotuse             = mysqli_real_escape_string($this->db->link, $this->fm->validation($donotuse));
+    $broken               = mysqli_real_escape_string($this->db->link, $this->fm->validation($broken));
+    $lost                 = mysqli_real_escape_string($this->db->link, $this->fm->validation($lost));
+
+    if (empty($id_devicestatistics) || $quantily == null || $donotuse == null || $broken == null || $lost == null) return ["status" => "error", "message" => "Vui lòng nhập đầy đủ dữ liệu!"];
+
+    $query              = "SELECT * FROM tbl_devicestatistics WHERE id_devicestatistics = '$id_devicestatistics'";
+    $result             = $this->db->select($query);
+    $value              = $result->fetch_assoc();
+    $quantily_initial   = $value['quantily'];
+
+    if ($quantily < $quantily_initial) return ["status" => "error", "message" => "Số lượng nhập vào không hợp lệ!"];
+
+    $query              = "UPDATE `tbl_devicestatistics` SET `quantily`='$quantily',`donotuse`=`donotuse`+(`quantily`-`donotuse`), `donotuse`='$donotuse',`using`=`quantily`-`donotuse`,`broken`='$broken',`lost`='$lost',`normal`=`using`-`broken`-`lost` WHERE `id_devicestatistics`='$id_devicestatistics'";
+    $result             = $this->db->update($query);
+
+    if ($result) return ["status" => "success", "message" => "Đã cập nhật liệu thành công!"];
+
+    return ["status" => "error", "message" => "Đã cập nhật liệu thất bại!"];
+  }
 }

@@ -414,6 +414,14 @@ class Admin extends Controller
         $quantily             = $_POST['quantily'];
         $Notification         = $this->Device->setDeviceStatistics($id_device, $quantily);
       }
+      if (isset($_POST['updateDeviceStatistics'])) {
+        $id_devicestatistics  = $_POST['id_devicestatistics'];
+        $quantily             = $_POST['quantily'];
+        $donotuse             = $_POST['donotuse'];
+        $broken               = $_POST['broken'];
+        $lost                 = $_POST['lost'];
+        $Notification         = $this->Device->updateDeviceStatistics($id_devicestatistics, $quantily, $donotuse, $broken, $lost);
+      }
       if (isset($_POST['deleteDeviceStatistics'])) {
         $id_devicestatistics  = $_POST['id_devicestatistics'];
         $Notification         = $this->Device->deleteDeviceStatistics($id_devicestatistics);

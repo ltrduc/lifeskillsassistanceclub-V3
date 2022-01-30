@@ -91,6 +91,18 @@ function deleteDeviceStatistics(id_devicestatistics, device) {
   document.getElementById("delete-id_devicestatistics").value = id_devicestatistics;
 }
 
+function updateDeviceStatistics(id_devicestatistics, devicegroup, device, quantily, donotuse, normal, using, broken, lost) {
+  document.getElementById("update-id_devicestatistics").value = id_devicestatistics;
+  document.getElementById("update-devicegroup").value = devicegroup;
+  document.getElementById("update-device").value = device;
+  document.getElementById("update-quantily").value = quantily;
+  document.getElementById("update-donotuse").value = donotuse;
+  document.getElementById("update-normal").value = normal;
+  document.getElementById("update-using").value = using;
+  document.getElementById("update-broken").value = broken;
+  document.getElementById("update-lost").value = lost;
+}
+
 // Quản lý mượn-trả
 function deleteBorrow(id_borrow, borrower) {
   document.getElementById('delete-info-borrower').innerHTML = borrower;

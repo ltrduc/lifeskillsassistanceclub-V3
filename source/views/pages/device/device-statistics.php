@@ -46,8 +46,8 @@
                       <th>Thiết bị</th>
                       <th>Số lượng</th>
                       <th>Chưa <br> Sử dụng</th>
-                      <th>Đang <br> Sử dụng</th>
                       <th>Còn sử<br> dụng được</th>
+                      <th>Mang đi <br> Sử dụng</th>
                       <th>Hỏng</th>
                       <th>Mất</th>
                       <th>Thao tác</th>
@@ -63,12 +63,12 @@
                           <td><?php echo $value['device']; ?></td>
                           <td><?php echo $value['quantily']; ?></td>
                           <td class="font-weight-bold" style="color: brown;"><?php echo $value['donotuse']; ?></td>
-                          <td class="font-weight-bold" style="color: brown;"><?php echo $value['using']; ?></td>
-                          <td><?php echo $value['normal']; ?></td>
+                          <td class="font-weight-bold" style="color: brown;"><?php echo $value['normal']; ?></td>
+                          <td><?php echo $value['using']; ?></td>
                           <td><?php echo $value['broken']; ?></td>
                           <td><?php echo $value['lost']; ?></td>
                           <td>
-                            <a href="#" class="btn btn-sm btn-primary"><i class="fas fa-file-signature"></i></a>
+                            <a onclick="updateDeviceStatistics('<?php echo $value['id_devicestatistics'] ?>', '<?php echo $value['devicegroup'] ?>', '<?php echo $value['device'] ?>', '<?php echo $value['quantily'] ?>', '<?php echo $value['donotuse'] ?>', '<?php echo $value['normal'] ?>', '<?php echo $value['using'] ?>', '<?php echo $value['broken'] ?>', '<?php echo $value['lost'] ?>')" href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#updateDeviceStatistics"><i class="fas fa-file-signature"></i></a>
                             <a href="#" class="btn btn-sm btn-danger" onclick="deleteDeviceStatistics('<?php echo $value['id_devicestatistics'] ?>','<?php echo $value['device'] ?>')" data-toggle="modal" data-target="#deleteDeviceStatistics"><i class="fas fa-trash"></i></a>
                           </td>
                         </tr>
@@ -140,6 +140,80 @@
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sửa thống kê -->
+  <div class="modal fade" id="updateDeviceStatistics">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="formModal">CHỈNH SỬA THỐNG KÊ</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="Admin/DeviceStatistics" method="post">
+            <input type="hidden" id="update-id_devicestatistics" name="id_devicestatistics">
+            <div class="row">
+              <div class="col-sm">
+                <div class="form-group">
+                  <label>Nhóm thiết bị</label>
+                  <input type="text" id="update-devicegroup" disabled name="devicegroup" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-group">
+                  <label>Thiết bị</label>
+                  <input type="text" id="update-device" disabled name="device" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-group">
+                  <label>Số lượng</label>
+                  <input type="text" id="update-quantily" name="quantily" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-group">
+                  <label>Chưa sử dụng</label>
+                  <input type="text" id="update-donotuse" name="donotuse" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm">
+                <div class="form-group">
+                  <label>Mang đi sử dụng</label>
+                  <input type="text" id="update-using" disabled name="using" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-group">
+                  <label>Còn sử dụng được</label>
+                  <input type="text" id="update-normal" disabled name="normal" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-group">
+                  <label>Hỏng</label>
+                  <input type="text" id="update-broken" name="broken" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-group">
+                  <label>Mất</label>
+                  <input type="text" id="update-lost" name="lost" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="form-group text-right">
+              <button class="btn btn-primary mr-1" name="updateDeviceStatistics" type="submit">Chỉnh sửa thống kê</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>

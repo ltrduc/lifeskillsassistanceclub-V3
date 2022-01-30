@@ -88,7 +88,18 @@
                 </div>
               </div>
               <div class="card-body">
-                <div class="table-responsive">
+                <style>
+                  .attendance-scrollbar {
+                    position: relative;
+                    height: 500px;
+                    overflow: auto;
+                  }
+
+                  .table-wrapper-scroll-y-attendance {
+                    display: block;
+                  }
+                </style>
+                <div class="table-responsive table-wrapper-scroll-y-attendance attendance-scrollbar">
                   <table class="table table-md table-bordered table-hover" id="Attendance-Table">
                     <thead>
                       <tr>
