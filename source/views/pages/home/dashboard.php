@@ -77,7 +77,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 pr-0 pt-3">
                   <div class="card-content">
                     <h5 class="font-15">Ban điều hành</h5>
-                    <h2 class="mb-3 font-18"><?php echo $data['CountAdministration']; ?>/<?php echo $data['CountPersonnel']; ?></h2>
+                    <h2 class="mb-3 font-18"><?php echo $data['CountAdministration']; ?>/<?php echo $data['CountPosition']; ?></h2>
                     <p class="mb-0">Số lượng: <span class="col-orange"><?php echo $data['CountAdministration']; ?></span></p>
                   </div>
                 </div>

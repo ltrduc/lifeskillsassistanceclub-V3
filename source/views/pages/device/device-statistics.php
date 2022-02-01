@@ -155,57 +155,61 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="Admin/DeviceStatistics" method="post">
+          <form action="Admin/DeviceStatistics" method="post" class="needs-validation" novalidate="">
             <input type="hidden" id="update-id_devicestatistics" name="id_devicestatistics">
             <div class="row">
-              <div class="col-sm">
+              <div class="col-md-12 col-lg-3">
                 <div class="form-group">
                   <label>Nhóm thiết bị</label>
                   <input type="text" id="update-devicegroup" disabled name="devicegroup" class="form-control">
                 </div>
               </div>
-              <div class="col-sm">
+              <div class="col-md-12 col-lg-3">
                 <div class="form-group">
                   <label>Thiết bị</label>
                   <input type="text" id="update-device" disabled name="device" class="form-control">
                 </div>
               </div>
-              <div class="col-sm">
+              <div class="col-md-12 col-lg-3">
                 <div class="form-group">
                   <label>Số lượng</label>
-                  <input type="text" id="update-quantily" name="quantily" class="form-control">
+                  <input type="number" id="update-quantily" name="quantily" placeholder="Nhập số lượng" class="form-control" required autofocus>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
-              <div class="col-sm">
+              <div class="col-md-12 col-lg-3">
                 <div class="form-group">
                   <label>Chưa sử dụng</label>
-                  <input type="text" id="update-donotuse" name="donotuse" class="form-control">
+                  <input type="number" id="update-donotuse" name="donotuse" placeholder="Nhập số lượng" class="form-control" required autofocus>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
             </div>
             <div class="row">
-              <div class="col-sm">
+              <div class="col-md-12 col-lg-3">
                 <div class="form-group">
                   <label>Mang đi sử dụng</label>
-                  <input type="text" id="update-using" disabled name="using" class="form-control">
+                  <input type="number" id="update-using" disabled name="using" class="form-control">
                 </div>
               </div>
-              <div class="col-sm">
+              <div class="col-md-12 col-lg-3">
                 <div class="form-group">
                   <label>Còn sử dụng được</label>
-                  <input type="text" id="update-normal" disabled name="normal" class="form-control">
+                  <input type="number" id="update-normal" disabled name="normal" class="form-control">
                 </div>
               </div>
-              <div class="col-sm">
+              <div class="col-md-12 col-lg-3">
                 <div class="form-group">
                   <label>Hỏng</label>
-                  <input type="text" id="update-broken" name="broken" class="form-control">
+                  <input type="number" id="update-broken" name="broken" placeholder="Nhập số lượng" class="form-control" required autofocus>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
-              <div class="col-sm">
+              <div class="col-md-12 col-lg-3">
                 <div class="form-group">
                   <label>Mất</label>
-                  <input type="text" id="update-lost" name="lost" class="form-control">
+                  <input type="number" id="update-lost" name="lost" placeholder="Nhập số lượng" class="form-control" required autofocus>
+                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
               </div>
             </div>

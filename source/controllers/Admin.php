@@ -64,6 +64,7 @@ class Admin extends Controller
       "CountCollaborate"    => $this->Dashboard->Collaborate(),
       "CountMember"         => $this->Dashboard->Member(),
       "CountAdministration" => $this->Dashboard->Administration(),
+      "CountPosition"       => $this->Dashboard->Position(),
       "CountPersonnel"      => $this->Dashboard->Personnel(),
       "ListCourseToday"     => $this->Course->getCourseToday(),
       "Notification"        => [],
