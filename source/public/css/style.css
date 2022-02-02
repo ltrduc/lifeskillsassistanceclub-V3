@@ -6055,9 +6055,9 @@ body.sidebar-gone .main-sidebar {
     display: block
 }
 
-.sidebar-mini .main-sidebar .sidebar-menu>li {
+/* .sidebar-mini .main-sidebar .sidebar-menu>li {
     padding: 10px
-}
+} */
 
 .sidebar-mini .main-sidebar .sidebar-menu>li.menu-header {
     padding: 0;
