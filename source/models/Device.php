@@ -10,7 +10,11 @@ class Device
     $this->fm = new Format();
   }
 
-  // Quản lý nhóm thiết bị
+  /*
+  |--------------------------------------------------------------------------
+  | QUẢN LÝ NHÓM THIẾT BỊ
+  |--------------------------------------------------------------------------
+  */
   public function getDeviceGroup()
   {
     $query  = "SELECT * FROM `tbl_devicegroup`";
@@ -70,7 +74,11 @@ class Device
     return ["status" => "error", "message" => "Đã xóa dữ liệu thất bại!"];
   }
 
-  // Quản lý thiết bị
+  /*
+  |--------------------------------------------------------------------------
+  | DANH MỤC THIẾT BỊ
+  |--------------------------------------------------------------------------
+  */
   public function getDevice()
   {
     $query  = "SELECT tbl_device.*, tbl_devicegroup.devicegroup FROM tbl_device, tbl_devicegroup WHERE tbl_device.id_devicegroup = tbl_devicegroup.id_devicegroup";
@@ -134,7 +142,11 @@ class Device
     return ["status" => "error", "message" => "Đã xóa dữ liệu thất bại!"];
   }
 
-  // Thống kê thiết bị
+  /*
+  |--------------------------------------------------------------------------
+  | THỐNG KÊ THIẾT BỊ
+  |--------------------------------------------------------------------------
+  */
   public function getDeviceStatistics()
   {
     $query  = "SELECT tbl_devicestatistics.*, tbl_device.device, tbl_devicegroup.devicegroup FROM `tbl_devicestatistics`, `tbl_device`, `tbl_devicegroup` WHERE tbl_devicestatistics.id_device = tbl_device.id_device AND tbl_device.id_devicegroup = tbl_devicegroup.id_devicegroup";

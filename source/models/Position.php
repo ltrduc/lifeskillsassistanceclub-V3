@@ -52,8 +52,7 @@ class Position
     $result         = $this->db->select($query);
 
     if ($result) {
-      $query      = " SELECT tbl_executive.id_user AS id_user FROM tbl_position, tbl_executive 
-                            WHERE tbl_executive.id_position = tbl_position.id_position AND tbl_position.id_position = '$id_position'";
+      $query      = " SELECT tbl_executive.id_user AS id_user FROM tbl_position, tbl_executive WHERE tbl_executive.id_position = tbl_position.id_position AND tbl_position.id_position = '$id_position'";
       $result     = $this->db->select($query);
 
       if ($result) {
