@@ -3,13 +3,13 @@ class Controller
 {
     public function model($model)
     {
-        require_once "./source/models/" . $model . ".php";
+        require_once(realpath(dirname(__FILE__)) . '/../models/' . $model . '.php');
         return new $model;
     }
 
     public function view($view, $data = [])
     {
-        require_once "./source/views/" . $view . ".php";
+        require_once(realpath(dirname(__FILE__)) . '/../views/' . $view . '.php');
     }
 }
 ?>

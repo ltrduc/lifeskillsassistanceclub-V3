@@ -1,4 +1,7 @@
-<?php require_once("./source/views/partials/header.php"); ?>
-<?php require_once("./source/views/partials/sidebar.php"); ?>
-<?php require_once("./source/views/pages/" . $data["page"] . ".php"); ?>
-<?php require_once("./source/views/partials/footer.php"); ?>
+<?php
+$filepath = realpath(dirname(__FILE__));
+require_once($filepath . '/views/partials/header.php');
+require_once($filepath . '/views/partials/sidebar.php');
+require_once($filepath . '/views/pages/' . $data['page'] . '.php');
+require_once($filepath . '/views/partials/footer.php');
+?>
