@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 21, 2022 lúc 04:41 PM
+-- Thời gian đã tạo: Th2 03, 2022 lúc 05:13 PM
 -- Phiên bản máy phục vụ: 10.4.22-MariaDB
--- Phiên bản PHP: 8.0.14
+-- Phiên bản PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,30 +37,6 @@ CREATE TABLE `tbl_attendance` (
   `attendance` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `tbl_attendance`
---
-
-INSERT INTO `tbl_attendance` (`id_attendance`, `id_user`, `id_schoolyear`, `semester`, `date`, `shift`, `attendance`) VALUES
-(1, 1, 6, 'Học kỳ 1', '2022-01-13', 'Ca 1', 'Present'),
-(2, 14, 6, 'Học kỳ 1', '2022-01-13', 'Ca 1', 'Present'),
-(3, 1, 6, 'Học kỳ 1', '2022-01-13', 'Ca 2', 'Present'),
-(4, 2, 6, 'Học kỳ 1', '2022-01-13', 'Ca 2', 'Present'),
-(5, 11, 6, 'Học kỳ 1', '2022-01-13', 'Ca 2', 'Present'),
-(6, 4, 6, 'Học kỳ 1', '2022-01-13', 'Ca 3', 'Present'),
-(7, 11, 6, 'Học kỳ 1', '2022-01-13', 'Ca 3', 'Present'),
-(8, 1, 6, 'Học kỳ 1', '2022-01-13', 'Ca 4', 'Present'),
-(9, 1, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
-(10, 2, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
-(11, 3, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
-(12, 4, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
-(13, 5, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
-(14, 6, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
-(15, 7, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
-(16, 8, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
-(17, 9, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present'),
-(18, 10, 6, 'Học kỳ 2', '2022-03-12', 'Ca 1', 'Present');
-
 -- --------------------------------------------------------
 
 --
@@ -77,14 +53,6 @@ CREATE TABLE `tbl_borrow` (
   `purpose` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `tbl_borrow`
---
-
-INSERT INTO `tbl_borrow` (`id_borrow`, `borrower`, `phone`, `device`, `quantily`, `date`, `purpose`, `status`) VALUES
-(1, 'Lê Thành Đăng Khoa', '0968707558', 'Bút chiếu', 1, '2022-01-20', 'Giảng dạy', 0),
-(2, 'Nguyễn Quốc Đạt', '0968736521', 'Jack cấm mạng', 1, '2022-01-22', 'Giảng dạy', 0);
 
 -- --------------------------------------------------------
 
@@ -104,20 +72,6 @@ CREATE TABLE `tbl_course` (
   `id_schoolyear` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `tbl_course`
---
-
-INSERT INTO `tbl_course` (`id_course`, `id_subject`, `group`, `teacher`, `period`, `local`, `date`, `semester`, `id_schoolyear`) VALUES
-(1, 1, '01', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-01-17', 'Học kỳ 1', 6),
-(2, 1, '02', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-01-17', 'Học kỳ 1', 6),
-(3, 1, '03', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-01-18', 'Học kỳ 1', 6),
-(4, 1, '04', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-01-18', 'Học kỳ 1', 6),
-(5, 1, '05', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 10A', '2022-01-17', 'Học kỳ 1', 6),
-(6, 1, '06', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-01-17', 'Học kỳ 1', 6),
-(7, 1, '07', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 10A', '2022-01-18', 'Học kỳ 1', 6),
-(8, 1, '08', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-01-18', 'Học kỳ 1', 6);
-
 -- --------------------------------------------------------
 
 --
@@ -131,29 +85,6 @@ CREATE TABLE `tbl_decentralization` (
   `attendance` int(1) NOT NULL DEFAULT 0,
   `post` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `tbl_decentralization`
---
-
-INSERT INTO `tbl_decentralization` (`id_decentralization`, `id_user`, `admin`, `attendance`, `post`) VALUES
-(1, 1, 1, 0, 0),
-(2, 2, 0, 0, 0),
-(3, 3, 1, 0, 0),
-(4, 4, 1, 0, 0),
-(5, 5, 0, 0, 0),
-(6, 6, 1, 0, 0),
-(7, 7, 0, 0, 0),
-(8, 8, 1, 0, 0),
-(9, 9, 0, 0, 0),
-(10, 10, 1, 0, 0),
-(11, 11, 1, 0, 0),
-(12, 12, 0, 0, 0),
-(13, 13, 0, 0, 0),
-(14, 14, 0, 0, 0),
-(15, 15, 0, 0, 0),
-(16, 16, 0, 0, 0),
-(17, 17, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -169,17 +100,6 @@ CREATE TABLE `tbl_device` (
   `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `tbl_device`
---
-
-INSERT INTO `tbl_device` (`id_device`, `id_devicegroup`, `device`, `description`, `note`) VALUES
-(1, 1, 'Bảng lớn', 'Bảng dùng cho giảng viên giảng dạy', NULL),
-(2, 1, 'Bảng nhỏ', 'Bảng dùng cho sinh viên học tập', NULL),
-(3, 2, 'Bút lông đỏ', NULL, NULL),
-(4, 2, 'Bút lông đen', NULL, NULL),
-(5, 2, 'Bút lông xanh', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -191,15 +111,6 @@ CREATE TABLE `tbl_devicegroup` (
   `devicegroup` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `tbl_devicegroup`
---
-
-INSERT INTO `tbl_devicegroup` (`id_devicegroup`, `devicegroup`, `note`) VALUES
-(1, 'Bảng', NULL),
-(2, 'Bút', NULL),
-(3, 'Giấy', NULL);
 
 -- --------------------------------------------------------
 
@@ -218,16 +129,6 @@ CREATE TABLE `tbl_devicestatistics` (
   `lost` int(255) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `tbl_devicestatistics`
---
-
-INSERT INTO `tbl_devicestatistics` (`id_devicestatistics`, `id_device`, `quantily`, `using`, `donotuse`, `normal`, `broken`, `lost`) VALUES
-(1, 1, 30, 0, 0, 0, 0, 0),
-(2, 2, 220, 0, 0, 0, 0, 0),
-(3, 3, 200, 0, 0, 0, 0, 0),
-(4, 4, 120, 0, 0, 0, 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -240,19 +141,6 @@ CREATE TABLE `tbl_executive` (
   `id_position` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `tbl_executive`
---
-
-INSERT INTO `tbl_executive` (`id_executive`, `id_user`, `id_position`) VALUES
-(1, 10, 1),
-(2, 3, 2),
-(3, 1, 3),
-(4, 4, 4),
-(5, 6, 5),
-(6, 8, 6),
-(7, 11, 7);
-
 -- --------------------------------------------------------
 
 --
@@ -264,22 +152,6 @@ CREATE TABLE `tbl_position` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `tbl_position`
---
-
-INSERT INTO `tbl_position` (`id_position`, `name`, `description`) VALUES
-(1, 'Chủ Nhiệm', '<p>Chịu tr&aacute;ch nhiệm, l&ecirc;n kế hoạch, ph&acirc;n c&ocirc;ng nhiệm vụ chung cho to&agrave;n bộ hoạt động của c&acirc;u lạc bộ.</p>\r\n'),
-(2, 'Phó Chủ Nhiệm', '<p>- Nhận c&ocirc;ng việc, ph&acirc;n c&ocirc;ng trực tiếp từ chủ nhiệm c&acirc;u lạc bộ. Gi&aacute;m s&aacute;t, quản l&iacute; c&aacute;c bộ phận chức năng li&ecirc;n quan</p>\r\n\r\n<p>- Theo d&otilde;i, đ&aacute;nh gi&aacute; tiến độ ho&agrave;n th&agrave;nh c&ocirc;ng việc của c&aacute;c ban.</p>\r\n\r\n<p>- Xếp loại đ&aacute;nh gi&aacute; th&agrave;nh t&iacute;ch của c&aacute;c c&aacute; nh&acirc;n trong c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm l&ecirc;n kế hoạch, tuyển th&agrave;nh vi&ecirc;n cho c&acirc;u lạc bộ.</p>\r\n'),
-(3, 'Trưởng ban Hành Chính', '<p>- Hỗ trợ nhập liệu, thống k&ecirc; t&igrave;nh h&igrave;nh điểm danh từ ban nh&acirc;n sự, hỗ trợ tiếp nhận c&aacute;c vấn đề của sinh vi&ecirc;n c&ugrave;ng với thư k&yacute;/gi&aacute;o vụ của bộ m&ocirc;n khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n\r\n<p>- Hỗ trợ giảng vi&ecirc;n trong việc nhập liệu, thống k&ecirc;,&hellip; khi c&oacute; y&ecirc;u cầu v&agrave; được sự đồng &yacute; của Trưởng ban v&agrave; Ban chủ nhiệm.</p>\r\n'),
-(4, 'Phó ban Hành Chính', '<p>- Hỗ trợ nhập liệu, thống k&ecirc; t&igrave;nh h&igrave;nh điểm danh từ ban nh&acirc;n sự, hỗ trợ tiếp nhận c&aacute;c vấn đề của sinh vi&ecirc;n c&ugrave;ng với thư k&yacute;/gi&aacute;o vụ của bộ m&ocirc;n khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n\r\n<p>- Hỗ trợ giảng vi&ecirc;n trong việc nhập liệu, thống k&ecirc;,&hellip; khi c&oacute; y&ecirc;u cầu v&agrave; được sự đồng &yacute; của Trưởng ban v&agrave; Ban chủ nhiệm.</p>\r\n'),
-(5, 'Trưởng ban Nhân Sự', '<p>Hỗ trợ cho c&aacute;c lớp học kỹ năng, chuẩn bị c&aacute;c dụng cụ, vật dụng; điều phối, gi&aacute;m s&aacute;t, quản l&yacute; t&igrave;nh h&igrave;nh lớp học; hỗ trợ cho giảng vi&ecirc;n/b&aacute;o c&aacute;o vi&ecirc;n đứng lớp. Hỗ trợ giảng vi&ecirc;n trong qu&aacute; tr&igrave;nh đứng lớp khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n'),
-(6, 'Phó ban Nhân Sự', '<p>Hỗ trợ cho c&aacute;c lớp học kỹ năng, chuẩn bị c&aacute;c dụng cụ, vật dụng; điều phối, gi&aacute;m s&aacute;t, quản l&yacute; t&igrave;nh h&igrave;nh lớp học; hỗ trợ cho giảng vi&ecirc;n/b&aacute;o c&aacute;o vi&ecirc;n đứng lớp. Hỗ trợ giảng vi&ecirc;n trong qu&aacute; tr&igrave;nh đứng lớp khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n'),
-(7, 'Trưởng ban Sự kiện và Truyền Thông', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n'),
-(8, 'Phó ban Sự kiện và Truyền Thông - Team Thiết Kế', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n'),
-(9, 'Phó ban Sự kiện và Truyền Thông - Team Sự Kiện', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n'),
-(10, 'Phó ban Sự kiện và Truyền Thông - Team Nội Dung', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n');
 
 -- --------------------------------------------------------
 
@@ -307,17 +179,6 @@ CREATE TABLE `tbl_recruitment` (
   `content6` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `tbl_recruitment`
---
-
-INSERT INTO `tbl_recruitment` (`id_recruitment`, `fullname`, `id_student`, `faculty`, `birthday`, `per_email`, `stu_email`, `phone`, `facebook`, `id_team`, `resolution`, `content1`, `content2`, `content3`, `content4`, `content5`, `content6`) VALUES
-(1, 'Nguyễn Văn Hậu', '51900001', 'Công nghệ thông tin', '2001-01-09', 'nguyenvanhau@gmail.com', '51900001@student.tdtu.edu.vn', '968707558', 'https://www.facebook.com/ltrduc/', 1, 1, 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.'),
-(2, 'Lê Văn Thành', '51900002', 'Công nghệ thông tin', '2001-01-09', 'levanthanh@gmail.com', '51900002@student.tdtu.edu.vn', '968707555', 'https://www.facebook.com/ltrduc/', 2, 1, 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.'),
-(3, 'Nguyễn Thị Kiều', '01900003', 'Khoa ngoại ngữ', '2001-01-09', 'nguyenthikieu@gmail.com', '01900003@student.tdtu.edu.vn', '931707555', 'https://www.facebook.com/ltrduc/', 3, 1, 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.'),
-(4, 'Lê Thành Long', '01900004', 'Khoa ngoại ngữ', '2001-01-09', 'nguyenthanhlong@gmail.com', '01900004@student.tdtu.edu.vn', '931707555', 'https://www.facebook.com/ltrduc/', 3, 1, 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.'),
-(5, 'Nguyễn Văn Bình', '51900008', 'Khoa công nghệ thông tin', '2001-01-09', 'nguyenvanbinh@gmail.com', '51900008@student.tdtu.edu.vn', '931707555', 'https://www.facebook.com/ltrduc/', 3, 1, 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.', 'Giờ đây, bạn có thể duyệt web ở chế độ riêng tư.');
-
 -- --------------------------------------------------------
 
 --
@@ -331,22 +192,6 @@ CREATE TABLE `tbl_schedule` (
   `shift` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `tbl_schedule`
---
-
-INSERT INTO `tbl_schedule` (`id_schedule`, `id_user`, `session`, `shift`) VALUES
-(1, 1, 'Monday', 'Ca1 Ca2 Ca3'),
-(2, 1, 'Tuesday', 'Ca2 Ca3'),
-(3, 2, 'Tuesday', 'Ca2 Ca4'),
-(4, 2, 'Monday', 'Ca2 Ca4'),
-(5, 3, 'Monday', 'Ca2 Ca4'),
-(6, 11, 'Monday', 'Ca2 Ca3 '),
-(7, 10, 'Saturday', 'Ca4 '),
-(8, 12, 'Friday', 'Ca3 Ca4 '),
-(9, 13, 'Friday', 'Ca2 '),
-(10, 4, 'Thursday', 'Ca3 ');
-
 -- --------------------------------------------------------
 
 --
@@ -359,18 +204,6 @@ CREATE TABLE `tbl_schoolyear` (
   `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `tbl_schoolyear`
---
-
-INSERT INTO `tbl_schoolyear` (`id_schoolyear`, `schoolyear`, `note`) VALUES
-(1, '2017-2018', NULL),
-(2, '2018-2019', NULL),
-(3, '2019-2020', NULL),
-(4, '2020-2021', NULL),
-(5, '2021-2022', NULL),
-(6, '2022-2023', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -382,17 +215,6 @@ CREATE TABLE `tbl_subject` (
   `subject` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `tbl_subject`
---
-
-INSERT INTO `tbl_subject` (`id_subject`, `subject`, `note`) VALUES
-(1, 'Thái độ sống 1', NULL),
-(2, 'Thái độ sống 2', NULL),
-(3, 'Thái độ sống 3', NULL),
-(4, 'Xây dựng team & lãnh đạo', NULL),
-(5, 'Tư duy phản biện', NULL);
 
 -- --------------------------------------------------------
 
@@ -432,29 +254,6 @@ CREATE TABLE `tbl_user` (
   `phone` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
   `role` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `tbl_user`
---
-
-INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthday`, `facebook`, `id_team`, `phone`, `role`) VALUES
-(1, '51900040', '9774532db8f52128d641b1016f9728c7', 'Lê Trí Đức', NULL, NULL, 1, '0377025001', 0),
-(2, '51900356', '6d5557fa3520948ab7ec199835968295', 'Tạ Quốc Khánh', NULL, NULL, 1, '0377025002', 0),
-(3, 'H1900308', 'c87566fe171afba085d2c43088176e26', 'Nguyễn Nhật Quyên', NULL, NULL, 1, '0377025003', 0),
-(4, '520H0401', '3ab20c95f18788229224f4fbc8531a15', 'Lê Gia Phú', NULL, NULL, 1, '0377025004', 0),
-(5, 'A2000244', '1f4e65a5c11fc2a437e65aedc2ba11eb', 'Phan Phương Thảo', NULL, NULL, 1, '0377025005', 0),
-(6, 'B19H0160', '4b233c55470bafcfaef8b0b310f5512a', 'Nguyễn Trần Phương Anh', NULL, NULL, 2, '0377025006', 0),
-(7, '020H0214', 'c13aceefb420263e13acbdb5ae57b05b', 'Ngô Nguyễn Minh Anh', NULL, NULL, 2, '0377025007', 0),
-(8, '51900119', '32e52bea4a9c000291c04d834c0f1d2b', 'Lê Thành Đăng Khoa', NULL, NULL, 2, '0377025008', 0),
-(9, '61900381', '12cdb316d70374121cb1cd1b940dda9f', 'Trần Ngọc Châu', NULL, NULL, 2, '0377025009', 0),
-(10, '41900468', '9408bb53069de3d9aeadd1d401e0356f', 'Nguyễn Duy Khánh Minh', NULL, NULL, 3, '0377025010', 0),
-(11, '019H0292', 'a4cbde89381503582267fcf7af3287c3', 'Nguyễn Mỹ Anh', NULL, NULL, 3, '0377025011', 0),
-(12, '720H1519', '34407949dee2cd3056e38e5cae9d02a5', 'Hoàng Ngọc Bảo Châu', NULL, NULL, 3, '0377025012', 0),
-(13, '02000939', 'd1763ac34f6a48a43af7045f32842945', 'Hồ Thị Bích Tuyền', NULL, NULL, 3, '0377025013', 0),
-(14, '51900030', '17dd54b49eadccf8e149e6d224fd99d9', 'Nguyễn Quốc Đạt', NULL, NULL, NULL, '0377025014', 1),
-(15, 'E20H0347', 'a2a2bea9bcf77c92a714ef3e669e2cdf', 'Phùng Lữ Thế Hoài', NULL, NULL, NULL, '0377025015', 1),
-(16, '51900162', '01a542ee4e0aed3dd54e5ade72ba7d74', 'Nguyễn Thị Thảo Như', NULL, NULL, NULL, '0377025016', 1),
-(17, '51900076', 'dd9aae0b3d924c646b5f52614ba570e9', 'Nguyễn Trần Minh Hoa', NULL, NULL, NULL, '0377025017', 1);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -570,79 +369,79 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT cho bảng `tbl_attendance`
 --
 ALTER TABLE `tbl_attendance`
-  MODIFY `id_attendance` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_attendance` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_borrow`
 --
 ALTER TABLE `tbl_borrow`
-  MODIFY `id_borrow` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_borrow` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_course`
 --
 ALTER TABLE `tbl_course`
-  MODIFY `id_course` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_course` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_decentralization`
 --
 ALTER TABLE `tbl_decentralization`
-  MODIFY `id_decentralization` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_decentralization` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_device`
 --
 ALTER TABLE `tbl_device`
-  MODIFY `id_device` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_device` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_devicegroup`
 --
 ALTER TABLE `tbl_devicegroup`
-  MODIFY `id_devicegroup` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_devicegroup` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_devicestatistics`
 --
 ALTER TABLE `tbl_devicestatistics`
-  MODIFY `id_devicestatistics` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_devicestatistics` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_executive`
 --
 ALTER TABLE `tbl_executive`
-  MODIFY `id_executive` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_executive` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_position`
 --
 ALTER TABLE `tbl_position`
-  MODIFY `id_position` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_position` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_recruitment`
 --
 ALTER TABLE `tbl_recruitment`
-  MODIFY `id_recruitment` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_recruitment` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_schedule`
 --
 ALTER TABLE `tbl_schedule`
-  MODIFY `id_schedule` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_schedule` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_schoolyear`
 --
 ALTER TABLE `tbl_schoolyear`
-  MODIFY `id_schoolyear` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_schoolyear` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_subject`
 --
 ALTER TABLE `tbl_subject`
-  MODIFY `id_subject` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_subject` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_team`
@@ -654,7 +453,7 @@ ALTER TABLE `tbl_team`
 -- AUTO_INCREMENT cho bảng `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
