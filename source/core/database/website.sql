@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 03, 2022 lúc 05:13 PM
--- Phiên bản máy phục vụ: 10.4.22-MariaDB
--- Phiên bản PHP: 8.1.2
+-- Máy chủ: localhost:3306
+-- Thời gian đã tạo: Th2 03, 2022 lúc 04:56 PM
+-- Phiên bản máy phục vụ: 10.5.12-MariaDB
+-- Phiên bản PHP: 7.3.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `website`
+-- Cơ sở dữ liệu: `id17609828_lifeskills_db`
 --
 
 -- --------------------------------------------------------
@@ -85,6 +86,22 @@ CREATE TABLE `tbl_decentralization` (
   `attendance` int(1) NOT NULL DEFAULT 0,
   `post` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_decentralization`
+--
+
+INSERT INTO `tbl_decentralization` (`id_decentralization`, `id_user`, `admin`, `attendance`, `post`) VALUES
+(1, 1, 0, 0, 0),
+(2, 2, 0, 0, 0),
+(3, 3, 0, 0, 0),
+(4, 4, 0, 0, 0),
+(5, 5, 0, 0, 0),
+(6, 6, 0, 0, 0),
+(7, 7, 0, 0, 0),
+(8, 8, 0, 0, 0),
+(9, 9, 0, 0, 0),
+(10, 10, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -256,6 +273,22 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
+-- Đang đổ dữ liệu cho bảng `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthday`, `facebook`, `id_team`, `phone`, `role`) VALUES
+(1, '51900040', '9774532db8f52128d641b1016f9728c7', 'Lê Trí Đức', NULL, NULL, 1, NULL, 0),
+(2, '51900356', '6d5557fa3520948ab7ec199835968295', 'Tạ Quốc Khánh', NULL, NULL, 1, NULL, 0),
+(3, 'H1900308', 'c87566fe171afba085d2c43088176e26', 'Nguyễn Nhật Quyên', NULL, NULL, 1, NULL, 0),
+(4, '11900067', 'ee215d2465ef614e8cf9c16beae17a32', 'Phạm Ngọc Minh Thư', NULL, NULL, 1, NULL, 0),
+(5, '219H0227', '98eaf61ad9feabfb61bac17ab4bf8aaf', 'Bùi Thị Thuỳ Trang', NULL, NULL, 1, NULL, 0),
+(6, 'B1900443', '393f83da5ae4f676d6358da3a70f2a15', 'Huỳnh Hữu Khang Vĩ', NULL, NULL, 1, NULL, 0),
+(7, '520H0401', '3ab20c95f18788229224f4fbc8531a15', 'Lê Gia Phú', NULL, NULL, 1, NULL, 0),
+(8, 'A2000244', '1f4e65a5c11fc2a437e65aedc2ba11eb', 'Phan Phương Thảo', NULL, NULL, 1, NULL, 0),
+(9, 'B20H0236', '0e2bc5161f8703ab36d184696e497010', 'Vương Kim Trang', NULL, NULL, 1, NULL, 0),
+(10, 'H2000514', '6b4eeafb2df14a94203625c3afd97cf1', 'Trần Kim Xuân', NULL, NULL, 1, NULL, 0);
+
+--
 -- Chỉ mục cho các bảng đã đổ
 --
 
@@ -387,7 +420,7 @@ ALTER TABLE `tbl_course`
 -- AUTO_INCREMENT cho bảng `tbl_decentralization`
 --
 ALTER TABLE `tbl_decentralization`
-  MODIFY `id_decentralization` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_decentralization` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_device`
@@ -453,7 +486,7 @@ ALTER TABLE `tbl_team`
 -- AUTO_INCREMENT cho bảng `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
