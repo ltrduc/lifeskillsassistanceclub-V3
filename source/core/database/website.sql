@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th2 03, 2022 lúc 04:56 PM
--- Phiên bản máy phục vụ: 10.5.12-MariaDB
--- Phiên bản PHP: 7.3.32
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th2 04, 2022 lúc 09:44 AM
+-- Phiên bản máy phục vụ: 10.4.22-MariaDB
+-- Phiên bản PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `id17609828_lifeskills_db`
+-- Cơ sở dữ liệu: `website`
 --
 
 -- --------------------------------------------------------
@@ -101,7 +100,45 @@ INSERT INTO `tbl_decentralization` (`id_decentralization`, `id_user`, `admin`, `
 (7, 7, 0, 0, 0),
 (8, 8, 0, 0, 0),
 (9, 9, 0, 0, 0),
-(10, 10, 0, 0, 0);
+(10, 10, 0, 0, 0),
+(11, 11, 0, 0, 0),
+(12, 12, 0, 0, 0),
+(13, 13, 0, 0, 0),
+(14, 14, 0, 0, 0),
+(15, 15, 0, 0, 0),
+(16, 16, 0, 0, 0),
+(17, 17, 0, 0, 0),
+(18, 18, 0, 0, 0),
+(19, 19, 0, 0, 0),
+(20, 20, 0, 0, 0),
+(21, 21, 0, 0, 0),
+(22, 22, 0, 0, 0),
+(23, 23, 0, 0, 0),
+(24, 24, 0, 0, 0),
+(25, 25, 0, 0, 0),
+(26, 26, 0, 0, 0),
+(27, 27, 0, 0, 0),
+(28, 28, 0, 0, 0),
+(29, 29, 0, 0, 0),
+(30, 30, 0, 0, 0),
+(31, 31, 0, 0, 0),
+(32, 32, 0, 0, 0),
+(33, 33, 0, 0, 0),
+(34, 34, 0, 0, 0),
+(35, 35, 0, 0, 0),
+(36, 36, 0, 0, 0),
+(37, 37, 0, 0, 0),
+(38, 38, 0, 0, 0),
+(39, 39, 0, 0, 0),
+(40, 40, 0, 0, 0),
+(41, 41, 0, 0, 0),
+(42, 42, 0, 0, 0),
+(43, 43, 0, 0, 0),
+(44, 44, 0, 0, 0),
+(45, 45, 0, 0, 0),
+(46, 46, 0, 0, 0),
+(47, 47, 0, 0, 0),
+(48, 48, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -286,7 +323,45 @@ INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthd
 (7, '520H0401', '3ab20c95f18788229224f4fbc8531a15', 'Lê Gia Phú', NULL, NULL, 1, NULL, 0),
 (8, 'A2000244', '1f4e65a5c11fc2a437e65aedc2ba11eb', 'Phan Phương Thảo', NULL, NULL, 1, NULL, 0),
 (9, 'B20H0236', '0e2bc5161f8703ab36d184696e497010', 'Vương Kim Trang', NULL, NULL, 1, NULL, 0),
-(10, 'H2000514', '6b4eeafb2df14a94203625c3afd97cf1', 'Trần Kim Xuân', NULL, NULL, 1, NULL, 0);
+(10, 'H2000514', '6b4eeafb2df14a94203625c3afd97cf1', 'Trần Kim Xuân', NULL, NULL, 1, NULL, 0),
+(11, '019H0292', 'a4cbde89381503582267fcf7af3287c3', 'Nguyễn Mỹ Anh', NULL, NULL, 3, NULL, 0),
+(12, '720H1519', '34407949dee2cd3056e38e5cae9d02a5', 'Hoàng Ngọc Bảo Châu', NULL, NULL, 3, NULL, 0),
+(13, '51900030', '17dd54b49eadccf8e149e6d224fd99d9', 'Nguyễn Quốc Đạt', NULL, NULL, 3, NULL, 0),
+(14, '02000939', 'd1763ac34f6a48a43af7045f32842945', 'Hồ Thị Bích Tuyền', NULL, NULL, 3, NULL, 0),
+(15, '020H0363', '2a62fe57d691560853438d40dd4e370e', 'Nguyễn Phạm Kim Ngân', NULL, NULL, 3, NULL, 0),
+(16, '32001093', '28871e13c700c6690a6e84b8ce60999a', 'Nguyễn Thị Thư', NULL, NULL, 3, NULL, 0),
+(17, 'H2000506', 'bbf566384d1e09f37e0b1845301d3c62', 'Lê Thanh Vy', NULL, NULL, 3, NULL, 0),
+(18, 'B19H0160', '4b233c55470bafcfaef8b0b310f5512a', 'Nguyễn Trần Phương Anh', NULL, NULL, 2, NULL, 0),
+(19, '020H0214', 'c13aceefb420263e13acbdb5ae57b05b', 'Ngô Nguyễn Minh Anh', NULL, NULL, 2, NULL, 0),
+(20, '61900381', '12cdb316d70374121cb1cd1b940dda9f', 'Trần Ngọc Châu', NULL, NULL, 2, NULL, 0),
+(21, '720H1520', '7b2c337b9487f215e6148ca47a5139f3', 'Trần Mỹ Châu', NULL, NULL, 2, NULL, 0),
+(22, '61900050', 'fe242d438e5cc9d7b8bce135c2f9e404', 'Lê Thị Hồng Gấm', NULL, NULL, 2, NULL, 0),
+(23, '01900146', 'b6ca85c2acd578c092f47e3b9a6bbfe3', 'Huỳnh Thị Diễm Hồng', NULL, NULL, 2, NULL, 0),
+(24, '51900119', '32e52bea4a9c000291c04d834c0f1d2b', 'Lê Thành Đăng Khoa', NULL, NULL, 2, NULL, 0),
+(25, 'B1900124', '98e61dedb2dde05753af4d40ecf9e9db', 'Phạm Hoàng Long', NULL, NULL, 2, NULL, 0),
+(26, '31900474', 'da5a44a3a9d55058150dd4e2721550e0', 'Huỳnh Nguyễn Ngọc Minh', NULL, NULL, 2, NULL, 0),
+(27, '41900468', '9408bb53069de3d9aeadd1d401e0356f', 'Nguyễn Duy Khánh Minh', NULL, NULL, 2, NULL, 0),
+(28, '31901010', 'b35ff4ee9c13339a79a286c082df2f3a', 'Trầm Tuyết Ngân', NULL, NULL, 2, NULL, 0),
+(29, '81900546', '976a7aa94f4fc8b814ab2338efd9a9d4', 'Trần Hiếu Ngân', NULL, NULL, 2, NULL, 0),
+(30, 'A2000221', '5299de3b0b6c946845316b3d4db91c79', 'Nguyễn Như Ngọc', NULL, NULL, 2, NULL, 0),
+(31, '51900444', '59fd4766e5011211dbe84e7dbdbdcfca', 'Phạm Huỳnh Anh Tiến', NULL, NULL, 2, NULL, 0),
+(32, '41900552', '3237d7b0be2ebc85beac9ae7e73fb0bb', 'Huỳnh Quốc Thắng', NULL, NULL, 2, NULL, 0),
+(33, '61900566', 'ba29c56c881c768be1d44f3bdcdbaccb', 'Ngô Trần Ngọc Thuận', NULL, NULL, 2, NULL, 0),
+(34, '41900587', '98d5f733e3d4d54eda935678a499f949', 'Nguyễn Hoàng Trân', NULL, NULL, 2, NULL, 0),
+(35, '519H0247', 'b69ab6698d5bf70e234f68341a33dcc1', 'Nguyễn Đức Trọng', NULL, NULL, 2, NULL, 0),
+(36, 'B19H0163', '791cc672410056d218a1804b3eb8fb91', 'Trương Hoàng Anh', NULL, NULL, 2, NULL, 0),
+(37, '81900518', '4813eb9e6ba5c3725e7641bea8582886', 'Nguyễn Thị Kim Hằng', NULL, NULL, 2, NULL, 0),
+(38, '81900544', '4ef6d78c01ddd41a3b73060935ddf2d1', 'Nguyễn Thị My', NULL, NULL, 2, NULL, 0),
+(39, 'B19H0257', 'bbd6878c1f09a4a13a8b61309e94529b', 'Trần Yến Ngọc', NULL, NULL, 2, NULL, 0),
+(40, '81900550', '8431508a871e0136efa47e465dd0ef43', 'Nguyễn Ngọc Thảo Nguyên', NULL, NULL, 2, NULL, 0),
+(41, 'C2000286', '8a0d77288e401318308e910e26587e37', 'Nguyễn Hoàng Minh Khan', NULL, NULL, 2, NULL, 0),
+(42, '62000831', 'ae4fb3e73957ace0e1cfc16de7778673', 'Trần Phùng Hiếu Ngân', NULL, NULL, 2, NULL, 0),
+(43, '720H1569', 'ca20c062fa0090dca7069bebb2c8c103', 'Giang Tịnh Nghi', NULL, NULL, 2, NULL, 0),
+(44, '720H1575', 'b59aa4a33fa2c3b62acb3f3e95aa1c8e', 'Đỗ Uyên Nhi', NULL, NULL, 2, NULL, 0),
+(45, '32001095', '7c10837b21097b5b8f2c1742b0de7eda', 'Lê Thanh Thùy', NULL, NULL, 2, NULL, 0),
+(46, '720H1224', 'e9d698af1f660c04196de0e73da97508', 'Bùi Thị Tố Trinh', NULL, NULL, 2, NULL, 0),
+(47, 'B2000218', '174300834bbe23e1e7bc6acf2045f8a6', 'Trầm Thị Quỳnh Tươi', NULL, NULL, 2, NULL, 0),
+(48, 'E20H0347', 'a2a2bea9bcf77c92a714ef3e669e2cdf', 'Phùng Lữ Thế Hoài', NULL, NULL, 2, NULL, 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -420,7 +495,7 @@ ALTER TABLE `tbl_course`
 -- AUTO_INCREMENT cho bảng `tbl_decentralization`
 --
 ALTER TABLE `tbl_decentralization`
-  MODIFY `id_decentralization` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_decentralization` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_device`
@@ -486,7 +561,7 @@ ALTER TABLE `tbl_team`
 -- AUTO_INCREMENT cho bảng `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
