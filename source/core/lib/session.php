@@ -31,6 +31,13 @@ class Session
       self::destroy();
       self::redirect("/../Auth/Login");
     }
+
+    if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 1200)) {
+      self::destroy();
+      self::redirect("/../Auth/Login");
+    }
+
+    $_SESSION['last_activity'] = time();
   }
 
   public static function checkLogin()
