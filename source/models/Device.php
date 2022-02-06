@@ -207,7 +207,7 @@ class Device
 
     if ($quantily < $quantily_initial) return ["status" => "error", "message" => "Số lượng nhập vào không hợp lệ!"];
 
-    $query              = "UPDATE `tbl_devicestatistics` SET `quantily`='$quantily',`donotuse`=`donotuse`+(`quantily`-`donotuse`), `donotuse`='$donotuse',`using`=`quantily`-`donotuse`,`broken`='$broken',`lost`='$lost',`normal`=`using`-`broken`-`lost` WHERE `id_devicestatistics`='$id_devicestatistics'";
+    $query              = "UPDATE `tbl_devicestatistics` SET `quantily`='$quantily',`donotuse`='$donotuse'+('$quantily'-'$quantily_initial'),`using`=`quantily`-`donotuse`,`broken`='$broken',`lost`='$lost',`normal`=`using`-`broken`-`lost` WHERE `id_devicestatistics`='$id_devicestatistics'";
     $result             = $this->db->update($query);
 
     if ($result) return ["status" => "success", "message" => "Đã cập nhật liệu thành công!"];

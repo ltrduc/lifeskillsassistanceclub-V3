@@ -64,7 +64,7 @@ class Decentralization
 
     if (empty($id_student)) return ["status" => "error", "message" => "Vui lòng nhập mã số sinh viên!"];
 
-    if ($role !== null) {
+    if ($role != null) {
       if ($role == 0) {
         if (empty($id_team)) return ["status" => "error", "message" => "Vui lòng chọn ban hoạt động!"];
 
