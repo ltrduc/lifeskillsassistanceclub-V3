@@ -51,8 +51,8 @@
                         <tr>
                           <td><?php echo $i++; ?></td>
                           <td><?php echo $fm->formatDate($value['date']); ?></td>
-                          <td>Học kỳ 1</td>
-                          <td>2020-2021</td>
+                          <td><?php echo $value['semester']; ?></td>
+                          <td><?php echo $value['schoolyear']; ?></td>
                           <td>
                             <a href="Admin/DetailedCourse&id_schoolyear=<?php echo $value['id_schoolyear'] ?>&semester=<?php echo $value['semester'] ?>&date=<?php echo $value['date'] ?>" class="btn btn-sm btn-primary"><i class="fas fa-book"></i> Xem lịch học </a>
                             <?php if (Session::get('pmsAdmin') == 1) { ?>
