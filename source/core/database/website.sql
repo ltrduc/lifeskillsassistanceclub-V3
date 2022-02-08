@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 06, 2022 lúc 06:11 PM
--- Phiên bản máy phục vụ: 10.4.22-MariaDB
--- Phiên bản PHP: 8.1.2
+-- Máy chủ: localhost:3306
+-- Thời gian đã tạo: Th2 08, 2022 lúc 09:57 AM
+-- Phiên bản máy phục vụ: 10.5.12-MariaDB
+-- Phiên bản PHP: 7.3.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `website`
+-- Cơ sở dữ liệu: `id17609828_lifeskills_db`
 --
 
 -- --------------------------------------------------------
@@ -315,7 +316,7 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthday`, `facebook`, `id_team`, `phone`, `role`) VALUES
 (1, '51900040', '9774532db8f52128d641b1016f9728c7', 'Lê Trí Đức', '2001-05-03', 'https://www.facebook.com/ltrduc', 1, '0377025449', 0),
-(2, '51900356', '6d5557fa3520948ab7ec199835968295', 'Tạ Quốc Khánh', NULL, NULL, 1, NULL, 0),
+(2, '51900356', 'decba85389bc8742ad691ef45069a89d', 'Tạ Quốc Khánh', NULL, NULL, 1, NULL, 0),
 (3, 'H1900308', 'c87566fe171afba085d2c43088176e26', 'Nguyễn Nhật Quyên', NULL, NULL, 1, NULL, 0),
 (4, '11900067', 'ee215d2465ef614e8cf9c16beae17a32', 'Phạm Ngọc Minh Thư', NULL, NULL, 1, NULL, 0),
 (5, '219H0227', '98eaf61ad9feabfb61bac17ab4bf8aaf', 'Bùi Thị Thuỳ Trang', NULL, NULL, 1, NULL, 0),
@@ -325,9 +326,9 @@ INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthd
 (9, 'B20H0236', '0e2bc5161f8703ab36d184696e497010', 'Vương Kim Trang', '2002-07-21', 'https://m.facebook.com/profile.php', 1, '0342969417', 0),
 (10, 'H2000514', '6b4eeafb2df14a94203625c3afd97cf1', 'Trần Kim Xuân', '2002-12-23', 'https://www.facebook.com/kimxuan.tran.927', 1, '0703874040', 0),
 (11, '019H0292', 'a4cbde89381503582267fcf7af3287c3', 'Nguyễn Mỹ Anh', NULL, NULL, 3, NULL, 0),
-(12, '720H1519', '34407949dee2cd3056e38e5cae9d02a5', 'Hoàng Ngọc Bảo Châu', NULL, NULL, 3, NULL, 0),
+(12, '720H1519', '34407949dee2cd3056e38e5cae9d02a5', 'Hoàng Ngọc Bảo Châu', '2002-12-12', 'https://www.facebook.com/profile.php?id=100008882825759', 3, '0779603470', 0),
 (13, '51900030', '17dd54b49eadccf8e149e6d224fd99d9', 'Nguyễn Quốc Đạt', NULL, NULL, 3, NULL, 0),
-(14, '02000939', 'd1763ac34f6a48a43af7045f32842945', 'Hồ Thị Bích Tuyền', NULL, NULL, 3, NULL, 0),
+(14, '02000939', 'd1763ac34f6a48a43af7045f32842945', 'Hồ Thị Bích Tuyền', '2002-06-10', 'https://www.facebook.com/bichtuyen.hothi.731', 3, '0000000000', 0),
 (15, '020H0363', '2a62fe57d691560853438d40dd4e370e', 'Nguyễn Phạm Kim Ngân', NULL, NULL, 3, NULL, 0),
 (16, '32001093', '6605d1c5c7dd96701e3a2c47fdb73c81', 'Nguyễn Thị Thư', '2002-01-10', 'https://www.facebook.com/thiendi.hoang.5030', 3, '0346056637', 0),
 (17, 'H2000506', 'bbf566384d1e09f37e0b1845301d3c62', 'Lê Thanh Vy', NULL, NULL, 3, NULL, 0),
@@ -340,8 +341,8 @@ INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthd
 (24, '51900119', '32e52bea4a9c000291c04d834c0f1d2b', 'Lê Thành Đăng Khoa', '2001-04-17', 'https://www.facebook.com/khoalag174', 2, '0788765410', 0),
 (25, 'B1900124', '98e61dedb2dde05753af4d40ecf9e9db', 'Phạm Hoàng Long', NULL, NULL, 2, NULL, 0),
 (26, '31900474', 'da5a44a3a9d55058150dd4e2721550e0', 'Huỳnh Nguyễn Ngọc Minh', NULL, NULL, 2, NULL, 0),
-(27, '41900468', '9408bb53069de3d9aeadd1d401e0356f', 'Nguyễn Duy Khánh Minh', '2001-03-09', 'https://www.facebook.com/nguyenduykhanhminh6685', 2, '0862087931', 0),
-(28, '31901010', 'b35ff4ee9c13339a79a286c082df2f3a', 'Trầm Tuyết Ngân', NULL, NULL, 2, NULL, 0),
+(27, '41900468', '9408bb53069de3d9aeadd1d401e0356f', 'Nguyễn Duy Khánh Minh', '2001-03-09', 'https://www.facebook.com/nguyenduykhanhminh6685', 3, '0862087931', 0),
+(28, '31901010', 'b35ff4ee9c13339a79a286c082df2f3a', 'Trầm Tuyết Ngân', '2001-11-09', 'https://www.facebook.com/woominie/', 2, '0378154674', 0),
 (29, '81900546', '976a7aa94f4fc8b814ab2338efd9a9d4', 'Trần Hiếu Ngân', NULL, NULL, 2, NULL, 0),
 (30, 'A2000221', '5299de3b0b6c946845316b3d4db91c79', 'Nguyễn Như Ngọc', NULL, NULL, 2, NULL, 0),
 (31, '51900444', '59fd4766e5011211dbe84e7dbdbdcfca', 'Phạm Huỳnh Anh Tiến', NULL, NULL, 2, NULL, 0),
@@ -358,7 +359,7 @@ INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthd
 (42, '62000831', 'ae4fb3e73957ace0e1cfc16de7778673', 'Trần Phùng Hiếu Ngân', NULL, NULL, 2, NULL, 0),
 (43, '720H1569', 'ca20c062fa0090dca7069bebb2c8c103', 'Giang Tịnh Nghi', NULL, NULL, 2, NULL, 0),
 (44, '720H1575', 'b59aa4a33fa2c3b62acb3f3e95aa1c8e', 'Đỗ Uyên Nhi', NULL, NULL, 2, NULL, 0),
-(45, '32001095', '7c10837b21097b5b8f2c1742b0de7eda', 'Lê Thanh Thùy', NULL, NULL, 2, NULL, 0),
+(45, '32001095', '7c10837b21097b5b8f2c1742b0de7eda', 'Lê Thanh Thùy', '2002-01-15', 'https://www.facebook.com/profile.php?id=100027235023512', 2, '0376523632', 0),
 (46, '720H1224', 'e9d698af1f660c04196de0e73da97508', 'Bùi Thị Tố Trinh', '2002-11-01', 'https://www.facebook.com/trinh.to.9862273', 2, '0358729992', 0),
 (47, 'B2000218', '174300834bbe23e1e7bc6acf2045f8a6', 'Trầm Thị Quỳnh Tươi', NULL, NULL, 2, NULL, 0),
 (48, 'E20H0347', 'a2a2bea9bcf77c92a714ef3e669e2cdf', 'Phùng Lữ Thế Hoài', NULL, NULL, 2, NULL, 0);
