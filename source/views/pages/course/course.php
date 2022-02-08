@@ -19,6 +19,30 @@
     </div>
   </section>
 
+  <section class="section mb-3">
+    <div class="section-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card mb-2">
+            <div class="card-body">
+              <form action="Admin/Course" method="post" enctype="multipart/form-data">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="custom-file">
+                      <input type="file" name="file" class="custom-file-input" id="customFile">
+                      <label class="custom-file-label" for="customFile">Chọn file</label>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" name="importFileExcel"> Import File </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="section-body">
       <div class="row">
