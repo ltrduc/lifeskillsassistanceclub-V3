@@ -45,7 +45,7 @@
           </div>
         </div>
 
-        <div class="col-8">
+        <div class="col-md-8">
           <div class="card">
             <div class="card-header">
               <h4>DANH SÁCH MÔN HỌC</h4>
