@@ -75,7 +75,7 @@ class Position
     return ["status" => "error", "message" => "Đã xóa dữ liệu thất bại!"];
   }
 
-  public function eidtPosition($id_position, $name, $description)
+  public function updatePosition($id_position, $name, $description)
   {
     $id_position    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_position));
     $name           = mysqli_real_escape_string($this->db->link, $this->fm->validation($name));

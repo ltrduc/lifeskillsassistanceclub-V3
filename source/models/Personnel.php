@@ -123,7 +123,7 @@ class Personnel
     return ["status" => "error", "message" => "Đã xóa dữ liệu thất bại!"];
   }
 
-  public function eidtPersonnel($id_user, $id_student, $fullname)
+  public function updatePersonnel($id_user, $id_student, $fullname)
   {
     $id_user    = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_user));
     $id_student = strtoupper(mysqli_real_escape_string($this->db->link, $this->fm->validation($id_student)));

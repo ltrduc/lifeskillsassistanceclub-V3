@@ -60,7 +60,7 @@ class Team
     return ["status" => "error", "message" => "Đã xóa dữ liệu thất bại!"];
   }
 
-  public function eidtTeam($id_team, $name, $description)
+  public function updateTeam($id_team, $name, $description)
   {
     $id_team        = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_team));
     $name           = mysqli_real_escape_string($this->db->link, $this->fm->validation($name));

@@ -256,9 +256,7 @@ class Admin extends Controller
 
   public function DetailedCourse()
   {
-    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) ||
-      (!isset($_GET['semester']) || $_GET['semester'] == NULL) || (!isset($_GET['date']) || $_GET['date'] == NULL)
-    ) {
+    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL) || (!isset($_GET['date']) || $_GET['date'] == NULL)) {
       self::redirect("Course");
     }
 
@@ -548,7 +546,7 @@ class Admin extends Controller
         $id_user      = $_POST['id_user'];
         $id_student   = $_POST['id_student'];
         $fullname     = $_POST['fullname'];
-        $Notification = $this->Personnel->eidtPersonnel($id_user, $id_student, $fullname);
+        $Notification = $this->Personnel->updatePersonnel($id_user, $id_student, $fullname);
       }
     }
 
@@ -593,7 +591,7 @@ class Admin extends Controller
         $id_user        = $_POST['id_user'];
         $id_student     = $_POST['id_student'];
         $fullname       = $_POST['fullname'];
-        $Notification   = $this->Personnel->eidtPersonnel($id_user, $id_student, $fullname);
+        $Notification   = $this->Personnel->updatePersonnel($id_user, $id_student, $fullname);
       }
     }
 
@@ -706,7 +704,7 @@ class Admin extends Controller
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $name           = $_POST['name'];
       $description    = $_POST['description'];
-      $Notification   = $this->Team->eidtTeam($id_team, $name, $description);
+      $Notification   = $this->Team->updateTeam($id_team, $name, $description);
     }
 
     $this->view("layout", [
@@ -758,7 +756,7 @@ class Admin extends Controller
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $name         = $_POST['name'];
       $description  = $_POST['description'];
-      $Notification = $this->Position->eidtPosition($id_position, $name, $description);
+      $Notification = $this->Position->updatePosition($id_position, $name, $description);
     }
 
     $this->view("layout", [
