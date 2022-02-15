@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th2 08, 2022 lúc 09:57 AM
+-- Thời gian đã tạo: Th2 15, 2022 lúc 03:13 AM
 -- Phiên bản máy phục vụ: 10.5.12-MariaDB
 -- Phiên bản PHP: 7.3.32
 
@@ -73,6 +73,61 @@ CREATE TABLE `tbl_course` (
   `id_schoolyear` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `tbl_course`
+--
+
+INSERT INTO `tbl_course` (`id_course`, `id_subject`, `group`, `teacher`, `period`, `local`, `date`, `semester`, `id_schoolyear`) VALUES
+(1, 5, '01', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 06B', '2022-02-07', 'Học kỳ 2', 3),
+(2, 3, '5', 'Nguyễn Đức Lộc', 'SA:01', 'HT 10A', '2022-02-07', 'Học kỳ 2', 3),
+(3, 3, '05', 'Nguyễn Đức Lộc', 'SA:02', 'HT 10A', '2022-02-14', 'Học kỳ 2', 3),
+(4, 3, '06', 'Nguyễn Đức Lộc', 'CH:01', 'HT 10A', '2022-02-07', 'Học kỳ 2', 3),
+(5, 3, '06', 'Nguyễn Đức Lộc', 'CH:02', 'HT 10A', '2022-02-14', 'Học kỳ 2', 3),
+(6, 4, '05', 'Nguyễn Thị Nhung', 'SA:01', '[---]', '2022-02-07', 'Học kỳ 2', 3),
+(7, 4, '05', 'Nguyễn Thị Nhung', 'SA:02', '[---]', '2022-02-14', 'Học kỳ 2', 3),
+(8, 4, '06', 'Nguyễn Thị Diễm My', 'CH:01', '[---]', '2022-02-07', 'Học kỳ 2', 3),
+(9, 4, '06', 'Nguyễn Thị Diễm My', 'CH:02', '[---]', '2022-02-14', 'Học kỳ 2', 3),
+(10, 4, '01', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 10A', '2022-02-08', 'Học kỳ 2', 3),
+(11, 4, '01', 'Nguyễn Thị Diễm My', 'SA:02', 'HT 10A', '2022-02-15', 'Học kỳ 2', 3),
+(12, 4, '02', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-02-08', 'Học kỳ 2', 3),
+(13, 4, '02', 'Nguyễn Thị Diễm My', 'CH:02', 'HT 10A', '2022-02-15', 'Học kỳ 2', 3),
+(14, 3, '01', 'Nguyễn Đức Lộc', 'SA:01', 'HT 10A', '2022-02-09', 'Học kỳ 2', 3),
+(15, 3, '01', 'Nguyễn Đức Lộc', 'SA:02', 'HT 10A', '2022-02-16', 'Học kỳ 2', 3),
+(16, 5, '02', 'Nguyễn Thị Nhung', 'SA:01', 'HT 06B', '2022-02-09', 'Học kỳ 2', 3),
+(17, 5, '03', 'Nguyễn Thị Nhung', 'CH:01', 'HT 06B', '2022-02-09', 'Học kỳ 2', 3),
+(18, 3, '02', 'Nguyễn Đức Lộc', 'CH:01', 'HT 10A', '2022-02-09', 'Học kỳ 2', 3),
+(19, 3, '02', 'Nguyễn Đức Lộc', 'CH:02', 'HT 10A', '2022-02-16', 'Học kỳ 2', 3),
+(20, 4, '03', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-02-10', 'Học kỳ 2', 3),
+(21, 4, '03', 'Nguyễn Thị Nhung', 'SA:02', 'HT 10A', '2022-02-17', 'Học kỳ 2', 3),
+(22, 3, '03', 'Nguyễn Đức Lộc', 'CH:01', 'HT 10A', '2022-02-10', 'Học kỳ 2', 3),
+(23, 3, '03', 'Nguyễn Đức Lộc', 'CH:02', 'HT 10A', '2022-02-17', 'Học kỳ 2', 3),
+(24, 4, '04', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-02-11', 'Học kỳ 2', 3),
+(25, 4, '04', 'Nguyễn Thị Nhung', 'SA:02', 'HT 10A', '2022-02-18', 'Học kỳ 2', 3),
+(26, 3, '04', 'Nguyễn Đức Lộc', 'CH:01', 'HT 10A', '2022-02-11', 'Học kỳ 2', 3),
+(27, 3, '04', 'Nguyễn Đức Lộc', 'CH:02', 'HT 10A', '2022-02-18', 'Học kỳ 2', 3),
+(28, 4, '07', 'Nguyễn Thị Nhung', 'CH:01', '[---]', '2022-02-11', 'Học kỳ 2', 3),
+(29, 4, '07', 'Nguyễn Thị Nhung', 'CH:02', '[---]', '2022-02-18', 'Học kỳ 2', 3),
+(30, 12, '01', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 06B', '2022-02-14', 'Học kỳ 2', 3),
+(32, 12, '02', 'Nguyễn Thị Nhung', 'SA:01', 'HT 06B', '2022-02-16', 'Học kỳ 2', 3),
+(33, 12, '04', 'Nguyễn Thị Nhung', 'CH:01', 'HT 06B', '2022-02-16', 'Học kỳ 2', 3),
+(34, 12, '03', 'Nguyễn Thị Nhung', 'CH:01', 'HT 06B', '2022-02-17', 'Học kỳ 2', 3),
+(35, 5, '01', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-02-22', 'Học kỳ 2', 3),
+(36, 5, '01', 'Nguyễn Thị Nhung', 'SA:02', 'HT 10A', '2022-03-01', 'Học kỳ 2', 3),
+(37, 5, '02', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-02-22', 'Học kỳ 2', 3),
+(38, 5, '02', 'Nguyễn Thị Nhung', 'CH:02', 'HT 10A', '2022-03-01', 'Học kỳ 2', 3),
+(39, 5, '03', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 10A', '2022-02-23', 'Học kỳ 2', 3),
+(40, 5, '03', 'Nguyễn Thị Diễm My', 'SA:02', 'HT 10A', '2022-03-02', 'Học kỳ 2', 3),
+(41, 5, '04', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-02-23', 'Học kỳ 2', 3),
+(42, 5, '04', 'Nguyễn Thị Diễm My', 'CH:02', 'HT 10A', '2022-03-02', 'Học kỳ 2', 3),
+(43, 5, '05', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-02-24', 'Học kỳ 2', 3),
+(44, 5, '05', 'Nguyễn Thị Nhung', 'SA:02', 'HT 10A', '2022-03-03', 'Học kỳ 2', 3),
+(45, 5, '06', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-02-24', 'Học kỳ 2', 3),
+(46, 5, '06', 'Nguyễn Thị Nhung', 'CH:02', 'HT 10A', '2022-03-03', 'Học kỳ 2', 3),
+(47, 5, '07', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 10A', '2022-02-25', 'Học kỳ 2', 3),
+(48, 5, '07', 'Nguyễn Thị Diễm My', 'SA:02', 'HT 10A', '2022-03-04', 'Học kỳ 2', 3),
+(49, 5, '08', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-02-25', 'Học kỳ 2', 3),
+(50, 5, '08', 'Nguyễn Thị Diễm My', 'CH:02', 'HT 10A', '2022-03-04', 'Học kỳ 2', 3);
+
 -- --------------------------------------------------------
 
 --
@@ -92,7 +147,7 @@ CREATE TABLE `tbl_decentralization` (
 --
 
 INSERT INTO `tbl_decentralization` (`id_decentralization`, `id_user`, `admin`, `attendance`, `post`) VALUES
-(1, 1, 0, 0, 0),
+(1, 1, 1, 0, 0),
 (2, 2, 0, 0, 0),
 (3, 3, 0, 0, 0),
 (4, 4, 0, 0, 0),
@@ -100,7 +155,7 @@ INSERT INTO `tbl_decentralization` (`id_decentralization`, `id_user`, `admin`, `
 (6, 6, 0, 0, 0),
 (7, 7, 0, 0, 0),
 (8, 8, 0, 0, 0),
-(9, 9, 0, 0, 0),
+(9, 9, 1, 0, 0),
 (10, 10, 0, 0, 0),
 (11, 11, 0, 0, 0),
 (12, 12, 0, 0, 0),
@@ -259,6 +314,15 @@ CREATE TABLE `tbl_schoolyear` (
   `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `tbl_schoolyear`
+--
+
+INSERT INTO `tbl_schoolyear` (`id_schoolyear`, `schoolyear`, `note`) VALUES
+(1, '2019-2020', ''),
+(2, '2020-2021', ''),
+(3, '2021-2022', '');
+
 -- --------------------------------------------------------
 
 --
@@ -270,6 +334,24 @@ CREATE TABLE `tbl_subject` (
   `subject` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tbl_subject`
+--
+
+INSERT INTO `tbl_subject` (`id_subject`, `subject`, `note`) VALUES
+(1, 'Hòa nhập Văn hóa TDTU', ''),
+(2, 'Kỹ năng 5S và Kaizen', ''),
+(3, 'Kỹ năng Tự học', ''),
+(4, 'Thái độ sống 1', ''),
+(5, 'Thái độ sống 2', ''),
+(6, 'Kỹ năng giao tiếp thuyết trình', ''),
+(7, 'Tư duy phản biện', ''),
+(8, 'Kỹ năng ra quyết định', ''),
+(9, 'Thực tập chuyển hóa  cảm xúc EQ', ''),
+(10, 'Xây dựng Team &amp; lãnh đạo', ''),
+(11, 'Khởi nghiệp', ''),
+(12, 'Thái độ sống 3', '');
 
 -- --------------------------------------------------------
 
@@ -490,7 +572,7 @@ ALTER TABLE `tbl_borrow`
 -- AUTO_INCREMENT cho bảng `tbl_course`
 --
 ALTER TABLE `tbl_course`
-  MODIFY `id_course` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_course` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_decentralization`
@@ -544,13 +626,13 @@ ALTER TABLE `tbl_schedule`
 -- AUTO_INCREMENT cho bảng `tbl_schoolyear`
 --
 ALTER TABLE `tbl_schoolyear`
-  MODIFY `id_schoolyear` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_schoolyear` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_subject`
 --
 ALTER TABLE `tbl_subject`
-  MODIFY `id_subject` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_subject` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_team`

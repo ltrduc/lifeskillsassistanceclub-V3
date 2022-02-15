@@ -268,12 +268,28 @@ class Admin extends Controller
     $date           = $_GET['date'];
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $id_course    = $_POST['id_course'];
-      $Notification = $this->Course->deleteDetailedCourse($id_course);
+      if (isset($_POST['updateDetailedCourse'])) {
+        $id_course      = $_POST['id_course'];
+        $id_subject     = $_POST['id_subject'];
+        $group          = $_POST['group'];
+        $teacher        = $_POST['teacher'];
+        $period         = $_POST['period'];
+        $local          = $_POST['local'];
+        $date           = $_POST['date'];
+        $semester       = $_POST['semester'];
+        $id_schoolyear  = $_POST['id_schoolyear'];
+        $Notification   = $this->Course->updateDetailedCourse($id_course, $id_subject, $group, $teacher, $period, $local, $date, $semester, $id_schoolyear);
+      }
+      if (isset($_POST['deleteDetailedCourse'])) {
+        $id_course    = $_POST['id_course'];
+        $Notification = $this->Course->deleteDetailedCourse($id_course);
+      }
     }
 
     $this->view("layout", [
       "page"                => "course/detailed",
+      "ListSubject"         => $this->Subject->getSubject(),
+      "ListSchoolYear"      => $this->SchoolYear->getSchoolYear(),
       "ListDetailedCourse"  => $this->Course->getDetailedCourse($id_schoolyear, $semester, $date),
       "Notification"        => $Notification,
     ]);

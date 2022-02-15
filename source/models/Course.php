@@ -77,6 +77,30 @@ class Course
     return $result;
   }
 
+  public function updateDetailedCourse($id_course, $id_subject, $group, $teacher, $period, $local, $date, $semester, $id_schoolyear)
+  {
+    $id_course      = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_course));
+    $id_subject     = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_subject));
+    $group          = mysqli_real_escape_string($this->db->link, $this->fm->validation($group));
+    $teacher        = mysqli_real_escape_string($this->db->link, $this->fm->validation($teacher));
+    $period         = mysqli_real_escape_string($this->db->link, $this->fm->validation($period));
+    $local          = mysqli_real_escape_string($this->db->link, $this->fm->validation($local));
+    $date           = mysqli_real_escape_string($this->db->link, $this->fm->validation($date));
+    $semester       = mysqli_real_escape_string($this->db->link, $this->fm->validation($semester));
+    $id_schoolyear  = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_schoolyear));
+
+    if (empty($id_course) || empty($id_subject) || empty($group) || empty($teacher) || empty($period) || empty($local) || empty($date) || empty($semester) || empty($id_schoolyear)) {
+      return ["status" => "error", "message" => "Vui lòng nhập đầy đủ dữ liệu!"];
+    }
+
+    $query  = "UPDATE `tbl_course` SET `id_subject`='$id_subject',`group`='$group',`teacher`='$teacher',`period`='$period',`local`='$local',`date`='$date',`semester`='$semester',`id_schoolyear`='$id_schoolyear' WHERE `id_course`='$id_course'";
+    $result = $this->db->update($query);
+
+    if ($result) return ["status" => "success", "message" => "Đã cập nhật dữ liệu thành công!"];
+
+    return ["status" => "error", "message" => "Đã cập nhật dữ liệu thất bại!"];
+  }
+
   public function deleteDetailedCourse($id_course)
   {
     $id_course      = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_course));

@@ -30,6 +30,18 @@ function deleteCourse(id_schoolyear, semester, date) {
   document.getElementById("delete-date").value = date;
 }
 
+function updateDetailedCourse(id_course, id_subject, group, teacher, period, local, date, semester, id_schoolyear) {
+  document.getElementById("update-id_course").value = id_course;
+  document.getElementById("update-id_subject").value = id_subject;
+  document.getElementById("update-group").value = group;
+  document.getElementById("update-teacher").value = teacher;
+  document.getElementById("update-period").value = period;
+  document.getElementById("update-local").value = local;
+  document.getElementById("update-date").value = date;
+  document.getElementById("update-semester").value = semester;
+  document.getElementById("update-id_schoolyear").value = id_schoolyear;
+}
+
 function deleteDetailedCourse(id_course, subject, group) {
   document.getElementById('delete-info-subject').innerHTML = subject;
   document.getElementById('delete-info-group').innerHTML = group;
