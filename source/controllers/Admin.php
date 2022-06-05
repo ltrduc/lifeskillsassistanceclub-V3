@@ -88,7 +88,7 @@ class Admin extends Controller
       } elseif (empty($_POST['attendance'])) {
         $Notification = ["status" => "error", "message" => "Chưa có thành viên nào điểm danh!"];
       } else {
-        foreach ($_POST['attendance'] as $id => $attendance) {;
+        foreach ($_POST['attendance'] as $id => $attendance) {
           $id_user        = $_POST['id_user'][$id];
           $id_schoolyear  = $_POST['id_schoolyear'];
           $semester       = $_POST['semester'];
