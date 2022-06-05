@@ -83,18 +83,53 @@ class Admin extends Controller
     $Notification = [];
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      if (empty($_POST['id_schoolyear']) || empty($_POST['semester']) || empty($_POST['date']) || empty($_POST['shift'])) {
+      if (empty($_POST['id_schoolyear']) || empty($_POST['semester']) || empty($_POST['date'])) {
         $Notification = ["status" => "error", "message" => "Vui lòng nhập đầy đủ dữ liệu!"];
-      } elseif (empty($_POST['attendance'])) {
+      } elseif (empty($_POST['shift1']) && empty($_POST['shift2']) && empty($_POST['shift3']) && empty($_POST['shift4'])) {
         $Notification = ["status" => "error", "message" => "Chưa có thành viên nào điểm danh!"];
       } else {
-        foreach ($_POST['attendance'] as $id => $attendance) {
-          $id_user        = $_POST['id_user'][$id];
-          $id_schoolyear  = $_POST['id_schoolyear'];
-          $semester       = $_POST['semester'];
-          $date           = $_POST['date'];
-          $shift          = $_POST['shift'];
-          $Notification   = $this->Attendance->setAttendance($id_user, $id_schoolyear, $semester, $date, $shift, $attendance);
+        if (!empty($_POST['shift1'])) {
+          foreach ($_POST['shift1'] as $id => $shift1) {
+            $id_user        = $_POST['id_user'][$id];
+            $id_schoolyear  = $_POST['id_schoolyear'];
+            $semester       = $_POST['semester'];
+            $date           = $_POST['date'];
+            $attendance     = $_POST['attendance'];
+            $Notification   = $this->Attendance->setAttendance($id_user, $id_schoolyear, $semester, $date, $shift1, $attendance);
+          }
+        }
+  
+        if (!empty($_POST['shift2'])) {
+          foreach ($_POST['shift2'] as $id => $shift2) {
+            $id_user        = $_POST['id_user'][$id];
+            $id_schoolyear  = $_POST['id_schoolyear'];
+            $semester       = $_POST['semester'];
+            $date           = $_POST['date'];
+            $attendance     = $_POST['attendance'];
+            $Notification   = $this->Attendance->setAttendance($id_user, $id_schoolyear, $semester, $date, $shift2, $attendance);
+          }
+        }
+  
+        if (!empty($_POST['shift3'])) {
+          foreach ($_POST['shift3'] as $id => $shift3) {
+            $id_user        = $_POST['id_user'][$id];
+            $id_schoolyear  = $_POST['id_schoolyear'];
+            $semester       = $_POST['semester'];
+            $date           = $_POST['date'];
+            $attendance     = $_POST['attendance'];
+            $Notification   = $this->Attendance->setAttendance($id_user, $id_schoolyear, $semester, $date, $shift3, $attendance);
+          }
+        }
+  
+        if (!empty($_POST['shift4'])) {
+          foreach ($_POST['shift4'] as $id => $shift4) {
+            $id_user        = $_POST['id_user'][$id];
+            $id_schoolyear  = $_POST['id_schoolyear'];
+            $semester       = $_POST['semester'];
+            $date           = $_POST['date'];
+            $attendance     = $_POST['attendance'];
+            $Notification   = $this->Attendance->setAttendance($id_user, $id_schoolyear, $semester, $date, $shift4, $attendance);
+          }
         }
       }
     }

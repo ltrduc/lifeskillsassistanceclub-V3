@@ -56,17 +56,7 @@
                   <input type="date" class="form-control" name="date" tabindex="3" required autofocus>
                   <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
                 </div>
-                <div class="form-group">
-                  <label>Ca trực</label>
-                  <select class="form-control selectric" name="shift" tabindex="4" required autofocus>
-                    <option value="" class="font-weight-bold">Chọn ca trực</option>
-                    <option value="Ca 1">Ca 1</option>
-                    <option value="Ca 2">Ca 2</option>
-                    <option value="Ca 3">Ca 3</option>
-                    <option value="Ca 4">Ca 4</option>
-                  </select>
-                  <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
-                </div>
+                <input type="hidden" class="form-control" name="attendance" value="Present">
                 <div class="form-group text-right">
                   <button class="btn btn-success mr-1" tabindex="5" type="submit">Điểm danh buổi trực</button>
                 </div>
@@ -99,37 +89,41 @@
                     display: block;
                   }
                 </style>
+                <table class="table table-md table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>MSSV</th>
+                      <th>Họ và tên</th>
+                      <th class="text-center">Ca 1</th>
+                      <th class="text-center">Ca 2</th>
+                      <th class="text-center">Ca 3</th>
+                      <th class="text-center">Ca 4</th>                    
+                    </tr>
+                  </thead>
+                </table>
                 <div class="table-responsive table-wrapper-scroll-y-attendance attendance-scrollbar">
                   <table class="table table-md table-bordered table-hover" id="Attendance-Table">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>MSSV</th>
-                        <th>Họ và tên</th>
-                        <th class="text-center">Có mặt</th>
-                        <th class="text-center">Trễ</th>
-                        <th class="text-center">Vắng</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      $counter = 0;
-                      $i = 1;
-                      if ($data['ListPersonnel']) {
-                        while ($value = $data['ListPersonnel']->fetch_assoc()) { ?>
-                          <tr class="Attendance-tr">
-                            <td><?php echo $i++; ?></td>
-                            <td><?php echo $value['id_student']; ?><input type="hidden" name="id_user[<?php echo $counter ?>]" value="<?php echo $value['id_user']; ?>"></td>
-                            <td><?php echo $value['fullname']; ?></td>
-                            <td class="text-center"><input type="radio" name="attendance[<?php echo $counter ?>]" value="Present"></td>
-                            <td class="text-center"><input type="radio" name="attendance[<?php echo $counter ?>]" value="Late"></td>
-                            <td class="text-center"><input type="radio" name="attendance[<?php echo $counter ?>]" value="Absent"></td>
-                          </tr>
-                      <?php $counter++;
-                        }
-                      } ?>
-                    </tbody>
-                  </table>
+                      <tbody>
+                        <?php
+                        $counter = 0;
+                        $i = 1;
+                        if ($data['ListPersonnel']) {
+                          while ($value = $data['ListPersonnel']->fetch_assoc()) { ?>
+                            <tr class="Attendance-tr">
+                              <td><?php echo $i++; ?></td>
+                              <td><?php echo $value['id_student']; ?><input type="hidden" name="id_user[<?php echo $counter ?>]" value="<?php echo $value['id_user']; ?>"></td>
+                              <td><?php echo $value['fullname']; ?></td>
+                              <td class="text-center"><input type="checkbox" name="shift1[<?php echo $counter ?>]" value="Ca 1"></td>
+                              <td class="text-center"><input type="checkbox" name="shift2[<?php echo $counter ?>]" value="Ca 2"></td>
+                              <td class="text-center"><input type="checkbox" name="shift3[<?php echo $counter ?>]" value="Ca 3"></td>
+                              <td class="text-center"><input type="checkbox" name="shift4[<?php echo $counter ?>]" value="Ca 4"></td>
+                            </tr>
+                        <?php $counter++;
+                          }
+                        } ?>
+                      </tbody>
+                    </table>
                 </div>
               </div>
             </div>
