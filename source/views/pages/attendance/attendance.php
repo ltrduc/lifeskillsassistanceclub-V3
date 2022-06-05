@@ -92,13 +92,13 @@
                 <table class="table table-md table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>MSSV</th>
-                      <th>Họ và tên</th>
-                      <th class="text-center">Ca 1</th>
-                      <th class="text-center">Ca 2</th>
-                      <th class="text-center">Ca 3</th>
-                      <th class="text-center">Ca 4</th>                    
+                      <th style="width: 5%">#</th>
+                      <th style="width: 15%">MSSV</th>
+                      <th style="width: 30%">Họ và tên</th>
+                      <th style="width: 8%" class="text-center">Ca 1</th>
+                      <th style="width: 8%" class="text-center">Ca 2</th>
+                      <th style="width: 8%" class="text-center">Ca 3</th>
+                      <th style="width: 8%" class="text-center">Ca 4</th>                    
                     </tr>
                   </thead>
                 </table>
@@ -111,13 +111,13 @@
                         if ($data['ListPersonnel']) {
                           while ($value = $data['ListPersonnel']->fetch_assoc()) { ?>
                             <tr class="Attendance-tr">
-                              <td><?php echo $i++; ?></td>
-                              <td><?php echo $value['id_student']; ?><input type="hidden" name="id_user[<?php echo $counter ?>]" value="<?php echo $value['id_user']; ?>"></td>
-                              <td><?php echo $value['fullname']; ?></td>
-                              <td class="text-center"><input type="checkbox" name="shift1[<?php echo $counter ?>]" value="Ca 1"></td>
-                              <td class="text-center"><input type="checkbox" name="shift2[<?php echo $counter ?>]" value="Ca 2"></td>
-                              <td class="text-center"><input type="checkbox" name="shift3[<?php echo $counter ?>]" value="Ca 3"></td>
-                              <td class="text-center"><input type="checkbox" name="shift4[<?php echo $counter ?>]" value="Ca 4"></td>
+                              <td style="width: 5%"><?php echo $i++; ?></td>
+                              <td style="width: 15%"><?php echo $value['id_student']; ?><input type="hidden" name="id_user[<?php echo $counter ?>]" value="<?php echo $value['id_user']; ?>"></td>
+                              <td style="width: 30%"><?php echo $value['fullname']; ?></td>
+                              <td style="width: 8%" class="text-center"><input type="checkbox" name="shift1[<?php echo $counter ?>]" value="Ca 1"></td>
+                              <td style="width: 8%" class="text-center"><input type="checkbox" name="shift2[<?php echo $counter ?>]" value="Ca 2"></td>
+                              <td style="width: 8%" class="text-center"><input type="checkbox" name="shift3[<?php echo $counter ?>]" value="Ca 3"></td>
+                              <td style="width: 8%" class="text-center"><input type="checkbox" name="shift4[<?php echo $counter ?>]" value="Ca 4"></td>
                             </tr>
                         <?php $counter++;
                           }
