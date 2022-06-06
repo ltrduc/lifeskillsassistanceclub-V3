@@ -29,12 +29,12 @@ class Session
     self::init();
     if (self::get("login") == false) {
       self::destroy();
-      self::redirect("/../Auth/Login");
+      self::redirect("/../Home/Index");
     }
 
     if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 1200)) {
       self::destroy();
-      self::redirect("/../Auth/Login");
+      self::redirect("/../Home/Index");
     }
 
     $_SESSION['last_activity'] = time();
@@ -51,7 +51,7 @@ class Session
   public static function destroy()
   {
     session_destroy();
-    self::redirect("/../Auth/Login");
+    self::redirect("/../Home/Index");
   }
 
   public static function redirect($url)

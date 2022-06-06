@@ -23,7 +23,7 @@ class Auth extends Controller
       $Notification = $this->Login->myLogin($id_student, $password);
     }
 
-    $this->view("login", ["Notification"  => $Notification,]);
+    $this->viewAuth("login", ["Notification"  => $Notification,]);
   }
 
   /*

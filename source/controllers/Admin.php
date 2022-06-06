@@ -58,7 +58,7 @@ class Admin extends Controller
   */
   public function Home()
   {
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"                => "home/dashboard",
       "CountPost"           => $this->Dashboard->Post(),
       "CountCollaborate"    => $this->Dashboard->Collaborate(),
@@ -134,7 +134,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"            => "attendance/attendance",
       "ListPersonnel"   => $this->Personnel->getPersonnel(),
       "ListSchoolYear"  => $this->SchoolYear->getSchoolYear(),
@@ -176,7 +176,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"          => "schedule/schedule",
       "Monday"        => $this->Schedule->getSchedule(),
       "Tuesday"       => $this->Schedule->getSchedule(),
@@ -204,7 +204,7 @@ class Admin extends Controller
       $Notification   = $this->Statistics->deleteStatistics($id_schoolyear, $semester);
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"            => "attendance-statistics/statistics",
       "ListStatistics"  =>  $this->Statistics->getStatistics(),
       "Notification"    => $Notification,
@@ -219,7 +219,7 @@ class Admin extends Controller
     $id_schoolyear  = $_GET['id_schoolyear'];
     $semester       = $_GET['semester'];
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"                  => "attendance-statistics/general",
       "ListGeneralStatistics" => $this->Statistics->getGeneralStatistics($id_schoolyear, $semester),
       "id_schoolyear"         => $id_schoolyear,
@@ -242,7 +242,7 @@ class Admin extends Controller
       $Notification   = $this->Statistics->deleteDetailedStatistics($id_attendance);
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"                    => "attendance-statistics/detailed",
       "ListDetailedStatistics"  => $this->Statistics->getDetailedStatistics($id_schoolyear, $semester),
       "id_schoolyear"           => $id_schoolyear,
@@ -280,7 +280,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"            => "course/course",
       "ListSubject"     => $this->Subject->getSubject(),
       "ListCourse"      => $this->Course->getCourse(),
@@ -319,7 +319,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"                => "course/detailed",
       "ListSubject"         => $this->Subject->getSubject(),
       "ListSchoolYear"      => $this->SchoolYear->getSchoolYear(),
@@ -357,7 +357,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"            => "subject/subject",
       "ListSubject"     => $this->Subject->getSubject(),
       "Notification"    => $Notification,
@@ -393,7 +393,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"            => "school-year/school-year",
       "ListSchoolYear"  => $this->SchoolYear->getSchoolYear(),
       "Notification"    => $Notification,
@@ -429,7 +429,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"            => "device/device-group",
       "ListDeviceGroup" => $this->Device->getDeviceGroup(),
       "Notification"    => $Notification,
@@ -464,7 +464,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"            => "device/device",
       "ListDevice"      => $this->Device->getDevice(),
       "ListDeviceGroup" => $this->Device->getDeviceGroup(),
@@ -498,7 +498,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"                  => "device/device-statistics",
       "ListDevice"            => $this->Device->getDevice(),
       "ListDeviceStatistics"  => $this->Device->getDeviceStatistics(),
@@ -548,7 +548,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"          => "borrow/borrow",
       "ListBorrow"    => $this->Borrow->getBorrow(),
       "Notification"  => $Notification,
@@ -585,7 +585,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"          => "member/member",
       "ListMember"    => $this->Personnel->getMember(),
       "ListTeam"      => $this->Team->getTeam(),
@@ -599,7 +599,7 @@ class Admin extends Controller
 
     $Notification = [];
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"          => "member/detailed",
       "ListMember"    => $this->Personnel->getMember(),
       "Notification"  => $Notification,
@@ -630,7 +630,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"            => "collaborate/collaborate",
       "ListCollaborate" => $this->Personnel->getCollaborate(),
       "Notification"    => $Notification,
@@ -643,7 +643,7 @@ class Admin extends Controller
 
     $Notification = [];
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"            => "collaborate/detailed",
       "ListCollaborate" => $this->Personnel->getCollaborate(),
       "Notification"    => $Notification,
@@ -659,7 +659,7 @@ class Admin extends Controller
       $Notification = $this->Recruitment->deleteRecruitment();
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"            => "recruit-member/recruit",
       "ListRecruitment" => $this->Recruitment->getRecruitment(),
       "Notification"    => $Notification,
@@ -689,7 +689,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"          => "organization/executive",
       "ListExecutive" => $this->Executive->getExecutive(),
       "ListMember"    => $this->Personnel->getMember(),
@@ -721,7 +721,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"          => "organization/team/team",
       "ListTeam"      => $this->Team->getTeam(),
       "Notification"  => $Notification,
@@ -742,7 +742,7 @@ class Admin extends Controller
       $Notification   = $this->Team->updateTeam($id_team, $name, $description);
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"          => "organization/team/edit",
       "ListTeamId"    =>  $this->Team->getTeamId($id_team),
       "Notification"  =>  $Notification,
@@ -772,7 +772,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"          => "organization/position/position",
       "ListPosition"  => $this->Position->getPosition(),
       "Notification"  => $Notification,
@@ -794,7 +794,7 @@ class Admin extends Controller
       $Notification = $this->Position->updatePosition($id_position, $name, $description);
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"            => "organization/position/edit",
       "ListPositionId"  =>  $this->Position->getPositionId($id_position),
       "Notification"    =>  $Notification,
@@ -836,7 +836,7 @@ class Admin extends Controller
       }
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"                  => "decentralization/decentralization",
       "ListTeam"              => $this->Team->getTeam(),
       "ListPersonnel"         => $this->Personnel->getPersonnel(),
@@ -856,7 +856,7 @@ class Admin extends Controller
       $Notification   = $this->Password->resetPassword($id_user);
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"          => "reset-password/reset-password",
       "ListPersonnel" =>  $this->Personnel->getPersonnel(),
       "Notification"  =>  $Notification,
@@ -875,7 +875,7 @@ class Admin extends Controller
       $Notification   = $this->Password->ChangePassword($id_user, $oldPassword, $newPassword, $reNewPassword);
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"          => "change-password/change-password",
       "Notification"  =>  $Notification,
     ]);
@@ -899,7 +899,7 @@ class Admin extends Controller
       $Notification   = $this->Profile->updateProfile($id_user, $fullname, $phone, $birthday, $facebook);
     }
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"          => "profile/profile",
       "Profile"       =>  $this->Profile->getProfile($id_user),
       "Notification"  =>  $Notification,
@@ -915,7 +915,7 @@ class Admin extends Controller
   {
     $Notification     = [];
 
-    $this->view("layout", [
+    $this->viewAdmin("layout", [
       "page"          => "software-information/software-information",
       "Notification"  =>  $Notification,
     ]);
