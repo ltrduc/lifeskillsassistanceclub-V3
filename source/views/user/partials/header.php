@@ -72,9 +72,15 @@
                 href="/Team/Index">Bộ phận
                 chức năng</a>
             </li>
-            <li class="nav-item btn-contact-us pl-3 pl-lg-0">
-              <button class="btn btn-info" data-toggle="modal" data-target="#login">Đăng nhập</button>
+            <?php if (Session::checkSessionUiUser() == false) {?>
+              <li class="nav-item btn-contact-us pl-3 pl-lg-0">
+              <button class="btn btn-primary pt-2 pb-2" data-toggle="modal" data-target="#login">Đăng nhập</button>
             </li>
+            <?php } else { ?>
+              <li class="nav-item btn-contact-us pl-3 pl-lg-0">
+              <a href="/Admin/Home" class="btn btn-primary pt-2 pb-2">Truy cập hệ thống</a>
+            </li>
+            <?php } ?>
           </ul>
         </div>
       </div>

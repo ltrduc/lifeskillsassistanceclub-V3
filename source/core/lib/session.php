@@ -24,6 +24,24 @@ class Session
     return isset($_SESSION[$key]) ? $_SESSION[$key] : false;
   }
 
+  public static function checkSessionUiUser()
+  {
+    self::init();
+    if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity'] > 1200)) {
+      self::destroy();
+      self::redirect("/../Home/Index");
+    }
+    $_SESSION['last_activity'] = time();
+
+    if (self::get("login") == false) {
+      return false;
+    }
+
+    if (self::get("login") == true) {
+      return true;
+    }
+  }
+
   public static function checkSession()
   {
     self::init();
