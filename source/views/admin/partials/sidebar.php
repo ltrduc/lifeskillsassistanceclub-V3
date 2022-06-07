@@ -11,6 +11,9 @@
       <li class="dropdown">
         <a href="Admin/Home" class="nav-link"><i data-feather="monitor"></i><span>Trang chủ</span></a>
       </li>
+      <li class="dropdown">
+        <a href="/" class="nav-link"><i data-feather="cast"></i><span>Trang người dùng</span></a>
+      </li>
       <li class="menu-header">Thao tác quản lý</li>
       <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="calendar"></i><span>Quản lý lịch trực</span></a>
@@ -66,6 +69,9 @@
       </li>
       <li class="dropdown">
         <a href="Admin/ResetPassword" class="nav-link"><i data-feather="package"></i><span>Đặt lại mật khẩu</span></a>
+      </li>
+      <li class="dropdown">
+        <a href="Auth/Logout" class="nav-link"><i data-feather="log-out"></i><span>Đăng xuất</span></a>
       </li>
       <li class="menu-header">Thao tác khác</li>
       <li><a class="nav-link" href="Admin/SoftwareInformation"><i data-feather="sliders"></i><span>Thông tin phần mềm</span></a></li>
