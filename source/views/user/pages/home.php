@@ -28,14 +28,16 @@
                         <div class="card-body p-0">
                             <div class="bg-warning text-center card-contents">
                                 <div class="card-image">
-                                    <img src="source/public/user/images/Group108.svg" class="case-studies-card-img" alt="">
+                                    <img src="source/public/user/images/Group108.svg" class="case-studies-card-img"
+                                        alt="">
                                 </div>
                                 <div class="card-desc-box d-flex align-items-center justify-content-around">
                                     <div>
                                         <h6 class="text-white pb-2 px-3"
                                             style="font-family: Arial, Helvetica, sans-serif;">Bạn muốn hiểu
                                             rõ về <br> Ban Hành chính</h6>
-                                        <button class="btn btn-white">Xem chi tiết</button>
+                                        <button class="btn btn-white" data-toggle="collapse"
+                                            data-target="#administrative">Xem chi tiết</button>
                                     </div>
                                 </div>
                             </div>
@@ -52,14 +54,16 @@
                         <div class="card-body p-0">
                             <div class="bg-success text-center card-contents">
                                 <div class="card-image">
-                                    <img src="source/public/user/images/Group115.svg" class="case-studies-card-img" alt="">
+                                    <img src="source/public/user/images/Group115.svg" class="case-studies-card-img"
+                                        alt="">
                                 </div>
                                 <div class="card-desc-box d-flex align-items-center justify-content-around">
                                     <div>
                                         <h6 class="text-white pb-2 px-3"
                                             style="font-family: Arial, Helvetica, sans-serif;">Bạn muốn hiểu
                                             rõ về <br> Ban Nhân Sự</h6>
-                                        <button class="btn btn-white">Xem chi tiết</button>
+                                        <button class="btn btn-white" data-toggle="collapse"
+                                            data-target="#personnel">Xem chi tiết</button>
                                     </div>
                                 </div>
                             </div>
@@ -76,14 +80,16 @@
                         <div class="card-body p-0">
                             <div class="bg-violet text-center card-contents">
                                 <div class="card-image">
-                                    <img src="source/public/user/images/Group126.svg" class="case-studies-card-img" alt="">
+                                    <img src="source/public/user/images/Group126.svg" class="case-studies-card-img"
+                                        alt="">
                                 </div>
                                 <div class="card-desc-box d-flex align-items-center justify-content-around">
                                     <div>
                                         <h6 class="text-white pb-2 px-3"
                                             style="font-family: Arial, Helvetica, sans-serif;">Bạn muốn hiểu
                                             rõ về <br> Ban Truyền thông & Sự kiện</h6>
-                                        <button class="btn btn-white">Xem chi tiết</button>
+                                        <button class="btn btn-white" data-toggle="collapse" data-target="#media">Xem
+                                            chi tiết</button>
                                     </div>
                                 </div>
                             </div>
@@ -93,6 +99,116 @@
                                     truyền thông
                                 </p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!-- Ban hành chính -->
+                <section class="features-overview collapse" id="administrative">
+            <div class="row mb-5 mt-3">
+                <div class="col-md-7">
+                    <div class="row align-items-center pt-0">
+                        <div class="col-12 grid-margin grid-margin-lg-0" data-aos="fade-right">
+                            <h5 class="m-0 pt-3" style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">
+                                BAN HÀNH CHÍNH
+                            </h5>
+                            <p class="py-2 m-0 text-muted">
+                                Hỗ trợ nhập liệu, thống kê tình hình điểm danh từ ban nhân sự, hỗ trợ tiếp nhận các
+                                vấn đề của sinh viên cùng với thư ký/giáo vụ của bộ môn khi có sự phân công.
+                            </p>
+                            <p class="py-2 m-0 text-muted">
+                                Hỗ trợ giảng viên trong việc nhập liệu, thống kê,… khi có yêu cầu và được sự đồng ý
+                                của Trưởng ban và Ban chủ nhiệm.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="row align-items-center mb-5">
+                        <div class="col-6 text-center flex-item grid-margin mb-0" data-aos="fade-right">
+                            <img src="source/public/user/images/banner/banner5.jpg"
+                                style="border-radius: 5px; box-shadow: 0 0 30px 0 rgb(0 0 0 / 20%); width: 100%;"
+                                class="img-fluid">
+                        </div>
+                        <div class="col-6 p-0 text-center flex-item grid-margin mb-0" data-aos="fade-left">
+                            <img src="source/public/user/images/banner/banner10.jpg"
+                                style="border-radius: 5px; box-shadow: 0 0 30px 0 rgb(0 0 0 / 20%); width: 100%;"
+                                class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ban nhân sự -->
+        <section class="features-overview collapse" id="personnel">
+            <div class="row mb-5 mt-3">
+                <div class="col-md-5">
+                    <div class="row align-items-center mb-5">
+                        <div class="col-6 p-0 text-center flex-item grid-margin mb-0" data-aos="fade-left">
+                            <img src="source/public/user/images/banner/banner11.jpg"
+                                style="border-radius: 5px; box-shadow: 0 0 30px 0 rgb(0 0 0 / 20%); width: 100%;"
+                                class="img-fluid">
+                        </div>
+                        <div class="col-6 text-center flex-item grid-margin mb-0" data-aos="fade-right">
+                            <img src="source/public/user/images/banner/banner8.jpg"
+                                style="border-radius: 5px; box-shadow: 0 0 30px 0 rgb(0 0 0 / 20%); width: 100%;"
+                                class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="row align-items-center pt-0">
+                        <div class="col-12 grid-margin grid-margin-lg-0" data-aos="fade-right">
+                            <h5 class="m-0 pt-3" style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">
+                                BAN NHÂN SỰ
+                            </h5>
+                            <p class="py-2 m-0 text-muted">
+                                Hỗ trợ cho các lớp học kỹ năng, chuẩn bị các dụng cụ, vật dụng; điều phối, giám sát,
+                                quản lý tình hình lớp học; hỗ trợ cho giảng viên/báo cáo viên đứng lớp. Hỗ trợ giảng
+                                viên trong quá trình đứng lớp khi có sự phân công.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ban truyền thông -->
+        <section class="features-overview collapse" id="media">
+            <div class="row mb-5 mt-3">
+                <div class="col-md-7">
+                    <div class="row align-items-center pt-0">
+                        <div class="col-12 grid-margin grid-margin-lg-0" data-aos="fade-right">
+                            <h5 class="m-0 pt-3" style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">
+                                BAN TRUYỀN THÔNG & SỰ KIỆN
+                            </h5>
+                            <p class="py-2 m-0 text-muted">
+                                Xây dựng kế hoạch và tổ chức các buổi chia sẻ, hoạt động ngoại khóa, thiện nguyện, v.v
+                                cho
+                                câu lạc bộ.
+                            </p>
+                            <p class="py-2 m-0 text-muted">
+                                Chịu trách nhiệm chính về truyền thông cho câu lạc bộ. Quản lý Fanpage của câu lạc bộ,
+                                cung cấp hình ảnh của đội, viết bài, đưa thông tin về các kỹ năng sống, kỹ năng bổ trợ
+                                đến gần với sinh viên.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="row align-items-center mb-5">
+                        <div class="col-6 text-center flex-item grid-margin mb-0" data-aos="fade-right">
+                            <img src="source/public/user/images/banner/banner6.jpg"
+                                style="border-radius: 5px; box-shadow: 0 0 30px 0 rgb(0 0 0 / 20%); width: 100%;"
+                                class="img-fluid">
+                        </div>
+                        <div class="col-6 p-0 text-center flex-item grid-margin mb-0" data-aos="fade-left">
+                            <img src="source/public/user/images/banner/banner7.jpg"
+                                style="border-radius: 5px; box-shadow: 0 0 30px 0 rgb(0 0 0 / 20%); width: 100%;"
+                                class="img-fluid">
                         </div>
                     </div>
                 </div>
