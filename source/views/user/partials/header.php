@@ -48,7 +48,7 @@
               <div class="navbar-collapse-logo">
                 <img src="source/public/user/images/logo/logo.png" style="width: 120px;" alt="">
               </div>
-              <button class="navbar-toggler close-button" type="button" data-toggle="collapse"
+              <button class="navbar-toggler close-button p-0" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="mdi mdi-close navbar-toggler-icon pl-5"></span>
