@@ -8,8 +8,97 @@
 
 <div class="content-wrapper pb-1">
     <div class="container">
-        <!-- Ban hành chính -->
-        <section class="features-overview collapse" id="administrative">
+        <!-- Ban hoạt động -->
+        <section class="case-studies" id="team">
+            <div class="row grid-margin">
+                <div class="col-12 text-center pb-4 mt-4">
+                    <h2 style="font-family: Arial, Helvetica, sans-serif;">Bộ phận chức năng</h2>
+                    <h6 class="section-subtitle text-muted">Câu lạc bộ kỹ năng sống có 3 bộ phận chức năng chính.</h6>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 stretch-card mb-3 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card color-cards">
+                        <div class="card-body p-0">
+                            <div class="bg-warning text-center card-contents">
+                                <div class="card-image">
+                                    <img src="source/public/user/images/Group108.svg" class="case-studies-card-img"
+                                        alt="">
+                                </div>
+                                <div class="card-desc-box d-flex align-items-center justify-content-around">
+                                    <div>
+                                        <h6 class="text-white pb-2 px-3"
+                                            style="font-family: Arial, Helvetica, sans-serif;">Bạn muốn hiểu
+                                            rõ về <br> Ban Hành chính</h6>
+                                        <button class="btn btn-white" data-toggle="collapse"
+                                            data-target="#administrative">Xem chi tiết</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-details text-center pt-4">
+                                <h6 class="m-0 pb-1">Ban Hành chính</h6>
+                                <p style="font-family: Arial, Helvetica, sans-serif;">Nhập liệu, thống kê, tiếp nhận hỗ
+                                    trợ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 stretch-card" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card color-cards">
+                        <div class="card-body p-0">
+                            <div class="bg-success text-center card-contents">
+                                <div class="card-image">
+                                    <img src="source/public/user/images/Group115.svg" class="case-studies-card-img"
+                                        alt="">
+                                </div>
+                                <div class="card-desc-box d-flex align-items-center justify-content-around">
+                                    <div>
+                                        <h6 class="text-white pb-2 px-3"
+                                            style="font-family: Arial, Helvetica, sans-serif;">Bạn muốn hiểu
+                                            rõ về <br> Ban Nhân Sự</h6>
+                                        <button class="btn btn-white" data-toggle="collapse"
+                                            data-target="#personnel">Xem chi tiết</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-details text-center pt-4">
+                                <h6 class="m-0 pb-1">Ban Nhân sự</h6>
+                                <p style="font-family: Arial, Helvetica, sans-serif;">Hỗ trợ, điều phối, quản lý tình
+                                    hình lớp học</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 stretch-card mb-3 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card color-cards">
+                        <div class="card-body p-0">
+                            <div class="bg-violet text-center card-contents">
+                                <div class="card-image">
+                                    <img src="source/public/user/images/Group126.svg" class="case-studies-card-img"
+                                        alt="">
+                                </div>
+                                <div class="card-desc-box d-flex align-items-center justify-content-around">
+                                    <div>
+                                        <h6 class="text-white pb-2 px-3"
+                                            style="font-family: Arial, Helvetica, sans-serif;">Bạn muốn hiểu
+                                            rõ về <br> Ban Truyền thông & Sự kiện</h6>
+                                        <button class="btn btn-white" data-toggle="collapse" data-target="#media">Xem
+                                            chi tiết</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-details text-center pt-4">
+                                <h6 class="m-0 pb-1">Ban Truyền thông & Sự kiện</h6>
+                                <p style="font-family: Arial, Helvetica, sans-serif;">Thực hiện, xây dụng, lên kế hoạch,
+                                    truyền thông
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+                <!-- Ban hành chính -->
+                <section class="features-overview collapse" id="administrative">
             <div class="row mb-5 mt-3">
                 <div class="col-md-7">
                     <div class="row align-items-center pt-0">
@@ -112,95 +201,6 @@
                             <img src="source/public/user/images/banner/banner7.jpg"
                                 style="border-radius: 5px; box-shadow: 0 0 30px 0 rgb(0 0 0 / 20%); width: 100%;"
                                 class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Ban hoạt động -->
-        <section class="case-studies" id="team">
-            <div class="row grid-margin">
-                <div class="col-12 text-center pb-4 mt-4">
-                    <h2 style="font-family: Arial, Helvetica, sans-serif;">Bộ phận chức năng</h2>
-                    <h6 class="section-subtitle text-muted">Câu lạc bộ kỹ năng sống có 3 bộ phận chức năng chính.</h6>
-                </div>
-                <div class="col-12 col-md-4 col-lg-4 stretch-card mb-3 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="card color-cards">
-                        <div class="card-body p-0">
-                            <div class="bg-warning text-center card-contents">
-                                <div class="card-image">
-                                    <img src="source/public/user/images/Group108.svg" class="case-studies-card-img"
-                                        alt="">
-                                </div>
-                                <div class="card-desc-box d-flex align-items-center justify-content-around">
-                                    <div>
-                                        <h6 class="text-white pb-2 px-3"
-                                            style="font-family: Arial, Helvetica, sans-serif;">Bạn muốn hiểu
-                                            rõ về <br> Ban Hành chính</h6>
-                                        <button class="btn btn-white" data-toggle="collapse"
-                                            data-target="#administrative">Xem chi tiết</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-details text-center pt-4">
-                                <h6 class="m-0 pb-1">Ban Hành chính</h6>
-                                <p style="font-family: Arial, Helvetica, sans-serif;">Nhập liệu, thống kê, tiếp nhận hỗ
-                                    trợ</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 col-lg-4 stretch-card" data-aos="zoom-in" data-aos-delay="600">
-                    <div class="card color-cards">
-                        <div class="card-body p-0">
-                            <div class="bg-success text-center card-contents">
-                                <div class="card-image">
-                                    <img src="source/public/user/images/Group115.svg" class="case-studies-card-img"
-                                        alt="">
-                                </div>
-                                <div class="card-desc-box d-flex align-items-center justify-content-around">
-                                    <div>
-                                        <h6 class="text-white pb-2 px-3"
-                                            style="font-family: Arial, Helvetica, sans-serif;">Bạn muốn hiểu
-                                            rõ về <br> Ban Nhân Sự</h6>
-                                        <button class="btn btn-white" data-toggle="collapse"
-                                            data-target="#personnel">Xem chi tiết</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-details text-center pt-4">
-                                <h6 class="m-0 pb-1">Ban Nhân sự</h6>
-                                <p style="font-family: Arial, Helvetica, sans-serif;">Hỗ trợ, điều phối, quản lý tình
-                                    hình lớp học</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4 col-lg-4 stretch-card mb-3 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="card color-cards">
-                        <div class="card-body p-0">
-                            <div class="bg-violet text-center card-contents">
-                                <div class="card-image">
-                                    <img src="source/public/user/images/Group126.svg" class="case-studies-card-img"
-                                        alt="">
-                                </div>
-                                <div class="card-desc-box d-flex align-items-center justify-content-around">
-                                    <div>
-                                        <h6 class="text-white pb-2 px-3"
-                                            style="font-family: Arial, Helvetica, sans-serif;">Bạn muốn hiểu
-                                            rõ về <br> Ban Truyền thông & Sự kiện</h6>
-                                        <button class="btn btn-white" data-toggle="collapse" data-target="#media">Xem
-                                            chi tiết</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-details text-center pt-4">
-                                <h6 class="m-0 pb-1">Ban Truyền thông & Sự kiện</h6>
-                                <p style="font-family: Arial, Helvetica, sans-serif;">Thực hiện, xây dụng, lên kế hoạch,
-                                    truyền thông
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>
