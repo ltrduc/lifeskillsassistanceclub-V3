@@ -14,6 +14,9 @@ class App
         if (isset($arr[0])) {
             if (file_exists($filepath . '/../controllers/' . $arr[0] . '.php')) {
                 $this->controller = $arr[0];
+                if ($arr[0] == "Admin") {
+                    $this->action = "Home";
+                }
                 unset($arr[0]);
             }
         }
