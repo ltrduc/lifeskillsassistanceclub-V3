@@ -72,6 +72,13 @@ function updateSchoolYear(id_schoolyear, schoolyear, note) {
   document.getElementById("update-note").value = note;
 }
 
+// Đánh giá nhân sự
+function deletePersonnelEvaluate(id_schoolyear, schoolyear, semester) {
+  document.getElementById('delete-PersonnelEvaluate').innerHTML = schoolyear + "/" + semester;
+  document.getElementById("delete-id_schoolyear").value = id_schoolyear;
+  document.getElementById("delete-semester").value = semester;
+}
+
 // Quản lý thiết bị
 function deleteDeviceGroup(id_devicegroup, devicegroup) {
   document.getElementById('delete-info-devicegroup').innerHTML = devicegroup;

@@ -9,10 +9,7 @@
     <ul class="sidebar-menu" id="sidebar-list">
       <li class="menu-header" act>Thao tác chung</li>
       <li class="dropdown">
-        <a href="Admin/Home" class="nav-link"><i data-feather="monitor"></i><span>Trang chủ</span></a>
-      </li>
-      <li class="dropdown">
-        <a href="/" class="nav-link"><i data-feather="cast"></i><span>Trang người dùng</span></a>
+        <a href="Admin/Home" class="nav-link"><i data-feather="monitor"></i><span>Tổng quan</span></a>
       </li>
       <li class="menu-header">Thao tác quản lý</li>
       <li class="dropdown">
@@ -53,6 +50,13 @@
           <li><a class="nav-link" href="Admin/Member">Quản lý thành viên</a></li>
           <li><a class="nav-link" href="Admin/Collaborate">Quản lý cộng tác viên</a></li>
           <li><a class="nav-link" href="Admin/RecruitMember">Quản lý tuyển thành viên</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="book"></i><span>Quản lý đánh giá</span></a>
+        <ul class="dropdown-menu">
+          <li><a class="nav-link" href="Admin/PersonnelEvaluate">Đánh giá nhân sự</a></li>
+          <li><a class="nav-link" href="Admin/ExportEvaluate">Xuất danh sách đánh giá</a></li>
         </ul>
       </li>
       <li class="dropdown">

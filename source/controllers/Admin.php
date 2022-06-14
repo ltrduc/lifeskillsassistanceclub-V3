@@ -20,6 +20,7 @@ class Admin extends Controller
   private $Borrow;
   private $Permission;
   private $Device;
+  private $Evaluate;
 
   private $pmsAdmin;
   private $pmsAttendance;
@@ -45,6 +46,7 @@ class Admin extends Controller
     $this->Borrow           = $this->model("Borrow");
     $this->Permission       = $this->model("Permission");
     $this->Device           = $this->model("Device");
+    $this->Evaluate           = $this->model("Evaluate");
 
     $this->pmsAdmin         = $this->Permission->Admin(Session::get('pmsAdmin'));
     $this->pmsAttendance    = $this->Permission->Attendance(Session::get('pmsAttendance'));
@@ -662,6 +664,85 @@ class Admin extends Controller
     $this->viewAdmin("layout", [
       "page"            => "recruit-member/recruit",
       "ListRecruitment" => $this->Recruitment->getRecruitment(),
+      "Notification"    => $Notification,
+    ]);
+  }
+
+  /*
+  |--------------------------------------------------------------------------
+  | QUẢN LÝ ĐÁNH GIÁ
+  |--------------------------------------------------------------------------
+  */
+  public function PersonnelEvaluate()
+  {
+    if (!$this->pmsAdmin) self::redirect("Home");
+
+    $Notification   = [];
+    
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $id_schoolyear  = $_POST['id_schoolyear'];
+      $semester       = $_POST['semester'];
+
+      if (isset($_POST['addPersonnelEvaluate'])) {
+        $Notification   = $this->Evaluate->SetPersonnelEvaluate($id_schoolyear, $semester);
+      }
+
+      if (isset($_POST['deletePersonnelEvaluate'])) {
+        $Notification   = $this->Evaluate->deletePersonnelEvaluate($id_schoolyear, $semester);
+      }
+    }
+
+    $this->viewAdmin("layout", [
+      "page"            => "evaluate/personnel-evaluate",
+      "ListSchoolYear"  => $this->SchoolYear->getSchoolYear(),
+      "ListEvaluate"  => $this->Evaluate->GetPersonnelEvaluate(),
+      "Notification"    => $Notification,
+    ]);
+  }
+
+  public function DetailedPersonnelEvaluate()
+  {
+    if (!$this->pmsAdmin) self::redirect("Home");
+    
+    if ((!isset($_GET['id_schoolyear']) || $_GET['id_schoolyear'] == NULL) || (!isset($_GET['semester']) || $_GET['semester'] == NULL)) self::redirect("PersonnelEvaluate");
+
+    $Notification   = [];
+    $id_schoolyear  = $_GET['id_schoolyear'];
+    $semester       = $_GET['semester'];
+    $team           = 0;
+    $checkTeam      = ($this->Team->getTeam()) ? 1 : 0;
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (isset($_POST['evaluate'])) {
+        if (isset($_POST['id_student'])) {
+          foreach ($_POST['id_student'] as $id => $id_student) {
+            $note           = $_POST['note'][$id];
+            $evaluate       = $_POST['evaluate'][$id];
+            $Notification   = $this->Evaluate->setDetailedPersonnelEvaluate($id_student, $note, $evaluate, $id_schoolyear, $semester);
+          }
+        } else {
+          $Notification = ["status" => "error", "message" => "Cập nhật đánh giá không thành công!"];
+        }
+      }
+      if (isset($_POST['team'])) {
+        $team = $_POST['team'];
+        $this->viewAdmin("layout", [
+          "page"            => "evaluate/detailed-personnel-evaluate",
+          "ListEvaluate"    => $this->Evaluate->getDetailedPersonnelEvaluate($id_schoolyear, $semester, $team),
+          "CountListEvaluate"    => $this->Evaluate->getDetailedPersonnelEvaluate($id_schoolyear, $semester, $team),
+          "ListTeam"        => $this->Team->getTeam(),
+          "Team"            => $team,
+          "checkTeam"       => $checkTeam,
+          "Notification"    => $Notification,
+        ]);
+      }
+    }
+
+    $this->viewAdmin("layout", [
+      "page"            => "evaluate/detailed-personnel-evaluate",
+      "ListEvaluate"    => $this->Evaluate->getDetailedPersonnelEvaluate($id_schoolyear, $semester, $team),
+      "ListTeam"        => $this->Team->getTeam(),
+      "checkTeam"       => $checkTeam,
       "Notification"    => $Notification,
     ]);
   }
