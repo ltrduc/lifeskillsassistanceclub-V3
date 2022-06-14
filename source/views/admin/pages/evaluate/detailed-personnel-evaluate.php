@@ -31,9 +31,9 @@
                                 <div class="row">
                                     <div class="col">
                                         <select class="form-control selectric" name="team">
-                                            <option value="0" class="font-weight-bold">Thành viên không còn hoạt động</option>
+                                            <option value="0" <?php if(isset($data['Team'])) if($data['Team'] == 0) echo 'class="font-weight-bold" selected' ?>>Thành viên không còn hoạt động</option>
                                             <?php  if ($data['ListTeam']) { while ($value = $data['ListTeam']->fetch_assoc()) { ?>
-                                                <option value="<?php echo $value['id_team']?>" <?php if(isset($data['Team'])) if($value['id_team'] == $data['Team']) echo 'selected' ?>><?php echo $value['name']?></option>
+                                                <option value="<?php echo $value['id_team']?>" <?php if(isset($data['Team'])) if($value['id_team'] == $data['Team']) echo 'class="font-weight-bold" selected' ?>><?php echo $value['name']?></option>
                                             <?php } } ?>
                                         </select>
                                     </div>
