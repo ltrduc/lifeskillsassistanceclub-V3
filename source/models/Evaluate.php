@@ -35,7 +35,7 @@ class Evaluate
     $result = $this->db->select($query);
     if ($result) return ["status" => "error", "message" => "Danh sách đánh giá đã tồn tại trước đó!"];
 
-    $query  = "SELECT * FROM `tbl_user`";
+    $query  = "SELECT * FROM `tbl_user` WHERE role='0'";
     $result = $this->db->select($query);
 
     $querySY  = "SELECT schoolyear FROM `tbl_schoolyear` WHERE id_schoolyear='$id_schoolyear'";
