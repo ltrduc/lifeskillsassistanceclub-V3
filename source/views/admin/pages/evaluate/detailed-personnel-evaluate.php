@@ -33,7 +33,7 @@
                                         <select class="form-control selectric" name="team">
                                             <option value="0" class="font-weight-bold">Thành viên không còn hoạt động</option>
                                             <?php  if ($data['ListTeam']) { while ($value = $data['ListTeam']->fetch_assoc()) { ?>
-                                                <option value="<?php echo $value['id_team']?>"><?php echo $value['name']?></option>
+                                                <option value="<?php echo $value['id_team']?>" <?php if(isset($data['Team'])) if($value['id_team'] == $data['Team']) echo 'selected' ?>><?php echo $value['name']?></option>
                                             <?php } } ?>
                                         </select>
                                     </div>
