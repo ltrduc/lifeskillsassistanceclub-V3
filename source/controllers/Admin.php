@@ -713,6 +713,7 @@ class Admin extends Controller
     $checkTeam      = ($this->Team->getTeam()) ? 1 : 0;
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $team = $_POST['team'];
       if (isset($_POST['evaluate'])) {
         if (isset($_POST['id_student'])) {
           foreach ($_POST['id_student'] as $id => $id_student) {
@@ -726,22 +727,15 @@ class Admin extends Controller
       }
       if (isset($_POST['searchTeam'])) {
         $team = $_POST['team'];
-        $this->viewAdmin("layout", [
-          "page"            => "evaluate/detailed-personnel-evaluate",
-          "ListEvaluate"    => $this->Evaluate->getDetailedPersonnelEvaluate($id_schoolyear, $semester, $team),
-          "CountListEvaluate"    => $this->Evaluate->getDetailedPersonnelEvaluate($id_schoolyear, $semester, $team),
-          "ListTeam"        => $this->Team->getTeam(),
-          "Team"            => $team,
-          "checkTeam"       => $checkTeam,
-          "Notification"    => $Notification,
-        ]);
       }
     }
 
     $this->viewAdmin("layout", [
       "page"            => "evaluate/detailed-personnel-evaluate",
       "ListEvaluate"    => $this->Evaluate->getDetailedPersonnelEvaluate($id_schoolyear, $semester, $team),
+      "CountListEvaluate"    => $this->Evaluate->getDetailedPersonnelEvaluate($id_schoolyear, $semester, $team),
       "ListTeam"        => $this->Team->getTeam(),
+      "Team"            => $team,
       "checkTeam"       => $checkTeam,
       "Notification"    => $Notification,
     ]);
