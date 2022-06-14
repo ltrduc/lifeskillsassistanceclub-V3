@@ -724,7 +724,7 @@ class Admin extends Controller
           $Notification = ["status" => "error", "message" => "Cập nhật đánh giá không thành công!"];
         }
       }
-      if (isset($_POST['team'])) {
+      if (isset($_POST['searchTeam'])) {
         $team = $_POST['team'];
         $this->viewAdmin("layout", [
           "page"            => "evaluate/detailed-personnel-evaluate",

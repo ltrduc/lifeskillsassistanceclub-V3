@@ -28,10 +28,19 @@
                     <div class="card mb-2">
                         <div class="card-body p-2">
                             <form action="" method="post">
-                                <button class="btn btn-primary" type="submit" name="team" value="0">NULL</button>
-                                <?php  if ($data['ListTeam']) { while ($value = $data['ListTeam']->fetch_assoc()) { ?>
-                                    <button class="btn btn-primary" type="submit" name="team" value="<?php echo $value['id_team']?>"><?php echo $value['name']?></button>
-                                <?php } } ?>
+                                <div class="row">
+                                    <div class="col">
+                                        <select class="form-control selectric" name="team">
+                                            <option value="0" class="font-weight-bold">Thành viên không còn hoạt động</option>
+                                            <?php  if ($data['ListTeam']) { while ($value = $data['ListTeam']->fetch_assoc()) { ?>
+                                                <option value="<?php echo $value['id_team']?>"><?php echo $value['name']?></option>
+                                            <?php } } ?>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        <button class="btn btn-success mr-1" type="submit" name="searchTeam">Tìm kiếm</button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
