@@ -54,7 +54,7 @@ class Evaluate
           $content_eng = 'The member of LSA has been recognized for having decent performance in the second semester of the academic year '.$schoolyear.'.'; 
         }
 
-        $query = "INSERT INTO `tbl_evaluate`(`id_student`, `attendance`, `content_vn`, `content_eng`, `evaluate`, `id_schoolyear`, `semester`) VALUES ('$id_student','x', '$content_vn', '$content_eng', 'Hoàn thành', '$id_schoolyear', '$semester')";
+        $query = "INSERT INTO `tbl_evaluate`(`id_student`, `attendance`, `content_vn`, `content_eng`, `scores`, `evaluate`, `id_schoolyear`, `semester`) VALUES ('$id_student','x', '$content_vn', '$content_eng', '10', 'Hoàn thành', '$id_schoolyear', '$semester')";
         $this->db->insert($query);
       }
       return ["status" => "success", "message" => "Đã thêm dữ liệu thành công!"];
@@ -113,6 +113,7 @@ class Evaluate
         $content_vn   = 'Thành viên LSA hoàn thành nhiệm vụ '.$semester.' năm học '.$schoolyear.'';
         $content_eng  = 'The member of LSA has been recognized for having decent performance in the second semester of the academic year '.$schoolyear.'.';
       }
+      $scores = 10;
     }
 
     if ($evaluate == 'Hoàn thành tốt') {
@@ -123,6 +124,7 @@ class Evaluate
         $content_vn   = 'Thành viên LSA hoàn thành tốt nhiệm vụ '.$semester.' năm học '.$schoolyear.'';
         $content_eng  = 'The member of LSA has been recognized for having great performance in the second semester of the academic year '.$schoolyear.'.';
       }
+      $scores = 15;
     }
 
     if ($evaluate == 'Hoàn thành xuất sắc') {
@@ -133,13 +135,21 @@ class Evaluate
         $content_vn   = 'Thành viên LSA hoàn thành xuất sắc nhiệm vụ '.$semester.' năm học '.$schoolyear.'';
         $content_eng  = 'The member of LSA has been recognized for having excellent performance in the second semester of the academic year '.$schoolyear.'.';
       }
+      $scores = 20;
     }
 
-    $query  = "UPDATE `tbl_evaluate` SET `content_vn`='$content_vn',`content_eng`='$content_eng',`note`='$note',`evaluate`='$evaluate' WHERE `id_student`='$id_student'";
+    $query  = "UPDATE `tbl_evaluate` SET `content_vn`='$content_vn',`content_eng`='$content_eng', `scores`='$scores',`note`='$note',`evaluate`='$evaluate' WHERE `id_student`='$id_student'";
     $result = $this->db->insert($query);
 
     if ($result) return ["status" => "success", "message" => "Cập nhật đánh giá thành công!"];
 
     return ["status" => "error", "message" => "Cập nhật đánh giá không thành công!"];
+  }
+
+  public function ExportEvaluate($id_schoolyear, $semester, $evaluate)
+  {
+    $query  = "SELECT * FROM `tbl_evaluate` WHERE id_schoolyear='$id_schoolyear' AND semester='$semester' AND evaluate='$evaluate'";
+    $result = $this->db->select($query);
+    return $result;
   }
 }

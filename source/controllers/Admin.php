@@ -741,6 +741,37 @@ class Admin extends Controller
     ]);
   }
 
+  public function ExportEvaluate()
+  {
+    if (!$this->pmsAdmin) self::redirect("Home");
+
+    $Notification   = [];
+    $exportEvaluate = 0;
+    $id_schoolyear  = "";
+    $semester       = "";
+    $evaluate       = "";
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      if (isset($_POST['exportEvaluate'])) {
+        $exportEvaluate = $_POST['exportEvaluate'];
+        $id_schoolyear  = $_POST['id_schoolyear'];
+        $semester       = $_POST['semester'];
+        $evaluate       = $_POST['evaluate'];
+      }
+    }
+
+    $this->viewAdmin("layout", [
+      "page"            => "evaluate/export-evaluate",
+      "exportEvaluate"  => $exportEvaluate,
+      "id_schoolyear"   => $id_schoolyear,
+      "semester"        => $semester,
+      "evaluate"        => $evaluate,
+      "ListSchoolYear"  => $this->SchoolYear->getSchoolYear(),
+      "ListEvaluate"    => $this->Evaluate->ExportEvaluate($id_schoolyear, $semester, $evaluate),
+      "Notification"    => $Notification,
+    ]);
+  }
+
   /*
   |--------------------------------------------------------------------------
   | QUẢN LÝ BAN ĐIỀU HÀNH
