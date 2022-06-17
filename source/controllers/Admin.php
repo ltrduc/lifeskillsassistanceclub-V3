@@ -173,21 +173,24 @@ class Admin extends Controller
         $id_schedule  = $_POST['id_schedule'];
         $Notification = $this->Schedule->deleteSchedule($id_schedule);
       }
-      if (isset($_POST['deleteAllSchedule'])) {
-        $Notification = $this->Schedule->deleteAllSchedule();
+      if (isset($_POST['Attendance'])) {
+        $id_schoolyear  = $_POST['id_schoolyear'];
+        $semester       = $_POST['semester'];
+        $Notification   = $this->Schedule->Attendance($id_schoolyear, $semester);
       }
     }
 
     $this->viewAdmin("layout", [
-      "page"          => "schedule/schedule",
-      "Monday"        => $this->Schedule->getSchedule(),
-      "Tuesday"       => $this->Schedule->getSchedule(),
-      "Wednesday"     => $this->Schedule->getSchedule(),
-      "Thursday"      => $this->Schedule->getSchedule(),
-      "Friday"        => $this->Schedule->getSchedule(),
-      "Saturday"      => $this->Schedule->getSchedule(),
-      "ListMember"    => $this->Personnel->getMember(),
-      "Notification"  => $Notification,
+      "page"           => "schedule/schedule",
+      "Monday"         => $this->Schedule->getSchedule(),
+      "Tuesday"        => $this->Schedule->getSchedule(),
+      "Wednesday"      => $this->Schedule->getSchedule(),
+      "Thursday"       => $this->Schedule->getSchedule(),
+      "Friday"         => $this->Schedule->getSchedule(),
+      "Saturday"       => $this->Schedule->getSchedule(),
+      "ListMember"     => $this->Personnel->getMember(),
+      "ListSchoolYear" => $this->SchoolYear->getSchoolYear(),
+      "Notification"   => $Notification,
     ]);
   }
 

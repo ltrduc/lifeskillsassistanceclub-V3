@@ -73,13 +73,36 @@ class Schedule
     return ["status" => "error", "message" => "Đã xóa dữ liệu thất bại!"];
   }
 
-  public function deleteAllSchedule()
+  public function Attendance($id_schoolyear, $semester)
   {
-    $query      = "DELETE FROM `tbl_schedule`";
-    $result     = $this->db->delete($query);
+    $id_schoolyear  = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_schoolyear));
+    $semester       = mysqli_real_escape_string($this->db->link, $this->fm->validation($semester));
 
-    if ($result) return ["status" => "success", "message" => "Đã xóa dữ liệu thành công!"];
+    if (empty($id_schoolyear) || empty($semester)) return ["status" => "error", "message" => "Vui lòng nhập đầy đủ dữ liệu!"];
 
-    return ["status" => "error", "message" => "Đã xóa dữ liệu thất bại!"];
+    $query      = "SELECT * FROM `tbl_schedule`";
+    $result     = $this->db->select($query);
+
+    if ($result) {
+      while ($value = $result->fetch_assoc()) {
+        $id_user    = $value['id_user'];
+        $date       = date("Y-m-d");
+        $attendance = 'Present';
+
+        for ($i = 0; $i < count(explode(" ", $value['shift'])); $i++) {
+          $shift = explode(" ", $value['shift'])[$i];
+          if ($shift != "") {
+            $query = "INSERT INTO `tbl_attendance`(`id_user`, `id_schoolyear`, `semester`, `date`, `shift`, `attendance`) VALUES ('$id_user','$id_schoolyear','$semester','$date','$shift','$attendance')";
+            $this->db->insert($query);
+          }
+        }
+      }
+
+      $query  = "DELETE FROM `tbl_schedule`";
+      $this->db->delete($query);
+
+      if ($result) return ["status" => "success", "message" => "Đã điểm danh thành công!"];
+    }
+    return ["status" => "error", "message" => "Lỗi trong quá trình điểm danh!"];
   }
 }

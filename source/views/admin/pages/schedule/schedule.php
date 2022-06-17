@@ -35,16 +35,13 @@
                 </div>
               </div>
               <div class="card-header-action">
-                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addSchedule"><i class="fas fa-plus"></i> Đăng ký lịch trực</a>
+                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addSchedule"><i class="fas fa-plus"></i> Đăng ký ca trực</a>
                 <?php if (Session::get('pmsAdmin') == 1) { ?>
-                  <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#deleteAllSchedule"><i class="fas fa-trash"></i> Xóa tất cả lịch trực</a>
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#Attendance"><i class="fas fa-calendar"></i> Điểm danh ca trực</a>
                 <?php } ?>
               </div>
             </div>
             <div class="card-body pt-2">
-              <div class="notification pb-2">
-                <code> <strong>Lưu ý:</strong> Danh mục này chỉ dành cho Ban Hành Chính, Ban Sự kiện và Truyền Thông. Các Ban còn lại vui lòng không đăng ký ở danh mục này.</code>
-              </div>
               <div class="fc-overflow">
                 <div class="fc fc-unthemed fc-ltr">
                   <div class="fc-view-container">
@@ -297,20 +294,41 @@
     </div>
   </div>
 
-  <!-- Xóa tất cả lịch trực -->
-  <div class="modal fade" id="deleteAllSchedule">
+  <!-- Điểm danh -->
+  <div class="modal fade" id="Attendance">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <form action="Admin/Schedule" method="post">
+        <form action="Admin/Schedule" method="post" class="needs-validation" novalidate="">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">XÓA TẤT CẢ LỊCH TRỰC</h5>
+            <h5 class="modal-title" id="exampleModalLabel">ĐIỂM DANH CA TRỰC</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
-          <div class="modal-body">Bạn có chắc muốn <strong>xóa tất cả</strong> lịch trực?</div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Năm học</label>
+              <select class="form-control selectric" name="id_schoolyear" tabindex="1" required autofocus>
+                <option value="" class="font-weight-bold">Chọn năm học</option>
+                <?php if ($data['ListSchoolYear']) { while ($value = $data['ListSchoolYear']->fetch_assoc()) { ?>
+                  <option value="<?php echo $value['id_schoolyear']; ?>"><?php echo $value['schoolyear']; ?></option>
+                <?php } } ?>
+              </select>
+              <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
+            </div>
+            <div class="form-group">
+              <label>Học kỳ</label>
+                <select class="form-control selectric" name="semester" tabindex="2" required autofocus>
+                  <option value="" class="font-weight-bold">Chọn học kỳ</option>
+                  <option value="Học kỳ 1">Học kỳ 1</option>
+                  <option value="Học kỳ 2">Học kỳ 2</option>
+                  <option value="Học kỳ Hè">Học kỳ Hè</option>
+                </select>
+              <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
+            </div>
+          </div>
           <div class="modal-footer bg-whitesmoke br">
-            <button type="submit" name="deleteAllSchedule" class="btn btn-danger">Xóa tất cả</button>
+            <button type="submit" onclick="return confirm('Hãy kiểm tra dữ liệu trước khi xác nhận điểm danh!')" name="Attendance" class="btn btn-primary">Điểm danh</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
           </div>
         </form>
