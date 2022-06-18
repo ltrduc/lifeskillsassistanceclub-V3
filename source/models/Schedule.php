@@ -88,17 +88,18 @@ class Schedule
       while ($value = $result->fetch_assoc()) {
         $id_user    = $value['id_user'];
         $attendance = 'Present';
+        $newDate    = $date;
 
-        if ($value['session'] == "Tuesday")   $date = date ('Y-m-d', strtotime("+1 days", strtotime($date)));
-        if ($value['session'] == "Wednesday") $date = date ('Y-m-d', strtotime("+2 days", strtotime($date)));
-        if ($value['session'] == "Thursday")  $date = date ('Y-m-d', strtotime("+3 days", strtotime($date)));
-        if ($value['session'] == "Friday")    $date = date ('Y-m-d', strtotime("+4 days", strtotime($date)));
-        if ($value['session'] == "Saturday")  $date = date ('Y-m-d', strtotime("+5 days", strtotime($date)));
+        if ($value['session'] == "Tuesday")   $newDate = date ('Y-m-d', strtotime("+1 days", strtotime($date)));
+        if ($value['session'] == "Wednesday") $newDate = date ('Y-m-d', strtotime("+2 days", strtotime($date)));
+        if ($value['session'] == "Thursday")  $newDate = date ('Y-m-d', strtotime("+3 days", strtotime($date)));
+        if ($value['session'] == "Friday")    $newDate = date ('Y-m-d', strtotime("+4 days", strtotime($date)));
+        if ($value['session'] == "Saturday")  $newDate = date ('Y-m-d', strtotime("+5 days", strtotime($date)));
 
         for ($i = 0; $i < count(explode(" ", $value['shift'])); $i++) {
           $shift = explode(" ", $value['shift'])[$i];
           if ($shift != "") {
-            $query = "INSERT INTO `tbl_attendance`(`id_user`, `id_schoolyear`, `semester`, `date`, `shift`, `attendance`) VALUES ('$id_user','$id_schoolyear','$semester','$date','$shift','$attendance')";
+            $query = "INSERT INTO `tbl_attendance`(`id_user`, `id_schoolyear`, `semester`, `date`, `shift`, `attendance`) VALUES ('$id_user','$id_schoolyear','$semester','$newDate','$shift','$attendance')";
             $this->db->insert($query);
           }
         }
