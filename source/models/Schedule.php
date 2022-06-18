@@ -80,7 +80,8 @@ class Schedule
     $date           = mysqli_real_escape_string($this->db->link, $this->fm->validation($date));
 
     if (empty($id_schoolyear) || empty($semester) || empty($date)) return ["status" => "error", "message" => "Vui lòng nhập đầy đủ dữ liệu!"];
-
+    if (getdate(strtotime($date))['weekday'] != "Monday") return ["status" => "error", "message" => "Ngày bắt đầu phải là thứ 2!"];
+    
     $query      = "SELECT * FROM `tbl_schedule`";
     $result     = $this->db->select($query);
 
