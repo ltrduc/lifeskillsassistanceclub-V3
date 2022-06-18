@@ -176,7 +176,8 @@ class Admin extends Controller
       if (isset($_POST['Attendance'])) {
         $id_schoolyear  = $_POST['id_schoolyear'];
         $semester       = $_POST['semester'];
-        $Notification   = $this->Schedule->Attendance($id_schoolyear, $semester);
+        $date           = $_POST['date'];
+        $Notification   = $this->Schedule->Attendance($id_schoolyear, $semester, $date);
       }
     }
 

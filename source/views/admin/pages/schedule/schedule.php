@@ -326,6 +326,11 @@
                 </select>
               <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
             </div>
+            <div class="form-group">
+              <label>Ngày bắt đầu</label>
+              <input type="date" class="form-control" name="date" tabindex="3" required autofocus>
+              <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
+            </div>
           </div>
           <div class="modal-footer bg-whitesmoke br">
             <button type="submit" onclick="return confirm('Hãy kiểm tra dữ liệu trước khi xác nhận điểm danh!')" name="Attendance" class="btn btn-primary">Điểm danh</button>

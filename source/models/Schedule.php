@@ -73,12 +73,13 @@ class Schedule
     return ["status" => "error", "message" => "Đã xóa dữ liệu thất bại!"];
   }
 
-  public function Attendance($id_schoolyear, $semester)
+  public function Attendance($id_schoolyear, $semester, $date)
   {
     $id_schoolyear  = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_schoolyear));
     $semester       = mysqli_real_escape_string($this->db->link, $this->fm->validation($semester));
+    $date           = mysqli_real_escape_string($this->db->link, $this->fm->validation($date));
 
-    if (empty($id_schoolyear) || empty($semester)) return ["status" => "error", "message" => "Vui lòng nhập đầy đủ dữ liệu!"];
+    if (empty($id_schoolyear) || empty($semester) || empty($date)) return ["status" => "error", "message" => "Vui lòng nhập đầy đủ dữ liệu!"];
 
     $query      = "SELECT * FROM `tbl_schedule`";
     $result     = $this->db->select($query);
@@ -86,8 +87,13 @@ class Schedule
     if ($result) {
       while ($value = $result->fetch_assoc()) {
         $id_user    = $value['id_user'];
-        $date       = date("Y-m-d");
         $attendance = 'Present';
+
+        if ($value['session'] == "Tuesday")   $date = date ('Y-m-d', strtotime("+1 days", strtotime($date)));
+        if ($value['session'] == "Wednesday") $date = date ('Y-m-d', strtotime("+2 days", strtotime($date)));
+        if ($value['session'] == "Thursday")  $date = date ('Y-m-d', strtotime("+3 days", strtotime($date)));
+        if ($value['session'] == "Friday")    $date = date ('Y-m-d', strtotime("+4 days", strtotime($date)));
+        if ($value['session'] == "Saturday")  $date = date ('Y-m-d', strtotime("+5 days", strtotime($date)));
 
         for ($i = 0; $i < count(explode(" ", $value['shift'])); $i++) {
           $shift = explode(" ", $value['shift'])[$i];
@@ -97,7 +103,6 @@ class Schedule
           }
         }
       }
-
       $query  = "DELETE FROM `tbl_schedule`";
       $this->db->delete($query);
 
