@@ -55,18 +55,17 @@
                 <table class="table table-striped table-hover" id="table-1">
                   <thead>
                     <tr>
-                      <th>#</th>
+                      <th>ID năm học</th>
                       <th>Năm học</th>
                       <th>Ghi chú</th>
                       <th>Thao tác</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $i = 1;
-                    if ($data['ListSchoolYear']) {
+                    <?php if ($data['ListSchoolYear']) {
                       while ($value = $data['ListSchoolYear']->fetch_assoc()) { ?>
                         <tr>
-                          <td><?php echo $i++; ?></td>
+                          <td><?php echo $value['id_schoolyear']; ?></td>
                           <td><?php echo $value['schoolyear']; ?></td>
                           <td><?php echo $value['note']; ?></td>
                           <td>
