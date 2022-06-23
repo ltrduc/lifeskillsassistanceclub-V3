@@ -55,18 +55,17 @@
                 <table class="table table-striped table-hover" id="table-1">
                   <thead>
                     <tr>
-                      <th>#</th>
+                      <th>ID Môn học</th>
                       <th>Môn học</th>
                       <th>Ghi chú</th>
                       <th>Thao tác</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $i = 1;
-                    if ($data['ListSubject']) {
+                    <?php if ($data['ListSubject']) {
                       while ($value = $data['ListSubject']->fetch_assoc()) { ?>
                         <tr>
-                          <td><?php echo $i++; ?></td>
+                          <td><?php echo $value['id_subject']; ?></td>
                           <td><?php echo $value['subject']; ?></td>
                           <td><?php echo $value['note']; ?></td>
                           <td>
