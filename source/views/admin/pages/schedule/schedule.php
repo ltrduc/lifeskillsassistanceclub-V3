@@ -50,7 +50,7 @@
                         <tbody>
                           <!-- THỨ 2 -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">Monday</span></td>
+                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">THỨ 2</span></td>
                           </tr>
                           <?php if ($data['Monday']) {
                             while ($value = $data['Monday']->fetch_assoc()) {
@@ -74,7 +74,7 @@
 
                           <!-- THỨ 3 -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">Tuesday</span></td>
+                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">THỨ 3</span></td>
                           </tr>
                           <?php if ($data['Tuesday']) {
                             while ($value = $data['Tuesday']->fetch_assoc()) {
@@ -98,7 +98,7 @@
 
                           <!-- THỨ 4 -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">Wednesday</span></td>
+                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">THỨ 4</span></td>
                           </tr>
                           <?php if ($data['Wednesday']) {
                             while ($value = $data['Wednesday']->fetch_assoc()) {
@@ -122,7 +122,7 @@
 
                           <!-- THỨ 5 -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">Thursday</span></td>
+                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">THỨ 5</span></td>
                           </tr>
                           <?php if ($data['Thursday']) {
                             while ($value = $data['Thursday']->fetch_assoc()) {
@@ -146,7 +146,7 @@
 
                           <!-- THỨ 6 -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">Friday</span></td>
+                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">THỨ 6</span></td>
                           </tr>
                           <?php if ($data['Friday']) {
                             while ($value = $data['Friday']->fetch_assoc()) {
@@ -170,7 +170,7 @@
 
                           <!-- THỨ 7 -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">Saturday</span></td>
+                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">THỨ 7</span></td>
                           </tr>
                           <?php if ($data['Saturday']) {
                             while ($value = $data['Saturday']->fetch_assoc()) {
@@ -194,7 +194,7 @@
 
                           <!-- CHỦ NHẬT -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">Sunday</span></td>
+                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">CHỦ NHẬT</span></td>
                           </tr>
                           <?php if ($data['Sunday']) {
                             while ($value = $data['Sunday']->fetch_assoc()) {
