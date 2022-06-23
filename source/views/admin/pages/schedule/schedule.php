@@ -55,7 +55,7 @@
                           <?php if ($data['Monday']) {
                             while ($value = $data['Monday']->fetch_assoc()) {
                               if ($value['session'] == 'Monday') { ?>
-                                <tr class="fc-list-item">
+                                <tr class="fc-list-item Monday">
                                   <td class="fc-list-item-time fc-widget-content"><?php echo $value['shift']; ?></td>
                                   <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot" style="background-color:#<?php echo substr('00000' . dechex(mt_rand(0, 0xffffff)), -6); ?>"></span></td>
                                   <td class="fc-list-item-title fc-widget-content"><a>[<?php echo $value['id_student']; ?>] - <?php echo $value['fullname']; ?></a></td>
