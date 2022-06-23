@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th6 14, 2022 lúc 04:11 PM
--- Phiên bản máy phục vụ: 10.5.12-MariaDB
--- Phiên bản PHP: 7.3.32
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th6 23, 2022 lúc 04:49 PM
+-- Phiên bản máy phục vụ: 10.4.24-MariaDB
+-- Phiên bản PHP: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `id17609828_lifeskills_db`
+-- Cơ sở dữ liệu: `website`
 --
 
 -- --------------------------------------------------------
@@ -76,9 +75,7 @@ INSERT INTO `tbl_attendance` (`id_attendance`, `id_user`, `id_schoolyear`, `seme
 (31, 7, 3, 'Học kỳ 2', '2022-02-25', 'Ca 3', 'Present'),
 (32, 8, 3, 'Học kỳ 2', '2022-02-25', 'Ca 3', 'Present'),
 (33, 1, 3, 'Học kỳ 2', '2022-02-28', 'Ca 3', 'Present'),
-(34, 13, 3, 'Học kỳ 2', '2022-02-28', 'Ca 3', 'Present'),
 (35, 1, 3, 'Học kỳ 2', '2022-02-28', 'Ca 4', 'Present'),
-(36, 13, 3, 'Học kỳ 2', '2022-02-28', 'Ca 4', 'Present'),
 (37, 1, 3, 'Học kỳ 2', '2022-02-28', 'Ca 2', 'Present'),
 (38, 9, 3, 'Học kỳ 2', '2022-03-01', 'Ca 1', 'Present'),
 (39, 4, 3, 'Học kỳ 2', '2022-03-01', 'Ca 2', 'Present'),
@@ -162,20 +159,15 @@ INSERT INTO `tbl_attendance` (`id_attendance`, `id_user`, `id_schoolyear`, `seme
 (119, 12, 3, 'Học kỳ 2', '2022-04-15', 'Ca 4', 'Present'),
 (120, 1, 3, 'Học kỳ 2', '2022-04-19', 'Ca 1', 'Present'),
 (121, 9, 3, 'Học kỳ 2', '2022-04-19', 'Ca 1', 'Present'),
-(122, 13, 3, 'Học kỳ 2', '2022-04-19', 'Ca 2', 'Present'),
-(123, 13, 3, 'Học kỳ 2', '2022-04-19', 'Ca 1', 'Present'),
 (124, 1, 3, 'Học kỳ 2', '2022-04-19', 'Ca 2', 'Present'),
 (125, 9, 3, 'Học kỳ 2', '2022-04-19', 'Ca 2', 'Present'),
 (126, 1, 3, 'Học kỳ 2', '2022-04-19', 'Ca 3', 'Present'),
 (127, 9, 3, 'Học kỳ 2', '2022-04-19', 'Ca 3', 'Present'),
-(128, 13, 3, 'Học kỳ 2', '2022-04-19', 'Ca 3', 'Present'),
 (129, 16, 3, 'Học kỳ 2', '2022-04-19', 'Ca 3', 'Present'),
 (130, 24, 3, 'Học kỳ 2', '2022-04-19', 'Ca 3', 'Present'),
 (131, 45, 3, 'Học kỳ 2', '2022-04-19', 'Ca 3', 'Present'),
 (132, 1, 3, 'Học kỳ 2', '2022-04-19', 'Ca 4', 'Present'),
-(133, 3, 3, 'Học kỳ 2', '2022-04-19', 'Ca 4', 'Present'),
 (134, 9, 3, 'Học kỳ 2', '2022-04-19', 'Ca 4', 'Present'),
-(135, 13, 3, 'Học kỳ 2', '2022-04-19', 'Ca 4', 'Present'),
 (136, 16, 3, 'Học kỳ 2', '2022-04-19', 'Ca 4', 'Present'),
 (137, 24, 3, 'Học kỳ 2', '2022-04-19', 'Ca 4', 'Present'),
 (138, 45, 3, 'Học kỳ 2', '2022-04-19', 'Ca 4', 'Present'),
@@ -241,18 +233,15 @@ INSERT INTO `tbl_attendance` (`id_attendance`, `id_user`, `id_schoolyear`, `seme
 (198, 9, 3, 'Học kỳ 2', '2022-05-17', 'Ca 1', 'Present'),
 (199, 9, 3, 'Học kỳ 2', '2022-05-17', 'Ca 2', 'Present'),
 (200, 1, 3, 'Học kỳ 2', '2022-05-19', 'Ca 3', 'Present'),
-(201, 3, 3, 'Học kỳ 2', '2022-05-19', 'Ca 3', 'Present'),
 (202, 7, 3, 'Học kỳ 2', '2022-05-19', 'Ca 3', 'Present'),
 (203, 8, 3, 'Học kỳ 2', '2022-05-19', 'Ca 3', 'Present'),
 (204, 9, 3, 'Học kỳ 2', '2022-05-19', 'Ca 3', 'Present'),
-(205, 13, 3, 'Học kỳ 2', '2022-05-19', 'Ca 3', 'Present'),
 (206, 18, 3, 'Học kỳ 2', '2022-05-19', 'Ca 3', 'Present'),
 (207, 19, 3, 'Học kỳ 2', '2022-05-19', 'Ca 3', 'Present'),
 (208, 1, 3, 'Học kỳ 2', '2022-05-19', 'Ca 4', 'Present'),
 (209, 7, 3, 'Học kỳ 2', '2022-05-19', 'Ca 4', 'Present'),
 (210, 8, 3, 'Học kỳ 2', '2022-05-19', 'Ca 4', 'Present'),
 (211, 9, 3, 'Học kỳ 2', '2022-05-19', 'Ca 4', 'Present'),
-(212, 13, 3, 'Học kỳ 2', '2022-05-19', 'Ca 4', 'Present'),
 (213, 19, 3, 'Học kỳ 2', '2022-05-19', 'Ca 4', 'Present'),
 (214, 24, 3, 'Học kỳ 2', '2022-05-19', 'Ca 4', 'Present'),
 (215, 24, 3, 'Học kỳ 2', '2022-05-19', 'Ca 3', 'Present'),
@@ -301,7 +290,21 @@ INSERT INTO `tbl_attendance` (`id_attendance`, `id_user`, `id_schoolyear`, `seme
 (268, 24, 3, 'Học kỳ 2', '2022-06-10', 'Ca 2', 'Present'),
 (269, 7, 3, 'Học kỳ 2', '2022-06-10', 'Ca 3', 'Present'),
 (270, 7, 3, 'Học kỳ 2', '2022-06-10', 'Ca 4', 'Present'),
-(271, 8, 3, 'Học kỳ 2', '2022-06-10', 'Ca 4', 'Present');
+(271, 8, 3, 'Học kỳ 2', '2022-06-10', 'Ca 4', 'Present'),
+(272, 1, 3, 'Học kỳ 2', '2022-06-13', 'Ca 1', 'Present'),
+(273, 1, 3, 'Học kỳ 2', '2022-06-14', 'Ca 3', 'Present'),
+(274, 1, 3, 'Học kỳ 2', '2022-06-15', 'Ca 3', 'Present'),
+(275, 1, 3, 'Học kỳ 2', '2022-06-15', 'Ca 4', 'Present'),
+(292, 1, 3, 'Học kỳ Hè', '2022-06-13', 'Ca1', 'Present'),
+(293, 1, 3, 'Học kỳ Hè', '2022-06-14', 'Ca1', 'Present'),
+(294, 1, 3, 'Học kỳ Hè', '2022-06-14', 'Ca2', 'Present'),
+(295, 1, 3, 'Học kỳ Hè', '2022-06-15', 'Ca3', 'Present'),
+(296, 1, 3, 'Học kỳ Hè', '2022-06-16', 'Ca1', 'Present'),
+(297, 1, 3, 'Học kỳ Hè', '2022-06-16', 'Ca2', 'Present'),
+(298, 1, 3, 'Học kỳ Hè', '2022-06-16', 'Ca3', 'Present'),
+(299, 48, 3, 'Học kỳ Hè', '2022-06-17', 'Ca2', 'Present'),
+(300, 1, 3, 'Học kỳ 2', '2022-06-13', 'Ca 2', 'Present'),
+(301, 1, 3, 'Học kỳ 2', '2022-06-13', 'Ca 3', 'Present');
 
 -- --------------------------------------------------------
 
@@ -330,9 +333,9 @@ CREATE TABLE `tbl_course` (
   `id_course` int(255) NOT NULL,
   `id_subject` int(255) NOT NULL,
   `group` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `teacher` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `teacher` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `period` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `local` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `local` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `date` date NOT NULL,
   `semester` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `id_schoolyear` int(255) NOT NULL
@@ -413,8 +416,6 @@ CREATE TABLE `tbl_decentralization` (
 
 INSERT INTO `tbl_decentralization` (`id_decentralization`, `id_user`, `admin`, `attendance`, `post`) VALUES
 (1, 1, 1, 0, 0),
-(2, 2, 0, 0, 0),
-(3, 3, 0, 0, 0),
 (4, 4, 0, 0, 0),
 (5, 5, 0, 0, 0),
 (6, 6, 0, 0, 0),
@@ -424,44 +425,31 @@ INSERT INTO `tbl_decentralization` (`id_decentralization`, `id_user`, `admin`, `
 (10, 10, 0, 0, 0),
 (11, 11, 0, 0, 0),
 (12, 12, 1, 0, 0),
-(13, 13, 0, 0, 0),
 (14, 14, 1, 0, 0),
-(15, 15, 0, 0, 0),
 (16, 16, 0, 0, 0),
 (17, 17, 0, 0, 0),
 (18, 18, 1, 0, 0),
 (19, 19, 1, 0, 0),
-(20, 20, 0, 0, 0),
-(21, 21, 0, 0, 0),
-(22, 22, 0, 0, 0),
 (23, 23, 0, 0, 0),
 (24, 24, 1, 0, 0),
 (25, 25, 0, 0, 0),
-(26, 26, 0, 0, 0),
-(27, 27, 0, 0, 0),
-(28, 28, 0, 0, 0),
 (29, 29, 0, 0, 0),
 (30, 30, 0, 0, 0),
 (31, 31, 0, 0, 0),
-(32, 32, 0, 0, 0),
-(33, 33, 0, 0, 0),
-(34, 34, 0, 0, 0),
-(35, 35, 0, 0, 0),
 (36, 36, 0, 0, 0),
-(37, 37, 0, 0, 0),
 (38, 38, 0, 0, 0),
-(39, 39, 0, 0, 0),
 (40, 40, 0, 0, 0),
-(41, 41, 0, 0, 0),
-(42, 42, 0, 0, 0),
-(43, 43, 0, 0, 0),
-(44, 44, 0, 0, 0),
 (45, 45, 0, 0, 0),
-(46, 46, 0, 0, 0),
-(47, 47, 0, 0, 0),
 (48, 48, 0, 0, 0),
 (49, 49, 1, 0, 0),
-(50, 50, 0, 0, 0);
+(51, 51, 0, 0, 0),
+(52, 52, 0, 0, 0),
+(53, 53, 0, 0, 0),
+(54, 54, 0, 0, 0),
+(55, 55, 0, 0, 0),
+(56, 56, 0, 0, 0),
+(57, 57, 0, 0, 0),
+(58, 58, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -574,6 +562,47 @@ CREATE TABLE `tbl_evaluate` (
   `semester` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `tbl_evaluate`
+--
+
+INSERT INTO `tbl_evaluate` (`id_evaluate`, `id_student`, `attendance`, `content_vn`, `content_eng`, `scores`, `note`, `evaluate`, `id_schoolyear`, `semester`) VALUES
+(100, '51900040', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(101, '11900067', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(102, '219H0227', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(103, 'B1900443', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(104, '520H0401', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(105, 'A2000244', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(106, 'B20H0236', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(107, 'H2000514', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(108, '019H0292', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(109, '720H1519', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(110, '02000939', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(111, '32001093', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(112, 'H2000506', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(113, 'B19H0160', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(114, '020H0214', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(115, '01900146', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(116, '51900119', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(117, 'B1900124', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(118, '81900546', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(119, 'A2000221', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(120, '51900444', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(121, 'B19H0163', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(122, '81900544', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(123, '81900550', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(124, '32001095', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(125, 'E20H0347', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(126, 'TRANHAO', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(127, '72100347', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(128, '421H0302', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(129, 'D2100331', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(130, '21900494', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(131, 'H2000338', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(132, 'A2100108', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(133, 'A2100248', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
+(134, 'A2100100', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II');
+
 -- --------------------------------------------------------
 
 --
@@ -591,7 +620,6 @@ CREATE TABLE `tbl_executive` (
 --
 
 INSERT INTO `tbl_executive` (`id_executive`, `id_user`, `id_position`) VALUES
-(7, 49, 11),
 (8, 1, 1),
 (9, 24, 2),
 (10, 9, 3),
@@ -625,10 +653,6 @@ INSERT INTO `tbl_position` (`id_position`, `name`, `description`) VALUES
 (5, 'Trưởng ban Nhân Sự', '<p>Hỗ trợ cho c&aacute;c lớp học kỹ năng, chuẩn bị c&aacute;c dụng cụ, vật dụng; điều phối, gi&aacute;m s&aacute;t, quản l&yacute; t&igrave;nh h&igrave;nh lớp học; hỗ trợ cho giảng vi&ecirc;n/b&aacute;o c&aacute;o vi&ecirc;n đứng lớp. Hỗ trợ giảng vi&ecirc;n trong qu&aacute; tr&igrave;nh đứng lớp khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n'),
 (6, 'Phó ban Nhân Sự', '<p>Hỗ trợ cho c&aacute;c lớp học kỹ năng, chuẩn bị c&aacute;c dụng cụ, vật dụng; điều phối, gi&aacute;m s&aacute;t, quản l&yacute; t&igrave;nh h&igrave;nh lớp học; hỗ trợ cho giảng vi&ecirc;n/b&aacute;o c&aacute;o vi&ecirc;n đứng lớp. Hỗ trợ giảng vi&ecirc;n trong qu&aacute; tr&igrave;nh đứng lớp khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n'),
 (7, 'Trưởng ban Sự kiện và Truyền Thông', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n'),
-(8, 'Phó ban Sự kiện và Truyền Thông - Team Thiết Kế', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n'),
-(9, 'Phó ban Sự kiện và Truyền Thông - Team Nội Dung', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n'),
-(10, 'Phó ban Sự kiện và Truyền Thông - Team Sự Kiện', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n'),
-(11, 'Ban Cố Vấn', '<p>Ban cố vấn l&agrave; nơi tham mưu, tư vấn, gi&uacute;p việc cho C&acirc;u lạc bộ trong qu&aacute; tr&igrave;nh tổ chức thực hiện c&aacute;c c&ocirc;ng việc về, cũng như định hướng ph&aacute;t triển cho C&acirc;u lạc bộ.</p>\r\n'),
 (13, 'Phó ban Sự kiện và Truyền Thông', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n');
 
 -- --------------------------------------------------------
@@ -675,8 +699,13 @@ CREATE TABLE `tbl_schedule` (
 --
 
 INSERT INTO `tbl_schedule` (`id_schedule`, `id_user`, `session`, `shift`) VALUES
-(191, 1, 'Monday', 'Ca1 '),
-(192, 1, 'Tuesday', 'Ca3 ');
+(212, 51, 'Wednesday', 'Ca1 Ca2 '),
+(213, 51, 'Friday', 'Ca1 Ca2 '),
+(215, 45, 'Friday', 'Ca2 '),
+(221, 24, 'Tuesday', 'Ca2 Ca3 Ca4 '),
+(222, 1, 'Thursday', 'Ca1 Ca2 Ca3 Ca4 '),
+(223, 1, 'Friday', 'Ca1 Ca2 Ca3 Ca4 '),
+(224, 10, 'Thursday', 'Ca2 ');
 
 -- --------------------------------------------------------
 
@@ -775,8 +804,6 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthday`, `facebook`, `id_team`, `phone`, `role`) VALUES
 (1, '51900040', 'e1f8b81700700b15a66764f91bc43373', 'Lê Trí Đức', '2001-05-03', 'https://www.facebook.com/ltrduc', 1, '0377025449', 0),
-(2, '51900356', 'decba85389bc8742ad691ef45069a89d', 'Tạ Quốc Khánh', NULL, NULL, 1, NULL, 0),
-(3, 'H1900308', 'c87566fe171afba085d2c43088176e26', 'Nguyễn Nhật Quyên', NULL, NULL, 1, NULL, 0),
 (4, '11900067', 'ee215d2465ef614e8cf9c16beae17a32', 'Phạm Ngọc Minh Thư', NULL, NULL, 1, NULL, 0),
 (5, '219H0227', '98eaf61ad9feabfb61bac17ab4bf8aaf', 'Bùi Thị Thuỳ Trang', '2001-05-29', 'https://www.facebook.com/trang.buithithuy.37/', 1, '0827540883', 0),
 (6, 'B1900443', '393f83da5ae4f676d6358da3a70f2a15', 'Huỳnh Hữu Khang Vĩ', '2001-04-20', 'https://www.facebook.com/khangvi.huynhhuu/', 1, '0704438192', 0),
@@ -786,44 +813,31 @@ INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthd
 (10, 'H2000514', '6b4eeafb2df14a94203625c3afd97cf1', 'Trần Kim Xuân', '2002-12-23', 'https://www.facebook.com/kimxuan.tran.927', 1, '0703874040', 0),
 (11, '019H0292', 'a4cbde89381503582267fcf7af3287c3', 'Nguyễn Mỹ Anh', NULL, NULL, 3, NULL, 0),
 (12, '720H1519', '34407949dee2cd3056e38e5cae9d02a5', 'Hoàng Ngọc Bảo Châu', '2002-12-12', 'https://www.facebook.com/profile.php?id=100008882825759', 3, '0779603470', 0),
-(13, '51900030', '17dd54b49eadccf8e149e6d224fd99d9', 'Nguyễn Quốc Đạt', '2001-10-11', 'https://www.facebook.com/profile.php?id=100012335321609', 1, '0961418516', 0),
 (14, '02000939', 'd1763ac34f6a48a43af7045f32842945', 'Hồ Thị Bích Tuyền', '2002-06-10', 'https://www.facebook.com/bichtuyen.hothi.731', 3, '0373471411', 0),
-(15, '020H0363', '2a62fe57d691560853438d40dd4e370e', 'Nguyễn Phạm Kim Ngân', NULL, NULL, 3, NULL, 0),
 (16, '32001093', '6605d1c5c7dd96701e3a2c47fdb73c81', 'Nguyễn Thị Thư', '2002-01-10', 'https://www.facebook.com/thiendi.hoang.5030', 3, '0346056637', 0),
 (17, 'H2000506', 'bbf566384d1e09f37e0b1845301d3c62', 'Lê Thanh Vy', NULL, NULL, 3, NULL, 0),
 (18, 'B19H0160', '4b233c55470bafcfaef8b0b310f5512a', 'Nguyễn Trần Phương Anh', NULL, NULL, 2, NULL, 0),
 (19, '020H0214', 'c13aceefb420263e13acbdb5ae57b05b', 'Ngô Nguyễn Minh Anh', '2002-04-04', 'https://www.facebook.com/profile.php?id=100044649050442', 2, '0703090346', 0),
-(20, '61900381', '12cdb316d70374121cb1cd1b940dda9f', 'Trần Ngọc Châu', '2001-09-10', 'https://www.facebook.com/NgocChau2k1', 2, '0852419920', 0),
-(21, '720H1520', '7b2c337b9487f215e6148ca47a5139f3', 'Trần Mỹ Châu', NULL, NULL, 2, NULL, 0),
-(22, '61900050', 'fe242d438e5cc9d7b8bce135c2f9e404', 'Lê Thị Hồng Gấm', NULL, NULL, 2, NULL, 0),
 (23, '01900146', 'b6ca85c2acd578c092f47e3b9a6bbfe3', 'Huỳnh Thị Diễm Hồng', NULL, NULL, 2, NULL, 0),
 (24, '51900119', '32e52bea4a9c000291c04d834c0f1d2b', 'Lê Thành Đăng Khoa', '2001-04-17', 'https://www.facebook.com/khoalag174', 2, '0788765410', 0),
 (25, 'B1900124', '98e61dedb2dde05753af4d40ecf9e9db', 'Phạm Hoàng Long', NULL, NULL, 2, NULL, 0),
-(26, '31900474', 'da5a44a3a9d55058150dd4e2721550e0', 'Huỳnh Nguyễn Ngọc Minh', NULL, NULL, 2, NULL, 0),
-(27, '41900468', '9408bb53069de3d9aeadd1d401e0356f', 'Nguyễn Duy Khánh Minh', '2001-03-09', 'https://www.facebook.com/nguyenduykhanhminh6685', 3, '0862087931', 0),
-(28, '31901010', 'b35ff4ee9c13339a79a286c082df2f3a', 'Trầm Tuyết Ngân', '2001-11-09', 'https://www.facebook.com/woominie/', 2, '0378154674', 0),
 (29, '81900546', '976a7aa94f4fc8b814ab2338efd9a9d4', 'Trần Hiếu Ngân', NULL, NULL, 2, NULL, 0),
 (30, 'A2000221', '5299de3b0b6c946845316b3d4db91c79', 'Nguyễn Như Ngọc', NULL, NULL, 2, NULL, 0),
 (31, '51900444', '59fd4766e5011211dbe84e7dbdbdcfca', 'Phạm Huỳnh Anh Tiến', NULL, NULL, 2, NULL, 0),
-(32, '41900552', '3237d7b0be2ebc85beac9ae7e73fb0bb', 'Huỳnh Quốc Thắng', NULL, NULL, 2, NULL, 0),
-(33, '61900566', 'ba29c56c881c768be1d44f3bdcdbaccb', 'Ngô Trần Ngọc Thuận', '2001-01-29', 'https://www.facebook.com/ngocthuanneeee/', 2, '0869320518', 0),
-(34, '41900587', '98d5f733e3d4d54eda935678a499f949', 'Nguyễn Hoàng Trân', NULL, NULL, 2, NULL, 0),
-(35, '519H0247', 'b69ab6698d5bf70e234f68341a33dcc1', 'Nguyễn Đức Trọng', NULL, NULL, 2, NULL, 0),
 (36, 'B19H0163', '791cc672410056d218a1804b3eb8fb91', 'Trương Hoàng Anh', NULL, NULL, 2, NULL, 0),
-(37, '81900518', '4813eb9e6ba5c3725e7641bea8582886', 'Nguyễn Thị Kim Hằng', NULL, NULL, 2, NULL, 0),
 (38, '81900544', '4ef6d78c01ddd41a3b73060935ddf2d1', 'Nguyễn Thị My', NULL, NULL, 2, NULL, 0),
-(39, 'B19H0257', 'bbd6878c1f09a4a13a8b61309e94529b', 'Trần Yến Ngọc', NULL, NULL, 2, NULL, 0),
 (40, '81900550', '8431508a871e0136efa47e465dd0ef43', 'Nguyễn Ngọc Thảo Nguyên', NULL, NULL, 2, NULL, 0),
-(41, 'C2000286', '8a0d77288e401318308e910e26587e37', 'Nguyễn Hoàng Minh Khan', NULL, NULL, 2, NULL, 0),
-(42, '62000831', 'ae4fb3e73957ace0e1cfc16de7778673', 'Trần Phùng Hiếu Ngân', NULL, NULL, 2, NULL, 0),
-(43, '720H1569', 'ca20c062fa0090dca7069bebb2c8c103', 'Giang Tịnh Nghi', NULL, NULL, 2, NULL, 0),
-(44, '720H1575', 'b59aa4a33fa2c3b62acb3f3e95aa1c8e', 'Đỗ Uyên Nhi', NULL, NULL, 2, NULL, 0),
 (45, '32001095', '7c10837b21097b5b8f2c1742b0de7eda', 'Lê Thanh Thùy', '2002-01-15', 'https://www.facebook.com/profile.php?id=100027235023512', 2, '0376523632', 0),
-(46, '720H1224', 'e9d698af1f660c04196de0e73da97508', 'Bùi Thị Tố Trinh', '2002-11-01', 'https://www.facebook.com/trinh.to.9862273', 2, '0358729992', 0),
-(47, 'B2000218', '174300834bbe23e1e7bc6acf2045f8a6', 'Trầm Thị Quỳnh Tươi', NULL, NULL, 2, NULL, 0),
-(48, 'E20H0347', 'a2a2bea9bcf77c92a714ef3e669e2cdf', 'Phùng Lữ Thế Hoài', NULL, NULL, 2, NULL, 0),
+(48, 'E20H0347', 'a2a2bea9bcf77c92a714ef3e669e2cdf', 'Phùng Lữ Thế Hoài', '2002-10-28', 'Phùng Hoài', 2, '0886804955', 0),
 (49, 'TRANHAO', 'f19d376aa086a3985fdeb5e25fe8235f', 'Trần Tuấn Hào', NULL, NULL, 4, NULL, 0),
-(50, 'HIENANH', '92fd471f13d6f6ad708f64623f52e003', 'Nguyễn Trần Hiền Anh', NULL, NULL, 4, NULL, 0);
+(51, '72100347', '90d642d9ceaf28d6e5573a508b460563', 'Sơn Ka Ka Chi', '2003-01-31', 'https://www.facebook.com/profile.php?id=100013193766007', 3, '0913348440', 0),
+(52, '421H0302', '11c28891b8713eacc690c0f776ae8028', 'Phan Thành Khang', NULL, NULL, 3, NULL, 0),
+(53, 'D2100331', 'd7b7600810e55b8ef9e9523a2df317a7', 'Trương Minh Phát', NULL, NULL, 3, NULL, 0),
+(54, '21900494', '8f04763a0f7457b466c9ff0201a3276a', 'Phạm Thị Ngọc Ngân', NULL, NULL, 2, NULL, 0),
+(55, 'H2000338', '6060bf865c621e73998caee0b048beb7', 'Lý Mỹ Trinh', NULL, NULL, 2, NULL, 0),
+(56, 'A2100108', '949d74eb805fa74c50ebc3cc7f5563b5', 'Phan Tường Vi', NULL, NULL, 2, NULL, 0),
+(57, 'A2100248', 'c7f5cbcb8ee3e471cd1af1a66fce848a', 'Lê Thị Thu Sang', NULL, NULL, 2, NULL, 0),
+(58, 'A2100100', 'ae4fc20783566462652bc972943e7bc9', 'Huỳnh Thị Thanh Trúc', NULL, NULL, 2, NULL, 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -945,7 +959,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT cho bảng `tbl_attendance`
 --
 ALTER TABLE `tbl_attendance`
-  MODIFY `id_attendance` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=272;
+  MODIFY `id_attendance` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_borrow`
@@ -963,7 +977,7 @@ ALTER TABLE `tbl_course`
 -- AUTO_INCREMENT cho bảng `tbl_decentralization`
 --
 ALTER TABLE `tbl_decentralization`
-  MODIFY `id_decentralization` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_decentralization` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_device`
@@ -987,7 +1001,7 @@ ALTER TABLE `tbl_devicestatistics`
 -- AUTO_INCREMENT cho bảng `tbl_evaluate`
 --
 ALTER TABLE `tbl_evaluate`
-  MODIFY `id_evaluate` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_evaluate` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_executive`
@@ -1011,7 +1025,7 @@ ALTER TABLE `tbl_recruitment`
 -- AUTO_INCREMENT cho bảng `tbl_schedule`
 --
 ALTER TABLE `tbl_schedule`
-  MODIFY `id_schedule` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=193;
+  MODIFY `id_schedule` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_schoolyear`
@@ -1035,7 +1049,7 @@ ALTER TABLE `tbl_team`
 -- AUTO_INCREMENT cho bảng `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
