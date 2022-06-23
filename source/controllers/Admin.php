@@ -189,6 +189,7 @@ class Admin extends Controller
       "Thursday"       => $this->Schedule->getSchedule(),
       "Friday"         => $this->Schedule->getSchedule(),
       "Saturday"       => $this->Schedule->getSchedule(),
+      "Sunday"         => $this->Schedule->getSchedule(),
       "ListMember"     => $this->Personnel->getMember(),
       "ListSchoolYear" => $this->SchoolYear->getSchoolYear(),
       "Notification"   => $Notification,

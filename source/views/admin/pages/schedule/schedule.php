@@ -192,6 +192,29 @@
                             }
                           } ?>
 
+                          <!-- CHỦ NHẬT -->
+                          <tr class="fc-list-heading">
+                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">Sunday</span></td>
+                          </tr>
+                          <?php if ($data['Sunday']) {
+                            while ($value = $data['Sunday']->fetch_assoc()) {
+                              if ($value['session'] == 'Sunday') { ?>
+                                <tr class="fc-list-item">
+                                  <td class="fc-list-item-time fc-widget-content"><?php echo $value['shift']; ?></td>
+                                  <td class="fc-list-item-marker fc-widget-content"><span class="fc-event-dot" style="background-color:#<?php echo substr('00000' . dechex(mt_rand(0, 0xffffff)), -6); ?>"></span></td>
+                                  <td class="fc-list-item-title fc-widget-content"><a>[<?php echo $value['id_student']; ?>] - <?php echo $value['fullname']; ?></a></td>
+                                  <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
+                                  <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
+                                  <td class="fc-list-item-title fc-widget-content">
+                                    <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
+                                      <div class="bullet"></div>
+                                      <a href="#" class="text-danger" onclick="deleteSchedule('<?php echo $value['id_schedule']; ?>');" data-toggle="modal" data-target="#deleteSchedule" style="font-size: 13px;">Xóa</a>
+                                    <?php } ?>
+                                  </td>
+                                </tr>
+                          <?php }
+                            }
+                          } ?>
                         </tbody>
                       </table>
                     </div>
@@ -239,6 +262,7 @@
                 <option value="Thursday">Thứ 5</option>
                 <option value="Friday">Thứ 6</option>
                 <option value="Saturday">Thứ 7</option>
+                <option value="Sunday">Chủ nhật</option>
               </select>
               <div class="invalid-feedback">Vui lòng không bỏ trống dữ liệu!</div>
             </div>

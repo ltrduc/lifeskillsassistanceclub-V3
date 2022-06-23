@@ -96,6 +96,7 @@ class Schedule
         if ($value['session'] == "Thursday")  $newDate = date ('Y-m-d', strtotime("+3 days", strtotime($date)));
         if ($value['session'] == "Friday")    $newDate = date ('Y-m-d', strtotime("+4 days", strtotime($date)));
         if ($value['session'] == "Saturday")  $newDate = date ('Y-m-d', strtotime("+5 days", strtotime($date)));
+        if ($value['session'] == "Sunday")    $newDate = date ('Y-m-d', strtotime("+6 days", strtotime($date)));
 
         for ($i = 0; $i < count(explode(" ", $value['shift'])); $i++) {
           $shift = explode(" ", $value['shift'])[$i];
