@@ -55,7 +55,7 @@
                 <table class="table table-striped table-hover" id="table-1">
                   <thead>
                     <tr>
-                      <th>ID năm học</th>
+                      <th>ID</th>
                       <th>Năm học</th>
                       <th>Ghi chú</th>
                       <th>Thao tác</th>
