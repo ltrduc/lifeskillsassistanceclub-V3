@@ -285,6 +285,10 @@ class Admin extends Controller
         $date           = $_POST['date'];
         $Notification   = $this->Course->deleteCourse($id_schoolyear, $semester, $date);
       }
+      if (isset($_POST['importCourse'])) {
+        $file         = $_FILES["file"]["tmp_name"];
+        $Notification = $this->Course->importCourse($file);
+      }
     }
 
     $this->viewAdmin("layout", [
@@ -323,10 +327,6 @@ class Admin extends Controller
       if (isset($_POST['deleteDetailedCourse'])) {
         $id_course    = $_POST['id_course'];
         $Notification = $this->Course->deleteDetailedCourse($id_course);
-      }
-      if (isset($_POST['importCourse'])) {
-        $file         = $_FILES["file"]["tmp_name"];
-        $Notification = $this->Course->importCourse($file);
       }
     }
 
