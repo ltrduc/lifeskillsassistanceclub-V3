@@ -324,6 +324,10 @@ class Admin extends Controller
         $id_course    = $_POST['id_course'];
         $Notification = $this->Course->deleteDetailedCourse($id_course);
       }
+      if (isset($_POST['importCourse'])) {
+        $file         = $_FILES["file"]["tmp_name"];
+        $Notification = $this->Course->importCourse($file);
+      }
     }
 
     $this->viewAdmin("layout", [

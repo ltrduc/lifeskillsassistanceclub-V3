@@ -28,6 +28,7 @@
               <h4>DANH SÁCH LỊCH HỌC</h4>
               <div class="card-header-action">
                 <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addCourse"><i class="fas fa-plus"></i> Thêm mới lịch học</a>
+                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#importCourse"><i class="fas fa-plus"></i> Import Course</a>
               </div>
             </div>
 
@@ -189,7 +190,7 @@
     </div>
   </div>
 
-  <!-- Xóa thành viên -->
+  <!-- Xóa lịch học -->
   <div class="modal fade" id="deleteCourse">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -206,6 +207,29 @@
           <div class="modal-body">Bạn có chắc chắn muốn xóa lịch học ngày <strong id="delete-info-date"></strong>?</div>
           <div class="modal-footer bg-whitesmoke br">
             <button type="submit" name="deleteCourse" class="btn btn-danger">Xóa lịch học</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Import khóa học -->
+  <div class="modal fade" id="importCourse">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form action="Admin/Course" method="post" enctype="multipart/form-data">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">IMPORT COURSE</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input type="file" name="file"/>
+          </div>
+          <div class="modal-footer bg-whitesmoke br">
+            <button type="submit" name="importCourse" class="btn btn-primary">Import</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
           </div>
         </form>

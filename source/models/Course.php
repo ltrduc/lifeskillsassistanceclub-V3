@@ -116,4 +116,40 @@ class Course
     }
     return ["status" => "error", "message" => "Đã xóa dữ liệu thất bại!"];
   }
+
+  public function importCourse($file)
+  {
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+    if (empty($file)) return ["status" => "error", "message" => "Vui lòng chọn file để Import!"];
+
+    $file_open = fopen($file,"r");
+
+    while(($csv = fgetcsv($file_open, 1000, ",")) !== false) {
+      $id_subject     = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[0])); 
+      $group          = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[1]));
+      $period         = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[2]));
+      $local          = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[3]));
+      $dateStart      = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[4]));
+      $dateEnd        = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[5]));
+      $sum            = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[6]));
+      $id_schoolyear  = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[7]));
+      $semester       = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[8]));
+
+      if ($semester == 3) $semester = "Hè";
+
+      if($sum == 5) {
+        $this->db->insert("INSERT INTO `tbl_course`(`id_subject`, `group`, `period`, `local`, `date`, `semester`, `id_schoolyear`) 
+        VALUES ('$id_subject','$group','$period: 01','$local', '$dateStart','Học kỳ $semester','$id_schoolyear')");
+      } else {
+        $this->db->insert("INSERT INTO `tbl_course`(`id_subject`, `group`, `period`, `local`, `date`, `semester`, `id_schoolyear`) 
+        VALUES ('$id_subject','$group','$period: 01','$local', '$dateStart','Học kỳ $semester','$id_schoolyear')");
+
+        $this->db->insert("INSERT INTO `tbl_course`(`id_subject`, `group`, `period`, `local`, `date`, `semester`, `id_schoolyear`) 
+        VALUES ('$id_subject','$group','$period: 02','$local', '$dateEnd','Học kỳ $semester','$id_schoolyear')");
+      }
+    }
+
+    return ["status" => "success", "message" => "Đã thêm dữ liệu thành công!"];
+  }
 }
