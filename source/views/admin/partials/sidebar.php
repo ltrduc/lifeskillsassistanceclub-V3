@@ -11,6 +11,9 @@
       <li class="dropdown">
         <a href="Admin/Home" class="nav-link"><i data-feather="monitor"></i><span>Tổng quan</span></a>
       </li>
+      <li class="dropdown">
+        <a href="CourseCalendar" class="nav-link"><i data-feather="calendar"></i><span>Thời khóa biểu</span></a>
+      </li>
       <li class="menu-header">Thao tác quản lý</li>
       <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="calendar"></i><span>Quản lý lịch trực</span></a>
