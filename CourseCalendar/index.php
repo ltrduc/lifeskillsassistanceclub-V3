@@ -1,3 +1,8 @@
+<?php
+$filepath = realpath(dirname(__FILE__));
+require_once($filepath . '/../source/core/lib/session.php');
+Session::checkSession();
+?>
 <!DOCTYPE html>
 <html>
 
