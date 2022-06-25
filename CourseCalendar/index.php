@@ -14,9 +14,9 @@ Session::checkSession();
     <link rel="stylesheet" href="css/calendar.css">
 </head>
 
-<body>
+<body style="background-image: url(../source/public/img/bg-3.jpg);">
     <div class="container">
-        <div class="hero-unit">
+        <div style="margin-top: 20px;">
             <h2>Thời khóa biểu - Câu lạc bộ Kỹ Năng Sống</h2>
             <p style="font-size: 15px;">Thời khóa biểu tổng quan - Những kỹ năng thiết yếu cho sự phát triển bền vững</p>
             <a class="btn btn-default btn-primary" href="/Auth/Login">Truy cập hệ thống</a>
