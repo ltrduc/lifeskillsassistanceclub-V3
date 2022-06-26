@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th6 26, 2022 lúc 08:46 AM
+-- Thời gian đã tạo: Th6 26, 2022 lúc 03:41 PM
 -- Phiên bản máy phục vụ: 10.5.12-MariaDB
 -- Phiên bản PHP: 7.3.32
 
@@ -734,7 +734,7 @@ CREATE TABLE `tbl_schedule` (
   `id_user` int(255) NOT NULL,
   `session` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `shift` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `note` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `note` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -742,31 +742,27 @@ CREATE TABLE `tbl_schedule` (
 --
 
 INSERT INTO `tbl_schedule` (`id_schedule`, `id_user`, `session`, `shift`, `note`) VALUES
-(229, 45, 'Monday', 'Ca2 ', ''),
-(230, 45, 'Wednesday', 'Ca2 ', ''),
-(231, 45, 'Friday', 'Ca2 ', ''),
-(232, 45, 'Tuesday', 'Ca2 Ca3 ', ''),
-(233, 45, 'Thursday', 'Ca2 Ca3 ', ''),
-(234, 16, 'Tuesday', 'Ca2 Ca3 ', ''),
-(235, 16, 'Thursday', 'Ca2 Ca3 ', ''),
-(236, 56, 'Monday', 'Ca1 Ca2 ', ''),
-(237, 56, 'Wednesday', 'Ca1 Ca2 ', ''),
-(238, 57, 'Monday', 'Ca1 Ca2 ', ''),
-(239, 58, 'Tuesday', 'Ca3 Ca4 ', ''),
-(240, 57, 'Tuesday', 'Ca3 Ca4 ', ''),
-(241, 58, 'Wednesday', 'Ca1 Ca2 ', ''),
-(242, 55, 'Wednesday', 'Ca2 ', ''),
-(243, 51, 'Monday', 'Ca1 ', ''),
-(245, 51, 'Friday', 'Ca1 ', ''),
-(246, 29, 'Thursday', 'Ca3 Ca4 ', ''),
-(247, 29, 'Monday', 'Ca3 ', ''),
-(248, 29, 'Friday', 'Ca3 ', ''),
-(249, 38, 'Monday', 'Ca3 ', ''),
-(250, 38, 'Friday', 'Ca3 ', ''),
-(252, 51, 'Saturday', 'Ca1 ', ''),
-(254, 40, 'Monday', 'Ca3 ', ''),
-(255, 40, 'Friday', 'Ca3 ', ''),
-(257, 51, 'Wednesday', 'Ca1 Ca3 Ca4 ', '');
+(229, 45, 'Monday', 'Ca2 ', 'HT 06B'),
+(230, 45, 'Wednesday', 'Ca2 ', 'HT 06B'),
+(231, 45, 'Friday', 'Ca2 ', 'HT 10A'),
+(236, 56, 'Monday', 'Ca1 Ca2 ', 'HT 10A'),
+(237, 56, 'Wednesday', 'Ca1 Ca2 ', 'HT 10A'),
+(238, 57, 'Monday', 'Ca1 Ca2 ', 'HT 10A'),
+(239, 58, 'Tuesday', 'Ca3 Ca4 ', 'HT 10A'),
+(240, 57, 'Tuesday', 'Ca3 Ca4 ', 'HT 10A'),
+(241, 58, 'Wednesday', 'Ca1 Ca2 ', 'HT 10A'),
+(242, 55, 'Wednesday', 'Ca2 ', 'HT 10A'),
+(243, 51, 'Monday', 'Ca1 ', 'HT 06B'),
+(245, 51, 'Friday', 'Ca1 ', 'HT 10A'),
+(246, 29, 'Thursday', 'Ca3 Ca4 ', 'HT 10A'),
+(247, 29, 'Monday', 'Ca3 ', 'HT 06B'),
+(248, 29, 'Friday', 'Ca3 ', 'HT 06B'),
+(249, 38, 'Monday', 'Ca3 ', 'HT 10A'),
+(250, 38, 'Friday', 'Ca3 ', 'HT 10A'),
+(252, 51, 'Saturday', 'Ca1 ', 'HT 10A'),
+(254, 40, 'Monday', 'Ca3 ', 'HT 10A'),
+(255, 40, 'Friday', 'Ca3 ', 'HT 10A'),
+(257, 51, 'Wednesday', 'Ca1 Ca3 Ca4 ', 'HT 06B');
 
 -- --------------------------------------------------------
 
@@ -890,14 +886,14 @@ INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthd
 (40, '81900550', '8431508a871e0136efa47e465dd0ef43', 'Nguyễn Ngọc Thảo Nguyên', NULL, NULL, 2, NULL, 0),
 (45, '32001095', '7c10837b21097b5b8f2c1742b0de7eda', 'Lê Thanh Thùy', '2002-01-15', 'https://www.facebook.com/profile.php?id=100027235023512', 2, '0376523632', 0),
 (48, 'E20H0347', 'a2a2bea9bcf77c92a714ef3e669e2cdf', 'Phùng Lữ Thế Hoài', '2002-10-28', 'Phùng Hoài', 2, '0886804955', 0),
-(49, 'TRANHAO', 'f19d376aa086a3985fdeb5e25fe8235f', 'Trần Tuấn Hào', NULL, NULL, 4, NULL, 0),
+(49, 'TRANHAO', 'f19d376aa086a3985fdeb5e25fe8235f', 'Trần Tuấn Hào', '1995-08-14', 'https://www.facebook.com/profile.php?id=100014419532788', 4, '0362494359', 0),
 (51, '72100347', '90d642d9ceaf28d6e5573a508b460563', 'Sơn Ka Ka Chi', '2003-01-31', 'https://www.facebook.com/profile.php?id=100013193766007', 3, '0913348440', 0),
 (52, '421H0302', '11c28891b8713eacc690c0f776ae8028', 'Phan Thành Khang', NULL, NULL, 3, NULL, 0),
 (53, 'D2100331', 'd7b7600810e55b8ef9e9523a2df317a7', 'Trương Minh Phát', NULL, NULL, 3, NULL, 0),
 (54, '21900494', '8f04763a0f7457b466c9ff0201a3276a', 'Phạm Thị Ngọc Ngân', NULL, NULL, 2, NULL, 0),
 (55, 'H2000338', '6060bf865c621e73998caee0b048beb7', 'Lý Mỹ Trinh', NULL, NULL, 2, NULL, 0),
-(56, 'A2100108', '949d74eb805fa74c50ebc3cc7f5563b5', 'Phan Tường Vi', NULL, NULL, 2, NULL, 0),
-(57, 'A2100248', 'c7f5cbcb8ee3e471cd1af1a66fce848a', 'Lê Thị Thu Sang', NULL, NULL, 2, NULL, 0),
+(56, 'A2100108', '949d74eb805fa74c50ebc3cc7f5563b5', 'Phan Tường Vi', '2003-06-01', 'https://www.facebook.com/huyen.linh.3133719/', 2, '0372988285', 0),
+(57, 'A2100248', 'c7f5cbcb8ee3e471cd1af1a66fce848a', 'Lê Thị Thu Sang', '2003-01-15', 'https://www.facebook.com/profile.php?id=100010483470407', 2, '0792983595', 0),
 (58, 'A2100100', 'ae4fc20783566462652bc972943e7bc9', 'Huỳnh Thị Thanh Trúc', NULL, NULL, 2, NULL, 0);
 
 --
@@ -1086,7 +1082,7 @@ ALTER TABLE `tbl_recruitment`
 -- AUTO_INCREMENT cho bảng `tbl_schedule`
 --
 ALTER TABLE `tbl_schedule`
-  MODIFY `id_schedule` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=258;
+  MODIFY `id_schedule` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_schoolyear`
