@@ -35,9 +35,10 @@
                 </div>
               </div>
               <div class="card-header-action">
-                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addSchedule"><i class="fas fa-plus"></i> Đăng ký ca trực</a>
+                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addSchedule"><i class="fas fa-plus"></i> Đăng ký</a>
                 <?php if (Session::get('pmsAdmin') == 1) { ?>
-                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#Attendance"><i class="fas fa-calendar"></i> Điểm danh ca trực</a>
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#Attendance"><i class="fas fa-calendar"></i> Điểm danh</a>
+                  <a style="color: white;" onclick="noteAdmin()" class="btn btn-warning" type="button"><i class="fas fa-book-open"></i> Phân công</a>
                 <?php } ?>
               </div>
             </div>
@@ -63,7 +64,7 @@
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1) { ?>
-                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control noteAdmin" style="padding: 0; height: 23px; width: 100px; display: none;">
                                       <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
                                       <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
                                       <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
@@ -71,8 +72,9 @@
                                       <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
                                       <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
                                     </select>
+                                    <a class="noteAdminSave"><?php echo $value['note']; ?></a>
                                     <?php } else { ?>
-                                      <?php echo $value['note']; ?></a>
+                                      <a class="noteUser"><?php echo $value['note']; ?></a>
                                     <?php }?>
                                   </td>
                                   <td class="fc-list-item-title fc-widget-content">
@@ -101,7 +103,7 @@
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1) { ?>
-                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control noteAdmin" style="padding: 0; height: 23px; width: 100px; display: none;">
                                       <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
                                       <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
                                       <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
@@ -109,8 +111,9 @@
                                       <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
                                       <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
                                     </select>
+                                    <a class="noteAdminSave"><?php echo $value['note']; ?></a>
                                     <?php } else { ?>
-                                      <?php echo $value['note']; ?></a>
+                                      <a class="noteUser"><?php echo $value['note']; ?></a>
                                     <?php }?>
                                   </td>
                                   <td class="fc-list-item-title fc-widget-content">
@@ -139,7 +142,7 @@
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1) { ?>
-                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control noteAdmin" style="padding: 0; height: 23px; width: 100px; display: none;">
                                       <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
                                       <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
                                       <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
@@ -147,8 +150,9 @@
                                       <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
                                       <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
                                     </select>
+                                    <a class="noteAdminSave"><?php echo $value['note']; ?></a>
                                     <?php } else { ?>
-                                      <?php echo $value['note']; ?></a>
+                                      <a class="noteUser"><?php echo $value['note']; ?></a>
                                     <?php }?>
                                   </td>
                                   <td class="fc-list-item-title fc-widget-content">
@@ -177,7 +181,7 @@
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1) { ?>
-                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control noteAdmin" style="padding: 0; height: 23px; width: 100px; display: none;">
                                       <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
                                       <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
                                       <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
@@ -185,8 +189,9 @@
                                       <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
                                       <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
                                     </select>
+                                    <a class="noteAdminSave"><?php echo $value['note']; ?></a>
                                     <?php } else { ?>
-                                      <?php echo $value['note']; ?></a>
+                                      <a class="noteUser"><?php echo $value['note']; ?></a>
                                     <?php }?>
                                   </td>
                                   <td class="fc-list-item-title fc-widget-content">
@@ -215,7 +220,7 @@
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1) { ?>
-                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control noteAdmin" style="padding: 0; height: 23px; width: 100px; display: none;">
                                       <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
                                       <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
                                       <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
@@ -223,8 +228,9 @@
                                       <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
                                       <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
                                     </select>
+                                    <a class="noteAdminSave"><?php echo $value['note']; ?></a>
                                     <?php } else { ?>
-                                      <?php echo $value['note']; ?></a>
+                                      <a class="noteUser"><?php echo $value['note']; ?></a>
                                     <?php }?>
                                   </td>
                                   <td class="fc-list-item-title fc-widget-content">
@@ -253,7 +259,7 @@
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1) { ?>
-                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control noteAdmin" style="padding: 0; height: 23px; width: 100px; display: none;">
                                       <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
                                       <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
                                       <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
@@ -261,8 +267,9 @@
                                       <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
                                       <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
                                     </select>
+                                    <a class="noteAdminSave"><?php echo $value['note']; ?></a>
                                     <?php } else { ?>
-                                      <?php echo $value['note']; ?></a>
+                                      <a class="noteUser"><?php echo $value['note']; ?></a>
                                     <?php }?>
                                   </td>
                                   <td class="fc-list-item-title fc-widget-content">
@@ -291,7 +298,7 @@
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1) { ?>
-                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control noteAdmin" style="padding: 0; height: 23px; width: 100px; display: none;">
                                       <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
                                       <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
                                       <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
@@ -299,8 +306,9 @@
                                       <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
                                       <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
                                     </select>
+                                    <a class="noteAdminSave"><?php echo $value['note']; ?></a>
                                     <?php } else { ?>
-                                      <?php echo $value['note']; ?></a>
+                                      <a class="noteUser"><?php echo $value['note']; ?></a>
                                     <?php }?>
                                   </td>
                                   <td class="fc-list-item-title fc-widget-content">
@@ -343,6 +351,22 @@
           });
         }
       })
+    }
+
+    function noteAdmin() {
+      var noteAdmins = document.getElementsByClassName('noteAdmin');
+      var noteAdminSaves = document.getElementsByClassName('noteAdminSave');
+      
+      for (var i = 0; i < noteAdmins.length; i ++) {
+        if (noteAdmins[i].style.display === "none") {
+          noteAdmins[i].style.display = "block";
+          noteAdminSaves[i].style.display = "none";
+        } else {
+          noteAdmins[i].style.display = "none";
+          noteAdminSaves[i].style.display = "block";
+          location.reload();
+        }
+      }
     }
   </script>
   <!-- Thêm lịch trực -->
