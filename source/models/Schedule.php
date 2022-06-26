@@ -113,4 +113,15 @@ class Schedule
     }
     return ["status" => "error", "message" => "Lỗi trong quá trình điểm danh!"];
   }
+
+  public function NoteUpdateSchedule($id_schedule, $note)
+  {
+    $id_schedule  = mysqli_real_escape_string($this->db->link, $this->fm->validation($id_schedule));
+    $note         = mysqli_real_escape_string($this->db->link, $this->fm->validation($note));
+
+    $query  = "UPDATE `tbl_schedule` SET `note`='$note' WHERE `id_schedule`='$id_schedule'";
+    $result = $this->db->update($query);
+
+    echo ($result) ? 1 : 0;
+  }
 }

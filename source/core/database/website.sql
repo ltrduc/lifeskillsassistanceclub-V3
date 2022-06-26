@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 23, 2022 lúc 04:49 PM
--- Phiên bản máy phục vụ: 10.4.24-MariaDB
--- Phiên bản PHP: 7.4.29
+-- Máy chủ: localhost:3306
+-- Thời gian đã tạo: Th6 26, 2022 lúc 08:46 AM
+-- Phiên bản máy phục vụ: 10.5.12-MariaDB
+-- Phiên bản PHP: 7.3.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `website`
+-- Cơ sở dữ liệu: `id17609828_lifeskills_db`
 --
 
 -- --------------------------------------------------------
@@ -304,7 +305,27 @@ INSERT INTO `tbl_attendance` (`id_attendance`, `id_user`, `id_schoolyear`, `seme
 (298, 1, 3, 'Học kỳ Hè', '2022-06-16', 'Ca3', 'Present'),
 (299, 48, 3, 'Học kỳ Hè', '2022-06-17', 'Ca2', 'Present'),
 (300, 1, 3, 'Học kỳ 2', '2022-06-13', 'Ca 2', 'Present'),
-(301, 1, 3, 'Học kỳ 2', '2022-06-13', 'Ca 3', 'Present');
+(301, 1, 3, 'Học kỳ 2', '2022-06-13', 'Ca 3', 'Present'),
+(302, 51, 3, 'Học kỳ Hè', '2022-06-22', 'Ca1', 'Present'),
+(303, 51, 3, 'Học kỳ Hè', '2022-06-22', 'Ca2', 'Present'),
+(304, 51, 3, 'Học kỳ Hè', '2022-06-24', 'Ca1', 'Present'),
+(305, 51, 3, 'Học kỳ Hè', '2022-06-24', 'Ca2', 'Present'),
+(306, 45, 3, 'Học kỳ Hè', '2022-06-24', 'Ca2', 'Present'),
+(307, 24, 3, 'Học kỳ Hè', '2022-06-21', 'Ca2', 'Present'),
+(308, 24, 3, 'Học kỳ Hè', '2022-06-21', 'Ca3', 'Present'),
+(309, 24, 3, 'Học kỳ Hè', '2022-06-21', 'Ca4', 'Present'),
+(310, 1, 3, 'Học kỳ Hè', '2022-06-23', 'Ca1', 'Present'),
+(311, 1, 3, 'Học kỳ Hè', '2022-06-23', 'Ca2', 'Present'),
+(312, 1, 3, 'Học kỳ Hè', '2022-06-23', 'Ca3', 'Present'),
+(313, 1, 3, 'Học kỳ Hè', '2022-06-23', 'Ca4', 'Present'),
+(314, 10, 3, 'Học kỳ Hè', '2022-06-23', 'Ca2', 'Present'),
+(315, 10, 3, 'Học kỳ Hè', '2022-06-24', 'Ca2', 'Present'),
+(316, 10, 3, 'Học kỳ Hè', '2022-06-24', 'Ca3', 'Present'),
+(317, 1, 3, 'Học kỳ Hè', '2022-06-24', 'Ca3', 'Present'),
+(318, 1, 3, 'Học kỳ Hè', '2022-06-24', 'Ca4', 'Present'),
+(319, 19, 3, 'Học kỳ Hè', '2022-06-24', 'Ca2', 'Present'),
+(320, 19, 3, 'Học kỳ Hè', '2022-06-24', 'Ca3', 'Present'),
+(321, 19, 3, 'Học kỳ Hè', '2022-06-24', 'Ca4', 'Present');
 
 -- --------------------------------------------------------
 
@@ -346,55 +367,117 @@ CREATE TABLE `tbl_course` (
 --
 
 INSERT INTO `tbl_course` (`id_course`, `id_subject`, `group`, `teacher`, `period`, `local`, `date`, `semester`, `id_schoolyear`) VALUES
-(1, 5, '01', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 06B', '2022-02-07', 'Học kỳ 2', 3),
-(2, 3, '5', 'Nguyễn Đức Lộc', 'SA:01', 'HT 10A', '2022-02-07', 'Học kỳ 2', 3),
-(3, 3, '05', 'Nguyễn Đức Lộc', 'SA:02', 'HT 10A', '2022-02-14', 'Học kỳ 2', 3),
-(4, 3, '06', 'Nguyễn Đức Lộc', 'CH:01', 'HT 10A', '2022-02-07', 'Học kỳ 2', 3),
-(5, 3, '06', 'Nguyễn Đức Lộc', 'CH:02', 'HT 10A', '2022-02-14', 'Học kỳ 2', 3),
-(6, 4, '05', 'Nguyễn Thị Nhung', 'SA:01', '[---]', '2022-02-07', 'Học kỳ 2', 3),
-(7, 4, '05', 'Nguyễn Thị Nhung', 'SA:02', '[---]', '2022-02-14', 'Học kỳ 2', 3),
-(8, 4, '06', 'Nguyễn Thị Diễm My', 'CH:01', '[---]', '2022-02-07', 'Học kỳ 2', 3),
-(9, 4, '06', 'Nguyễn Thị Diễm My', 'CH:02', '[---]', '2022-02-14', 'Học kỳ 2', 3),
-(10, 4, '01', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 10A', '2022-02-08', 'Học kỳ 2', 3),
-(11, 4, '01', 'Nguyễn Thị Diễm My', 'SA:02', 'HT 10A', '2022-02-15', 'Học kỳ 2', 3),
-(12, 4, '02', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-02-08', 'Học kỳ 2', 3),
-(13, 4, '02', 'Nguyễn Thị Diễm My', 'CH:02', 'HT 10A', '2022-02-15', 'Học kỳ 2', 3),
-(14, 3, '01', 'Nguyễn Đức Lộc', 'SA:01', 'HT 10A', '2022-02-09', 'Học kỳ 2', 3),
-(15, 3, '01', 'Nguyễn Đức Lộc', 'SA:02', 'HT 10A', '2022-02-16', 'Học kỳ 2', 3),
-(16, 5, '02', 'Nguyễn Thị Nhung', 'SA:01', 'HT 06B', '2022-02-09', 'Học kỳ 2', 3),
-(17, 5, '03', 'Nguyễn Thị Nhung', 'CH:01', 'HT 06B', '2022-02-09', 'Học kỳ 2', 3),
-(18, 3, '02', 'Nguyễn Đức Lộc', 'CH:01', 'HT 10A', '2022-02-09', 'Học kỳ 2', 3),
-(19, 3, '02', 'Nguyễn Đức Lộc', 'CH:02', 'HT 10A', '2022-02-16', 'Học kỳ 2', 3),
-(20, 4, '03', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-02-10', 'Học kỳ 2', 3),
-(21, 4, '03', 'Nguyễn Thị Nhung', 'SA:02', 'HT 10A', '2022-02-17', 'Học kỳ 2', 3),
-(22, 3, '03', 'Nguyễn Đức Lộc', 'CH:01', 'HT 10A', '2022-02-10', 'Học kỳ 2', 3),
-(23, 3, '03', 'Nguyễn Đức Lộc', 'CH:02', 'HT 10A', '2022-02-17', 'Học kỳ 2', 3),
-(24, 4, '04', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-02-11', 'Học kỳ 2', 3),
-(25, 4, '04', 'Nguyễn Thị Nhung', 'SA:02', 'HT 10A', '2022-02-18', 'Học kỳ 2', 3),
-(26, 3, '04', 'Nguyễn Đức Lộc', 'CH:01', 'HT 10A', '2022-02-11', 'Học kỳ 2', 3),
-(27, 3, '04', 'Nguyễn Đức Lộc', 'CH:02', 'HT 10A', '2022-02-18', 'Học kỳ 2', 3),
-(28, 4, '07', 'Nguyễn Thị Nhung', 'CH:01', '[---]', '2022-02-11', 'Học kỳ 2', 3),
-(29, 4, '07', 'Nguyễn Thị Nhung', 'CH:02', '[---]', '2022-02-18', 'Học kỳ 2', 3),
-(30, 12, '01', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 06B', '2022-02-14', 'Học kỳ 2', 3),
-(32, 12, '02', 'Nguyễn Thị Nhung', 'SA:01', 'HT 06B', '2022-02-16', 'Học kỳ 2', 3),
-(33, 12, '04', 'Nguyễn Thị Nhung', 'CH:01', 'HT 06B', '2022-02-16', 'Học kỳ 2', 3),
-(34, 12, '03', 'Nguyễn Thị Nhung', 'CH:01', 'HT 06B', '2022-02-17', 'Học kỳ 2', 3),
-(35, 5, '01', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-02-22', 'Học kỳ 2', 3),
-(36, 5, '01', 'Nguyễn Thị Nhung', 'SA:02', 'HT 10A', '2022-03-01', 'Học kỳ 2', 3),
-(37, 5, '02', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-02-22', 'Học kỳ 2', 3),
-(38, 5, '02', 'Nguyễn Thị Nhung', 'CH:02', 'HT 10A', '2022-03-01', 'Học kỳ 2', 3),
-(39, 5, '03', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 10A', '2022-02-23', 'Học kỳ 2', 3),
-(40, 5, '03', 'Nguyễn Thị Diễm My', 'SA:02', 'HT 10A', '2022-03-02', 'Học kỳ 2', 3),
-(41, 5, '04', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-02-23', 'Học kỳ 2', 3),
-(42, 5, '04', 'Nguyễn Thị Diễm My', 'CH:02', 'HT 10A', '2022-03-02', 'Học kỳ 2', 3),
-(43, 5, '05', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-02-24', 'Học kỳ 2', 3),
-(44, 5, '05', 'Nguyễn Thị Nhung', 'SA:02', 'HT 10A', '2022-03-03', 'Học kỳ 2', 3),
-(45, 5, '06', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-02-24', 'Học kỳ 2', 3),
-(46, 5, '06', 'Nguyễn Thị Nhung', 'CH:02', 'HT 10A', '2022-03-03', 'Học kỳ 2', 3),
-(47, 5, '07', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 10A', '2022-02-25', 'Học kỳ 2', 3),
-(48, 5, '07', 'Nguyễn Thị Diễm My', 'SA:02', 'HT 10A', '2022-03-04', 'Học kỳ 2', 3),
-(49, 5, '08', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-02-25', 'Học kỳ 2', 3),
-(50, 5, '08', 'Nguyễn Thị Diễm My', 'CH:02', 'HT 10A', '2022-03-04', 'Học kỳ 2', 3);
+(273, 2, '03', 'Nguyễn Mai Nhã Thuyên', 'CH:01', 'HT 10A', '2022-07-02', 'Học kỳ Hè', 3),
+(274, 2, '01', 'Nguyễn Mai Nhã Thuyên', 'SA:01', 'HT 06B', '2022-07-01', 'Học kỳ Hè', 3),
+(275, 2, '04', 'Nguyễn Mai Nhã Thuyên', 'SA:01', 'HT 06B', '2022-07-03', 'Học kỳ Hè', 3),
+(276, 2, '02', 'Nguyễn Mai Nhã Thuyên', 'CH:01', 'HT 06B', '2022-07-01', 'Học kỳ Hè', 3),
+(277, 3, '01', 'Cao Thị Thùy Trang', 'SA:01', 'HT 10A', '2022-07-05', 'Học kỳ Hè', 3),
+(278, 3, '01', 'Cao Thị Thùy Trang', 'SA:02', 'HT 10A', '2022-07-12', 'Học kỳ Hè', 3),
+(279, 3, '02', 'Cao Thị Thùy Trang', 'SA:01', 'HT 10A', '2022-07-06', 'Học kỳ Hè', 3),
+(280, 3, '02', 'Cao Thị Thùy Trang', 'SA:02', 'HT 10A', '2022-07-13', 'Học kỳ Hè', 3),
+(281, 3, '03', 'Phạm Văn Giào', 'SA:01', 'HT 10A', '2022-07-07', 'Học kỳ Hè', 3),
+(282, 3, '03', 'Phạm Văn Giào', 'SA:02', 'HT 10A', '2022-07-14', 'Học kỳ Hè', 3),
+(283, 3, '04', 'Phạm Văn Giào', 'CH:01', 'HT 10A', '2022-07-07', 'Học kỳ Hè', 3),
+(284, 3, '04', 'Phạm Văn Giào', 'CH:02', 'HT 10A', '2022-07-14', 'Học kỳ Hè', 3),
+(285, 4, '04', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-07-21', 'Học kỳ Hè', 3),
+(286, 4, '04', 'Nguyễn Thị Nhung', 'CH:02', 'HT 10A', '2022-08-04', 'Học kỳ Hè', 3),
+(287, 4, '01', 'Nguyễn Thị Nhung', 'SA:01', 'HT 06B', '2022-07-19', 'Học kỳ Hè', 3),
+(288, 4, '01', 'Nguyễn Thị Nhung', 'SA:02', 'HT 06B', '2022-08-02', 'Học kỳ Hè', 3),
+(289, 4, '02', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 06B', '2022-07-20', 'Học kỳ Hè', 3),
+(290, 4, '02', 'Nguyễn Thị Diễm My', 'SA:02', 'HT 06B', '2022-08-03', 'Học kỳ Hè', 3),
+(291, 4, '03', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 06B', '2022-07-21', 'Học kỳ Hè', 3),
+(292, 4, '03', 'Nguyễn Thị Diễm My', 'SA:02', 'HT 06B', '2022-08-04', 'Học kỳ Hè', 3),
+(293, 5, '01', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-07-04', 'Học kỳ Hè', 3),
+(294, 5, '01', 'Nguyễn Thị Diễm My', 'CH:02', 'HT 10A', '2022-07-11', 'Học kỳ Hè', 3),
+(295, 5, '07', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-07-09', 'Học kỳ Hè', 3),
+(296, 5, '07', 'Nguyễn Thị Diễm My', 'CH:02', 'HT 10A', '2022-07-16', 'Học kỳ Hè', 3),
+(297, 5, '10', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-07-23', 'Học kỳ Hè', 3),
+(298, 5, '10', 'Nguyễn Thị Diễm My', 'CH:02', 'HT 10A', '2022-08-06', 'Học kỳ Hè', 3),
+(299, 5, '02', 'Phạm Nguyễn Lan Phương', 'SA:01', 'HT 06B', '2022-07-05', 'Học kỳ Hè', 3),
+(300, 5, '02', 'Phạm Nguyễn Lan Phương', 'SA:02', 'HT 06B', '2022-07-12', 'Học kỳ Hè', 3),
+(301, 5, '03', 'Nguyễn Thị Nhung', 'SA:01', 'HT 06B', '2022-07-06', 'Học kỳ Hè', 3),
+(302, 5, '03', 'Nguyễn Thị Nhung', 'SA:02', 'HT 06B', '2022-07-13', 'Học kỳ Hè', 3),
+(303, 5, '04', 'Phạm Nguyễn Lan Phương', 'SA:01', 'HT 06B', '2022-07-07', 'Học kỳ Hè', 3),
+(304, 5, '04', 'Phạm Nguyễn Lan Phương', 'SA:02', 'HT 06B', '2022-07-14', 'Học kỳ Hè', 3),
+(305, 5, '06', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 06B', '2022-07-09', 'Học kỳ Hè', 3),
+(306, 5, '06', 'Nguyễn Thị Diễm My', 'SA:02', 'HT 06B', '2022-07-16', 'Học kỳ Hè', 3),
+(307, 5, '09', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 06B', '2022-07-23', 'Học kỳ Hè', 3),
+(308, 5, '09', 'Nguyễn Thị Diễm My', 'SA:02', 'HT 06B', '2022-08-06', 'Học kỳ Hè', 3),
+(309, 5, '01', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 06B', '2022-06-30', 'Học kỳ Hè', 3),
+(310, 5, '05', 'Phạm Nguyễn Lan Phương', 'CH:01', 'HT 06B', '2022-07-07', 'Học kỳ Hè', 3),
+(311, 5, '05', 'Phạm Nguyễn Lan Phương', 'CH:02', 'HT 06B', '2022-07-14', 'Học kỳ Hè', 3),
+(312, 5, '08', 'Phạm Nguyễn Lan Phương', 'CH:01', 'HT 06B', '2022-07-18', 'Học kỳ Hè', 3),
+(313, 5, '08', 'Phạm Nguyễn Lan Phương', 'CH:02', 'HT 06B', '2022-08-01', 'Học kỳ Hè', 3),
+(314, 6, '05', 'Tiêu Minh Sơn', 'SA:01', 'HT 10A', '2022-08-02', 'Học kỳ Hè', 3),
+(315, 6, '02', 'Tiêu Minh Sơn', 'CH:01', 'HT 10A', '2022-07-18', 'Học kỳ Hè', 3),
+(316, 6, '04', 'Tiêu Minh Sơn', 'CH:01', 'HT 10A', '2022-08-01', 'Học kỳ Hè', 3),
+(317, 6, '01', 'Tiêu Minh Sơn', 'SA:01', 'HT 06B', '2022-07-15', 'Học kỳ Hè', 3),
+(318, 6, '03', 'Tiêu Minh Sơn', 'CH:01', 'HT 06B', '2022-07-21', 'Học kỳ Hè', 3),
+(319, 7, '01', 'Biện Chương Dương', 'CH:01', 'HT 10A', '2022-06-27', 'Học kỳ Hè', 3),
+(320, 7, '03', 'Biện Chương Dương', 'CH:01', 'HT 10A', '2022-06-29', 'Học kỳ Hè', 3),
+(321, 7, '02', 'Biện Chương Dương', 'SA:01', 'HT 06B', '2022-06-29', 'Học kỳ Hè', 3),
+(322, 7, '04', 'Biện Chương Dương', 'SA:01', 'HT 06B', '2022-07-11', 'Học kỳ Hè', 3),
+(323, 7, '05', 'Biện Chương Dương', 'CH:01', 'HT 06B', '2022-07-11', 'Học kỳ Hè', 3),
+(324, 7, '06', 'Biện Chương Dương', 'CH:01', 'HT 06B', '2022-07-12', 'Học kỳ Hè', 3),
+(325, 8, '01', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-06-28', 'Học kỳ Hè', 3),
+(326, 8, '03', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-06-29', 'Học kỳ Hè', 3),
+(327, 8, '04', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-06-30', 'Học kỳ Hè', 3),
+(328, 8, '06', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-08-01', 'Học kỳ Hè', 3),
+(329, 8, '02', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-06-28', 'Học kỳ Hè', 3),
+(330, 8, '05', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-06-30', 'Học kỳ Hè', 3),
+(331, 8, '07', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-08-05', 'Học kỳ Hè', 3),
+(332, 9, '05', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-07-01', 'Học kỳ Hè', 3),
+(333, 9, '05', 'Nguyễn Thị Nhung', 'SA:02', 'HT 10A', '2022-07-08', 'Học kỳ Hè', 3),
+(334, 9, '06', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-07-01', 'Học kỳ Hè', 3),
+(335, 9, '06', 'Nguyễn Thị Nhung', 'CH:02', 'HT 10A', '2022-07-08', 'Học kỳ Hè', 3),
+(336, 9, '01', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 06B', '2022-06-27', 'Học kỳ Hè', 3),
+(337, 9, '01', 'Nguyễn Thị Diễm My', 'SA:02', 'HT 06B', '2022-07-04', 'Học kỳ Hè', 3),
+(338, 9, '01', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 06B', '2022-06-28', 'Học kỳ Hè', 3),
+(339, 9, '02', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 06B', '2022-06-27', 'Học kỳ Hè', 3),
+(340, 9, '02', 'Nguyễn Thị Diễm My', 'CH:02', 'HT 06B', '2022-07-04', 'Học kỳ Hè', 3),
+(341, 9, '03', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 06B', '2022-06-28', 'Học kỳ Hè', 3),
+(342, 9, '03', 'Nguyễn Thị Diễm My', 'CH:02', 'HT 06B', '2022-07-05', 'Học kỳ Hè', 3),
+(343, 9, '04', 'Nguyễn Thị Nhung', 'CH:01', 'HT 06B', '2022-06-29', 'Học kỳ Hè', 3),
+(344, 9, '04', 'Nguyễn Thị Nhung', 'CH:02', 'HT 06B', '2022-07-06', 'Học kỳ Hè', 3),
+(345, 10, '04', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-07-20', 'Học kỳ Hè', 3),
+(346, 10, '04', 'Nguyễn Thị Nhung', 'SA:02', 'HT 10A', '2022-08-03', 'Học kỳ Hè', 3),
+(347, 10, '05', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-07-21', 'Học kỳ Hè', 3),
+(348, 10, '05', 'Nguyễn Thị Nhung', 'SA:02', 'HT 10A', '2022-08-04', 'Học kỳ Hè', 3),
+(349, 10, '02', 'Trịnh Phương Thảo', 'CH:01', 'HT 10A', '2022-07-03', 'Học kỳ Hè', 3),
+(350, 10, '02', 'Trịnh Phương Thảo', 'CH:02', 'HT 10A', '2022-07-10', 'Học kỳ Hè', 3),
+(351, 10, '01', 'Trịnh Phương Thảo', 'SA:01', 'HT 06B', '2022-07-02', 'Học kỳ Hè', 3),
+(352, 10, '06', 'Nguyễn Thị Nhung', 'SA:01', 'HT 06B', '2022-07-22', 'Học kỳ Hè', 3),
+(353, 10, '06', 'Nguyễn Thị Nhung', 'SA:02', 'HT 06B', '2022-08-05', 'Học kỳ Hè', 3),
+(354, 10, '01', 'Trịnh Phương Thảo', 'CH:01', 'HT 06B', '2022-07-02', 'Học kỳ Hè', 3),
+(355, 10, '01', 'Trịnh Phương Thảo', 'CH:02', 'HT 06B', '2022-07-09', 'Học kỳ Hè', 3),
+(356, 10, '03', 'Trịnh Phương Thảo', 'CH:01', 'HT 06B', '2022-07-16', 'Học kỳ Hè', 3),
+(357, 10, '03', 'Trịnh Phương Thảo', 'CH:02', 'HT 06B', '2022-07-23', 'Học kỳ Hè', 3),
+(358, 11, '01', 'Nguyễn Hòa Chung', 'SA:01', 'HT 10A', '2022-06-27', 'Học kỳ Hè', 3),
+(359, 11, '01', 'Nguyễn Hòa Chung', 'SA:02', 'HT 10A', '2022-07-11', 'Học kỳ Hè', 3),
+(360, 11, '01', 'Nguyễn Hòa Chung', 'SA:01', 'HT 10A', '2022-07-02', 'Học kỳ Hè', 3),
+(361, 11, '01', 'Nguyễn Hòa Chung', 'SA:02', 'HT 10A', '2022-07-09', 'Học kỳ Hè', 3),
+(362, 11, '02', 'Nguyễn Hòa Chung', 'SA:01', 'HT 10A', '2022-07-03', 'Học kỳ Hè', 3),
+(363, 11, '02', 'Nguyễn Hòa Chung', 'SA:02', 'HT 10A', '2022-07-10', 'Học kỳ Hè', 3),
+(364, 11, '04', 'Nguyễn Hòa Chung', 'SA:01', 'HT 10A', '2022-07-23', 'Học kỳ Hè', 3),
+(365, 11, '04', 'Nguyễn Hòa Chung', 'SA:02', 'HT 10A', '2022-08-06', 'Học kỳ Hè', 3),
+(366, 11, '03', 'Nguyễn Hòa Chung', 'CH:01', 'HT 10A', '2022-07-15', 'Học kỳ Hè', 3),
+(367, 11, '03', 'Nguyễn Hòa Chung', 'CH:02', 'HT 10A', '2022-07-22', 'Học kỳ Hè', 3),
+(368, 12, '01', 'Nguyễn Thị Nhung', 'SA:01', 'HT 10A', '2022-07-04', 'Học kỳ Hè', 3),
+(369, 12, '01', 'Nguyễn Thị Nhung', 'SA:02', 'HT 10A', '2022-07-18', 'Học kỳ Hè', 3),
+(370, 12, '08', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 10A', '2022-07-15', 'Học kỳ Hè', 3),
+(371, 12, '08', 'Nguyễn Thị Diễm My', 'SA:02', 'HT 10A', '2022-08-05', 'Học kỳ Hè', 3),
+(372, 12, '02', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-07-05', 'Học kỳ Hè', 3),
+(373, 12, '02', 'Nguyễn Thị Nhung', 'CH:02', 'HT 10A', '2022-07-19', 'Học kỳ Hè', 3),
+(374, 12, '03', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 10A', '2022-07-06', 'Học kỳ Hè', 3),
+(375, 12, '03', 'Nguyễn Thị Diễm My', 'CH:02', 'HT 10A', '2022-07-20', 'Học kỳ Hè', 3),
+(376, 12, '06', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-07-12', 'Học kỳ Hè', 3),
+(377, 12, '06', 'Nguyễn Thị Nhung', 'CH:02', 'HT 10A', '2022-08-02', 'Học kỳ Hè', 3),
+(378, 12, '07', 'Nguyễn Thị Nhung', 'CH:01', 'HT 10A', '2022-07-13', 'Học kỳ Hè', 3),
+(379, 12, '07', 'Nguyễn Thị Nhung', 'CH:02', 'HT 10A', '2022-08-03', 'Học kỳ Hè', 3),
+(380, 12, '01', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 06B', '2022-06-30', 'Học kỳ Hè', 3),
+(381, 12, '02', 'Nguyễn Thị Diễm My', 'SA:01', 'HT 06B', '2022-08-01', 'Học kỳ Hè', 3),
+(382, 12, '05', 'Nguyễn Thị Diễm My', 'CH:01', 'HT 06B', '2022-07-08', 'Học kỳ Hè', 3),
+(383, 12, '05', 'Nguyễn Thị Diễm My', 'CH:02', 'HT 06B', '2022-07-22', 'Học kỳ Hè', 3);
 
 -- --------------------------------------------------------
 
@@ -562,47 +645,6 @@ CREATE TABLE `tbl_evaluate` (
   `semester` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Đang đổ dữ liệu cho bảng `tbl_evaluate`
---
-
-INSERT INTO `tbl_evaluate` (`id_evaluate`, `id_student`, `attendance`, `content_vn`, `content_eng`, `scores`, `note`, `evaluate`, `id_schoolyear`, `semester`) VALUES
-(100, '51900040', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(101, '11900067', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(102, '219H0227', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(103, 'B1900443', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(104, '520H0401', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(105, 'A2000244', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(106, 'B20H0236', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(107, 'H2000514', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(108, '019H0292', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(109, '720H1519', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(110, '02000939', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(111, '32001093', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(112, 'H2000506', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(113, 'B19H0160', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(114, '020H0214', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(115, '01900146', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(116, '51900119', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(117, 'B1900124', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(118, '81900546', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(119, 'A2000221', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(120, '51900444', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(121, 'B19H0163', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(122, '81900544', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(123, '81900550', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(124, '32001095', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(125, 'E20H0347', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(126, 'TRANHAO', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(127, '72100347', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(128, '421H0302', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(129, 'D2100331', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(130, '21900494', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(131, 'H2000338', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(132, 'A2100108', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(133, 'A2100248', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II'),
-(134, 'A2100100', 'x', 'Thành viên LSA hoàn thành nhiệm vụ Học kỳ II năm học 2021-2022', 'The member of LSA has been recognized for having decent performance in the second semester of the academic year 2021-2022.', '10', NULL, 'Hoàn thành', 3, 'Học kỳ II');
-
 -- --------------------------------------------------------
 
 --
@@ -691,21 +733,40 @@ CREATE TABLE `tbl_schedule` (
   `id_schedule` int(255) NOT NULL,
   `id_user` int(255) NOT NULL,
   `session` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `shift` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `shift` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `note` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `tbl_schedule`
 --
 
-INSERT INTO `tbl_schedule` (`id_schedule`, `id_user`, `session`, `shift`) VALUES
-(212, 51, 'Wednesday', 'Ca1 Ca2 '),
-(213, 51, 'Friday', 'Ca1 Ca2 '),
-(215, 45, 'Friday', 'Ca2 '),
-(221, 24, 'Tuesday', 'Ca2 Ca3 Ca4 '),
-(222, 1, 'Thursday', 'Ca1 Ca2 Ca3 Ca4 '),
-(223, 1, 'Friday', 'Ca1 Ca2 Ca3 Ca4 '),
-(224, 10, 'Thursday', 'Ca2 ');
+INSERT INTO `tbl_schedule` (`id_schedule`, `id_user`, `session`, `shift`, `note`) VALUES
+(229, 45, 'Monday', 'Ca2 ', ''),
+(230, 45, 'Wednesday', 'Ca2 ', ''),
+(231, 45, 'Friday', 'Ca2 ', ''),
+(232, 45, 'Tuesday', 'Ca2 Ca3 ', ''),
+(233, 45, 'Thursday', 'Ca2 Ca3 ', ''),
+(234, 16, 'Tuesday', 'Ca2 Ca3 ', ''),
+(235, 16, 'Thursday', 'Ca2 Ca3 ', ''),
+(236, 56, 'Monday', 'Ca1 Ca2 ', ''),
+(237, 56, 'Wednesday', 'Ca1 Ca2 ', ''),
+(238, 57, 'Monday', 'Ca1 Ca2 ', ''),
+(239, 58, 'Tuesday', 'Ca3 Ca4 ', ''),
+(240, 57, 'Tuesday', 'Ca3 Ca4 ', ''),
+(241, 58, 'Wednesday', 'Ca1 Ca2 ', ''),
+(242, 55, 'Wednesday', 'Ca2 ', ''),
+(243, 51, 'Monday', 'Ca1 ', ''),
+(245, 51, 'Friday', 'Ca1 ', ''),
+(246, 29, 'Thursday', 'Ca3 Ca4 ', ''),
+(247, 29, 'Monday', 'Ca3 ', ''),
+(248, 29, 'Friday', 'Ca3 ', ''),
+(249, 38, 'Monday', 'Ca3 ', ''),
+(250, 38, 'Friday', 'Ca3 ', ''),
+(252, 51, 'Saturday', 'Ca1 ', ''),
+(254, 40, 'Monday', 'Ca3 ', ''),
+(255, 40, 'Friday', 'Ca3 ', ''),
+(257, 51, 'Wednesday', 'Ca1 Ca3 Ca4 ', '');
 
 -- --------------------------------------------------------
 
@@ -959,7 +1020,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT cho bảng `tbl_attendance`
 --
 ALTER TABLE `tbl_attendance`
-  MODIFY `id_attendance` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=302;
+  MODIFY `id_attendance` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=322;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_borrow`
@@ -971,7 +1032,7 @@ ALTER TABLE `tbl_borrow`
 -- AUTO_INCREMENT cho bảng `tbl_course`
 --
 ALTER TABLE `tbl_course`
-  MODIFY `id_course` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_course` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=384;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_decentralization`
@@ -1025,7 +1086,7 @@ ALTER TABLE `tbl_recruitment`
 -- AUTO_INCREMENT cho bảng `tbl_schedule`
 --
 ALTER TABLE `tbl_schedule`
-  MODIFY `id_schedule` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
+  MODIFY `id_schedule` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=258;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_schoolyear`

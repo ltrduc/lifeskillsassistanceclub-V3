@@ -50,7 +50,7 @@
                         <tbody>
                           <!-- THỨ 2 -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">2-Monday</span></td>
+                            <td class="fc-widget-header" colspan="7"><span class="fc-list-heading-main">2-Monday</span></td>
                           </tr>
                           <?php if ($data['Monday']) {
                             while ($value = $data['Monday']->fetch_assoc()) {
@@ -61,6 +61,20 @@
                                   <td class="fc-list-item-title fc-widget-content"><a>[<?php echo $value['id_student']; ?>] - <?php echo $value['fullname']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
+                                  <td class="fc-list-item-title fc-widget-content">
+                                    <?php if (Session::get('pmsAdmin') == 1) { ?>
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                      <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
+                                      <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
+                                      <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
+                                      <option value="HT 10A" <?php if($value['note'] == 'HT 10A') echo 'selected' ?>>HT 10A</option>
+                                      <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
+                                      <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
+                                    </select>
+                                    <?php } else { ?>
+                                      <?php echo $value['note']; ?></a>
+                                    <?php }?>
+                                  </td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
                                       <div class="bullet"></div>
@@ -74,7 +88,7 @@
 
                           <!-- THỨ 3 -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">3-Tuesday</span></td>
+                            <td class="fc-widget-header" colspan="7"><span class="fc-list-heading-main">3-Tuesday</span></td>
                           </tr>
                           <?php if ($data['Tuesday']) {
                             while ($value = $data['Tuesday']->fetch_assoc()) {
@@ -85,6 +99,20 @@
                                   <td class="fc-list-item-title fc-widget-content"><a>[<?php echo $value['id_student']; ?>] - <?php echo $value['fullname']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
+                                  <td class="fc-list-item-title fc-widget-content">
+                                    <?php if (Session::get('pmsAdmin') == 1) { ?>
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                      <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
+                                      <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
+                                      <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
+                                      <option value="HT 10A" <?php if($value['note'] == 'HT 10A') echo 'selected' ?>>HT 10A</option>
+                                      <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
+                                      <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
+                                    </select>
+                                    <?php } else { ?>
+                                      <?php echo $value['note']; ?></a>
+                                    <?php }?>
+                                  </td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
                                       <div class="bullet"></div>
@@ -98,7 +126,7 @@
 
                           <!-- THỨ 4 -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">4-Wednesday</span></td>
+                            <td class="fc-widget-header" colspan="7"><span class="fc-list-heading-main">4-Wednesday</span></td>
                           </tr>
                           <?php if ($data['Wednesday']) {
                             while ($value = $data['Wednesday']->fetch_assoc()) {
@@ -109,6 +137,20 @@
                                   <td class="fc-list-item-title fc-widget-content"><a>[<?php echo $value['id_student']; ?>] - <?php echo $value['fullname']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
+                                  <td class="fc-list-item-title fc-widget-content">
+                                    <?php if (Session::get('pmsAdmin') == 1) { ?>
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                      <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
+                                      <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
+                                      <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
+                                      <option value="HT 10A" <?php if($value['note'] == 'HT 10A') echo 'selected' ?>>HT 10A</option>
+                                      <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
+                                      <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
+                                    </select>
+                                    <?php } else { ?>
+                                      <?php echo $value['note']; ?></a>
+                                    <?php }?>
+                                  </td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
                                       <div class="bullet"></div>
@@ -122,7 +164,7 @@
 
                           <!-- THỨ 5 -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">5-Thursday</span></td>
+                            <td class="fc-widget-header" colspan="7"><span class="fc-list-heading-main">5-Thursday</span></td>
                           </tr>
                           <?php if ($data['Thursday']) {
                             while ($value = $data['Thursday']->fetch_assoc()) {
@@ -133,6 +175,20 @@
                                   <td class="fc-list-item-title fc-widget-content"><a>[<?php echo $value['id_student']; ?>] - <?php echo $value['fullname']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
+                                  <td class="fc-list-item-title fc-widget-content">
+                                    <?php if (Session::get('pmsAdmin') == 1) { ?>
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                      <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
+                                      <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
+                                      <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
+                                      <option value="HT 10A" <?php if($value['note'] == 'HT 10A') echo 'selected' ?>>HT 10A</option>
+                                      <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
+                                      <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
+                                    </select>
+                                    <?php } else { ?>
+                                      <?php echo $value['note']; ?></a>
+                                    <?php }?>
+                                  </td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
                                       <div class="bullet"></div>
@@ -146,7 +202,7 @@
 
                           <!-- THỨ 6 -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">6-Friday</span></td>
+                            <td class="fc-widget-header" colspan="7"><span class="fc-list-heading-main">6-Friday</span></td>
                           </tr>
                           <?php if ($data['Friday']) {
                             while ($value = $data['Friday']->fetch_assoc()) {
@@ -157,6 +213,20 @@
                                   <td class="fc-list-item-title fc-widget-content"><a>[<?php echo $value['id_student']; ?>] - <?php echo $value['fullname']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
+                                  <td class="fc-list-item-title fc-widget-content">
+                                    <?php if (Session::get('pmsAdmin') == 1) { ?>
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                      <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
+                                      <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
+                                      <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
+                                      <option value="HT 10A" <?php if($value['note'] == 'HT 10A') echo 'selected' ?>>HT 10A</option>
+                                      <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
+                                      <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
+                                    </select>
+                                    <?php } else { ?>
+                                      <?php echo $value['note']; ?></a>
+                                    <?php }?>
+                                  </td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
                                       <div class="bullet"></div>
@@ -170,7 +240,7 @@
 
                           <!-- THỨ 7 -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">7-Saturday</span></td>
+                            <td class="fc-widget-header" colspan="7"><span class="fc-list-heading-main">7-Saturday</span></td>
                           </tr>
                           <?php if ($data['Saturday']) {
                             while ($value = $data['Saturday']->fetch_assoc()) {
@@ -181,6 +251,20 @@
                                   <td class="fc-list-item-title fc-widget-content"><a>[<?php echo $value['id_student']; ?>] - <?php echo $value['fullname']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
+                                  <td class="fc-list-item-title fc-widget-content">
+                                    <?php if (Session::get('pmsAdmin') == 1) { ?>
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                      <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
+                                      <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
+                                      <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
+                                      <option value="HT 10A" <?php if($value['note'] == 'HT 10A') echo 'selected' ?>>HT 10A</option>
+                                      <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
+                                      <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
+                                    </select>
+                                    <?php } else { ?>
+                                      <?php echo $value['note']; ?></a>
+                                    <?php }?>
+                                  </td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
                                       <div class="bullet"></div>
@@ -194,7 +278,7 @@
 
                           <!-- CHỦ NHẬT -->
                           <tr class="fc-list-heading">
-                            <td class="fc-widget-header" colspan="6"><span class="fc-list-heading-main">8-Sunday</span></td>
+                            <td class="fc-widget-header" colspan="7"><span class="fc-list-heading-main">8-Sunday</span></td>
                           </tr>
                           <?php if ($data['Sunday']) {
                             while ($value = $data['Sunday']->fetch_assoc()) {
@@ -205,6 +289,20 @@
                                   <td class="fc-list-item-title fc-widget-content"><a>[<?php echo $value['id_student']; ?>] - <?php echo $value['fullname']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['phone']; ?></a></td>
                                   <td class="fc-list-item-title fc-widget-content"><a><?php echo $value['team']; ?></a></td>
+                                  <td class="fc-list-item-title fc-widget-content">
+                                    <?php if (Session::get('pmsAdmin') == 1) { ?>
+                                    <select onchange="note_update(this.options[this.selectedIndex].value, '<?php echo $value['id_schedule']?>')" class="form-control" style="padding: 0; height: 23px; width: 100px;">
+                                      <option value="" <?php if($value['note'] == '') echo 'selected' ?>></option>
+                                      <option value="HT 02A" <?php if($value['note'] == 'HT 02A') echo 'selected' ?>>HT 02A</option>
+                                      <option value="HT 06B" <?php if($value['note'] == 'HT 06B') echo 'selected' ?>>HT 06B</option>
+                                      <option value="HT 10A" <?php if($value['note'] == 'HT 10A') echo 'selected' ?>>HT 10A</option>
+                                      <option value="HT 10F" <?php if($value['note'] == 'HT 10F') echo 'selected' ?>>HT 10F</option>
+                                      <option value="Phòng [...]" <?php if($value['note'] == 'Phòng [...]') echo 'selected' ?>>Phòng [...]</option>
+                                    </select>
+                                    <?php } else { ?>
+                                      <?php echo $value['note']; ?></a>
+                                    <?php }?>
+                                  </td>
                                   <td class="fc-list-item-title fc-widget-content">
                                     <?php if (Session::get('pmsAdmin') == 1 || Session::get('id_user') == $value['id_user']) { ?>
                                       <div class="bullet"></div>
@@ -228,6 +326,25 @@
     </div>
   </section>
 
+  <script tyle="text/javascript">
+    function note_update(value, id) {
+      $.post("Admin/NoteUpdateSchedule", {id: id, note: value, note_update: 1}, function (data) {
+        if (data) {
+          iziToast.success({
+            title: "Thông báo!",
+            message: "Cập nhật dữ liệu thành công!",
+            position: "bottomRight"
+          });
+        } else {
+          iziToast.warning({
+            title: "Thông báo!",
+            message: "Cập nhật dữ liệu thất bại!",
+            position: "bottomRight"
+          });
+        }
+      })
+    }
+  </script>
   <!-- Thêm lịch trực -->
   <div class="modal fade" id="addSchedule">
     <div class="modal-dialog" role="document">

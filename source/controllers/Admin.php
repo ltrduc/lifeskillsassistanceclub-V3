@@ -149,6 +149,13 @@ class Admin extends Controller
   | QUẢN LÝ TRỰC BAN
   |--------------------------------------------------------------------------
   */
+  public function NoteUpdateSchedule()
+  {
+    $id_schedule  = $_POST['id'];
+    $note         = $_POST['note'];
+    $this->Schedule->NoteUpdateSchedule($id_schedule, $note);
+  }
+
   public function Schedule()
   {
     $Notification = [];
@@ -178,6 +185,9 @@ class Admin extends Controller
         $semester       = $_POST['semester'];
         $date           = $_POST['date'];
         $Notification   = $this->Schedule->Attendance($id_schoolyear, $semester, $date);
+      }
+      if (isset($_POST['note_update'])) {
+        NoteUpdateSchedule();
       }
     }
 
