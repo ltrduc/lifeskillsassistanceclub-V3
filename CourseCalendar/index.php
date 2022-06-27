@@ -17,7 +17,7 @@ Session::checkSession();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/css/bootstrap.no-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/img/glyphicons-halflings-white.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/img/glyphicons-halflings.png">
-    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="asset/css/calendar.css">
 </head>
 
 <body style="background-image: url(../source/public/img/bg-3.jpg);">
@@ -53,7 +53,6 @@ Session::checkSession();
                 <!-- <h4>Events</h4>
                 <small>This list is populated with events dynamically</small>
                 <ul id="eventlist" class="nav nav-list"></ul> -->
-
                 <h4 style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Ghi chú</h4>
                 <div class="note">
                     <p style="margin-top: 3px;" class="pull-left event event-info"></p>Buổi sáng: 7:40 – 12:00 <br>
@@ -84,8 +83,8 @@ Session::checkSession();
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/calendar.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="asset/js/calendar.js"></script>
+    <script type="text/javascript" src="asset/js/app.js"></script>
 
     <script type="text/javascript">
         var disqus_shortname = 'bootstrapcalendar'; // required: replace example with your forum shortname
