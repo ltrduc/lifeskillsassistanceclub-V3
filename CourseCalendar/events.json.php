@@ -22,7 +22,7 @@ while($item = $result->fetch_assoc()){
 
 	$value = [
 		"id" 	=> $item['id_course'], 
-		"title" => "Phòng: " . $item['local'] ." - Buổi ". $item['period'] ." - Nhóm ". $item['group'] ." - ". $item['subject'] ." - Giảng viên: ". $item['teacher'], 
+		"title" => "Phòng: " . $item['local'] ." - Buổi ". $item['period'] . " - ". $item['code_subject'] . " - Nhóm ". $item['group'] ." - ". $item['subject'] ." - Giảng viên: ". $item['teacher'], 
 		"url" 	=> "",
 		"class" => $clase,
 		"start" => strtotime($item['date'])."000", 

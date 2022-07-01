@@ -32,7 +32,7 @@
                 <table class="table table-striped table-hover" id="table-1">
                   <thead>
                     <tr>
-                      <th>#</th>
+                      <th>Mã môn</th>
                       <th>Môn học</th>
                       <th>Nhóm</th>
                       <th>Thời gian</th>
@@ -47,10 +47,9 @@
                   <tbody>
                     <?php if ($data['ListDetailedCourse']) {
                       $fm = new Format();
-                      $i = 1;
                       while ($value = $data['ListDetailedCourse']->fetch_assoc()) { ?>
                         <tr>
-                          <td><?php echo $i++; ?></td>
+                          <td><?php echo $value['code_subject']; ?></td>
                           <td><?php echo $value['subject']; ?></td>
                           <td><?php echo $value['group']; ?></td>
                           <td><?php echo $value['period']; ?></td>

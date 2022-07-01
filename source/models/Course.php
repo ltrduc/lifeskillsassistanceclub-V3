@@ -124,31 +124,36 @@ class Course
     if (empty($file)) return ["status" => "error", "message" => "Vui lòng chọn file để Import!"];
 
     $file_open = fopen($file,"r");
+    $checkCount = 0;
 
     while(($csv = fgetcsv($file_open, 1000, ",")) !== false) {
-      $id_subject     = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[0])); 
-      $group          = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[1]));
-      $teacher        = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[2]));
-      $period         = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[3]));
-      $local          = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[4]));
-      $dateStart      = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[5]));
-      $dateEnd        = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[6]));
-      $sum            = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[7]));
-      $id_schoolyear  = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[8]));
-      $semester       = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[9]));
-
-      if ($semester == 3) $semester = "Hè";
-
-      if($sum == 5) {
-        $this->db->insert("INSERT INTO `tbl_course`(`id_subject`, `group`, `teacher`, `period`, `local`, `date`, `semester`, `id_schoolyear`) 
-        VALUES ('$id_subject','$group','$teacher','$period:01','$local', '$dateStart','Học kỳ $semester','$id_schoolyear')");
-      } else {
-        $this->db->insert("INSERT INTO `tbl_course`(`id_subject`, `group`, `teacher`, `period`, `local`, `date`, `semester`, `id_schoolyear`) 
-        VALUES ('$id_subject','$group','$teacher','$period:01','$local', '$dateStart','Học kỳ $semester','$id_schoolyear')");
-
-        $this->db->insert("INSERT INTO `tbl_course`(`id_subject`, `group`, `teacher`, `period`, `local`, `date`, `semester`, `id_schoolyear`) 
-        VALUES ('$id_subject','$group','$teacher','$period:02','$local', '$dateEnd','Học kỳ $semester','$id_schoolyear')");
+      if ($checkCount > 0) {
+        $code_subject   = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[0])); 
+        $group          = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[1])); 
+        $id_subject     = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[2]));
+        $period         = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[3]));
+        $teacher        = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[4]));
+        $dateStart      = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[5]));
+        $dateEnd        = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[6]));
+        $sum            = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[7]));
+        $local          = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[8]));
+        $id_schoolyear  = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[9]));
+        $semester       = mysqli_real_escape_string($this->db->link, $this->fm->validation($csv[10]));
+  
+        if ($semester == 3) $semester = "Hè";
+  
+        if($sum == 5) {
+          $this->db->insert("INSERT INTO `tbl_course`(`code_subject`,`id_subject`, `group`, `teacher`, `period`, `local`, `date`, `semester`, `id_schoolyear`) 
+          VALUES ('$code_subject','$id_subject','$group','$teacher','$period:01','$local', '$dateStart','Học kỳ $semester','$id_schoolyear')");
+        } else {
+          $this->db->insert("INSERT INTO `tbl_course`(`code_subject`,`id_subject`, `group`, `teacher`, `period`, `local`, `date`, `semester`, `id_schoolyear`) 
+          VALUES ('$code_subject','$id_subject','$group','$teacher','$period:01','$local', '$dateStart','Học kỳ $semester','$id_schoolyear')");
+  
+          $this->db->insert("INSERT INTO `tbl_course`(`code_subject`,`id_subject`, `group`, `teacher`, `period`, `local`, `date`, `semester`, `id_schoolyear`) 
+          VALUES ('$code_subject','$id_subject','$group','$teacher','$period:02','$local', '$dateEnd','Học kỳ $semester','$id_schoolyear')");
+        }
       }
+      $checkCount++;
     }
 
     return ["status" => "success", "message" => "Đã thêm dữ liệu thành công!"];

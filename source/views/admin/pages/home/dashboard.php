@@ -107,7 +107,7 @@
               <table class="table table-hover mb-0" id="table-1">
                 <thead>
                   <tr>
-                    <th>#</th>
+                    <th>Mã môn</th>
                     <th>Môn học</th>
                     <th>Nhóm</th>
                     <th>Thời gian</th>
@@ -122,7 +122,7 @@
                     $i = 1;
                     while ($value = $data['ListCourseToday']->fetch_assoc()) { ?>
                       <tr>
-                        <td><?php echo $i++; ?></td>
+                        <td><?php echo $value['code_subject']; ?></td>
                         <td><?php echo $value['subject']; ?></td>
                         <td><?php echo $value['group']; ?></td>
                         <td><?php echo $value['period']; ?></td>

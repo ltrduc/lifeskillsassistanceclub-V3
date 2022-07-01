@@ -296,8 +296,12 @@ class Admin extends Controller
         $Notification   = $this->Course->deleteCourse($id_schoolyear, $semester, $date);
       }
       if (isset($_POST['importCourse'])) {
-        $file         = $_FILES["file"]["tmp_name"];
-        $Notification = $this->Course->importCourse($file);
+        if ($_FILES["file"]["type"] != "text/csv") {
+          $Notification = ["status" => "error", "message" => "Vui lòng chọn file định dạng là CSV!"];
+        } else {
+          $file         = $_FILES["file"]["tmp_name"];
+          $Notification = $this->Course->importCourse($file);
+        }
       }
     }
 
