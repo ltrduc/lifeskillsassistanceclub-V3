@@ -26,10 +26,13 @@
           <div class="card">
             <div class="card-header">
               <h4>DANH SÁCH LỊCH HỌC</h4>
-              <div class="card-header-action">
-                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addCourse"><i class="fas fa-plus"></i> Thêm mới lịch học</a>
-                <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#importCourse"><i class="fas fa-plus"></i> Import Course</a>
-              </div>
+              <?php if (Session::get('pmsAdmin') == 1) { ?>
+                <div class="card-header-action">
+                  <a href="#" class="btn btn-success" data-toggle="modal" data-target="#addCourse"><i class="fas fa-plus"></i> Thêm mới lịch học</a>
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#importCourse"><i class="fas fa-plus"></i> Import Course</a>
+                  <a href="source/public/template_file/template_tkb_hk3_21_22.xlsx" class="btn btn-warning"><i class="fas fa-angle-double-down"></i> Download template</a>
+                </div>
+              <?php } ?>
             </div>
 
             <div class="card-body">
