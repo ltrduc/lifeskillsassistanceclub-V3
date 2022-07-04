@@ -141,3 +141,31 @@
     </div>
   </section>
 </div>
+
+<div class="modal fade" id="happybirthday">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">CHÚC MỪNG SINH NHẬT</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <!-- <span aria-hidden="true">×</span> -->
+        </button>
+      </div>
+      <div class="modal-body">
+        <?php if ($data['ListMember']) { while ($value = $data['ListMember']->fetch_assoc()) { 
+          $todaydate = getdate();
+          $birthdaydate = getdate(strtotime($value['birthday']));
+          if ($todaydate['mday'] == $birthdaydate['mday'] && $todaydate['mon'] == $birthdaydate['mon']) { ?>
+          Hôm nay là sinh nhật của <strong><?php echo $value['fullname']?>.</strong> Hãy chúc bạn ấy có một ngày vui vẻ. <br>
+          <strong>Link Facebook: </strong><a target="_blank" href="<?php echo $value['facebook']?>"><?php echo $value['fullname']?></a>
+          <hr>
+          <script>
+            $(document).ready(function(){
+              $("#happybirthday").modal({show: true});
+            })
+          </script>
+        <?php } } }?>
+      </div>
+    </div>
+  </div>
+</div>

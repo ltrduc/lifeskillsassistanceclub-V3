@@ -62,6 +62,7 @@ class Admin extends Controller
   {
     $this->viewAdmin("layout", [
       "page"                => "home/dashboard",
+      "ListMember"          => $this->Personnel->getMember(),
       "CountPost"           => $this->Dashboard->Post(),
       "CountCollaborate"    => $this->Dashboard->Collaborate(),
       "CountMember"         => $this->Dashboard->Member(),
