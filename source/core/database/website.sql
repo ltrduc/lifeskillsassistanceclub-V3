@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 03, 2022 lúc 08:56 AM
--- Phiên bản máy phục vụ: 10.4.24-MariaDB
--- Phiên bản PHP: 7.4.29
+-- Máy chủ: localhost:3306
+-- Thời gian đã tạo: Th7 18, 2022 lúc 02:40 PM
+-- Phiên bản máy phục vụ: 10.5.16-MariaDB
+-- Phiên bản PHP: 7.3.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `website`
+-- Cơ sở dữ liệu: `id17609828_lifeskills_db`
 --
 
 -- --------------------------------------------------------
@@ -324,7 +325,245 @@ INSERT INTO `tbl_attendance` (`id_attendance`, `id_user`, `id_schoolyear`, `seme
 (318, 1, 3, 'Học kỳ Hè', '2022-06-24', 'Ca4', 'Present'),
 (319, 19, 3, 'Học kỳ Hè', '2022-06-24', 'Ca2', 'Present'),
 (320, 19, 3, 'Học kỳ Hè', '2022-06-24', 'Ca3', 'Present'),
-(321, 19, 3, 'Học kỳ Hè', '2022-06-24', 'Ca4', 'Present');
+(321, 19, 3, 'Học kỳ Hè', '2022-06-24', 'Ca4', 'Present'),
+(322, 45, 3, 'Học kỳ Hè', '2022-06-27', 'Ca2', 'Present'),
+(323, 45, 3, 'Học kỳ Hè', '2022-06-29', 'Ca2', 'Present'),
+(324, 45, 3, 'Học kỳ Hè', '2022-07-01', 'Ca2', 'Present'),
+(325, 56, 3, 'Học kỳ Hè', '2022-06-27', 'Ca1', 'Present'),
+(326, 56, 3, 'Học kỳ Hè', '2022-06-27', 'Ca2', 'Present'),
+(327, 56, 3, 'Học kỳ Hè', '2022-06-29', 'Ca1', 'Present'),
+(328, 56, 3, 'Học kỳ Hè', '2022-06-29', 'Ca2', 'Present'),
+(329, 57, 3, 'Học kỳ Hè', '2022-06-27', 'Ca1', 'Present'),
+(330, 57, 3, 'Học kỳ Hè', '2022-06-27', 'Ca2', 'Present'),
+(331, 58, 3, 'Học kỳ Hè', '2022-06-28', 'Ca3', 'Present'),
+(332, 58, 3, 'Học kỳ Hè', '2022-06-28', 'Ca4', 'Present'),
+(333, 57, 3, 'Học kỳ Hè', '2022-06-28', 'Ca3', 'Present'),
+(334, 57, 3, 'Học kỳ Hè', '2022-06-28', 'Ca4', 'Present'),
+(335, 58, 3, 'Học kỳ Hè', '2022-06-29', 'Ca1', 'Present'),
+(336, 58, 3, 'Học kỳ Hè', '2022-06-29', 'Ca2', 'Present'),
+(337, 55, 3, 'Học kỳ Hè', '2022-06-29', 'Ca2', 'Present'),
+(338, 51, 3, 'Học kỳ Hè', '2022-06-27', 'Ca1', 'Present'),
+(339, 51, 3, 'Học kỳ Hè', '2022-07-01', 'Ca1', 'Present'),
+(340, 29, 3, 'Học kỳ Hè', '2022-06-30', 'Ca3', 'Present'),
+(341, 29, 3, 'Học kỳ Hè', '2022-06-30', 'Ca4', 'Present'),
+(342, 29, 3, 'Học kỳ Hè', '2022-06-27', 'Ca3', 'Present'),
+(343, 29, 3, 'Học kỳ Hè', '2022-07-01', 'Ca3', 'Present'),
+(344, 38, 3, 'Học kỳ Hè', '2022-06-27', 'Ca3', 'Present'),
+(345, 38, 3, 'Học kỳ Hè', '2022-07-01', 'Ca3', 'Present'),
+(346, 40, 3, 'Học kỳ Hè', '2022-06-27', 'Ca3', 'Present'),
+(347, 40, 3, 'Học kỳ Hè', '2022-07-01', 'Ca3', 'Present'),
+(348, 51, 3, 'Học kỳ Hè', '2022-06-29', 'Ca1', 'Present'),
+(349, 51, 3, 'Học kỳ Hè', '2022-06-29', 'Ca3', 'Present'),
+(350, 51, 3, 'Học kỳ Hè', '2022-06-29', 'Ca4', 'Present'),
+(351, 1, 3, 'Học kỳ Hè', '2022-06-27', 'Ca1', 'Present'),
+(352, 45, 3, 'Học kỳ Hè', '2022-06-28', 'Ca2', 'Present'),
+(353, 16, 3, 'Học kỳ Hè', '2022-06-28', 'Ca2', 'Present'),
+(354, 45, 3, 'Học kỳ Hè', '2022-06-30', 'Ca2', 'Present'),
+(355, 16, 3, 'Học kỳ Hè', '2022-06-30', 'Ca2', 'Present'),
+(356, 10, 3, 'Học kỳ Hè', '2022-06-28', 'Ca2', 'Present'),
+(357, 9, 3, 'Học kỳ Hè', '2022-06-27', 'Ca4', 'Present'),
+(358, 25, 3, 'Học kỳ Hè', '2022-06-28', 'Ca2', 'Present'),
+(359, 1, 3, 'Học kỳ Hè', '2022-06-28', 'Ca1', 'Present'),
+(360, 1, 3, 'Học kỳ Hè', '2022-06-28', 'Ca2', 'Present'),
+(361, 1, 3, 'Học kỳ Hè', '2022-06-28', 'Ca3', 'Present'),
+(362, 1, 3, 'Học kỳ Hè', '2022-06-28', 'Ca4', 'Present'),
+(363, 19, 3, 'Học kỳ Hè', '2022-06-27', 'Ca4', 'Present'),
+(364, 7, 3, 'Học kỳ Hè', '2022-06-28', 'Ca1', 'Present'),
+(365, 7, 3, 'Học kỳ Hè', '2022-06-28', 'Ca2', 'Present'),
+(366, 7, 3, 'Học kỳ Hè', '2022-06-28', 'Ca3', 'Present'),
+(367, 7, 3, 'Học kỳ Hè', '2022-06-28', 'Ca4', 'Present'),
+(368, 1, 3, 'Học kỳ Hè', '2022-06-29', 'Ca1', 'Present'),
+(369, 1, 3, 'Học kỳ Hè', '2022-06-29', 'Ca2', 'Present'),
+(370, 1, 3, 'Học kỳ Hè', '2022-06-29', 'Ca3', 'Present'),
+(371, 1, 3, 'Học kỳ Hè', '2022-06-29', 'Ca4', 'Present'),
+(372, 24, 3, 'Học kỳ Hè', '2022-06-27', 'Ca1', 'Present'),
+(373, 24, 3, 'Học kỳ Hè', '2022-06-27', 'Ca2', 'Present'),
+(374, 24, 3, 'Học kỳ Hè', '2022-06-27', 'Ca3', 'Present'),
+(375, 24, 3, 'Học kỳ Hè', '2022-06-27', 'Ca4', 'Present'),
+(376, 9, 3, 'Học kỳ Hè', '2022-06-28', 'Ca1', 'Present'),
+(377, 9, 3, 'Học kỳ Hè', '2022-06-28', 'Ca2', 'Present'),
+(378, 9, 3, 'Học kỳ Hè', '2022-06-28', 'Ca3', 'Present'),
+(379, 9, 3, 'Học kỳ Hè', '2022-06-28', 'Ca4', 'Present'),
+(380, 59, 3, 'Học kỳ Hè', '2022-06-28', 'Ca1', 'Present'),
+(381, 59, 3, 'Học kỳ Hè', '2022-06-28', 'Ca2', 'Present'),
+(382, 59, 3, 'Học kỳ Hè', '2022-06-28', 'Ca3', 'Present'),
+(383, 59, 3, 'Học kỳ Hè', '2022-06-28', 'Ca4', 'Present'),
+(384, 24, 3, 'Học kỳ Hè', '2022-06-28', 'Ca3', 'Present'),
+(385, 24, 3, 'Học kỳ Hè', '2022-06-28', 'Ca4', 'Present'),
+(386, 19, 3, 'Học kỳ Hè', '2022-06-28', 'Ca3', 'Present'),
+(387, 19, 3, 'Học kỳ Hè', '2022-06-28', 'Ca4', 'Present'),
+(388, 24, 3, 'Học kỳ Hè', '2022-06-29', 'Ca1', 'Present'),
+(389, 24, 3, 'Học kỳ Hè', '2022-06-29', 'Ca2', 'Present'),
+(390, 19, 3, 'Học kỳ Hè', '2022-06-29', 'Ca1', 'Present'),
+(391, 19, 3, 'Học kỳ Hè', '2022-06-29', 'Ca2', 'Present'),
+(392, 19, 3, 'Học kỳ Hè', '2022-06-29', 'Ca3', 'Present'),
+(393, 57, 3, 'Học kỳ Hè', '2022-07-02', 'Ca3', 'Present'),
+(394, 57, 3, 'Học kỳ Hè', '2022-07-02', 'Ca4', 'Present'),
+(395, 56, 3, 'Học kỳ Hè', '2022-07-02', 'Ca3', 'Present'),
+(396, 1, 3, 'Học kỳ Hè', '2022-06-30', 'Ca1', 'Present'),
+(397, 1, 3, 'Học kỳ Hè', '2022-06-30', 'Ca2', 'Present'),
+(398, 1, 3, 'Học kỳ Hè', '2022-06-30', 'Ca3', 'Present'),
+(399, 1, 3, 'Học kỳ Hè', '2022-06-30', 'Ca4', 'Present'),
+(400, 19, 3, 'Học kỳ Hè', '2022-06-30', 'Ca1', 'Present'),
+(401, 30, 3, 'Học kỳ Hè', '2022-06-30', 'Ca2', 'Present'),
+(402, 30, 3, 'Học kỳ Hè', '2022-06-30', 'Ca3', 'Present'),
+(403, 30, 3, 'Học kỳ Hè', '2022-06-30', 'Ca4', 'Present'),
+(404, 30, 3, 'Học kỳ Hè', '2022-06-29', 'Ca3', 'Present'),
+(405, 30, 3, 'Học kỳ Hè', '2022-06-29', 'Ca4', 'Present'),
+(406, 30, 3, 'Học kỳ Hè', '2022-07-02', 'Ca3', 'Present'),
+(407, 9, 3, 'Học kỳ Hè', '2022-06-29', 'Ca4', 'Present'),
+(408, 58, 3, 'Học kỳ Hè', '2022-07-02', 'Ca4', 'Present'),
+(409, 24, 3, 'Học kỳ Hè', '2022-07-02', 'Ca1', 'Present'),
+(410, 24, 3, 'Học kỳ Hè', '2022-07-02', 'Ca2', 'Present'),
+(411, 24, 3, 'Học kỳ Hè', '2022-07-02', 'Ca3', 'Present'),
+(412, 24, 3, 'Học kỳ Hè', '2022-07-02', 'Ca4', 'Present'),
+(413, 9, 3, 'Học kỳ Hè', '2022-07-01', 'Ca4', 'Present'),
+(414, 10, 3, 'Học kỳ Hè', '2022-07-01', 'Ca1', 'Present'),
+(415, 10, 3, 'Học kỳ Hè', '2022-07-01', 'Ca2', 'Present'),
+(416, 10, 3, 'Học kỳ Hè', '2022-07-01', 'Ca3', 'Present'),
+(417, 10, 3, 'Học kỳ Hè', '2022-07-01', 'Ca4', 'Present'),
+(418, 9, 3, 'Học kỳ Hè', '2022-07-02', 'Ca1', 'Present'),
+(419, 9, 3, 'Học kỳ Hè', '2022-07-02', 'Ca2', 'Present'),
+(420, 9, 3, 'Học kỳ Hè', '2022-07-02', 'Ca3', 'Present'),
+(421, 9, 3, 'Học kỳ Hè', '2022-07-02', 'Ca4', 'Present'),
+(422, 7, 3, 'Học kỳ Hè', '2022-07-02', 'Ca1', 'Present'),
+(423, 7, 3, 'Học kỳ Hè', '2022-07-02', 'Ca2', 'Present'),
+(424, 7, 3, 'Học kỳ Hè', '2022-07-02', 'Ca3', 'Present'),
+(425, 7, 3, 'Học kỳ Hè', '2022-07-02', 'Ca4', 'Present'),
+(426, 7, 3, 'Học kỳ Hè', '2022-07-03', 'Ca2', 'Present'),
+(427, 7, 3, 'Học kỳ Hè', '2022-07-03', 'Ca3', 'Present'),
+(428, 7, 3, 'Học kỳ Hè', '2022-07-03', 'Ca4', 'Present'),
+(429, 9, 3, 'Học kỳ Hè', '2022-07-03', 'Ca1', 'Present'),
+(430, 9, 3, 'Học kỳ Hè', '2022-07-03', 'Ca2', 'Present'),
+(431, 9, 3, 'Học kỳ Hè', '2022-07-03', 'Ca3', 'Present'),
+(432, 45, 3, 'Học kỳ Hè', '2022-07-04', 'Ca2', 'Present'),
+(433, 45, 3, 'Học kỳ Hè', '2022-07-06', 'Ca2', 'Present'),
+(434, 45, 3, 'Học kỳ Hè', '2022-07-08', 'Ca2', 'Present'),
+(435, 45, 3, 'Học kỳ Hè', '2022-07-05', 'Ca2', 'Present'),
+(436, 16, 3, 'Học kỳ Hè', '2022-07-05', 'Ca2', 'Present'),
+(437, 24, 3, 'Học kỳ Hè', '2022-07-04', 'Ca1', 'Present'),
+(438, 24, 3, 'Học kỳ Hè', '2022-07-04', 'Ca2', 'Present'),
+(439, 24, 3, 'Học kỳ Hè', '2022-07-04', 'Ca3', 'Present'),
+(440, 54, 3, 'Học kỳ Hè', '2022-07-04', 'Ca3', 'Present'),
+(441, 54, 3, 'Học kỳ Hè', '2022-07-04', 'Ca4', 'Present'),
+(442, 40, 3, 'Học kỳ Hè', '2022-07-06', 'Ca3', 'Present'),
+(443, 40, 3, 'Học kỳ Hè', '2022-07-06', 'Ca4', 'Present'),
+(444, 29, 3, 'Học kỳ Hè', '2022-07-06', 'Ca3', 'Present'),
+(445, 29, 3, 'Học kỳ Hè', '2022-07-06', 'Ca4', 'Present'),
+(446, 29, 3, 'Học kỳ Hè', '2022-07-07', 'Ca3', 'Present'),
+(447, 29, 3, 'Học kỳ Hè', '2022-07-07', 'Ca4', 'Present'),
+(448, 57, 3, 'Học kỳ Hè', '2022-07-05', 'Ca3', 'Present'),
+(449, 57, 3, 'Học kỳ Hè', '2022-07-05', 'Ca4', 'Present'),
+(450, 58, 3, 'Học kỳ Hè', '2022-07-05', 'Ca3', 'Present'),
+(451, 58, 3, 'Học kỳ Hè', '2022-07-05', 'Ca4', 'Present'),
+(452, 38, 3, 'Học kỳ Hè', '2022-07-06', 'Ca3', 'Present'),
+(453, 38, 3, 'Học kỳ Hè', '2022-07-06', 'Ca4', 'Present'),
+(454, 38, 3, 'Học kỳ Hè', '2022-07-07', 'Ca3', 'Present'),
+(455, 38, 3, 'Học kỳ Hè', '2022-07-07', 'Ca4', 'Present'),
+(456, 57, 3, 'Học kỳ Hè', '2022-07-04', 'Ca1', 'Present'),
+(457, 57, 3, 'Học kỳ Hè', '2022-07-04', 'Ca2', 'Present'),
+(458, 58, 3, 'Học kỳ Hè', '2022-07-04', 'Ca1', 'Present'),
+(459, 25, 3, 'Học kỳ Hè', '2022-07-04', 'Ca3', 'Present'),
+(460, 25, 3, 'Học kỳ Hè', '2022-07-04', 'Ca4', 'Present'),
+(461, 25, 3, 'Học kỳ Hè', '2022-07-07', 'Ca2', 'Present'),
+(462, 14, 3, 'Học kỳ Hè', '2022-07-09', 'Ca1', 'Present'),
+(463, 1, 3, 'Học kỳ Hè', '2022-07-04', 'Ca1', 'Present'),
+(464, 1, 3, 'Học kỳ Hè', '2022-07-04', 'Ca2', 'Present'),
+(465, 1, 3, 'Học kỳ Hè', '2022-07-04', 'Ca3', 'Present'),
+(466, 1, 3, 'Học kỳ Hè', '2022-07-04', 'Ca4', 'Present'),
+(467, 6, 3, 'Học kỳ Hè', '2022-07-10', 'Ca1', 'Present'),
+(468, 6, 3, 'Học kỳ Hè', '2022-07-10', 'Ca2', 'Present'),
+(469, 6, 3, 'Học kỳ Hè', '2022-07-07', 'Ca2', 'Present'),
+(470, 51, 3, 'Học kỳ Hè', '2022-07-05', 'Ca1', 'Present'),
+(471, 53, 3, 'Học kỳ Hè', '2022-07-06', 'Ca1', 'Present'),
+(472, 53, 3, 'Học kỳ Hè', '2022-07-06', 'Ca2', 'Present'),
+(473, 52, 3, 'Học kỳ Hè', '2022-07-06', 'Ca1', 'Present'),
+(474, 52, 3, 'Học kỳ Hè', '2022-07-06', 'Ca2', 'Present'),
+(475, 30, 3, 'Học kỳ Hè', '2022-07-05', 'Ca2', 'Present'),
+(476, 30, 3, 'Học kỳ Hè', '2022-07-05', 'Ca3', 'Present'),
+(477, 30, 3, 'Học kỳ Hè', '2022-07-06', 'Ca3', 'Present'),
+(478, 30, 3, 'Học kỳ Hè', '2022-07-07', 'Ca2', 'Present'),
+(479, 30, 3, 'Học kỳ Hè', '2022-07-07', 'Ca3', 'Present'),
+(480, 30, 3, 'Học kỳ Hè', '2022-07-09', 'Ca2', 'Present'),
+(481, 30, 3, 'Học kỳ Hè', '2022-07-09', 'Ca3', 'Present'),
+(482, 48, 3, 'Học kỳ Hè', '2022-07-05', 'Ca1', 'Present'),
+(483, 48, 3, 'Học kỳ Hè', '2022-07-05', 'Ca2', 'Present'),
+(484, 48, 3, 'Học kỳ Hè', '2022-07-05', 'Ca3', 'Present'),
+(485, 1, 3, 'Học kỳ Hè', '2022-07-05', 'Ca1', 'Present'),
+(486, 1, 3, 'Học kỳ Hè', '2022-07-05', 'Ca2', 'Present'),
+(487, 1, 3, 'Học kỳ Hè', '2022-07-05', 'Ca3', 'Present'),
+(488, 1, 3, 'Học kỳ Hè', '2022-07-05', 'Ca4', 'Present'),
+(489, 51, 3, 'Học kỳ Hè', '2022-07-06', 'Ca1', 'Present'),
+(490, 51, 3, 'Học kỳ Hè', '2022-07-06', 'Ca3', 'Present'),
+(491, 51, 3, 'Học kỳ Hè', '2022-07-06', 'Ca4', 'Present'),
+(492, 51, 3, 'Học kỳ Hè', '2022-07-08', 'Ca1', 'Present'),
+(493, 19, 3, 'Học kỳ Hè', '2022-07-05', 'Ca1', 'Present'),
+(494, 19, 3, 'Học kỳ Hè', '2022-07-05', 'Ca2', 'Present'),
+(495, 9, 3, 'Học kỳ Hè', '2022-07-05', 'Ca1', 'Present'),
+(496, 9, 3, 'Học kỳ Hè', '2022-07-05', 'Ca2', 'Present'),
+(497, 24, 3, 'Học kỳ Hè', '2022-07-07', 'Ca1', 'Present'),
+(498, 24, 3, 'Học kỳ Hè', '2022-07-07', 'Ca2', 'Present'),
+(499, 55, 3, 'Học kỳ Hè', '2022-07-08', 'Ca3', 'Present'),
+(500, 55, 3, 'Học kỳ Hè', '2022-07-08', 'Ca4', 'Present'),
+(501, 7, 3, 'Học kỳ Hè', '2022-07-06', 'Ca3', 'Present'),
+(502, 1, 3, 'Học kỳ Hè', '2022-07-07', 'Ca1', 'Present'),
+(503, 1, 3, 'Học kỳ Hè', '2022-07-07', 'Ca2', 'Present'),
+(504, 1, 3, 'Học kỳ Hè', '2022-07-07', 'Ca3', 'Present'),
+(505, 1, 3, 'Học kỳ Hè', '2022-07-07', 'Ca4', 'Present'),
+(506, 7, 3, 'Học kỳ Hè', '2022-07-07', 'Ca3', 'Present'),
+(507, 7, 3, 'Học kỳ Hè', '2022-07-07', 'Ca4', 'Present'),
+(508, 58, 3, 'Học kỳ Hè', '2022-07-10', 'Ca3', 'Present'),
+(509, 58, 3, 'Học kỳ Hè', '2022-07-10', 'Ca4', 'Present'),
+(510, 57, 3, 'Học kỳ Hè', '2022-07-10', 'Ca3', 'Present'),
+(511, 57, 3, 'Học kỳ Hè', '2022-07-10', 'Ca4', 'Present'),
+(512, 9, 3, 'Học kỳ Hè', '2022-07-08', 'Ca4', 'Present'),
+(513, 7, 3, 'Học kỳ Hè', '2022-07-09', 'Ca3', 'Present'),
+(514, 7, 3, 'Học kỳ Hè', '2022-07-09', 'Ca4', 'Present'),
+(515, 9, 3, 'Học kỳ Hè', '2022-07-09', 'Ca1', 'Present'),
+(516, 9, 3, 'Học kỳ Hè', '2022-07-09', 'Ca2', 'Present'),
+(517, 9, 3, 'Học kỳ Hè', '2022-07-09', 'Ca3', 'Present'),
+(518, 53, 3, 'Học kỳ Hè', '2022-07-13', 'Ca1', 'Present'),
+(519, 53, 3, 'Học kỳ Hè', '2022-07-15', 'Ca1', 'Present'),
+(520, 29, 3, 'Học kỳ Hè', '2022-07-11', 'Ca3', 'Present'),
+(521, 58, 3, 'Học kỳ Hè', '2022-07-12', 'Ca3', 'Present'),
+(522, 58, 3, 'Học kỳ Hè', '2022-07-12', 'Ca4', 'Present'),
+(523, 56, 3, 'Học kỳ Hè', '2022-07-11', 'Ca3', 'Present'),
+(524, 56, 3, 'Học kỳ Hè', '2022-07-11', 'Ca4', 'Present'),
+(525, 57, 3, 'Học kỳ Hè', '2022-07-11', 'Ca3', 'Present'),
+(526, 57, 3, 'Học kỳ Hè', '2022-07-11', 'Ca4', 'Present'),
+(527, 40, 3, 'Học kỳ Hè', '2022-07-11', 'Ca3', 'Present'),
+(528, 29, 3, 'Học kỳ Hè', '2022-07-15', 'Ca1', 'Present'),
+(529, 29, 3, 'Học kỳ Hè', '2022-07-15', 'Ca2', 'Present'),
+(530, 40, 3, 'Học kỳ Hè', '2022-07-15', 'Ca2', 'Present'),
+(531, 57, 3, 'Học kỳ Hè', '2022-07-12', 'Ca3', 'Present'),
+(532, 57, 3, 'Học kỳ Hè', '2022-07-12', 'Ca4', 'Present'),
+(533, 29, 3, 'Học kỳ Hè', '2022-07-14', 'Ca3', 'Present'),
+(534, 38, 3, 'Học kỳ Hè', '2022-07-11', 'Ca3', 'Present'),
+(535, 38, 3, 'Học kỳ Hè', '2022-07-15', 'Ca2', 'Present'),
+(536, 45, 3, 'Học kỳ Hè', '2022-07-11', 'Ca2', 'Present'),
+(537, 45, 3, 'Học kỳ Hè', '2022-07-13', 'Ca2', 'Present'),
+(538, 45, 3, 'Học kỳ Hè', '2022-07-15', 'Ca2', 'Present'),
+(539, 24, 3, 'Học kỳ Hè', '2022-07-11', 'Ca1', 'Present'),
+(540, 24, 3, 'Học kỳ Hè', '2022-07-11', 'Ca2', 'Present'),
+(541, 14, 3, 'Học kỳ Hè', '2022-07-16', 'Ca1', 'Present'),
+(542, 7, 3, 'Học kỳ Hè', '2022-07-11', 'Ca3', 'Present'),
+(543, 29, 3, 'Học kỳ Hè', '2022-07-12', 'Ca1', 'Present'),
+(544, 29, 3, 'Học kỳ Hè', '2022-07-12', 'Ca2', 'Present'),
+(545, 58, 3, 'Học kỳ Hè', '2022-07-13', 'Ca1', 'Present'),
+(546, 56, 3, 'Học kỳ Hè', '2022-07-13', 'Ca1', 'Present'),
+(547, 40, 3, 'Học kỳ Hè', '2022-07-14', 'Ca3', 'Present'),
+(548, 48, 3, 'Học kỳ Hè', '2022-07-15', 'Ca2', 'Present'),
+(549, 48, 3, 'Học kỳ Hè', '2022-07-15', 'Ca3', 'Present'),
+(550, 58, 3, 'Học kỳ Hè', '2022-07-16', 'Ca4', 'Present'),
+(551, 9, 3, 'Học kỳ Hè', '2022-07-13', 'Ca2', 'Present'),
+(552, 9, 3, 'Học kỳ Hè', '2022-07-13', 'Ca3', 'Present'),
+(553, 9, 3, 'Học kỳ Hè', '2022-07-15', 'Ca4', 'Present'),
+(554, 57, 3, 'Học kỳ Hè', '2022-07-16', 'Ca3', 'Present'),
+(555, 57, 3, 'Học kỳ Hè', '2022-07-16', 'Ca4', 'Present'),
+(556, 1, 3, 'Học kỳ Hè', '2022-07-15', 'Ca4', 'Present'),
+(557, 1, 3, 'Học kỳ Hè', '2022-07-16', 'Ca1', 'Present'),
+(558, 1, 3, 'Học kỳ Hè', '2022-07-16', 'Ca2', 'Present'),
+(559, 1, 3, 'Học kỳ Hè', '2022-07-16', 'Ca3', 'Present');
 
 -- --------------------------------------------------------
 
@@ -532,7 +771,8 @@ INSERT INTO `tbl_decentralization` (`id_decentralization`, `id_user`, `admin`, `
 (55, 55, 0, 0, 0),
 (56, 56, 0, 0, 0),
 (57, 57, 0, 0, 0),
-(58, 58, 0, 0, 0);
+(58, 58, 0, 0, 0),
+(59, 59, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -742,27 +982,24 @@ CREATE TABLE `tbl_schedule` (
 --
 
 INSERT INTO `tbl_schedule` (`id_schedule`, `id_user`, `session`, `shift`, `note`) VALUES
-(229, 45, 'Monday', 'Ca2 ', 'HT 06B'),
-(230, 45, 'Wednesday', 'Ca2 ', 'HT 06B'),
-(231, 45, 'Friday', 'Ca2 ', 'HT 10A'),
-(236, 56, 'Monday', 'Ca1 Ca2 ', 'HT 10A'),
-(237, 56, 'Wednesday', 'Ca1 Ca2 ', 'HT 10A'),
-(238, 57, 'Monday', 'Ca1 Ca2 ', 'HT 10A'),
-(239, 58, 'Tuesday', 'Ca3 Ca4 ', 'HT 10A'),
-(240, 57, 'Tuesday', 'Ca3 Ca4 ', 'HT 10A'),
-(241, 58, 'Wednesday', 'Ca1 Ca2 ', 'HT 10A'),
-(242, 55, 'Wednesday', 'Ca2 ', 'HT 10A'),
-(243, 51, 'Monday', 'Ca1 ', 'HT 06B'),
-(245, 51, 'Friday', 'Ca1 ', 'HT 10A'),
-(246, 29, 'Thursday', 'Ca3 Ca4 ', 'HT 10A'),
-(247, 29, 'Monday', 'Ca3 ', 'HT 06B'),
-(248, 29, 'Friday', 'Ca3 ', 'HT 06B'),
-(249, 38, 'Monday', 'Ca3 ', 'HT 10A'),
-(250, 38, 'Friday', 'Ca3 ', 'HT 10A'),
-(252, 51, 'Saturday', 'Ca1 ', 'HT 10A'),
-(254, 40, 'Monday', 'Ca3 ', 'HT 10A'),
-(255, 40, 'Friday', 'Ca3 ', 'HT 10A'),
-(257, 51, 'Wednesday', 'Ca1 Ca3 Ca4 ', 'HT 06B');
+(405, 45, 'Monday', 'Ca2 ', 'HT 10A'),
+(406, 45, 'Wednesday', 'Ca2 ', NULL),
+(407, 45, 'Tuesday', 'Ca2 ', NULL),
+(408, 17, 'Wednesday', 'Ca3 ', NULL),
+(409, 16, 'Tuesday', 'Ca2 ', NULL),
+(410, 16, 'Thursday', 'Ca2 ', NULL),
+(411, 53, 'Wednesday', 'Ca1 Ca2 ', NULL),
+(412, 58, 'Tuesday', 'Ca3 Ca4 ', NULL),
+(414, 29, 'Monday', 'Ca3 ', 'HT 10A'),
+(415, 38, 'Monday', 'Ca3 ', 'HT 10A'),
+(416, 25, 'Tuesday', 'Ca2 ', NULL),
+(417, 40, 'Monday', 'Ca3 ', 'HT 06B'),
+(418, 29, 'Wednesday', 'Ca3 ', NULL),
+(419, 40, 'Wednesday', 'Ca3 ', NULL),
+(420, 38, 'Wednesday', 'Ca3 ', NULL),
+(421, 56, 'Tuesday', 'Ca3 ', NULL),
+(422, 58, 'Friday', 'Ca3 Ca4 ', NULL),
+(423, 56, 'Friday', 'Ca3 Ca4 ', NULL);
 
 -- --------------------------------------------------------
 
@@ -834,7 +1071,7 @@ CREATE TABLE `tbl_team` (
 INSERT INTO `tbl_team` (`id_team`, `name`, `description`) VALUES
 (1, 'Ban Hành Chính', '<p>- Hỗ trợ nhập liệu, thống k&ecirc; t&igrave;nh h&igrave;nh điểm danh từ ban nh&acirc;n sự, hỗ trợ tiếp nhận c&aacute;c vấn đề của sinh vi&ecirc;n c&ugrave;ng với thư k&yacute;/gi&aacute;o vụ của bộ m&ocirc;n khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n\r\n<p>- Hỗ trợ giảng vi&ecirc;n trong việc nhập liệu, thống k&ecirc;,&hellip; khi c&oacute; y&ecirc;u cầu v&agrave; được sự đồng &yacute; của Trưởng ban v&agrave; Ban chủ nhiệm.</p>\r\n'),
 (2, 'Ban Nhân Sự', '<p>Hỗ trợ cho c&aacute;c lớp học kỹ năng, chuẩn bị c&aacute;c dụng cụ, vật dụng; điều phối, gi&aacute;m s&aacute;t, quản l&yacute; t&igrave;nh h&igrave;nh lớp học; hỗ trợ cho giảng vi&ecirc;n/b&aacute;o c&aacute;o vi&ecirc;n đứng lớp. Hỗ trợ giảng vi&ecirc;n trong qu&aacute; tr&igrave;nh đứng lớp khi c&oacute; sự ph&acirc;n c&ocirc;ng.</p>\r\n'),
-(3, 'Ban Sự kiện và Truyền Thông', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n'),
+(3, 'Ban Truyền Thông và Sự Kiện', '<p>- X&acirc;y dựng kế hoạch v&agrave; tổ chức c&aacute;c buổi chia sẻ, hoạt động ngoại kh&oacute;a, thiện nguyện, &hellip; cho c&acirc;u lạc bộ.</p>\r\n\r\n<p>- Chịu tr&aacute;ch nhiệm ch&iacute;nh về truyền th&ocirc;ng cho c&acirc;u lạc bộ. Quản l&yacute; Fanpage của c&acirc;u lạc bộ, cung cấp h&igrave;nh ảnh của đội, viết b&agrave;i, đưa th&ocirc;ng tin về c&aacute;c kỹ năng sống, kỹ năng bổ trợ đến gần với sinh vi&ecirc;n.</p>\r\n'),
 (4, 'Ban Cố Vấn', '<p>Ban cố vấn l&agrave; nơi tham mưu, tư vấn, gi&uacute;p việc cho C&acirc;u lạc bộ trong qu&aacute; tr&igrave;nh tổ chức thực hiện c&aacute;c c&ocirc;ng việc về, cũng như định hướng ph&aacute;t triển cho C&acirc;u lạc bộ.</p>\r\n');
 
 -- --------------------------------------------------------
@@ -877,24 +1114,25 @@ INSERT INTO `tbl_user` (`id_user`, `id_student`, `password`, `fullname`, `birthd
 (19, '020H0214', 'c13aceefb420263e13acbdb5ae57b05b', 'Ngô Nguyễn Minh Anh', '2002-04-04', 'https://www.facebook.com/profile.php?id=100044649050442', 2, '0703090346', 0),
 (23, '01900146', 'b6ca85c2acd578c092f47e3b9a6bbfe3', 'Huỳnh Thị Diễm Hồng', NULL, NULL, 2, NULL, 0),
 (24, '51900119', '32e52bea4a9c000291c04d834c0f1d2b', 'Lê Thành Đăng Khoa', '2001-04-17', 'https://www.facebook.com/khoalag174', 2, '0788765410', 0),
-(25, 'B1900124', '98e61dedb2dde05753af4d40ecf9e9db', 'Phạm Hoàng Long', NULL, NULL, 2, NULL, 0),
-(29, '81900546', '976a7aa94f4fc8b814ab2338efd9a9d4', 'Trần Hiếu Ngân', NULL, NULL, 2, NULL, 0),
-(30, 'A2000221', '5299de3b0b6c946845316b3d4db91c79', 'Nguyễn Như Ngọc', NULL, NULL, 2, NULL, 0),
+(25, 'B1900124', '98e61dedb2dde05753af4d40ecf9e9db', 'Phạm Hoàng Long', '2001-03-31', 'https://www.facebook.com/profile.php?id=100009880309418', 2, '0853803687', 0),
+(29, '81900546', '976a7aa94f4fc8b814ab2338efd9a9d4', 'Trần Hiếu Ngân', '2001-01-30', '[...]', 2, '0762936795', 0),
+(30, 'A2000221', '5299de3b0b6c946845316b3d4db91c79', 'Nguyễn Như Ngọc', '2002-10-09', 'https://www.facebook.com/khlongdyeu', 2, '0349583144', 0),
 (31, '51900444', '59fd4766e5011211dbe84e7dbdbdcfca', 'Phạm Huỳnh Anh Tiến', NULL, NULL, 2, NULL, 0),
 (36, 'B19H0163', '791cc672410056d218a1804b3eb8fb91', 'Trương Hoàng Anh', NULL, NULL, 2, NULL, 0),
-(38, '81900544', '4ef6d78c01ddd41a3b73060935ddf2d1', 'Nguyễn Thị My', NULL, NULL, 2, NULL, 0),
-(40, '81900550', '8431508a871e0136efa47e465dd0ef43', 'Nguyễn Ngọc Thảo Nguyên', NULL, NULL, 2, NULL, 0),
-(45, '32001095', '7c10837b21097b5b8f2c1742b0de7eda', 'Lê Thanh Thùy', '2002-01-15', 'https://www.facebook.com/profile.php?id=100027235023512', 2, '0376523632', 0),
+(38, '81900544', '4ef6d78c01ddd41a3b73060935ddf2d1', 'Nguyễn Thị My', '2001-01-01', 'NULL', 2, '0963938884', 0),
+(40, '81900550', '8431508a871e0136efa47e465dd0ef43', 'Nguyễn Ngọc Thảo Nguyên', '2001-01-01', '[...]', 2, '0765071246', 0),
+(45, '32001095', 'caf7daae9fabfb23ca1a17813bfd23d1', 'Lê Thanh Thùy', '2002-01-15', 'https://www.facebook.com/profile.php?id=100027235023512', 2, '0376523632', 0),
 (48, 'E20H0347', 'a2a2bea9bcf77c92a714ef3e669e2cdf', 'Phùng Lữ Thế Hoài', '2002-10-28', 'Phùng Hoài', 2, '0886804955', 0),
 (49, 'TRANHAO', 'f19d376aa086a3985fdeb5e25fe8235f', 'Trần Tuấn Hào', '1995-08-14', 'https://www.facebook.com/profile.php?id=100014419532788', 4, '0362494359', 0),
 (51, '72100347', '90d642d9ceaf28d6e5573a508b460563', 'Sơn Ka Ka Chi', '2003-01-31', 'https://www.facebook.com/profile.php?id=100013193766007', 3, '0913348440', 0),
 (52, '421H0302', '11c28891b8713eacc690c0f776ae8028', 'Phan Thành Khang', NULL, NULL, 3, NULL, 0),
-(53, 'D2100331', 'd7b7600810e55b8ef9e9523a2df317a7', 'Trương Minh Phát', NULL, NULL, 3, NULL, 0),
+(53, 'D2100331', 'd7b7600810e55b8ef9e9523a2df317a7', 'Trương Minh Phát', '2003-12-28', 'https://www.facebook.com/profile.php?id=100028144655047', 3, '0933096087', 0),
 (54, '21900494', '8f04763a0f7457b466c9ff0201a3276a', 'Phạm Thị Ngọc Ngân', NULL, NULL, 2, NULL, 0),
-(55, 'H2000338', '6060bf865c621e73998caee0b048beb7', 'Lý Mỹ Trinh', NULL, NULL, 2, NULL, 0),
+(55, 'H2000338', '6060bf865c621e73998caee0b048beb7', 'Lý Mỹ Trinh', '2002-03-02', 'https://www.facebook.com/trinh.lymy.79', 2, '0964712107', 0),
 (56, 'A2100108', '949d74eb805fa74c50ebc3cc7f5563b5', 'Phan Tường Vi', '2003-06-01', 'https://www.facebook.com/huyen.linh.3133719/', 2, '0372988285', 0),
 (57, 'A2100248', 'c7f5cbcb8ee3e471cd1af1a66fce848a', 'Lê Thị Thu Sang', '2003-01-15', 'https://www.facebook.com/profile.php?id=100010483470407', 2, '0792983595', 0),
-(58, 'A2100100', 'ae4fc20783566462652bc972943e7bc9', 'Huỳnh Thị Thanh Trúc', NULL, NULL, 2, NULL, 0);
+(58, 'A2100100', 'ae4fc20783566462652bc972943e7bc9', 'Huỳnh Thị Thanh Trúc', '2003-01-27', 'https://www.facebook.com/profile.php?id=100009177646702', 2, '0372888024', 0),
+(59, 'A1900001', '10a31c5e6780f3e4c99466fab957c16d', 'Võ Thị Nhựt Băng', '2001-07-16', 'https://www.facebook.com/bang.vo.gdragon', 2, '0397266599', 0);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -1016,7 +1254,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT cho bảng `tbl_attendance`
 --
 ALTER TABLE `tbl_attendance`
-  MODIFY `id_attendance` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=322;
+  MODIFY `id_attendance` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=560;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_borrow`
@@ -1034,7 +1272,7 @@ ALTER TABLE `tbl_course`
 -- AUTO_INCREMENT cho bảng `tbl_decentralization`
 --
 ALTER TABLE `tbl_decentralization`
-  MODIFY `id_decentralization` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_decentralization` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_device`
@@ -1082,7 +1320,7 @@ ALTER TABLE `tbl_recruitment`
 -- AUTO_INCREMENT cho bảng `tbl_schedule`
 --
 ALTER TABLE `tbl_schedule`
-  MODIFY `id_schedule` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=259;
+  MODIFY `id_schedule` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=424;
 
 --
 -- AUTO_INCREMENT cho bảng `tbl_schoolyear`
@@ -1106,7 +1344,7 @@ ALTER TABLE `tbl_team`
 -- AUTO_INCREMENT cho bảng `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_user` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
